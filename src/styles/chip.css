@@ -1,0 +1,6 @@
+.chip {
+  cursor: auto !important;
+}
+.chip:hover {
+  border-color: transparent !important;
+}
