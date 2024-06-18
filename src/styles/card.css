@@ -1,0 +1,46 @@
+.card-container {
+	display: flex;
+	flex-flow: row wrap;
+}
+.card-image img {
+	object-fit: cover;
+	max-width: 100%;
+	min-height: 100%;
+}
+.card-content {
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: space-between;
+	align-items: baseline;
+}
+
+/* RESPONSIVENESS */
+/* Small devices (phones, 576px and down) */
+@media only screen and (max-width: 576px) {
+	.card-container {
+		flex-flow: column nowrap;
+	}
+	.card-image {
+		max-width: 100%;
+	}
+}
+
+/* Medium devices (tablets, 992px and up) */
+@media (min-width: 577px) and (max-width: 992px) {
+	.card-container {
+		flex-flow: column nowrap;
+	}
+	.card-image {
+		max-width: 100%;
+	}
+}
+
+/* Large devices (laptops and desktops, 1200px and up) */
+@media (min-width: 993px) {
+	.card-container {
+		flex-flow: row nowrap;
+	}
+	.card-image {
+		max-width: 30%;
+	}
+}

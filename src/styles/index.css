@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+:root {
+	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+	line-height: 1.5;
+	font-weight: 400;
+	font-size: 18px;
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	color-scheme: light dark;
+
+	--bg-dark: #2a2a2a;
+	--heading-dark: #ffffffdd;
+	--text-dark: #bfbfbfdd;
+	--annotation-dark: #bfbfbfaa;
+	--card-bg-dark: #4a4a4a55;
+	--button-bg-dark: #4a4a4add;
+	--button-text-dark: var(--heading-dark);
+	--box-shadow-dark: 0 0 0.6rem #4a4a4a33;
+
+	--space-sm: 0.8rem;
+	--space-md: 1.6rem;
+	--space-lg: 2.4rem;
+
+	--transition: ease-in-out 0.18s;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-weight: 400;
+}
+html {
+	color: var(--text-dark);
+	background-color: var(--bg-dark);
+}
+body {
+	min-height: 100vh;
+	margin: 0 auto;
+}
+#app {
+	max-width: 1200px;
+	min-height: 100vh;
+	margin: 0 auto;
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: center;
+	padding: var(--space-md);
+}
+
+/* TAGS */
+h1 {
+	color: var(--heading-dark);
+
+	font-size: 3.2rem;
+	font-weight: 700;
+}
+h2 {
+	font-size: 2.4rem;
+	font-weight: 600;
+}
+h3 {
+	color: var(--heading-dark);
+	font-size: 1.6rem;
+	font-weight: 600;
+}
+a {
+	color: var(--heading-dark);
+	border-color: var(--heading-dark);
+
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+	text-decoration: none;
+
+	font-size: 1rem;
+	font-weight: 500;
+
+	cursor: pointer;
+
+	transition:
+		color var(--transition),
+		border-color var(--transition);
+}
+a:hover {
+	color: var(--annotation-dark);
+	border-color: var(--annotation-dark);
+}
+button,
+input {
+	color: var(--button-text-dark);
+	background-color: var(--button-bg-dark);
+	border-color: transparent;
+
+	border-width: 2px;
+	border-style: solid;
+	border-radius: 1rem;
+	box-shadow: var(--box-shadow-dark);
+
+	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+	font-size: 1rem;
+	font-weight: 500;
+	padding: var(--space-sm);
+
+	cursor: pointer;
+
+	transition: border-color var(--transition);
+}
+button:hover,
+input:hover {
+	border-color: var(--annotation-dark);
+}
+input::placeholder {
+	color: #a7a7a7;
+}
+.annotation {
+	color: var(--annotation-dark);
+
+	font-size: 0.8rem;
+}
+.paper {
+	background-color: var(--card-bg-dark);
+
+	border-radius: 1rem;
+	box-shadow: var(--box-shadow-dark);
+
+	display: flex;
+	flex-flow: column wrap;
+	max-width: 100%;
+	justify-content: flex-start;
+
+	overflow: hidden;
+}
+.paper-spacing {
+	gap: var(--space-sm);
+	padding: var(--space-md);
+}
+.paper-spacing-lg {
+	gap: var(--space-md);
+	padding: var(--space-lg);
+}
+.gap-sm {
+	gap: var(--space-sm)
+}
+.gap-md {
+	gap: var(--space-md)
+}
+.gap-lg {
+	gap: var(--space-lg)
+}
+
+/* LIGHT THEME */
+@media (prefers-color-scheme: light) {
+	:root {
+		--bg-light: #ffffff;
+		--heading-light: #212121dd;
+		--text-light: #666666dd;
+		--annotation-light: #666666aa;
+		--card-bg-light: #dedede55;
+		--button-bg-light: #ffffffdd;
+		--button-text-light: var(--heading-light);
+		--box-shadow-light: 0 0 0.6rem #dedede33;
+	}
+	html {
+		color: var(--text-light);
+		background-color: var(--bg-light);
+	}
+	h1 {
+		color: var(--heading-light);
+	}
+	h3 {
+		color: var(--heading-light);
+	}
+	a {
+		color: var(--heading-light);
+		border-color: var(--heading-light);
+	}
+	a:hover {
+		color: var(--annotation-light);
+		border-color: var(--annotation-light);
+	}
+	button,
+	input {
+		color: var(--button-text-light);
+		background-color: var(--button-bg-light);
+		box-shadow: var(--box-shadow-light);
+	}
+	button:hover,
+	input:hover {
+		border-color: var(--annotation-light);
+	}
+	input::placeholder {
+		color: var(--annotation-light);
+	}
+	.annotation {
+		color: var(--annotation-light);
+	}
+	.paper {
+		background-color: var(--card-bg-light);
+		box-shadow: var(--box-shadow-light);
+	}
+}
+
+/* RESPONSIVENESS */
+/* Small devices (phones, 576px and down) */
+@media only screen and (max-width: 576px) {
+	body {
+		/* background-color: red; */
+	}
+}
+
+/* Medium devices (tablets, 992px and up) */
+@media (min-width: 577px) and (max-width: 992px) {
+	body {
+		/* background-color: green; */
+	}
+}
+
+/* Large devices (laptops and desktops, 1200px and up) */
+@media (min-width: 993px) {
+	body {
+		/* background-color: blue; */
+	}
+}
