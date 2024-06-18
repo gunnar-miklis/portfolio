@@ -1,39 +1,59 @@
 import '@/styles/card.css';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LaunchRoundedIcon from '@mui/icons-material/LaunchRounded';
+import ButtonWithIcon from './ButtonWithIcon';
+import Chip from './Chip';
+import { ReactNode } from 'react';
 
-export default function Card() {
-	return (
-		<div className='paper'>
-			<div className='card-container'>
-				<div className='card-image'>
-					<img src='https://images.unsplash.com/photo-1597176874083-193e47324499' />
-				</div>
-				<div className='card-content paper-spacing-lg gap-md'>
-					<div>
-						<h1>First Title</h1>
-						<h2>Subtitle</h2>
-						<h3>Heading</h3>
-						<p>paragraph text</p>
-						<p className='annotation'>annotation</p>
-						<span>
-							<a>Link</a>
-						</span>
-					</div>
+interface CardProps {
+  title: string;
+  technologies: string[];
+  liveDemo: string;
+  sourceCode: string;
+  imageSources: string[];
+  children: ReactNode;
+  footnote?: string;
+}
 
-					<div className='paper paper-spacing' style={{ flexFlow: 'row wrap' }}>
-						<button>Button</button>
-						<button>Button</button>
-						<button>Button</button>
-						<button>Button</button>
-						<button>Button</button>
-						<button>Button</button>
-					</div>
+export default function Card({
+  title,
+  children: content,
+  technologies,
+  liveDemo,
+  sourceCode,
+  imageSources,
+  footnote,
+}: CardProps) {
+  return (
+    <div className='paper'>
+      <div className='card-container'>
+        <div className='card-image'>
+          {imageSources.map((source, i) => (
+            <img key={i} src={source} />
+          ))}
+        </div>
+        <div className='card-content paper-spacing-lg gap-md'>
+          <h3>{title}</h3>
 
-					<div className='paper paper-spacing' style={{ flexFlow: 'row wrap' }}>
-						<input placeholder='placeholder' />
-						<button>Button</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	);
+          <div className='card-content-inner'>{content}</div>
+
+          <div className='paper paper-spacing' style={{ flexFlow: 'row wrap' }}>
+            {technologies.map((tech, i) => (
+              <Chip key={i}>{tech}</Chip>
+            ))}
+          </div>
+
+          <div className='paper paper-spacing' style={{ flexFlow: 'row wrap' }}>
+            {liveDemo !== 'unpublished' && (
+              <ButtonWithIcon icon={<LaunchRoundedIcon />} title='Live Demo' goTo={liveDemo} />
+            )}
+            {sourceCode !== 'unpublished' && (
+              <ButtonWithIcon icon={<GitHubIcon />} title='View Source' goTo={sourceCode} />
+            )}
+          </div>
+          {footnote && <p className='annotation'>{footnote}</p>}
+        </div>
+      </div>
+    </div>
+  );
 }
