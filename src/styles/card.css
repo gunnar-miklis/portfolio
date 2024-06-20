@@ -71,10 +71,6 @@
     border-bottom-left-radius: 0rem;
     border-top-left-radius: 0rem;
   }
-  .card-content {
-    border-top-left-radius: 1rem;
-    border-top-right-radius: 1rem;
-  }
 }
 /* Medium devices (tablets, 992px and up) */
 @media (min-width: 577px) and (max-width: 992px) {
@@ -89,10 +85,6 @@
     border-top-left-radius: 0rem;
 
     padding-bottom: 0;
-  }
-  .card-content {
-    border-top-left-radius: 1rem;
-    border-top-right-radius: 1rem;
   }
 }
 /* Large devices (laptops and desktops, 1200px and up) */
@@ -110,8 +102,5 @@
   }
   .card-content {
     max-width: 65%;
-
-    border-top-left-radius: 1rem;
-    border-bottom-left-radius: 1rem;
   }
 }
