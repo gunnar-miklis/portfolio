@@ -1,9 +1,10 @@
-import '@/styles/card.css';
+import { ReactNode } from 'react';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LaunchRoundedIcon from '@mui/icons-material/LaunchRounded';
 import ButtonWithIcon from './ButtonWithIcon';
 import Chip from './Chip';
-import { ReactNode } from 'react';
+import WindowTopBar from './WindowTopBar';
+import '@/styles/card.css';
 
 interface CardProps {
   title: string;
@@ -25,13 +26,16 @@ export default function Card({
   footnote,
 }: CardProps) {
   return (
-    <div className='paper'>
-      <div className='card-container'>
+    <section className='window card-container'>
+      <WindowTopBar title={title} />
+
+      <div className='card'>
         <div className='card-image'>
           {imageSources.map((source, i) => (
             <img key={i} src={source} />
           ))}
         </div>
+
         <div className='card-content paper-spacing-lg gap-md'>
           <h3>{title}</h3>
 
@@ -54,6 +58,6 @@ export default function Card({
           {footnote && <p className='annotation'>{footnote}</p>}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
