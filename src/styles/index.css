@@ -19,7 +19,9 @@
   --card-bg-dark: #4a4a4a55;
   --button-bg-dark: #4a4a4add;
   --button-text-dark: var(--heading-dark);
-  --box-shadow-dark: 0 0 0.8rem #4a4a4a55;
+  --box-shadow-dark: 0 0 1rem #10101055;
+
+  --app-width: 992px;
 
   --space-sm: 0.8rem;
   --space-md: 1.6rem;
@@ -42,7 +44,7 @@ body {
   margin: 0 auto;
 }
 #app {
-  max-width: 992px;
+  max-width: var(--app-width);
   min-height: 100vh;
 
   display: flex;
@@ -66,7 +68,7 @@ h1 {
   margin-top: 1rem;
 }
 h2 {
-  font-size: 2.4rem;
+  font-size: 2.1rem;
   font-weight: 600;
   line-height: normal;
 
@@ -120,7 +122,6 @@ a {
   border-width: 2px;
   border-style: solid;
   border-radius: 1rem;
-  box-shadow: var(--box-shadow-dark);
 
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-size: 1rem;
@@ -156,7 +157,6 @@ a {
   background-color: var(--card-bg-dark);
 
   border-radius: 1rem;
-  box-shadow: var(--box-shadow-dark);
 
   display: flex;
   flex-flow: column wrap;
@@ -172,6 +172,9 @@ a {
 .paper-spacing-lg {
   gap: var(--space-md);
   padding: var(--space-lg);
+}
+.window {
+  box-shadow: var(--box-shadow-dark);
 }
 .gap-sm {
   gap: var(--space-sm);
@@ -193,7 +196,7 @@ a {
     --card-bg-light: #dedede55;
     --button-bg-light: #ffffffdd;
     --button-text-light: var(--heading-light);
-    --box-shadow-light: 0 0 0.8rem #dedede55;
+    --box-shadow-light: 0 0 0.8rem #66666655;
   }
   html {
     color: var(--text-light);
@@ -217,7 +220,6 @@ a {
   .input {
     color: var(--button-text-light);
     background-color: var(--button-bg-light);
-    box-shadow: var(--box-shadow-light);
   }
   .button:hover,
   .input:hover {
@@ -231,6 +233,8 @@ a {
   }
   .paper {
     background-color: var(--card-bg-light);
+  }
+  .window {
     box-shadow: var(--box-shadow-light);
   }
 }

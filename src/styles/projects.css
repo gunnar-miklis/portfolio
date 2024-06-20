@@ -1,0 +1,10 @@
+/* TODO: horizontal scroll */
+.projects {
+/* 
+	display: flex;
+	flex-direction: row;
+
+	gap: var(--space-lg);
+
+	overflow: scroll; */
+}
