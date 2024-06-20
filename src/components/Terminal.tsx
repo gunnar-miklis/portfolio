@@ -1,30 +1,31 @@
-import '@/styles/terminal.css';
 import Icon from '@mui/icons-material/ChevronRight';
-import MaximizeIcon from '@mui/icons-material/CropSquare';
-import MinimizeIcon from '@mui/icons-material/Minimize';
-import CloseIcon from '@mui/icons-material/Close';
+import WindowTopBar from './WindowTopBar';
+import '@/styles/terminal.css';
 
 export default function Terminal() {
   return (
-    <div className='terminal paper'>
-      <div className='window-top-bar'>
-        <span>
-          <MinimizeIcon />
-        </span>
-        <span>
-          <MaximizeIcon />
-        </span>
-        <span style={{ backgroundColor: '#e66033dd' }}>
-          <CloseIcon />
-        </span>
-      </div>
+    <section className='terminal window paper'>
+      <WindowTopBar title='About' />
 
       <div className='window-content paper-spacing-lg'>
         <div>
           <p className='in'>
-            <Icon /> gunnar.openForWork
+            <Icon /> gunnar.hello
           </p>
-          <p className='out'>TRUE, immediately</p>
+          <p className='out'>Nice to meet you! 👋</p>
+          <p className='out'>I develop Single Page Web Applications and RESTful APIs.</p>
+          <p className='out'>
+            Whether frontend or backend, as Full-Stack Web Developer I unify both.
+          </p>
+        </div>
+
+        <div>
+          <p className='in'>
+            <Icon /> gunnar.openForWork && when
+          </p>
+          <p className='out'>
+            <span style={{ color: '#e66033CC', fontWeight: 600 }}>TRUE</span>; immediately
+          </p>
         </div>
 
         <div>
@@ -33,7 +34,7 @@ export default function Terminal() {
           </p>
           <p className='out'>
             [ JavaScript, TypeScript, Node, React, React Native, Express, MongoDB, SQL, git, R,
-            Shell, RESTful API, SPA ]
+            Shell ]
           </p>
         </div>
 
@@ -42,8 +43,8 @@ export default function Terminal() {
             <Icon /> gunnar.skills.personal
           </p>
           <p className='out'>
-            [ Fast Learning, Problem Solving, Analytical Skills, Collaboration, Customer-Focused,
-            Curiosity, Open-minded, Flexibility, Interdisciplinary, Agile ]
+            [ Fast Learning, Problem Solving, Analytical Skills, Collaboration, Customer-Centered,
+            Curiosity, Open-minded, Passionate, Interdisciplinary, Flexibility, Agile ]
           </p>
         </div>
 
@@ -66,7 +67,7 @@ export default function Terminal() {
               className='link'
               rel='noreferrer'
             >
-              gunnar.miklis@gmail.com
+              E-Mail
             </a>
             ,&nbsp;
             <a
@@ -120,6 +121,6 @@ export default function Terminal() {
           <p className='out'></p>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
