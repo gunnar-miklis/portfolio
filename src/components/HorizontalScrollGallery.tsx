@@ -8,8 +8,6 @@ import React, { useEffect, useState } from 'react';
 export default function HorizontalScrollGallery({ projects }: { projects: ProjectsType }) {
   const [scrollPosition, setScrollPosition] = useState<number>(0);
 
-  console.log('scrollPosition :>> ', scrollPosition);
-
   // get current scroll postion
   function handleScroll(event: React.UIEvent<HTMLDivElement>): void {
     if (event.target instanceof HTMLDivElement) {
@@ -103,7 +101,7 @@ export default function HorizontalScrollGallery({ projects }: { projects: Projec
                 <WestIcon />
               </a>
               <a className='link' id='to-end' onClick={() => handleNavigation('next')}>
-                Scroll Right <EastIcon />
+                Scroll Right <EastIcon id='animated-icon' />
               </a>
             </div>
             <div className='gallery-nav-buttons-right'>
