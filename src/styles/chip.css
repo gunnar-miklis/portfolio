@@ -1,5 +1,6 @@
 .chip {
   cursor: auto !important;
+  padding: calc(var(--space-sm) / 1.4) !important;
 }
 .chip:hover {
   border-color: transparent !important;

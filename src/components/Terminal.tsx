@@ -44,7 +44,7 @@ export default function Terminal() {
           </p>
           <p className='out'>
             [ Fast Learning, Problem Solving, Analytical Skills, Collaboration, Customer-Centered,
-            Curiosity, Open-minded, Passionate, Interdisciplinary, Flexibility, Agile ]
+            Curiosity, Open-minded, Passionate, Interdisciplinary, Agile, Flexibility ]
           </p>
         </div>
 
