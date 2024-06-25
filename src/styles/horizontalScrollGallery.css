@@ -1,0 +1,83 @@
+::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 1rem;
+  background: var(--annotation-light);
+}
+
+.gallery-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+
+  width: calc(var(--app-width) - var(--space-md) * 2);
+  max-width: calc(100vw - var(--space-md) * 2);
+}
+
+.gallery-nav {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: var(--space-sm);
+}
+.gallery-nav-buttons {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  width: 100%;
+}
+.gallery-nav-buttons-left,
+.gallery-nav-buttons-right {
+  display: inline-flex;
+  align-items: center;
+}
+#to-next,
+#to-previous,
+#to-start,
+#to-end {
+  align-items: center;
+  gap: var(--space-sm);
+
+  border: unset;
+}
+.positionIndicator div {
+  width: 0;
+  height: 0.2rem;
+  background-color: var(--heading-light);
+}
+
+.gallery {
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+
+  display: flex;
+  flex-direction: row;
+
+  width: 100%;
+  height: 100%;
+  padding: var(--space-md);
+  gap: var(--space-lg);
+}
+.gallery-element {
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+
+  min-width: 100%;
+  height: 100%;
+}
+
+/* RESPONSIVENESS */
+/* Small devices (phones, 576px and down) */
+@media only screen and (max-width: 576px) {
+}
+
+/* Medium devices (tablets, 992px and up) */
+@media (min-width: 577px) and (max-width: 992px) {
+}
+
+/* Large devices (laptops and desktops, 1200px and up) */
+@media (min-width: 993px) {
+}

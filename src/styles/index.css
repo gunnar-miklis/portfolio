@@ -38,6 +38,8 @@
 html {
   color: var(--text-dark);
   background-color: var(--bg-dark);
+
+  scroll-behavior: smooth;
 }
 body {
   min-height: 100vh;
@@ -83,11 +85,10 @@ h3 {
   margin-top: 0.8rem;
 }
 h4 {
+  color: var(--annotation-dark);
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 400;
   line-height: normal;
-
-  margin-bottom: -1rem;
 }
 a {
   text-decoration: none;
@@ -207,6 +208,9 @@ a {
   }
   h3 {
     color: var(--heading-light);
+  }
+  h4 {
+	color: var(--annotation-light);
   }
   .link {
     color: var(--heading-light);

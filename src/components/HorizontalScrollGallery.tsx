@@ -1,0 +1,144 @@
+import EastIcon from '@mui/icons-material/East';
+import WestIcon from '@mui/icons-material/West';
+import Card from './Card';
+import { CardProps, ProjectsType } from '../utils/types';
+import '@/styles/horizontalScrollGallery.css';
+import React, { useEffect, useState } from 'react';
+
+export default function HorizontalScrollGallery({ projects }: { projects: ProjectsType }) {
+  const [scrollPosition, setScrollPosition] = useState<number>(0);
+
+  console.log('scrollPosition :>> ', scrollPosition);
+
+  // get current scroll postion
+  function handleScroll(event: React.UIEvent<HTMLDivElement>): void {
+    if (event.target instanceof HTMLDivElement) {
+      setScrollPosition(event.target.scrollLeft);
+    }
+  }
+
+  // show / hide navigation buttons
+  useEffect(() => {
+    const gallery = document.querySelector('.gallery');
+    const element = document.querySelector('.gallery-element');
+
+    if (gallery instanceof HTMLElement && element instanceof HTMLElement) {
+      const elementWidth = element.clientWidth;
+
+      if (scrollPosition < elementWidth) {
+        // far left
+        document.querySelector('#to-next')?.setAttribute('style', 'display: none');
+        document.querySelector('#to-previous')?.setAttribute('style', 'display: none');
+        document.querySelector('#to-start')?.setAttribute('style', 'display: none');
+        document.querySelector('#to-end')?.setAttribute('style', 'display: inline-flex');
+      } else if (scrollPosition > gallery.scrollWidth - elementWidth * 2) {
+        // far right
+        document.querySelector('#to-next')?.setAttribute('style', 'display: none');
+        document.querySelector('#to-previous')?.setAttribute('style', 'display: inline-flex');
+        document.querySelector('#to-start')?.setAttribute('style', 'display: inline-flex');
+        document.querySelector('#to-end')?.setAttribute('style', 'display: none');
+      } else {
+        // in between
+        document.querySelector('#to-next')?.setAttribute('style', 'display: inline-flex');
+        document.querySelector('#to-previous')?.setAttribute('style', 'display: inline-flex');
+        document.querySelector('#to-start')?.setAttribute('style', 'display: none');
+        document.querySelector('#to-end')?.setAttribute('style', 'display: none');
+      }
+    }
+  }, [scrollPosition]);
+
+  // jump to start/end
+  function handleJump(to: string): void {
+    const gallery = document.querySelector('.gallery');
+
+    if (gallery instanceof HTMLElement) {
+      switch (to) {
+        case 'start':
+          gallery.scrollTo({ left: 0, behavior: 'smooth' });
+          break;
+        case 'end':
+          gallery.scrollTo({ left: gallery.scrollWidth, behavior: 'smooth' });
+          break;
+      }
+    }
+  }
+
+  // scroll elements one-by-one
+  function handleNavigation(to: string): void {
+    const gallery = document.querySelector('.gallery');
+    const element = document.querySelector('.gallery-element');
+
+    if (gallery instanceof HTMLElement && element instanceof HTMLElement) {
+      const elementWidth = element.clientWidth;
+      switch (to) {
+        case 'previous':
+          gallery.scrollTo({ left: scrollPosition - elementWidth, behavior: 'smooth' });
+          break;
+        case 'next':
+          gallery.scrollTo({ left: scrollPosition + elementWidth, behavior: 'smooth' });
+          break;
+      }
+    }
+  }
+
+  // calculate the scroll position relative to the gallery width
+  function calcPositionIndicator(): number | undefined {
+    const galleryWrapper = document.querySelector('.gallery-wrapper');
+    const gallery = document.querySelector('.gallery');
+
+    if (galleryWrapper instanceof HTMLElement && gallery instanceof HTMLElement) {
+      const scrollPercentage = scrollPosition / (gallery.scrollWidth - gallery.offsetWidth);
+      const scrollRelativeToGallery = galleryWrapper.clientWidth * scrollPercentage;
+      return scrollRelativeToGallery;
+    }
+  }
+
+  return (
+    <div>
+      <div className='gallery-wrapper'>
+        <div className='gallery-nav'>
+          <div className='gallery-nav-buttons'>
+            <div className='gallery-nav-buttons-left'>
+              <a className='link' id='to-previous' onClick={() => handleNavigation('previous')}>
+                <WestIcon />
+              </a>
+              <a className='link' id='to-end' onClick={() => handleNavigation('next')}>
+                Scroll Right <EastIcon />
+              </a>
+            </div>
+            <div className='gallery-nav-buttons-right'>
+              <a className='link' id='to-next' onClick={() => handleNavigation('next')}>
+                <EastIcon />
+              </a>
+              <a className='link' id='to-start' onClick={() => handleJump('start')}>
+                Back to Start <WestIcon />
+              </a>
+            </div>
+          </div>
+          <div className='positionIndicator'>
+            <div style={{ width: `${calcPositionIndicator()}px` }} />
+          </div>
+        </div>
+
+        <div className='gallery' onScroll={handleScroll}>
+          {Object.values(projects).map((project: CardProps, i: number) => (
+            <Card
+              key={i}
+              className='gallery-element'
+              title={project.title}
+              category={project.category}
+              date={project.date}
+              technologies={project.technologies}
+              liveDemo={project.liveDemo}
+              sourceCode={project.sourceCode}
+              imageSources={project.imageSources}
+              footnote={project.footnote}
+            >
+              {project.children}
+            </Card>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
