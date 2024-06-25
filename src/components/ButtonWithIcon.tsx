@@ -1,10 +1,4 @@
-import { ReactElement } from 'react';
-
-interface ButtonWithIconProps {
-  icon: ReactElement;
-  title: string;
-  goTo: string;
-}
+import { ButtonWithIconProps } from "../utils/types";
 
 export default function ButtonWithIcon({ icon, title, goTo }: ButtonWithIconProps) {
   return (
