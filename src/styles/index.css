@@ -57,6 +57,8 @@ body {
   padding: var(--space-md);
 
   gap: var(--space-lg);
+
+  transition: all var(--transition);
 }
 
 /* TAGS */
