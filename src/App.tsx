@@ -13,7 +13,7 @@ export default function App() {
       <Terminal />
 
       <section id='projects' style={{ width: '100%' }}>
-        <h1 style={{ marginTop: 100, marginBottom: '1rem' }}>Projects</h1>
+        <h1 style={{ marginTop: 150, marginBottom: '1rem' }}>Projects</h1>
         <HorizontalScrollGallery projects={projects} />
       </section>
 
@@ -40,7 +40,7 @@ export default function App() {
             </span>
           </div>
 
-          <div className='paper paper-spacing' style={{ flexFlow: 'row wrap' }}>
+          <div className='paper paper-spacing-md' style={{ flexFlow: 'row wrap' }}>
             <Chip>Chip</Chip>
             <Chip>Chip</Chip>
             <Chip>Chip</Chip>
@@ -49,7 +49,7 @@ export default function App() {
             <Chip>Chip</Chip>
           </div>
 
-          <div className='paper paper-spacing' style={{ flexFlow: 'row wrap' }}>
+          <div className='paper paper-spacing-md' style={{ flexFlow: 'row wrap' }}>
             <input className='input' placeholder='placeholder' />
             <button className='button'>Button</button>
           </div>

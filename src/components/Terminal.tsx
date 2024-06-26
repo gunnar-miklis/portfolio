@@ -7,7 +7,7 @@ export default function Terminal() {
     <section className='terminal window paper'>
       <WindowTopBar title='About' />
 
-      <div className='window-content paper-spacing-lg'>
+      <div className='window-content paper-spacing-md'>
         <div>
           <p className='in'>
             <Icon /> gunnar.hello

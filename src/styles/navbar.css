@@ -32,7 +32,7 @@
   max-width: 100%;
 }
 .brand a {
-	border: unset;
+  border: unset;
 }
 .brand a:first-child {
   font-weight: 800;
@@ -44,9 +44,9 @@
   max-width: 100%;
 }
 .navigation a {
-	width: 100%;
-	text-align: right;
-	border: unset
+  width: 100%;
+  text-align: right;
+  border: unset;
 }
 
 /* LIGHT THEME */

@@ -163,10 +163,14 @@ a {
   flex-flow: column wrap;
   justify-content: flex-start;
 
-  width: 100%;
+  /* width: 100%; */ /* TESTING: not sure about this one yet */
   overflow: hidden;
 }
-.paper-spacing {
+.paper-spacing-sm {
+  gap: var(--space-sm);
+  padding: var(--space-sm);
+}
+.paper-spacing-md {
   gap: var(--space-sm);
   padding: var(--space-md);
 }
@@ -210,7 +214,7 @@ a {
     color: var(--heading-light);
   }
   h4 {
-	color: var(--annotation-light);
+    color: var(--annotation-light);
   }
   .link {
     color: var(--heading-light);
@@ -246,13 +250,12 @@ a {
 /* RESPONSIVENESS */
 /* Small devices (phones, 576px and down) */
 @media only screen and (max-width: 576px) {
-  body {
-    /* background-color: red; */
-  }
   #app {
     padding: var(--space-sm);
   }
-  .paper-spacing,
+  .paper {
+    width: 100%;
+  }
   .card-content,
   .window-content {
     gap: var(--space-sm);
@@ -262,14 +265,14 @@ a {
 
 /* Medium devices (tablets, 992px and up) */
 @media (min-width: 577px) and (max-width: 992px) {
-  body {
-    /* background-color: green; */
+  .paper {
+    width: 100%;
   }
 }
 
 /* Large devices (laptops and desktops, 1200px and up) */
 @media (min-width: 993px) {
-  body {
-    /* background-color: blue; */
+  .paper {
+    width: auto;
   }
 }
