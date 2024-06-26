@@ -44,9 +44,14 @@
   max-width: 100%;
 }
 .navigation a {
+  font-weight: 500;
+
   width: 100%;
   text-align: right;
   border: unset;
+}
+.active {
+  font-weight: 800 !important;
 }
 
 /* LIGHT THEME */
