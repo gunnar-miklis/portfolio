@@ -22,7 +22,7 @@ export const projects: ProjectsType = {
           use, because the current venue has poor internet coverage.
         </p>
 
-        <div className='paper paper-spacing'>
+        <div className='feature-list'>
           <ul className='list'>
             <li>
               <PhoneGearIcon /> QR-Code Scanner/Camera.
@@ -94,7 +94,7 @@ export const projects: ProjectsType = {
           </a>
           .
         </p>
-        <div className='paper paper-spacing'>
+        <div className='feature-list'>
           <ul className='list'>
             <li>
               <PhoneGearIcon /> Mobile-first, fully responsive (phone, tablet, laptop)
@@ -138,7 +138,7 @@ export const projects: ProjectsType = {
           </a>
           .
         </p>
-        <div className='paper paper-spacing'>
+        <div className='feature-list'>
           <ul className='list'>
             <li>
               <PhoneGearIcon /> Grid Layout, Navbar and Routing, Header, Notification, Tooltips.

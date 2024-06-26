@@ -1,23 +1,14 @@
-.card-container {
-  background-color: var(--bg-light); /* this has to be light */
-
-  display: flex;
-  flex-flow: column wrap;
-
-  margin-bottom: calc(var(--space-lg) * 2);
-
-  border-radius: 1rem;
-  overflow: hidden;
-}
-
 .card {
   border: 1px solid var(--card-bg-dark);
+  border-radius: 1rem;
 
   display: flex;
   flex-flow: row wrap;
+
+  overflow: hidden;
 }
 .card-image {
-  background-color: var(--bg-light); /* this has to be light */
+  background-color: #fff; /* this has to be light */
 
   display: flex;
   flex-flow: row wrap;
@@ -41,12 +32,36 @@
   justify-content: flex-start;
   align-items: baseline;
 }
-.card-content-inner {
+.card-inner {
+  display: flex;
+  flex-flow: column nowrap;
+}
+.card-header {
+  display: flex;
+  flex-flow: column nowrap;
+
+  padding-bottom: 0.6rem;
+}
+.card-description {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 
   gap: var(--space-md);
+}
+.feature-list {
+  background-color: var(--card-bg-dark);
+
+  border-radius: 1rem;
+
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+
+  overflow: hidden;
+
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-sm);
 }
 
 /* LIGHT THEME */
@@ -57,6 +72,9 @@
   .card-content {
     background-color: var(--card-bg-light);
     box-shadow: var(--box-shadow-light);
+  }
+  .feature-list {
+    background-color: var(--card-bg-light);
   }
 }
 
@@ -77,6 +95,10 @@
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
   }
+  .card-inner,
+  .feature-list {
+    width: 100%;
+  }
 }
 /* Medium devices (tablets, 992px and up) */
 @media (min-width: 577px) and (max-width: 992px) {
@@ -95,6 +117,10 @@
   .card-content {
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
+  }
+  .card-inner,
+  .feature-list {
+    width: 100%;
   }
 }
 /* Large devices (laptops and desktops, 1200px and up) */
@@ -115,5 +141,9 @@
 
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem;
+  }
+  .card-inner,
+  .feature-list {
+    width: auto;
   }
 }

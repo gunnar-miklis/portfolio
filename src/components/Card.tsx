@@ -15,46 +15,50 @@ export default function Card({
   imageSources,
   footnote,
   children,
-  className
+  className,
 }: CardProps) {
   return (
-    <article className={`window card-container ${className}`}>
-      <div className='card'>
-        <div className='card-image'>
-          {imageSources.map((source, i) => (
-            <img key={i} src={source} />
+    <article className={`window card ${className}`}>
+      {/* TODO: modal, image preview */}
+      <div className='card-image'>
+        {/* images */}
+        {imageSources.map((source, i) => (
+          <img key={i} src={source} />
+        ))}
+      </div>
+
+      <div className='card-content paper-spacing-md gap-md'>
+        {/* header */}
+        <div className='card-inner'>
+          <div className='card-header'>
+            <h3>{title}</h3>
+            <h4>
+              {category}
+              {date && ', ' + date}
+            </h4>
+          </div>
+
+          {/* description */}
+          <div className='card-description'>{children}</div>
+        </div>
+
+        {/* technologies */}
+        <div className='paper paper-spacing-sm' style={{ flexFlow: 'row wrap' }}>
+          {technologies.map((tech, i) => (
+            <Chip key={i}>{tech}</Chip>
           ))}
         </div>
 
-        <div className='card-content paper-spacing-lg gap-md'>
-          <div style={{ display: 'flex', flexFlow: 'column nowrap' }}>
-            <div style={{ display: 'flex', flexFlow: 'column nowrap', paddingBottom: 10 }}>
-              <h3>{title}</h3>
-              <h4>
-                {category}
-                {date && ', ' + date}
-              </h4>
-            </div>
-
-            <div className='card-content-inner'>{children}</div>
-          </div>
-
-          <div className='paper paper-spacing' style={{ flexFlow: 'row wrap' }}>
-            {technologies.map((tech, i) => (
-              <Chip key={i}>{tech}</Chip>
-            ))}
-          </div>
-
-          <div className='paper paper-spacing' style={{ flexFlow: 'row wrap' }}>
-            {liveDemo !== 'unpublished' && (
-              <ButtonWithIcon icon={<LaunchRoundedIcon />} title='Live Demo' goTo={liveDemo} />
-            )}
-            {sourceCode !== 'unpublished' && (
-              <ButtonWithIcon icon={<GitHubIcon />} title='View Source' goTo={sourceCode} />
-            )}
-          </div>
-          {footnote && <p className='annotation'>{footnote}</p>}
+        {/* action buttons */}
+        <div className='paper paper-spacing-sm' style={{ flexFlow: 'row wrap' }}>
+          {liveDemo !== 'unpublished' && (
+            <ButtonWithIcon icon={<LaunchRoundedIcon />} title='Live Demo' goTo={liveDemo} />
+          )}
+          {sourceCode !== 'unpublished' && (
+            <ButtonWithIcon icon={<GitHubIcon />} title='View Source' goTo={sourceCode} />
+          )}
         </div>
+        {footnote && <p className='annotation'>{footnote}</p>}
       </div>
     </article>
   );
