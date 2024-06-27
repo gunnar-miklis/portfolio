@@ -1,0 +1,12 @@
+.positionIndicator {
+  width: 0;
+  height: 0.2rem;
+  background-color: var(--heading-dark);
+}
+
+/* LIGHT THEME */
+@media (prefers-color-scheme: light) {
+  .positionIndicator {
+    background-color: var(--heading-light);
+  }
+}

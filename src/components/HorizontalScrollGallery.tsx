@@ -4,6 +4,7 @@ import Card from './Card';
 import { CardProps, ProjectsType } from '../utils/types';
 import '@/styles/horizontalScrollGallery.css';
 import React, { useEffect, useState } from 'react';
+import PositionIndicatorBar from './PositionIndicatorBar';
 
 export default function HorizontalScrollGallery({ projects }: { projects: ProjectsType }) {
   const [scrollPosition, setScrollPosition] = useState<number>(0);
@@ -79,18 +80,6 @@ export default function HorizontalScrollGallery({ projects }: { projects: Projec
     }
   }
 
-  // calculate the scroll position relative to the gallery width
-  function calcPositionIndicator(): number | undefined {
-    const galleryWrapper = document.querySelector('.gallery-wrapper');
-    const gallery = document.querySelector('.gallery');
-
-    if (galleryWrapper instanceof HTMLElement && gallery instanceof HTMLElement) {
-      const scrollPercentage = scrollPosition / (gallery.scrollWidth - gallery.offsetWidth);
-      const scrollRelativeToGallery = galleryWrapper.clientWidth * scrollPercentage;
-      return scrollRelativeToGallery;
-    }
-  }
-
   return (
     <div>
       <div className='gallery-wrapper'>
@@ -113,9 +102,12 @@ export default function HorizontalScrollGallery({ projects }: { projects: Projec
               </a>
             </div>
           </div>
-          <div className='positionIndicator'>
-            <div style={{ width: `${calcPositionIndicator()}px` }} />
-          </div>
+
+          <PositionIndicatorBar
+            scrollPosition={scrollPosition}
+            targetElement='.gallery'
+            parentElement='.gallery-wrapper'
+          />
         </div>
 
         <div className='gallery' onScroll={handleScroll}>

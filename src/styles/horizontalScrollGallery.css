@@ -42,11 +42,6 @@
 
   border: unset;
 }
-.positionIndicator div {
-  width: 0;
-  height: 0.2rem;
-  background-color: var(--heading-dark);
-}
 
 #animated-icon {
   animation: scroll-right 2s infinite ease-in-out;
@@ -88,9 +83,6 @@
 @media (prefers-color-scheme: light) {
   ::-webkit-scrollbar-thumb {
     background: var(--annotation-light);
-  }
-  .positionIndicator div {
-    background-color: var(--heading-light);
   }
 }
 
