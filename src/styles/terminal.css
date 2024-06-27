@@ -54,3 +54,25 @@
     color: var(--heading-light);
   }
 }
+
+/* RESPONSIVENESS */
+/* Small devices (phones, 576px and down) */
+@media only screen and (max-width: 576px) {
+ .window-content {
+  max-width: 100%;
+ }
+}
+
+/* Medium devices (tablets, 992px and up) */
+@media (min-width: 577px) and (max-width: 992px) {
+.window-content {
+  max-width: 90%;
+ }
+}
+
+/* Large devices (laptops and desktops, 1200px and up) */
+@media (min-width: 993px) {
+  .window-content {
+  max-width: 75%;
+ }
+}

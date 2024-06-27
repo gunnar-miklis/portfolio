@@ -21,7 +21,7 @@ export default function Terminal() {
 
         <div>
           <p className='in'>
-            <Icon /> gunnar.openForWork && when
+            <Icon /> gunnar.isOpenForWork && when
           </p>
           <p className='out'>
             <span style={{ color: '#e66033CC', fontWeight: 600 }}>TRUE</span>; immediately
@@ -33,8 +33,8 @@ export default function Terminal() {
             <Icon /> gunnar.skills.technical
           </p>
           <p className='out'>
-            [ JavaScript, TypeScript, Node, React, React Native, Express, MongoDB, SQL, git, R,
-            Shell ]
+            [ TypeScript, JavaScript, Node, React, React Native, Express, MongoDB, SQL, git, GitHub, R, Ubuntu Shell
+            ]
           </p>
         </div>
 
@@ -45,6 +45,26 @@ export default function Terminal() {
           <p className='out'>
             [ Fast Learning, Problem Solving, Analytical Skills, Collaboration, Customer-Centered,
             Curiosity, Open-minded, Passionate, Interdisciplinary, Agile, Flexibility ]
+          </p>
+        </div>
+
+        <div>
+          <p className='in'>
+            <Icon /> gunnar.personality
+          </p>
+          <p
+            className='out'
+            style={{ display: 'flex', flexFlow: 'column nowrap', alignItems: 'flex-start' }}
+          >
+            <span>{`{ `}</span>
+            <span style={{ paddingLeft: '1rem' }}>🌱: Loves new challenges, eager to learn.</span>
+            <span style={{ paddingLeft: '1rem' }}>
+              🧘: Calm and patient individual, easy to get along.
+            </span>
+            <span style={{ paddingLeft: '1rem' }}>
+              🔍: Attention-to-detail, aiming to build visually appealing web apps.
+            </span>
+            <span>{`} `}</span>
           </p>
         </div>
 
