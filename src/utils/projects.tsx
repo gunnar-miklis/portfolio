@@ -1,5 +1,9 @@
 import PhoneGearIcon from '@mui/icons-material/PhonelinkSetup';
-import { ProjectsType } from './types';
+import { CardProps } from '../components/Card';
+
+export interface ProjectsType {
+  [card: string]: CardProps;
+}
 
 export const projects: ProjectsType = {
   eventTicketing: {

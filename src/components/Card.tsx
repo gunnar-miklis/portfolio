@@ -3,7 +3,20 @@ import LaunchRoundedIcon from '@mui/icons-material/LaunchRounded';
 import ButtonWithIcon from './ButtonWithIcon';
 import Chip from './Chip';
 import '@/styles/card.css';
-import { CardProps } from '../utils/types';
+import { ReactNode } from 'react';
+
+export interface CardProps {
+  className?: string;
+  title: string;
+  category: string;
+  date?: string;
+  technologies: string[];
+  liveDemo: string;
+  sourceCode: string;
+  imageSources: string[];
+  footnote?: string;
+  children: ReactNode;
+}
 
 export default function Card({
   title,

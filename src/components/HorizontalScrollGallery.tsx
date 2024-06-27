@@ -1,10 +1,10 @@
+import React, { useEffect, useState } from 'react';
 import EastIcon from '@mui/icons-material/East';
 import WestIcon from '@mui/icons-material/West';
-import Card from './Card';
-import { CardProps, ProjectsType } from '../utils/types';
-import '@/styles/horizontalScrollGallery.css';
-import React, { useEffect, useState } from 'react';
 import PositionIndicatorBar from './PositionIndicatorBar';
+import Card, { CardProps } from './Card';
+import { ProjectsType } from '../utils/projects';
+import '@/styles/horizontal-scroll-gallery.css';
 
 export default function HorizontalScrollGallery({ projects }: { projects: ProjectsType }) {
   const [scrollPosition, setScrollPosition] = useState<number>(0);
@@ -102,7 +102,6 @@ export default function HorizontalScrollGallery({ projects }: { projects: Projec
               </a>
             </div>
           </div>
-
           <PositionIndicatorBar
             scrollPosition={scrollPosition}
             targetElement='.gallery'
