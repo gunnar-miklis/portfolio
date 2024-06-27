@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import EastIcon from '@mui/icons-material/East';
 import WestIcon from '@mui/icons-material/West';
 import PositionIndicatorBar from './PositionIndicatorBar';
-import Card, { CardProps } from './Card';
-import { ProjectsType } from '../utils/projects';
+import Card from './Card';
+import { Project, ProjectsType } from '../utils/projects';
 import '@/styles/horizontal-scroll-gallery.css';
 
 export default function HorizontalScrollGallery({ projects }: { projects: ProjectsType }) {
@@ -110,9 +110,9 @@ export default function HorizontalScrollGallery({ projects }: { projects: Projec
         </div>
 
         <div className='gallery' onScroll={handleScroll}>
-          {Object.values(projects).map((project: CardProps, i: number) => (
+          {Object.values(projects).map((project: Project) => (
             <Card
-              key={i}
+              key={project.id}
               className='gallery-element'
               title={project.title}
               category={project.category}
@@ -123,7 +123,7 @@ export default function HorizontalScrollGallery({ projects }: { projects: Projec
               imageSources={project.imageSources}
               footnote={project.footnote}
             >
-              {project.children}
+              {project.content}
             </Card>
           ))}
         </div>

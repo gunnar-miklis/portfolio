@@ -6,29 +6,29 @@ import '@/styles/card.css';
 import { ReactNode } from 'react';
 
 export interface CardProps {
-  className?: string;
-  title: string;
-  category: string;
-  date?: string;
-  technologies: string[];
-  liveDemo: string;
-  sourceCode: string;
-  imageSources: string[];
-  footnote?: string;
   children: ReactNode;
+  className: string;
+  title: string;
+  technologies: string[];
+  imageSources: string[];
+  category?: string;
+  date?: string;
+  liveDemo?: string;
+  sourceCode?: string;
+  footnote?: string;
 }
 
 export default function Card({
+  children,
+  className,
   title,
   category,
   date,
   technologies,
+  imageSources,
   liveDemo,
   sourceCode,
-  imageSources,
   footnote,
-  children,
-  className,
 }: CardProps) {
   return (
     <article className={`window card ${className}`}>
@@ -45,10 +45,10 @@ export default function Card({
         <div className='card-inner'>
           <div className='card-header'>
             <h3>{title}</h3>
-            <h4>
+            <p className='annotation'>
               {category}
               {date && ', ' + date}
-            </h4>
+            </p>
           </div>
 
           {/* description */}
@@ -64,13 +64,15 @@ export default function Card({
 
         {/* action buttons */}
         <div className='paper paper-spacing-sm' style={{ flexFlow: 'row wrap' }}>
-          {liveDemo !== 'unpublished' && (
+          {liveDemo && (
             <ButtonWithIcon icon={<LaunchRoundedIcon />} title='Live Demo' goTo={liveDemo} />
           )}
-          {sourceCode !== 'unpublished' && (
+          {sourceCode && (
             <ButtonWithIcon icon={<GitHubIcon />} title='View Source' goTo={sourceCode} />
           )}
         </div>
+
+        {/* footnote */}
         {footnote && <p className='annotation'>{footnote}</p>}
       </div>
     </article>
