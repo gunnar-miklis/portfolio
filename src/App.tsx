@@ -3,14 +3,28 @@ import Header from './components/Header';
 import Navbar from './components/Navbar';
 import { projects } from './utils/projects';
 import HorizontalScrollGallery from './components/HorizontalScrollGallery';
+import ModalGallery from './components/ModalGallery';
+import { useState } from 'react';
 
 export default function App() {
+  const [showModal, setShowModal] = useState<boolean>(true);
   return (
     <>
       <Navbar />
 
       <Header />
       <Terminal />
+
+      {showModal && (
+        <ModalGallery
+          imageSources={[
+            'https://github.com/gunnar-miklis/intro-to-material-ui-react/blob/main/screenshots/Screenshot%202023-08-15%20163617.png?raw=true',
+            'https://github.com/gunnar-miklis/intro-to-material-ui-react/raw/main/screenshots/Screenshot%202023-08-15%20163658.png?raw=true',
+            'https://github.com/gunnar-miklis/intro-to-material-ui-react/raw/main/screenshots/Screenshot%202023-08-15%20163734.png?raw=true',
+          ]}
+          closeModal={() => setShowModal(false)}
+        />
+      )}
 
       <section id='projects' style={{ width: '100%' }}>
         <h1 style={{ marginTop: 150, marginBottom: '1rem' }}>Projects</h1>
