@@ -95,7 +95,7 @@ export default function Card({
   }
 
   return (
-    <article className={`window card ${className}`}>
+    <article className={`card ${className}`}>
       {/* TODO: modal, image preview */}
       <div className='card-image' style={{ maxHeight: imageHeight }} onClick={() => handleExpand()}>
         {!isImageExpanded ? (
@@ -116,7 +116,7 @@ export default function Card({
         ))}
       </div>
 
-      <div className='card-content paper-spacing-md gap-md' style={{ maxHeight: contentHeight }}>
+      <div className='card-content' style={{ maxHeight: contentHeight }}>
         {/* header */}
         <div className='card-inner'>
           <div className='card-header'>

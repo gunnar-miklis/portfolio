@@ -1,25 +1,27 @@
 .card {
+  background-color: #fff; /* this has to be light */
+  box-shadow: var(--box-shadow-dark);
   border: 1px solid var(--card-bg-dark);
   border-radius: 1rem;
 
   display: flex;
-  flex-flow: row wrap;
 
   overflow: hidden;
 }
 .card-image {
-  background-color: #fff; /* this has to be light */
-
   position: relative;
+
   display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
+  flex-flow: column nowrap;
 
-  padding: var(--space-sm);
-
+  width: 100%;
+  max-height: 400px;
   overflow: hidden;
+  padding: var(--space-md);
 
   cursor: pointer;
+
+  z-index: 1;
 }
 .card-image img {
   object-fit: contain;
@@ -54,10 +56,16 @@
   align-items: baseline;
 
   width: 100%;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+
+  z-index: 2;
 }
 .card-inner {
   display: flex;
   flex-flow: column nowrap;
+
+  width: 100%;
 }
 .card-header {
   display: flex;
@@ -81,15 +89,20 @@
   flex-flow: column wrap;
   justify-content: flex-start;
 
+  width: 100%;
   overflow: hidden;
 
   gap: var(--space-sm);
   padding: var(--space-md) var(--space-sm);
 }
+.card .annotation {
+  padding: 0 calc(var(--space-sm) / 2);
+}
 
 /* LIGHT THEME */
 @media (prefers-color-scheme: light) {
   .card {
+    box-shadow: var(--box-shadow-light);
     border: 1px solid var(--card-bg-light);
   }
   .card-content {
@@ -108,19 +121,12 @@
     flex-flow: column nowrap;
   }
   .card-image {
-    max-width: 100%;
-    max-height: 400px;
-
     border-bottom-left-radius: 0rem;
     border-top-left-radius: 0rem;
   }
   .card-content {
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
-  }
-  .card-inner,
-  .feature-list {
-    width: 100%;
   }
 }
 /* Medium devices (tablets, 992px and up) */
@@ -129,19 +135,14 @@
     flex-flow: column nowrap;
   }
   .card-image {
-    max-width: 100%;
-    max-height: 400px;
-
     border-bottom-left-radius: 0rem;
     border-top-left-radius: 0rem;
   }
   .card-content {
+    padding: var(--space-lg);
+
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
-  }
-  .card-inner,
-  .feature-list {
-    width: 100%;
   }
 }
 /* Large devices (laptops and desktops, 1200px and up) */
@@ -153,18 +154,17 @@
   }
   .card-image {
     max-width: 35%;
-    flex-flow: column nowrap;
+
+    justify-content: center;
 
     border-bottom-left-radius: 1rem;
   }
   .card-content {
     max-width: 65%;
 
+    padding: var(--space-lg);
+
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem;
-  }
-  .card-inner,
-  .feature-list {
-    width: auto;
   }
 }

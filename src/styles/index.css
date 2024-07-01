@@ -180,9 +180,7 @@ a {
   gap: var(--space-md);
   padding: var(--space-lg);
 }
-.window {
-  box-shadow: var(--box-shadow-dark);
-}
+
 .gap-sm {
   gap: var(--space-sm);
 }
@@ -244,9 +242,6 @@ a {
   .paper {
     background-color: var(--card-bg-light);
   }
-  .window {
-    box-shadow: var(--box-shadow-light);
-  }
 }
 
 /* RESPONSIVENESS */
@@ -257,11 +252,6 @@ a {
   }
   .paper {
     width: 100%;
-  }
-  .card-content,
-  .window-content {
-    gap: var(--space-sm);
-    padding: var(--space-md);
   }
 }
 
