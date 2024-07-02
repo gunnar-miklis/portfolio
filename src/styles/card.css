@@ -1,41 +1,40 @@
 .card {
-  background-color: #fff; /* this has to be light */
+  background-color: #fff; /* COMMENT: for now, this has to be light */
   box-shadow: var(--box-shadow-dark);
   border: 1px solid var(--card-bg-dark);
   border-radius: 1rem;
 
   display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
 
   overflow: hidden;
 }
 .card-image {
   position: relative;
+  z-index: 1;
 
   display: flex;
   flex-flow: column nowrap;
+  align-items: center;
 
-  width: 100%;
   max-height: 400px;
-  overflow: hidden;
   padding: var(--space-md);
-
-  cursor: pointer;
-
-  z-index: 1;
+  overflow: hidden;
 }
 .card-image img {
   object-fit: contain;
   max-width: 100%;
-  max-height: 1000px;
+  max-height: 100%;
 }
 #expand-more,
 #expand-less {
   color: var(--heading-light);
-  background-color: #fff; /* this has to be light */
+  background-color: #fff; /* COMMENT: for now, this has to be light */
 
   position: absolute;
   top: 0;
-  right: 0;
+  left: 0;
 
   display: inline-flex;
   align-items: center;
@@ -45,21 +44,50 @@
 
   cursor: pointer;
 }
+#expand-up,
+#expand-down,
+#expand-left,
+#expand-right {
+  /* color: var(--heading-light); */
+
+  position: absolute;
+
+  display: inline-flex;
+  align-items: center;
+
+  padding: var(--space-sm);
+  border-radius: 1rem;
+
+  cursor: pointer;
+}
+#expand-up,
+#expand-down {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#expand-left,
+#expand-right {
+  top: 50%;
+  left: -0.4rem;
+  transform: translateY(-50%);
+}
 
 .card-content {
   background-color: var(--card-bg-dark);
   box-shadow: var(--box-shadow-dark);
 
+  position: relative;
+  z-index: 2;
+
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start;
   align-items: baseline;
-
-  width: 100%;
   gap: var(--space-sm);
-  padding: var(--space-md);
 
-  z-index: 2;
+  padding: var(--space-md);
+  padding-top: calc(var(--space-md) * 2); /* extra space for expand arrow */
 }
 .card-inner {
   display: flex;
@@ -77,7 +105,6 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-
   gap: var(--space-md);
 }
 .feature-list {
@@ -88,14 +115,13 @@
   display: flex;
   flex-flow: column wrap;
   justify-content: flex-start;
+  gap: var(--space-sm);
 
   width: 100%;
-  overflow: hidden;
-
-  gap: var(--space-sm);
   padding: var(--space-md) var(--space-sm);
+  overflow: hidden;
 }
-.card .annotation {
+.card .footnote {
   padding: 0 calc(var(--space-sm) / 2);
 }
 
@@ -115,11 +141,7 @@
 }
 
 /* RESPONSIVENESS */
-/* Small devices (phones, 576px and down) */
 @media only screen and (max-width: 576px) {
-  .card {
-    flex-flow: column nowrap;
-  }
   .card-image {
     border-bottom-left-radius: 0rem;
     border-top-left-radius: 0rem;
@@ -129,31 +151,30 @@
     border-top-right-radius: 1rem;
   }
 }
-/* Medium devices (tablets, 992px and up) */
 @media (min-width: 577px) and (max-width: 992px) {
-  .card {
-    flex-flow: column nowrap;
-  }
   .card-image {
     border-bottom-left-radius: 0rem;
     border-top-left-radius: 0rem;
   }
   .card-content {
     padding: var(--space-lg);
+    padding-top: calc(var(--space-md) * 2); /* extra space for expand arrow */
 
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
   }
 }
-/* Large devices (laptops and desktops, 1200px and up) */
 @media (min-width: 993px) {
   .card {
-    flex-flow: row nowrap;
+    flex-direction: row;
+    justify-content: space-between;
 
     border-bottom-left-radius: 1rem;
   }
   .card-image {
-    max-width: 35%;
+    width: 35%;
+    max-width: 100%;
+    max-height: 1000px;
 
     justify-content: center;
 
@@ -161,8 +182,10 @@
   }
   .card-content {
     max-width: 65%;
+    max-height: 1000px;
 
     padding: var(--space-lg);
+    padding-left: calc(var(--space-md) * 2); /* extra space for expand arrow */
 
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem;
