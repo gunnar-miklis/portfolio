@@ -4,7 +4,7 @@
 .window-content {
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm);
+  gap: var(--space-md);
 
   max-width: 100%;
   padding: var(--space-lg) var(--space-md);
@@ -65,15 +65,21 @@
 @media only screen and (max-width: 576px) {
   .window-content {
     max-width: 100%;
+    padding: var(--space-md) var(--space-sm);
+    gap: var(--space-md);
   }
 }
 @media (min-width: 577px) and (max-width: 992px) {
   .window-content {
     max-width: 90%;
+    padding: var(--space-lg) var(--space-md);
+    gap: var(--space-sm);
   }
 }
 @media (min-width: 993px) {
   .window-content {
     max-width: 75%;
+    padding: var(--space-lg) var(--space-md);
+    gap: var(--space-sm);
   }
 }

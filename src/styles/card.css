@@ -1,5 +1,4 @@
 .card {
-  background-color: #fff; /* COMMENT: for now, this has to be light */
   box-shadow: var(--box-shadow-dark);
   border: 1px solid var(--card-bg-dark);
   border-radius: 1rem;
@@ -11,6 +10,7 @@
   overflow: hidden;
 }
 .card-image {
+  background-color: #fff; /* COMMENT: for now, this has to be light */
   position: relative;
   z-index: 1;
 
@@ -30,6 +30,7 @@
 #expand-more,
 #expand-less {
   background-color: #fff; /* COMMENT: for now, this has to be light */
+  color: var(--bg-dark);
 
   position: absolute;
   top: 0;

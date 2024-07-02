@@ -279,8 +279,9 @@ button {
 /* RESPONSIVENESS */
 /* Small devices (phones, 576px and down) */
 @media only screen and (max-width: 576px) {
-  #app {
+  main#app {
     padding: var(--space-sm);
+    padding-top: 150px;
   }
   .paper {
     width: 100%;
@@ -288,8 +289,9 @@ button {
 }
 /* Medium devices (tablets, 992px and up) */
 @media (min-width: 577px) and (max-width: 992px) {
-  #app {
+  main#app {
     padding: var(--space-md);
+    padding-top: 150px;
   }
   .paper {
     width: 100%;
@@ -297,8 +299,9 @@ button {
 }
 /* Large devices (laptops and desktops, 1200px and up) */
 @media (min-width: 993px) {
-  #app {
+  main#app {
     padding: var(--space-md);
+    padding-top: 150px;
   }
   .paper {
     width: auto;

@@ -33,8 +33,8 @@ export default function Terminal() {
             <Icon /> gunnar.skills.technical
           </p>
           <p className='out'>
-            [ TypeScript, JavaScript, Node, React, React Native, Express, MongoDB, SQL, git, GitHub,
-            R, Ubuntu Shell ]
+            [ TypeScript, JavaScript, React, React Native, Node, Express, MongoDB, SQL, git, GitHub,
+            R, (Ubuntu) Shell ]
           </p>
         </div>
 
@@ -43,8 +43,8 @@ export default function Terminal() {
             <Icon /> gunnar.skills.personal
           </p>
           <p className='out'>
-            [ Fast Learning, Problem Solving, Analytical Skills, Collaboration, Customer-Centered,
-            Curiosity, Open-minded, Passionate, Interdisciplinary, Agile, Flexibility ]
+            [ Analytical Skills, Problem Solving, Fast Learning, Collaboration, Customer-Centered,
+            Open-minded, Curiosity, Passionate, Interdisciplinary, Agile ]
           </p>
         </div>
 
@@ -62,7 +62,7 @@ export default function Terminal() {
               🧘: Calm and patient individual, easy to get along.
             </span>
             <span style={{ paddingLeft: '1rem' }}>
-              🔍: Attention-to-detail, aiming to build visually appealing web apps.
+              🔍: Attention-to-detail and diligent, aiming to build visually appealing web apps.
             </span>
             <span>{`} `}</span>
           </p>
