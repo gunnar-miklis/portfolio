@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
+/* DEFAULT + RESET */
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -45,26 +46,33 @@ body {
   min-height: 100vh;
   margin: 0 auto;
 }
-#app {
+
+/* SEMANTICS */
+main#app {
   max-width: var(--app-width);
   min-height: 100vh;
 
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+  gap: calc(var(--space-lg) * 3);
 
   margin: 0 auto;
   padding: var(--space-md);
-
-  gap: var(--space-lg);
+  padding-top: 150px;
 
   transition: all var(--transition);
 }
-
-/* TAGS */
+section {
+  width: 100%;
+}
+section#about {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
 h1 {
   color: var(--heading-dark);
-
   font-size: 3.2rem;
   font-weight: 700;
   line-height: normal;
@@ -95,6 +103,17 @@ h4 {
 a {
   text-decoration: none;
 }
+button {
+  background-color: var(--button-bg-dark);
+  color: var(--button-text-dark);
+
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+/* COMPONENT CLASSES */
 .link {
   color: var(--heading-dark);
   border-color: var(--heading-dark);
@@ -149,6 +168,7 @@ a {
   display: flex;
   align-items: flex-start;
   gap: var(--space-sm);
+
   padding: 0.1rem;
 }
 .annotation {
@@ -168,6 +188,8 @@ a {
   /* width: 100%; */ /* TESTING: not sure about this one yet */
   overflow: hidden;
 }
+
+/* UTILITY CLASSES */
 .paper-spacing-sm {
   gap: var(--space-sm);
   padding: var(--space-sm);
@@ -180,7 +202,6 @@ a {
   gap: var(--space-md);
   padding: var(--space-lg);
 }
-
 .gap-sm {
   gap: var(--space-sm);
 }
@@ -216,6 +237,10 @@ a {
   h4 {
     color: var(--annotation-light);
   }
+  button {
+    background-color: var(--button-bg-light);
+    color: var(--button-text-light);
+  }
   .link {
     color: var(--heading-light);
     border-color: var(--heading-light);
@@ -236,6 +261,13 @@ a {
   .input::placeholder {
     color: var(--annotation-light);
   }
+  .chip {
+    cursor: auto;
+    padding: calc(var(--space-sm) / 1.4);
+  }
+  .chip:hover {
+    border-color: transparent;
+  }
   .annotation {
     color: var(--annotation-light);
   }
@@ -254,16 +286,20 @@ a {
     width: 100%;
   }
 }
-
 /* Medium devices (tablets, 992px and up) */
 @media (min-width: 577px) and (max-width: 992px) {
+  #app {
+    padding: var(--space-md);
+  }
   .paper {
     width: 100%;
   }
 }
-
 /* Large devices (laptops and desktops, 1200px and up) */
 @media (min-width: 993px) {
+  #app {
+    padding: var(--space-md);
+  }
   .paper {
     width: auto;
   }

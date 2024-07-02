@@ -1,9 +1,10 @@
 import '@/styles/navbar.css';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 export default function Navbar() {
+  // NOTE: set nav item active if in view
   useEffect(() => {
-    const setActiveClass = () => {
+    function setActiveClass() {
       const projectSection = document.querySelector('#projects');
       if (projectSection instanceof HTMLElement) {
         const position = projectSection.getBoundingClientRect().top;
@@ -15,10 +16,29 @@ export default function Navbar() {
           document.querySelector('#nav-projects')?.classList.remove('active');
         }
       }
-    };
+    }
     window.addEventListener('scroll', setActiveClass);
     return () => window.removeEventListener('scroll', setActiveClass);
   }, []);
+
+  // NOTE: navigate to sections on click
+  function navigateTo(
+    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+    targetId: string,
+  ): void {
+    event.preventDefault();
+
+    const target = document.querySelector(targetId);
+
+    if (target instanceof HTMLElement) {
+      window.scrollTo({ top: target.offsetTop - 150, behavior: 'smooth' });
+    }
+  }
+  function scrollToTop(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
+    event.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
   return (
     <nav className='navbar'>
       <div className='center-navbar'>
@@ -41,10 +61,22 @@ export default function Navbar() {
           </a>
         </div>
         <div className='navigation'>
-          <a id='nav-about' href='#about' className='link active'>
+          <a
+            href='#about'
+            id='nav-about'
+            className='link active'
+            onClick={(event) =>
+              window.scrollY < 650 ? navigateTo(event, '.terminal') : scrollToTop(event)
+            }
+          >
             About
           </a>
-          <a id='nav-projects' href='#projects' className='link'>
+          <a
+            href='#projects'
+            id='nav-projects'
+            className='link'
+            onClick={(event) => navigateTo(event, '#projects')}
+          >
             Projects
           </a>
         </div>

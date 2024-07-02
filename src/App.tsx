@@ -1,19 +1,23 @@
-import Terminal from './components/Terminal';
-import Header from './components/Header';
 import Navbar from './components/Navbar';
-import { projects } from './utils/projects';
+import Header from './components/Header';
+import Terminal from './components/Terminal';
 import HorizontalScrollGallery from './components/HorizontalScrollGallery';
+import { projects } from './utils/projects';
 
 export default function App() {
   return (
     <>
       <Navbar />
 
-      <Header />
-      <Terminal />
+      <section id='about'>
+        <Header />
+        <Terminal />
+      </section>
 
-      <section id='projects' style={{ width: '100%' }}>
-        <h1 style={{ marginTop: 150, marginBottom: '1rem' }}>Projects</h1>
+      <section id='projects'>
+        <h1 id='projects-title' style={{ marginBottom: '1rem' }}>
+          Projects
+        </h1>
         <HorizontalScrollGallery projects={projects} />
       </section>
 

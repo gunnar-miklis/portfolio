@@ -5,13 +5,12 @@ interface PositionIndicatorProps {
   targetElement: string;
   parentElement: string;
 }
-
 export default function PositionIndicatorBar({
   scrollPosition,
   targetElement,
   parentElement,
 }: PositionIndicatorProps) {
-  // calculate the scroll position for the target relative to the parent width
+  // NOTE: calculate the scroll position for the target relative to the parent width
   function calcPositionIndicator(): number | undefined {
     const parent = document.querySelector(parentElement);
     const target = document.querySelector(targetElement);

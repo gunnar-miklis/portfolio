@@ -8,8 +8,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   gap: var(--space-sm);
+
   padding-left: var(--space-sm);
   padding-right: var(--space-sm);
 }
@@ -17,7 +17,6 @@
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-
   gap: var(--space-sm);
 }
 .window-top-bar span {

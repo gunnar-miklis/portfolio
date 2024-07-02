@@ -6,9 +6,9 @@
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: flex-end;
-
   gap: var(--space-lg);
-  margin-bottom: calc(var(--space-sm) * 1);
+
+  margin-bottom: var(--space-sm);
 }
 .header-text {
   width: 55%;
@@ -26,7 +26,6 @@
 }
 
 /* RESPONSIVENESS */
-/* Small devices (phones, 576px and down) */
 @media only screen and (max-width: 576px) {
   .header-text {
     width: 100%;
@@ -40,8 +39,6 @@
     transform: translateY(-15%);
   }
 }
-
-/* Medium devices (tablets, 992px and up) */
 @media (min-width: 577px) and (max-width: 992px) {
   .header-text {
     width: 90%;
@@ -55,8 +52,6 @@
     transform: translateY(-15%);
   }
 }
-
-/* Large devices (laptops and desktops, 1200px and up) */
 @media (min-width: 993px) {
   .header-text {
     width: 55%;

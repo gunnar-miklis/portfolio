@@ -8,7 +8,7 @@ import ArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import ArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import ArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import useWindowDimensions from '../hooks/useWindowDimensions';
-import ButtonWithIcon from './ButtonWithIcon';
+import LinkWithIcon from './LinkWithIcon';
 import Chip from './Chip';
 import '@/styles/card.css';
 
@@ -242,7 +242,9 @@ export default function Card({
     }
   }
 
-  function handleExpand(): void {
+  function handleExpand(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>): void {
+    event.preventDefault();
+
     if (!isImageExpanded) {
       expandAnimation();
       setIsImageExpanded(true);
@@ -254,23 +256,35 @@ export default function Card({
 
   return (
     <article className={`card ${className}`}>
-      <div className='card-image' style={{ width: `${image.width}%`, maxHeight: image.height }}>
-        {!isImageExpanded ? (
-          <span id='expand-more' onClick={() => handleExpand()}>
-            <OpenFullIcon />
-          </span>
-        ) : (
-          <span id='expand-less' onClick={() => handleExpand()}>
-            <CloseFullIcon />
-          </span>
-        )}
+      <figure className='card-image' style={{ width: `${image.width}%`, maxHeight: image.height }}>
+        <nav>
+          {!isImageExpanded ? (
+            <a
+              className='link'
+              id='expand-more'
+              href='expand-more'
+              onClick={(event) => handleExpand(event)}
+            >
+              <OpenFullIcon />
+            </a>
+          ) : (
+            <a
+              className='link'
+              id='expand-less'
+              href='expand-less'
+              onClick={(event) => handleExpand(event)}
+            >
+              <CloseFullIcon />
+            </a>
+          )}
+        </nav>
 
         {/* images */}
         {/* TODO: idea, make this list of images scrollable */}
         {imageSources.map((source, i) => (
           <img key={i} src={source} />
         ))}
-      </div>
+      </figure>
 
       <div
         className='card-content'
@@ -281,25 +295,47 @@ export default function Card({
           paddingBottom: orientation === 'col' ? content.padding : '',
         }}
       >
-        {orientation === 'col' ? (
-          !isImageExpanded ? (
-            <span id='expand-down' onClick={() => handleExpand()}>
-              <ArrowDownIcon fontSize='large' />
-            </span>
+        <nav>
+          {orientation === 'col' ? (
+            !isImageExpanded ? (
+              <a
+                className='link'
+                id='expand-down'
+                href='expand-down'
+                onClick={(event) => handleExpand(event)}
+              >
+                <ArrowDownIcon fontSize='large' />
+              </a>
+            ) : (
+              <a
+                className='link'
+                id='expand-up'
+                href='expand-up'
+                onClick={(event) => handleExpand(event)}
+              >
+                <ArrowUpIcon fontSize='large' />
+              </a>
+            )
+          ) : !isImageExpanded ? (
+            <a
+              className='link'
+              id='expand-right'
+              href='expand-right'
+              onClick={(event) => handleExpand(event)}
+            >
+              <ArrowRightIcon fontSize='large' />
+            </a>
           ) : (
-            <span id='expand-up' onClick={() => handleExpand()}>
-              <ArrowUpIcon fontSize='large' />
-            </span>
-          )
-        ) : !isImageExpanded ? (
-          <span id='expand-right' onClick={() => handleExpand()}>
-            <ArrowRightIcon fontSize='large' />
-          </span>
-        ) : (
-          <span id='expand-left' onClick={() => handleExpand()}>
-            <ArrowLeftIcon fontSize='large' />
-          </span>
-        )}
+            <a
+              className='link'
+              id='expand-left'
+              href='expand-left'
+              onClick={(event) => handleExpand(event)}
+            >
+              <ArrowLeftIcon fontSize='large' />
+            </a>
+          )}
+        </nav>
 
         {/* header */}
         <div className='card-inner'>
@@ -322,13 +358,13 @@ export default function Card({
           ))}
         </div>
 
-        {/* action buttons */}
+        {/* action links */}
         <div className='paper paper-spacing-sm' style={{ flexFlow: 'row wrap' }}>
           {liveDemo && (
-            <ButtonWithIcon icon={<LaunchRoundedIcon />} title='Live Demo' goTo={liveDemo} />
+            <LinkWithIcon icon={<LaunchRoundedIcon />} title='Live Demo' goTo={liveDemo} />
           )}
           {sourceCode && (
-            <ButtonWithIcon icon={<GitHubIcon />} title='View Source' goTo={sourceCode} />
+            <LinkWithIcon icon={<GitHubIcon />} title='View Source' goTo={sourceCode} />
           )}
         </div>
 

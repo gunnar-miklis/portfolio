@@ -9,14 +9,14 @@ import '@/styles/horizontal-scroll-gallery.css';
 export default function HorizontalScrollGallery({ projects }: { projects: ProjectsType }) {
   const [scrollPosition, setScrollPosition] = useState<number>(0);
 
-  // get current scroll postion
+  // NOTE: get current scroll postion
   function handleScroll(event: React.UIEvent<HTMLDivElement>): void {
     if (event.target instanceof HTMLDivElement) {
       setScrollPosition(event.target.scrollLeft);
     }
   }
 
-  // show / hide navigation buttons
+  // NOTE: show/hide behavior of navigation buttons
   useEffect(() => {
     const gallery = document.querySelector('.gallery');
     const element = document.querySelector('.gallery-element');
@@ -46,87 +46,102 @@ export default function HorizontalScrollGallery({ projects }: { projects: Projec
     }
   }, [scrollPosition]);
 
-  // jump to start/end
-  function handleJump(to: string): void {
-    const gallery = document.querySelector('.gallery');
+  // NOTE: navigate between elements inside the gallery
+  function navigateTo(
+    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+    targetId: string,
+  ): void {
+    event.preventDefault();
 
-    if (gallery instanceof HTMLElement) {
-      switch (to) {
-        case 'start':
-          gallery.scrollTo({ left: 0, behavior: 'smooth' });
-          break;
-        case 'end':
-          gallery.scrollTo({ left: gallery.scrollWidth, behavior: 'smooth' });
-          break;
-      }
-    }
-  }
-
-  // scroll elements one-by-one
-  function handleNavigation(to: string): void {
     const gallery = document.querySelector('.gallery');
     const element = document.querySelector('.gallery-element');
 
     if (gallery instanceof HTMLElement && element instanceof HTMLElement) {
       const elementWidth = element.clientWidth;
-      switch (to) {
+      switch (targetId) {
         case 'previous':
           gallery.scrollTo({ left: scrollPosition - elementWidth, behavior: 'smooth' });
           break;
         case 'next':
           gallery.scrollTo({ left: scrollPosition + elementWidth, behavior: 'smooth' });
           break;
+        case 'start':
+          gallery.scrollTo({ left: 0, behavior: 'smooth' });
+          break;
+        case 'end':
+          gallery.scrollTo({ left: gallery.scrollWidth, behavior: 'smooth' });
+          break;
+        default:
+          break;
       }
     }
   }
 
   return (
-    <div>
-      <div className='gallery-wrapper'>
-        <div className='gallery-nav'>
-          <div className='gallery-nav-buttons'>
-            <div className='gallery-nav-buttons-left'>
-              <a className='link' id='to-previous' onClick={() => handleNavigation('previous')}>
-                <WestIcon />
-              </a>
-              <a className='link' id='to-end' onClick={() => handleNavigation('next')}>
-                Scroll Right <EastIcon id='animated-icon' />
-              </a>
-            </div>
-            <div className='gallery-nav-buttons-right'>
-              <a className='link' id='to-next' onClick={() => handleNavigation('next')}>
-                <EastIcon />
-              </a>
-              <a className='link' id='to-start' onClick={() => handleJump('start')}>
-                Back to Start <WestIcon />
-              </a>
-            </div>
-          </div>
-          <PositionIndicatorBar
-            scrollPosition={scrollPosition}
-            targetElement='.gallery'
-            parentElement='.gallery-wrapper'
-          />
-        </div>
-
-        <div className='gallery' onScroll={handleScroll}>
-          {Object.values(projects).map((project: Project) => (
-            <Card
-              key={project.id}
-              className='gallery-element'
-              title={project.title}
-              category={project.category}
-              date={project.date}
-              technologies={project.technologies}
-              liveDemo={project.liveDemo}
-              sourceCode={project.sourceCode}
-              imageSources={project.imageSources}
-              footnote={project.footnote}
+    <div className='gallery-wrapper'>
+      <nav className='gallery-nav'>
+        <div className='gallery-nav-buttons'>
+          <div className='gallery-nav-buttons-left'>
+            <a
+              className='link'
+              id='to-previous'
+              href='#to-previous'
+              onClick={(event) => navigateTo(event, 'previous')}
             >
-              {project.content}
-            </Card>
-          ))}
+              <WestIcon /> Previous
+            </a>
+            <a
+              className='link'
+              id='to-end'
+              href='#to-next'
+              onClick={(event) => navigateTo(event, 'next')}
+            >
+              Scroll Right <EastIcon id='animated-icon' />
+            </a>
+          </div>
+          <div className='gallery-nav-buttons-right'>
+            <a
+              className='link'
+              id='to-next'
+              href='#to-next'
+              onClick={(event) => navigateTo(event, 'next')}
+            >
+              Next <EastIcon />
+            </a>
+            <a
+              className='link'
+              id='to-start'
+              href='#to-start'
+              onClick={(event) => navigateTo(event, 'start')}
+            >
+              Back to Start <WestIcon />
+            </a>
+          </div>
         </div>
+        <PositionIndicatorBar
+          scrollPosition={scrollPosition}
+          targetElement='.gallery'
+          parentElement='.gallery-wrapper'
+        />
+      </nav>
+
+      <div className='gallery' onScroll={handleScroll}>
+        {Object.values(projects).map((project: Project) => (
+          <Card
+            key={project.id}
+            className='gallery-element'
+            title={project.title}
+            category={project.category}
+            date={project.date}
+            technologies={project.technologies}
+            liveDemo={project.liveDemo}
+            sourceCode={project.sourceCode}
+            imageSources={project.imageSources}
+            footnote={project.footnote}
+          >
+            {project.content}
+          </Card>
+        ))}
       </div>
     </div>
   );

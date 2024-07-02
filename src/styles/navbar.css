@@ -15,20 +15,18 @@
 
   z-index: 10;
 }
-.navbar * {
-  font-weight: 500;
-}
 .center-navbar {
-  width: var(--app-width);
-  padding: var(--space-md);
-
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  width: var(--app-width);
+  padding: var(--space-sm);
 }
 .brand {
   display: flex;
   flex-flow: column nowrap;
+
   max-width: 100%;
 }
 .brand a {
@@ -41,13 +39,14 @@
   display: flex;
   flex-flow: column;
   align-items: flex-end;
+
   max-width: 100%;
 }
 .navigation a {
   font-weight: 500;
+  text-align: right;
 
   width: 100%;
-  text-align: right;
   border: unset;
 }
 .active {
@@ -63,9 +62,18 @@
 }
 
 /* RESPONSIVENESS */
-/* Small devices (phones, 576px and down) */
 @media only screen and (max-width: 576px) {
   .center-navbar {
     padding: var(--space-sm);
+  }
+}
+@media (min-width: 577px) and (max-width: 992px) {
+  .center-navbar {
+    padding: var(--space-md);
+  }
+}
+@media (min-width: 993px) {
+  .center-navbar {
+    padding: var(--space-md);
   }
 }

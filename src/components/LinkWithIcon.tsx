@@ -1,12 +1,12 @@
 import { ReactElement } from 'react';
 
-export interface ButtonWithIconProps {
+export interface LinkWithIconProps {
   icon: ReactElement;
   title: string;
   goTo: string;
 }
 
-export default function ButtonWithIcon({ icon, title, goTo }: ButtonWithIconProps) {
+export default function LinkWithIcon({ icon, title, goTo }: LinkWithIconProps) {
   return (
     <a
       href={goTo}

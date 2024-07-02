@@ -27,7 +27,7 @@ export const projects: ProjectsType = {
     title: 'Event Ticketing',
     category: 'Latest Project',
     date: 'May 2024',
-    technologies: ['TypeScript', 'React Native', 'Expo Go', 'SQLite', ],
+    technologies: ['TypeScript', 'React Native', 'Expo Go', 'SQLite'],
     sourceCode: 'https://github.com/gunnar-miklis#latest-project',
     imageSources: [
       'https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihaHSigp0F2p4TOxtoOY65opCOvrS597T-WUcMU6_Bx2MZ_vNuU6LN6zcsUomqvcxzjX6n0sbzVfSXbrHX22YWeEWZHbnsiDt-Q=w1920-h991-rw-v1',

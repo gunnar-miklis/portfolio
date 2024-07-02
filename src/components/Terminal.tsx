@@ -4,10 +4,10 @@ import '@/styles/terminal.css';
 
 export default function Terminal() {
   return (
-    <section className='terminal window paper'>
+    <article className='terminal window paper'>
       <WindowTopBar title='About' />
 
-      <div className='window-content paper-spacing-md'>
+      <div className='window-content'>
         <div>
           <p className='in'>
             <Icon /> gunnar.hello
@@ -33,8 +33,8 @@ export default function Terminal() {
             <Icon /> gunnar.skills.technical
           </p>
           <p className='out'>
-            [ TypeScript, JavaScript, Node, React, React Native, Express, MongoDB, SQL, git, GitHub, R, Ubuntu Shell
-            ]
+            [ TypeScript, JavaScript, Node, React, React Native, Express, MongoDB, SQL, git, GitHub,
+            R, Ubuntu Shell ]
           </p>
         </div>
 
@@ -141,6 +141,6 @@ export default function Terminal() {
           <p className='out'></p>
         </div>
       </div>
-    </section>
+    </article>
   );
 }

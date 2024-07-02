@@ -29,7 +29,6 @@
 }
 #expand-more,
 #expand-less {
-  color: var(--heading-light);
   background-color: #fff; /* COMMENT: for now, this has to be light */
 
   position: absolute;
@@ -41,6 +40,7 @@
 
   padding: var(--space-sm);
   border-radius: 1rem;
+  border: unset;
 
   cursor: pointer;
 }
@@ -48,8 +48,6 @@
 #expand-down,
 #expand-left,
 #expand-right {
-  /* color: var(--heading-light); */
-
   position: absolute;
 
   display: inline-flex;
@@ -57,6 +55,7 @@
 
   padding: var(--space-sm);
   border-radius: 1rem;
+  border: unset;
 
   cursor: pointer;
 }
