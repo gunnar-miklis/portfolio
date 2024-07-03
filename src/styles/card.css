@@ -27,8 +27,8 @@
   max-width: 100%;
   max-height: 100%;
 }
-#expand-more,
-#expand-less {
+#expand,
+#shrink {
   background-color: #fff; /* COMMENT: for now, this has to be light */
   color: var(--bg-dark);
 
@@ -45,9 +45,9 @@
 
   cursor: pointer;
 }
-#expand-up,
+#shrink-up,
 #expand-down,
-#expand-left,
+#shrink-left,
 #expand-right {
   position: absolute;
 
@@ -60,13 +60,13 @@
 
   cursor: pointer;
 }
-#expand-up,
+#shrink-up,
 #expand-down {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
 }
-#expand-left,
+#shrink-left,
 #expand-right {
   top: 50%;
   left: -0.4rem;

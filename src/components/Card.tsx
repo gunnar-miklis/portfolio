@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useState } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LaunchRoundedIcon from '@mui/icons-material/LaunchRounded';
 import CloseFullIcon from '@mui/icons-material/CloseFullscreen';
@@ -22,30 +22,30 @@ interface Values {
 interface CardImage {
   width: {
     initial: number;
-    expand: number;
+    expanded: number;
   };
   height: {
     initial: number;
-    expand: number;
+    expanded: number;
   };
 }
 interface CardContent {
   width: {
     initial: number;
-    expand: number;
+    expanded: number;
   };
   height: {
     initial: number;
-    expand: number;
+    expanded: number;
   };
   padding: {
     initial: string | 0;
-    expand: string | 0;
+    expanded: string | 0;
   };
 }
 function isPercentage(value: number): number {
   if (typeof value !== 'number' || value < 0 || value > 100)
-    throw new Error('Expexted a number between 0 and 100.');
+    throw new Error('Expected a number between 0 and 100.');
   else return value;
 }
 const values: Values = {
@@ -53,25 +53,25 @@ const values: Values = {
     image: {
       width: {
         initial: isPercentage(35),
-        expand: isPercentage(100),
+        expanded: isPercentage(100),
       },
       height: {
         initial: 1000,
-        expand: 1000,
+        expanded: 1000,
       },
     },
     content: {
       width: {
         initial: isPercentage(65),
-        expand: isPercentage(3),
+        expanded: isPercentage(3),
       },
       height: {
         initial: 1000,
-        expand: 1000,
+        expanded: 1000,
       },
       padding: {
         initial: 'var(--space-lg)',
-        expand: 0,
+        expanded: 0,
       },
     },
   },
@@ -79,31 +79,36 @@ const values: Values = {
     image: {
       width: {
         initial: isPercentage(100),
-        expand: isPercentage(100),
+        expanded: isPercentage(100),
       },
       height: {
-        initial: 400,
-        expand: 1000,
+        initial: 300,
+        expanded: 1500,
       },
     },
     content: {
       width: {
         initial: isPercentage(100),
-        expand: isPercentage(100),
+        expanded: isPercentage(100),
       },
       height: {
-        initial: 1000,
-        expand: 0,
+        initial: 1500,
+        expanded: 0,
       },
       padding: {
         initial: 'var(--space-lg)',
-        expand: 0,
+        expanded: 0,
       },
     },
   },
 };
 
-export interface CardProps {
+interface StateType {
+  width: number;
+  height: number;
+  padding?: string | 0;
+}
+interface CardProps {
   children: ReactNode;
   className: string;
   title: string;
@@ -130,11 +135,11 @@ export default function Card({
   const { windowWith } = useWindowDimensions();
   const [orientation, setOrientation] = useState<'col' | 'row'>('col');
 
-  const [image, setImage] = useState<{ width: number; height: number }>({
+  const [image, setImage] = useState<StateType>({
     width: values['col'].image.width.initial,
     height: values['col'].image.height.initial,
   });
-  const [content, setContent] = useState<{ width: number; height: number; padding: string | 0 }>({
+  const [content, setContent] = useState<StateType>({
     width: values['col'].content.width.initial,
     height: values['col'].content.height.initial,
     padding: values['col'].content.padding.initial,
@@ -145,6 +150,7 @@ export default function Card({
   useEffect(() => {
     if (windowWith > 992) {
       setOrientation('row');
+      setIsImageExpanded(false);
       setImage({
         width: values['row'].image.width.initial,
         height: values['row'].image.height.initial,
@@ -154,9 +160,9 @@ export default function Card({
         height: values['row'].content.height.initial,
         padding: values['row'].content.padding.initial,
       });
-      setIsImageExpanded(false);
     } else {
       setOrientation('col');
+      setIsImageExpanded(false);
       setImage({
         width: values['col'].image.width.initial,
         height: values['col'].image.height.initial,
@@ -166,92 +172,77 @@ export default function Card({
         height: values['col'].content.height.initial,
         padding: values['col'].content.padding.initial,
       });
-      setIsImageExpanded(false);
     }
   }, [windowWith, orientation]);
 
-  // NOTE: animation for expanding image and shrinking content
-  function expandAnimation(): void {
-    if (orientation === 'col') {
-      const animationImage = setInterval(() => {
-        setImage(({ height }) => {
-          if (height < values['col'].image.height.expand) {
-            height += 10;
-            return { ...image, height };
-          } else {
-            clearInterval(animationImage);
-            return { ...image, height };
-          }
-        });
-      }, 9);
-      const animationContent = setInterval(() => {
-        setContent(({ height }) => {
-          if (height > values['col'].content.height.expand) {
-            height -= 10;
-            return { ...content, height };
-          } else {
-            clearInterval(animationContent);
-            return { ...content, height, padding: values['col'].content.padding.expand };
-          }
-        });
-      }, 5);
-    } else if (orientation === 'row') {
-      // TODO: add animation for orientation row, right now is just jumping to position without animation
-      setImage({ ...image, width: values['row'].image.width.expand });
-      setContent({
-        ...content,
-        width: values['row'].content.width.expand,
-        padding: values['row'].content.padding.expand,
-      });
-    }
-  }
-
-  // NOTE: animation for shrinking image and expanding content
-  function shrinkAnimation(): void {
-    if (orientation === 'col') {
-      const animationImage = setInterval(() => {
-        setImage(({ height }) => {
-          if (height > values['col'].image.height.initial) {
-            height -= 10;
-            return { ...content, height };
-          } else {
-            clearInterval(animationImage);
-            return { ...content, height };
-          }
-        });
-      }, 9);
-      const animationContent = setInterval(() => {
-        setContent(({ height }) => {
-          if (height < values['col'].content.height.initial) {
-            height += 10;
-            return { ...content, height };
-          } else {
-            clearInterval(animationContent);
-            return { ...content, height, padding: values['col'].content.padding.initial };
-          }
-        });
-      }, 5);
-    } else if (orientation === 'row') {
-      // TODO: add animation for orientation row, right now is just jumping to position without animation
-      setImage({ ...image, width: values['row'].image.width.initial });
-      setContent({
-        ...content,
-        width: values['row'].content.width.initial,
-        padding: values['row'].content.padding.initial,
-      });
-    }
-  }
-
+  // NOTE: handel expand or shrink
   function handleExpand(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>): void {
     event.preventDefault();
 
     if (!isImageExpanded) {
-      expandAnimation();
+      if (orientation === 'col') {
+        animate('col', 'expand', 'image', setImage, 'height', 'expanded', 10, 9);
+        animate('col', 'shrink', 'content', setContent, 'height', 'expanded', 10, 4);
+      } else {
+        animate('row', 'expand', 'image', setImage, 'width', 'expanded', 1, 5);
+        animate('row', 'shrink', 'content', setContent, 'width', 'expanded', 1, 5);
+      }
       setIsImageExpanded(true);
     } else {
-      shrinkAnimation();
+      if (orientation === 'col') {
+        animate('col', 'shrink', 'image', setImage, 'height', 'initial', 10, 9);
+        animate('col', 'expand', 'content', setContent, 'height', 'initial', 10, 6);
+      } else {
+        animate('row', 'shrink', 'image', setImage, 'width', 'initial', 1, 5);
+        animate('row', 'expand', 'content', setContent, 'width', 'initial', 1, 5);
+      }
       setIsImageExpanded(false);
     }
+  }
+  // COMMENT: abstracted function to avoid repeating shrink and expand, each 4 times to a total of 8.
+  function animate(
+    orientation: 'col' | 'row',
+    action: 'shrink' | 'expand' ,
+    target: 'image' | 'content',
+    setState: React.Dispatch<React.SetStateAction<StateType>>,
+    dimension: 'width' | 'height',
+    value: 'initial' | 'expanded',
+    amount: number,
+    interval: number,
+  ): void {
+    // set an interval to decrease/increase the state (width or height) step-by-step
+    const animation = setInterval(() => {
+      // eacht interval step: setState (setImage() or setContent())
+      setState((prevState) => {
+        // comparing state (width/height) with min/max value ( inital or expanded )
+        // for shrinking: state "greater than" min, for expanding: state "lesser than" max.
+        // eg. shrink: ( width > values.row.image.width.inital )
+        if (
+          (action === 'shrink' &&
+            prevState[dimension] > values[orientation][target][dimension][value]) ||
+          (action === 'expand' &&
+            prevState[dimension] < values[orientation][target][dimension][value])
+        ) {
+          // decrease/increse the state by the given amount
+          if (action === 'shrink') prevState[dimension] -= amount;
+          else prevState[dimension] += amount;
+          // return the state object with the new/updated/decreased value
+          return { ...prevState, [dimension]: prevState[dimension] };
+        } else {
+          // if the min/max is reached, stop the interval and return state object (+ padding)
+          clearInterval(animation);
+          if (target === 'image') {
+            return { ...prevState, [dimension]: prevState[dimension] };
+          } else {
+            return {
+              ...prevState,
+              [dimension]: prevState[dimension],
+              padding: values[orientation][target].padding[value],
+            };
+          }
+        }
+      });
+    }, interval);
   }
 
   return (
@@ -261,8 +252,8 @@ export default function Card({
           {!isImageExpanded ? (
             <a
               className='link'
-              id='expand-more'
-              href='expand-more'
+              id='expand'
+              href='expand'
               onClick={(event) => handleExpand(event)}
             >
               <OpenFullIcon />
@@ -270,8 +261,8 @@ export default function Card({
           ) : (
             <a
               className='link'
-              id='expand-less'
-              href='expand-less'
+              id='shrink'
+              href='shrink'
               onClick={(event) => handleExpand(event)}
             >
               <CloseFullIcon />
@@ -309,8 +300,8 @@ export default function Card({
             ) : (
               <a
                 className='link'
-                id='expand-up'
-                href='expand-up'
+                id='shrink-up'
+                href='shrink-up'
                 onClick={(event) => handleExpand(event)}
               >
                 <ArrowUpIcon fontSize='large' />
@@ -328,8 +319,8 @@ export default function Card({
           ) : (
             <a
               className='link'
-              id='expand-left'
-              href='expand-left'
+              id='shrink-left'
+              href='shrink-left'
               onClick={(event) => handleExpand(event)}
             >
               <ArrowLeftIcon fontSize='large' />
