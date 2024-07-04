@@ -186,7 +186,7 @@ button {
   justify-content: flex-start;
 
   /* width: 100%; */ /* TESTING: not sure about this one yet */
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 /* UTILITY CLASSES */

@@ -16,9 +16,17 @@
 
 /* navigation elements */
 .gallery-nav {
+  background-color: var(--bg-dark);
+
+  position: sticky;
+  top: 6rem;
+  z-index: 10;
+
   display: flex;
   flex-flow: column nowrap;
   gap: var(--space-sm);
+
+  padding-bottom: var(--space-md);
 }
 .gallery-nav-buttons {
   display: flex;
@@ -83,6 +91,9 @@
 @media (prefers-color-scheme: light) {
   ::-webkit-scrollbar-thumb {
     background: var(--annotation-light);
+  }
+  .gallery-nav {
+    background-color: var(--bg-light);
   }
 }
 
