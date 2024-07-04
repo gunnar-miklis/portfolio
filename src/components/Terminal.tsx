@@ -1,11 +1,26 @@
 import Icon from '@mui/icons-material/ChevronRight';
-import WindowTopBar from './WindowTopBar';
+import MaximizeIcon from '@mui/icons-material/CropSquare';
+import MinimizeIcon from '@mui/icons-material/Minimize';
+import CloseIcon from '@mui/icons-material/Close';
 import '@/styles/terminal.css';
 
 export default function Terminal() {
   return (
     <article className='terminal window paper'>
-      <WindowTopBar title='About' />
+      <div className='window-top-bar'>
+        <p>About</p>
+        <div>
+          <span>
+            <MinimizeIcon />
+          </span>
+          <span>
+            <MaximizeIcon />
+          </span>
+          <span style={{ backgroundColor: '#e66033dd' }}>
+            <CloseIcon />
+          </span>
+        </div>
+      </div>
 
       <div className='window-content'>
         <div>
@@ -72,7 +87,7 @@ export default function Terminal() {
           <p className='in'>
             <Icon /> gunnar.languages
           </p>
-          <p className='out'>{`{ English: Fluent, German: Native, Japanese: Basic }`}</p>
+          <p className='out'>{`{ English: Fluent, German: Native }`}</p>
         </div>
 
         <div>
