@@ -1,8 +1,6 @@
 import React, { ReactNode, useEffect, useState } from 'react';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LaunchRoundedIcon from '@mui/icons-material/LaunchRounded';
-import CloseFullIcon from '@mui/icons-material/CloseFullscreen';
-import OpenFullIcon from '@mui/icons-material/OpenInFull';
 import ArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import ArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import ArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
@@ -202,7 +200,7 @@ export default function Card({
   // COMMENT: abstracted function to avoid repeating shrink and expand, each 4 times to a total of 8.
   function animate(
     orientation: 'col' | 'row',
-    action: 'shrink' | 'expand' ,
+    action: 'shrink' | 'expand',
     target: 'image' | 'content',
     setState: React.Dispatch<React.SetStateAction<StateType>>,
     dimension: 'width' | 'height',
@@ -248,28 +246,6 @@ export default function Card({
   return (
     <article className={`card ${className}`}>
       <figure className='card-image' style={{ width: `${image.width}%`, maxHeight: image.height }}>
-        <nav>
-          {!isImageExpanded ? (
-            <a
-              className='link'
-              id='expand'
-              href='expand'
-              onClick={(event) => handleExpand(event)}
-            >
-              <OpenFullIcon />
-            </a>
-          ) : (
-            <a
-              className='link'
-              id='shrink'
-              href='shrink'
-              onClick={(event) => handleExpand(event)}
-            >
-              <CloseFullIcon />
-            </a>
-          )}
-        </nav>
-
         {/* images */}
         {/* TODO: idea, make this list of images scrollable */}
         {imageSources.map((source, i) => (

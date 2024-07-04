@@ -9,6 +9,7 @@
 
   overflow: hidden;
 }
+
 .card-image {
   background-color: #fff; /* COMMENT: for now, this has to be light */
   position: relative;
@@ -26,51 +27,6 @@
   object-fit: contain;
   max-width: 100%;
   max-height: 100%;
-}
-#expand,
-#shrink {
-  background-color: #fff; /* COMMENT: for now, this has to be light */
-  color: var(--bg-dark);
-
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  display: inline-flex;
-  align-items: center;
-
-  padding: var(--space-sm);
-  border-radius: 1rem;
-  border: unset;
-
-  cursor: pointer;
-}
-#shrink-up,
-#expand-down,
-#shrink-left,
-#expand-right {
-  position: absolute;
-
-  display: inline-flex;
-  align-items: center;
-
-  padding: var(--space-sm);
-  border-radius: 1rem;
-  border: unset;
-
-  cursor: pointer;
-}
-#shrink-up,
-#expand-down {
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-}
-#shrink-left,
-#expand-right {
-  top: 50%;
-  left: -0.4rem;
-  transform: translateY(-50%);
 }
 
 .card-content {
@@ -123,6 +79,34 @@
 }
 .card .footnote {
   padding: 0 calc(var(--space-sm) / 2);
+}
+
+#shrink-up,
+#expand-down,
+#shrink-left,
+#expand-right {
+  position: absolute;
+
+  display: inline-flex;
+  align-items: center;
+
+  padding: var(--space-sm);
+  border-radius: 1rem;
+  border: unset;
+
+  cursor: pointer;
+}
+#shrink-up,
+#expand-down {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#shrink-left,
+#expand-right {
+  top: 50%;
+  left: -0.4rem;
+  transform: translateY(-50%);
 }
 
 /* LIGHT THEME */
