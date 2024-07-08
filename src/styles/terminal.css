@@ -31,7 +31,7 @@
   gap: var(--space-sm);
 }
 .window-top-bar span {
-  background-color: var(--annotation-dark);
+  background-color: #7b7b7b;
   color: var(--heading-dark);
 
   display: flex;
@@ -40,6 +40,9 @@
 
   border-radius: 50%;
   padding: 0.15rem;
+}
+.window-top-bar span:last-child {
+  background-color: #9b9b9b;
 }
 .window-top-bar span * {
   font-size: 1.1rem;
@@ -101,8 +104,11 @@
     background-color: #797979;
   }
   .window-top-bar span {
-    background-color: var(--card-bg-light);
+    background-color: #9b9b9b;
     color: var(--bg-light);
+  }
+  .window-top-bar span:last-child {
+    background-color: #bbbbbb;
   }
   .in {
     color: var(--annotation-light);

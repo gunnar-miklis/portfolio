@@ -1,6 +1,10 @@
 import Icon from '@mui/icons-material/ChevronRight';
 import MaximizeIcon from '@mui/icons-material/CropSquare';
 import MinimizeIcon from '@mui/icons-material/Minimize';
+import WavingHandIcon from '@mui/icons-material/WavingHand';
+import AutoGraphRoundedIcon from '@mui/icons-material/AutoGraphRounded';
+import Diversity1Icon from '@mui/icons-material/Diversity1';
+import CenterFocusWeakRoundedIcon from '@mui/icons-material/CenterFocusWeakRounded';
 import CloseIcon from '@mui/icons-material/Close';
 import '@/styles/terminal.css';
 
@@ -16,7 +20,7 @@ export default function Terminal() {
           <span>
             <MaximizeIcon />
           </span>
-          <span style={{ backgroundColor: '#e66033dd' }}>
+          <span>
             <CloseIcon />
           </span>
         </div>
@@ -27,7 +31,10 @@ export default function Terminal() {
           <p className='in'>
             <Icon /> gunnar.hello
           </p>
-          <p className='out'>Nice to meet you! 👋</p>
+          <p className='out'>
+            Nice to meet you! &nbsp;
+            <WavingHandIcon fontSize='small' />
+          </p>
           <p className='out'>I develop Single Page Web Applications and RESTful APIs.</p>
           <p className='out'>
             Whether frontend or backend, as Full-Stack Web Developer I unify both.
@@ -72,13 +79,22 @@ export default function Terminal() {
             style={{ display: 'flex', flexFlow: 'column nowrap', alignItems: 'flex-start' }}
           >
             <span>{`{ `}</span>
-            <span style={{ paddingLeft: '1rem' }}>🌱: Loves new challenges, eager to learn.</span>
-            <span style={{ paddingLeft: '1rem' }}>
-              🧘: Calm and patient individual, easy to get along.
-            </span>
-            <span style={{ paddingLeft: '1rem' }}>
-              🔍: Attention-to-detail and diligent, aiming to build visually appealing web apps.
-            </span>
+
+            <ul className='list' style={{ marginLeft: '1rem' }}>
+              <li>
+                <AutoGraphRoundedIcon fontSize='small' />
+                Loves new challenges, eager to learn.
+              </li>
+              <li>
+                <Diversity1Icon fontSize='small' />
+                Calm and patient individual, easy to get along.
+              </li>
+              <li>
+                <CenterFocusWeakRoundedIcon fontSize='small' />
+                Attention-to-detail and diligent, aiming to build visually appealing web apps.
+              </li>
+            </ul>
+
             <span>{`} `}</span>
           </p>
         </div>
