@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import '@/styles/header.css';
 
-const h1 = 'Building apps with user-centered approach unlocks potential.';
+const h1 = 'Apps with user-centered approach unlock potential.';
 const h2 =
   'I believe intuitive, continually evolving products that are both functional and enjoyable will deeply resonate with users and transform their experience.';
 
@@ -17,7 +17,6 @@ export default function Header() {
     const about = document.querySelector('#nav-about');
     if (about instanceof HTMLElement) {
       const resetTypeWriter = () => {
-        console.log('window.scrollY :>> ', window.scrollY);
         if (window.scrollY > 1200) {
           setTextH1(' ');
           setIndexH1(0);
@@ -56,6 +55,7 @@ export default function Header() {
           setIndexH2((prevIdx) => prevIdx + 1);
         }
       } else {
+		setShowCaretH2(false);
         clearInterval(animateH2);
       }
     }, 18);
@@ -85,7 +85,7 @@ export default function Header() {
         </h2>
       </div>
       <div className='header-image'>
-        <img src='https://flowcv.me/gunnar-miklis/photo-sdqu8bojavdg.jpg' />
+        <img src='https://flowcv.me/gunnar-miklis/photo-sdqu8bojavdg.jpg' alt='Gunnar Miklis'/>
       </div>
     </header>
   );
