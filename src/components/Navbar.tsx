@@ -1,5 +1,6 @@
 import '@/styles/navbar.css';
 import React, { useEffect } from 'react';
+import ExternalLink from './ExternalLink';
 
 export default function Navbar() {
   // NOTE: set nav item active if in view
@@ -40,42 +41,36 @@ export default function Navbar() {
   }
 
   return (
-    <nav className='navbar'>
+    <nav className='navbar' role='navigation'>
       <div className='center-navbar'>
         <div className='brand'>
-          <a
-            href='https://flowcv.me/gunnar-miklis'
-            target='_blank'
-            rel='noreferrer'
-            className='link'
-          >
+          <ExternalLink href='https://flowcv.me/gunnar-miklis' title='Online Business Card'>
             Gunnar Miklis
-          </a>
-          <a
-            href='https://github.com/gunnar-miklis'
-            target='_blank'
-            rel='noreferrer'
-            className='link'
-          >
+          </ExternalLink>
+          <ExternalLink href='https://github.com/gunnar-miklis' title='GitHub'>
             JavaScript Web Developer
-          </a>
+          </ExternalLink>
         </div>
         <div className='navigation'>
           <a
-            href='#about'
             id='nav-about'
             className='link active'
+            href='#about'
             onClick={(event) =>
               window.scrollY < 650 ? navigateTo(event, '.terminal') : scrollToTop(event)
             }
+            title='Navigate to About Section'
+            aria-label='Navigate to About Section'
           >
             About
           </a>
           <a
-            href='#projects'
             id='nav-projects'
             className='link'
+            href='#projects'
             onClick={(event) => navigateTo(event, '#projects')}
+            title='Navigate to Projects Section'
+            aria-label='Navigate to Projects Section'
           >
             Projects
           </a>

@@ -1,24 +1,26 @@
 import { ReactElement } from 'react';
 
-export interface LinkWithIconProps {
+interface LinkWithIconProps {
   icon: ReactElement;
   title: string;
-  goTo: string;
+  href: string;
 }
 
-export default function LinkWithIcon({ icon, title, goTo }: LinkWithIconProps) {
+export default function LinkWithIcon({ icon, title, href }: LinkWithIconProps) {
   return (
     <a
-      href={goTo}
+      href={href}
       target='_blank'
+      rel='noreferrer'
+      title={`View ${title} (external website opens in new tab)`}
+      aria-label={`View ${title} (external website opens in new tab)`}
       className='button'
       style={{
-        display: 'flex',
+        display: 'inline-flex',
         justifyContent: 'space-between',
         alignItems: 'center',
         gap: '0.6rem',
       }}
-      rel='noreferrer'
     >
       {icon}
       {title}

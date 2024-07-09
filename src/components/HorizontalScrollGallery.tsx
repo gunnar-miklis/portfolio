@@ -47,12 +47,7 @@ export default function HorizontalScrollGallery({ projects }: { projects: Projec
   }, [scrollPosition]);
 
   // NOTE: navigate between elements inside the gallery
-  function navigateTo(
-    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
-    targetId: string,
-  ): void {
-    event.preventDefault();
-
+  function navigateTo(targetId: string): void {
     const gallery = document.querySelector('.gallery');
     const element = document.querySelector('.gallery-element');
 
@@ -82,40 +77,44 @@ export default function HorizontalScrollGallery({ projects }: { projects: Projec
       <nav className='gallery-nav'>
         <div className='gallery-nav-buttons'>
           <div className='gallery-nav-buttons-left'>
-            <a
+            <button
               className='link'
               id='to-previous'
-              href='#to-previous'
-              onClick={(event) => navigateTo(event, 'previous')}
+              onClick={() => navigateTo('previous')}
+              title='Scroll to the previous project'
+              aria-label='Scroll to the previous project'
             >
               <WestIcon /> Previous
-            </a>
-            <a
+            </button>
+            <button
               className='link'
               id='to-end'
-              href='#to-next'
-              onClick={(event) => navigateTo(event, 'next')}
+              onClick={() => navigateTo('next')}
+              title='Scroll to the next project'
+              aria-label='Scroll to the next project'
             >
               Scroll Right <EastIcon id='animated-icon' />
-            </a>
+            </button>
           </div>
           <div className='gallery-nav-buttons-right'>
-            <a
+            <button
               className='link'
               id='to-next'
-              href='#to-next'
-              onClick={(event) => navigateTo(event, 'next')}
+              onClick={() => navigateTo('next')}
+              title='Scroll to the next project'
+              aria-label='Scroll to the next project'
             >
               Next <EastIcon />
-            </a>
-            <a
+            </button>
+            <button
               className='link'
               id='to-start'
-              href='#to-start'
-              onClick={(event) => navigateTo(event, 'start')}
+              onClick={() => navigateTo('start')}
+              title='Scroll to the first project'
+              aria-label='Scroll to the first project'
             >
               Back to Start <WestIcon />
-            </a>
+            </button>
           </div>
         </div>
         <PositionIndicatorBar

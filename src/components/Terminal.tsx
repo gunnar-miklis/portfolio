@@ -7,12 +7,13 @@ import Diversity1Icon from '@mui/icons-material/Diversity1';
 import CenterFocusWeakRoundedIcon from '@mui/icons-material/CenterFocusWeakRounded';
 import CloseIcon from '@mui/icons-material/Close';
 import '@/styles/terminal.css';
+import ExternalLink from './ExternalLink';
 
 export default function Terminal() {
   return (
     <article className='terminal window paper'>
       <div className='window-top-bar'>
-        <p>About</p>
+        <h3>About</h3>
         <div>
           <span>
             <MinimizeIcon />
@@ -32,8 +33,7 @@ export default function Terminal() {
             <Icon /> gunnar.hello
           </p>
           <p className='out'>
-            Nice to meet you! &nbsp;
-            <WavingHandIcon fontSize='small' />
+            Nice to meet you! &nbsp; <WavingHandIcon fontSize='small' />
           </p>
           <p className='out'>I develop Single Page Web Applications and RESTful APIs.</p>
           <p className='out'>
@@ -46,7 +46,7 @@ export default function Terminal() {
             <Icon /> gunnar.isOpenForWork && when
           </p>
           <p className='out'>
-            <span style={{ color: '#e66033CC', fontWeight: 600 }}>TRUE</span>; immediately
+            <span style={{ color: '#e64a19', fontWeight: 700 }}>TRUE</span>; immediately
           </p>
         </div>
 
@@ -65,8 +65,8 @@ export default function Terminal() {
             <Icon /> gunnar.skills.personal
           </p>
           <p className='out'>
-            [ Analytical Skills, Problem Solving, Fast Learning, Collaboration, Customer-Centered,
-            Open-minded, Curiosity, Passionate, Interdisciplinary, Agile ]
+            [ Analytical Skills, Problem Solving, Customer-Centered, Open-minded, Curiosity,
+            Passionate, Fast Learning, Collaboration, Interdisciplinary, Agile ]
           </p>
         </div>
 
@@ -74,9 +74,9 @@ export default function Terminal() {
           <p className='in'>
             <Icon /> gunnar.personality
           </p>
-          <p
+          <span
             className='out'
-            style={{ display: 'flex', flexFlow: 'column nowrap', alignItems: 'flex-start' }}
+            style={{ display: 'inline-flex', flexFlow: 'column nowrap', alignItems: 'flex-start' }}
           >
             <span>{`{ `}</span>
 
@@ -96,7 +96,7 @@ export default function Terminal() {
             </ul>
 
             <span>{`} `}</span>
-          </p>
+          </span>
         </div>
 
         <div>
@@ -113,31 +113,19 @@ export default function Terminal() {
           <p className='out'>
             [&nbsp;
             <a
+              className='link'
               href='mailto:gunnar.miklis@gmail.com'
               target='_blank'
-              className='link'
               rel='noreferrer'
+              title='Sent an Email (opens external dialog)'
+              aria-label='Sent an Email (opens external dialog)'
             >
               E-Mail
             </a>
             ,&nbsp;
-            <a
-              href='https://linkedin.com/in/gunnar-miklis'
-              target='_blank'
-              className='link'
-              rel='noreferrer'
-            >
-              LinkedIn
-            </a>
+            <ExternalLink href='https://linkedin.com/in/gunnar-miklis' title='LinkedIn' />
             ,&nbsp;
-            <a
-              href='https://github.com/gunnar-miklis'
-              target='_blank'
-              className='link'
-              rel='noreferrer'
-            >
-              Github
-            </a>
+            <ExternalLink href='https://github.com/gunnar-miklis' title='GitHub' />
             &nbsp;]
           </p>
         </div>
@@ -147,14 +135,9 @@ export default function Terminal() {
             <Icon /> gunnar.resume
           </p>
           <p className='out'>
-            <a
-              href='https://flowcv.com/resume/u6jisbb5w9'
-              target='_blank'
-              className='link'
-              rel='noreferrer'
-            >
+            <ExternalLink href='https://flowcv.com/resume/u6jisbb5w9' title='Resume'>
               gunnar-miklis.pdf
-            </a>
+            </ExternalLink>
           </p>
         </div>
 

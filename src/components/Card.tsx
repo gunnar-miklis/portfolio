@@ -7,8 +7,8 @@ import ArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import ArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import useWindowDimensions from '../hooks/useWindowDimensions';
 import LinkWithIcon from './LinkWithIcon';
-import Chip from './Chip';
 import '@/styles/card.css';
+import ExpandShrinkButton from './ExpandShrinkButton';
 
 // NOTE: values for the animation of .card-image and .card-content
 interface Values {
@@ -118,6 +118,7 @@ interface CardProps {
   sourceCode?: string;
   footnote?: string;
 }
+
 export default function Card({
   children,
   className,
@@ -143,12 +144,14 @@ export default function Card({
     padding: values['col'].content.padding.initial,
   });
   const [isImageExpanded, setIsImageExpanded] = useState<boolean>(false);
+  const [isContentExpanded, setIsContentExpanded] = useState<boolean>(false);
 
   // NOTE: reset values to intial when window resizes and the orientation changes
   useEffect(() => {
     if (windowWith > 992) {
       setOrientation('row');
       setIsImageExpanded(false);
+      setIsContentExpanded(true);
       setImage({
         width: values['row'].image.width.initial,
         height: values['row'].image.height.initial,
@@ -161,6 +164,7 @@ export default function Card({
     } else {
       setOrientation('col');
       setIsImageExpanded(false);
+      setIsContentExpanded(true);
       setImage({
         width: values['col'].image.width.initial,
         height: values['col'].image.height.initial,
@@ -174,9 +178,7 @@ export default function Card({
   }, [windowWith, orientation]);
 
   // NOTE: handel expand or shrink
-  function handleExpand(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>): void {
-    event.preventDefault();
-
+  function handleExpand(): void {
     if (!isImageExpanded) {
       if (orientation === 'col') {
         animate('col', 'expand', 'image', setImage, 'height', 'expanded', 10, 9);
@@ -186,6 +188,7 @@ export default function Card({
         animate('row', 'shrink', 'content', setContent, 'width', 'expanded', 1, 5);
       }
       setIsImageExpanded(true);
+      setIsContentExpanded(false);
     } else {
       if (orientation === 'col') {
         animate('col', 'shrink', 'image', setImage, 'height', 'initial', 10, 9);
@@ -195,6 +198,7 @@ export default function Card({
         animate('row', 'expand', 'content', setContent, 'width', 'initial', 1, 5);
       }
       setIsImageExpanded(false);
+      setIsContentExpanded(true);
     }
   }
   // COMMENT: abstracted function to avoid repeating shrink and expand, each 4 times to a total of 8.
@@ -243,64 +247,78 @@ export default function Card({
     }, interval);
   }
 
+  function createId(str: string): string {
+    return str
+      .toLowerCase()
+      .replace(/\W+(?=\W?)/g, '-')
+      .replace(/\W+$/g, '');
+  }
+
   return (
     <article className={`card ${className}`}>
-      <figure className='card-image' style={{ width: `${image.width}%`, maxHeight: image.height }}>
+      <figure
+        className='card-image'
+        style={{ width: `${image.width}%`, maxHeight: image.height }}
+        title='Project image'
+        aria-label='Project image'
+        aria-expanded={isImageExpanded}
+      >
         {/* images */}
-        {/* TODO: idea, make this list of images scrollable */}
         {imageSources.map((source, i) => (
-          <img key={i} src={source} />
+          <img key={i} src={source} alt='App Screenshot' />
         ))}
       </figure>
 
       <div
         className='card-content'
+        id={createId(title)}
         style={{
           width: `${content.width}%`,
           maxHeight: content.height,
           paddingRight: orientation === 'row' ? content.padding : '',
           paddingBottom: orientation === 'col' ? content.padding : '',
         }}
+        aria-label='Project details'
       >
         <nav>
           {orientation === 'col' ? (
             !isImageExpanded ? (
-              <a
-                className='link'
+              <ExpandShrinkButton
                 id='expand-down'
-                href='expand-down'
-                onClick={(event) => handleExpand(event)}
-              >
-                <ArrowDownIcon fontSize='large' />
-              </a>
+                title='Hide project details'
+                onClick={() => handleExpand()}
+                ariaControls={createId(title)}
+                ariaExpanded={isContentExpanded}
+                icon={<ArrowDownIcon fontSize='large' />}
+              />
             ) : (
-              <a
-                className='link'
+              <ExpandShrinkButton
                 id='shrink-up'
-                href='shrink-up'
-                onClick={(event) => handleExpand(event)}
-              >
-                <ArrowUpIcon fontSize='large' />
-              </a>
+                title='Show project details'
+                onClick={() => handleExpand()}
+                ariaControls={createId(title)}
+                ariaExpanded={isContentExpanded}
+                icon={<ArrowUpIcon fontSize='large' />}
+              />
             )
           ) : !isImageExpanded ? (
-            <a
-              className='link'
+            <ExpandShrinkButton
               id='expand-right'
-              href='expand-right'
-              onClick={(event) => handleExpand(event)}
-            >
-              <ArrowRightIcon fontSize='large' />
-            </a>
+              title='Hide project details'
+              onClick={() => handleExpand()}
+              ariaControls={createId(title)}
+              ariaExpanded={isContentExpanded}
+              icon={<ArrowRightIcon fontSize='large' />}
+            />
           ) : (
-            <a
-              className='link'
+            <ExpandShrinkButton
               id='shrink-left'
-              href='shrink-left'
-              onClick={(event) => handleExpand(event)}
-            >
-              <ArrowLeftIcon fontSize='large' />
-            </a>
+              title='Show project details'
+              onClick={() => handleExpand()}
+              ariaControls={createId(title)}
+              ariaExpanded={isContentExpanded}
+              icon={<ArrowLeftIcon fontSize='large' />}
+            />
           )}
         </nav>
 
@@ -319,19 +337,31 @@ export default function Card({
         </div>
 
         {/* technologies */}
-        <div className='paper paper-spacing-sm' style={{ flexFlow: 'row wrap' }}>
+        <div
+          className='paper paper-spacing-sm'
+          style={{ flexFlow: 'row wrap' }}
+          title='Technologies'
+          aria-label='Technologies'
+        >
           {technologies.map((tech, i) => (
-            <Chip key={i}>{tech}</Chip>
+            <span className='chip' key={i}>
+              {tech}
+            </span>
           ))}
         </div>
 
         {/* action links */}
-        <div className='paper paper-spacing-sm' style={{ flexFlow: 'row wrap' }}>
+        <div
+          className='paper paper-spacing-sm'
+          style={{ flexFlow: 'row wrap' }}
+          title='External Links'
+          aria-label='External Links'
+        >
           {liveDemo && (
-            <LinkWithIcon icon={<LaunchRoundedIcon />} title='Live Demo' goTo={liveDemo} />
+            <LinkWithIcon href={liveDemo} icon={<LaunchRoundedIcon />} title='Live Demo' />
           )}
           {sourceCode && (
-            <LinkWithIcon icon={<GitHubIcon />} title='View Source' goTo={sourceCode} />
+            <LinkWithIcon href={sourceCode} icon={<GitHubIcon />} title='Source Code' />
           )}
         </div>
 

@@ -11,7 +11,7 @@
 }
 
 .card-image {
-  background-color: #fff; /* COMMENT: for now, this has to be light */
+  background-color: var(--bg-dark);
   position: relative;
   z-index: 1;
 
@@ -61,7 +61,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--space-md);
+  gap: var(--space-sm);
 }
 .feature-list {
   background-color: var(--card-bg-dark);
@@ -99,6 +99,7 @@
 #shrink-up,
 #expand-down {
   top: 0;
+  top: -0.2rem;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -114,6 +115,9 @@
   .card {
     box-shadow: var(--box-shadow-light);
     border: 1px solid var(--card-bg-light);
+  }
+  .card-image {
+    background-color: var(--bg-light);
   }
   .card-content {
     background-color: var(--card-bg-light);

@@ -3,6 +3,7 @@ import LooksOneIcon from '@mui/icons-material/LooksOne';
 import LooksTwoIcon from '@mui/icons-material/LooksTwo';
 import LooksThreeIcon from '@mui/icons-material/Looks3';
 import { ReactNode } from 'react';
+import ExternalLink from '../components/ExternalLink';
 
 export interface ProjectsType {
   [card: string]: Project;
@@ -42,7 +43,7 @@ export const projects: ProjectsType = {
           use, because the current venue has poor internet coverage.
         </p>
 
-        <div className='feature-list'>
+        <div className='feature-list' title='Features' aria-label='Features'>
           <ul className='list'>
             <li>
               <PhoneGearIcon /> QR-Code Scanner/Camera.
@@ -110,12 +111,9 @@ export const projects: ProjectsType = {
       <>
         <p>
           Part of my practice projects. Re-create frontend designs provided by{' '}
-          <a href='https://www.frontendmentor.io' className='link'>
-            Frontend Mentor
-          </a>
-          .
+          <ExternalLink href='https://www.frontendmentor.io' title='Frontend Mentor' />.
         </p>
-        <div className='feature-list'>
+        <div className='feature-list' title='Features' aria-label='Features'>
           <ul className='list'>
             <li>
               <PhoneGearIcon /> Mobile-first, fully responsive (phone, tablet, laptop)
@@ -151,15 +149,13 @@ export const projects: ProjectsType = {
       <>
         <p>
           Part of my practice projects. Introduction into Material UI following the{' '}
-          <a
+          <ExternalLink
             href='https://www.youtube.com/playlist?list=PLDxCaNaYIuUlG5ZqoQzFE27CUOoQvOqnQ'
-            className='link'
-          >
-            MUI Series
-          </a>
+            title='MUI Series'
+          />
           .
         </p>
-        <div className='feature-list'>
+        <div className='feature-list' title='Features' aria-label='Features'>
           <ul className='list'>
             <li>
               <PhoneGearIcon /> Grid Layout, Navbar and Routing, Header, Notification, Tooltips.
@@ -198,10 +194,7 @@ export const projects: ProjectsType = {
     content: (
       <p>
         Part of my practice projects. Re-create frontend designs provided by{' '}
-        <a href='https://www.frontendmentor.io' className='link'>
-          Frontend Mentor
-        </a>
-        .
+        <ExternalLink href='https://www.frontendmentor.io' title='Frontend Mentor' />.
       </p>
     ),
   },
@@ -220,12 +213,9 @@ export const projects: ProjectsType = {
       <>
         <p>
           Part of my practice projects. Re-create frontend designs provided by{' '}
-          <a href='https://www.frontendmentor.io' className='link'>
-            Frontend Mentor
-          </a>
-          .
+          <ExternalLink href='https://www.frontendmentor.io' title='Frontend Mentor' />.
         </p>
-        <div className='feature-list'>
+        <div className='feature-list' title='Features' aria-label='Features'>
           Design this QR Code component in three different ways, using...
           <ul className='list'>
             <li>
@@ -271,7 +261,7 @@ export const projects: ProjectsType = {
           This game was the final project for module 1, week 3. Develop a Browser Game using
           Frontend Technologies. Learn to use basic concepts.
         </p>
-        <div className='feature-list'>
+        <div className='feature-list' title='Features' aria-label='Features'>
           <ul className='list'>
             <li>
               <PhoneGearIcon /> Render a game in the browser.
@@ -330,7 +320,7 @@ export const projects: ProjectsType = {
           of a Full-Stack Web Application that runs on a server. Introduction to Backend
           Technologies and collaborative Version Control (CI).
         </p>
-        <div className='feature-list'>
+        <div className='feature-list' title='Features' aria-label='Features'>
           <ul className='list'>
             <li>
               <PhoneGearIcon /> Use Express as a foundation.
@@ -394,7 +384,7 @@ export const projects: ProjectsType = {
           Web Application using the MERN stack. It&apos;s a cross-cohort collaboration of Data
           Analytics students, UX/UI Design students and Me (Web Development student).
         </p>
-        <div className='feature-list'>
+        <div className='feature-list' title='Features' aria-label='Features'>
           <ul className='list'>
             <li>
               <PhoneGearIcon /> Have a SPA frontend, built with React.

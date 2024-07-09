@@ -4,7 +4,7 @@
 
 /* Window Top bar */
 .window-top-bar {
-  background-color: #474747;
+  background-color: #424242;
   color: var(--heading-dark);
 
   position: sticky;
@@ -24,6 +24,12 @@
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
 }
+.window-top-bar h3 {
+  color: #f5f5f5fa;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-top: 0;
+}
 .window-top-bar div {
   display: flex;
   flex-flow: row nowrap;
@@ -31,7 +37,7 @@
   gap: var(--space-sm);
 }
 .window-top-bar span {
-  background-color: #7b7b7b;
+  background-color: #757575;
   color: var(--heading-dark);
 
   display: flex;
@@ -40,9 +46,6 @@
 
   border-radius: 50%;
   padding: 0.15rem;
-}
-.window-top-bar span:last-child {
-  background-color: #9b9b9b;
 }
 .window-top-bar span * {
   font-size: 1.1rem;
@@ -60,18 +63,18 @@
 .in {
   color: var(--annotation-dark);
 
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  justify-content: flex-start;
-}
-.out {
-  color: var(--heading-dark);
+  font-size: 0.95rem;
 
   display: flex;
   flex-flow: row wrap;
   align-items: center;
-  justify-content: flex-start;
+}
+.out {
+  color: var(--text-dark);
+
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
 
   margin-left: 1.5rem;
 }
@@ -81,17 +84,15 @@
   animation: cursor 1s infinite;
 }
 @keyframes cursor {
-  0% {
-    background-color: var(--annotation-light);
+  from,
+  to {
+    background-color: transparent;
   }
   40% {
-    background-color: #f4f4f4aa;
+    background-color: #9e9e9eca;
   }
   60% {
-    background-color: #f4f4f4aa;
-  }
-  100% {
-    background-color: var(--annotation-light);
+    background-color: #9e9e9eca;
   }
 }
 
@@ -101,20 +102,17 @@
     box-shadow: var(--box-shadow-light);
   }
   .window-top-bar {
-    background-color: #797979;
+    background-color: #757575;
   }
   .window-top-bar span {
-    background-color: #9b9b9b;
+    background-color: #9e9e9e;
     color: var(--bg-light);
-  }
-  .window-top-bar span:last-child {
-    background-color: #bbbbbb;
   }
   .in {
     color: var(--annotation-light);
   }
   .out {
-    color: var(--heading-light);
+    color: var(--text-light);
   }
 }
 

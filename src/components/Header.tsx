@@ -55,7 +55,7 @@ export default function Header() {
           setIndexH2((prevIdx) => prevIdx + 1);
         }
       } else {
-		setShowCaretH2(false);
+        setShowCaretH2(false);
         clearInterval(animateH2);
       }
     }, 18);
@@ -85,7 +85,11 @@ export default function Header() {
         </h2>
       </div>
       <div className='header-image'>
-        <img src='https://flowcv.me/gunnar-miklis/photo-sdqu8bojavdg.jpg' alt='Gunnar Miklis'/>
+        <img
+          src='https://flowcv.me/gunnar-miklis/photo-sdqu8bojavdg.jpg'
+          alt='Gunnar Miklis'
+          title='Gunnar Miklis'
+        />
       </div>
     </header>
   );
