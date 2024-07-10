@@ -1,9 +1,18 @@
+import { ReactNode } from 'react';
 import PhoneGearIcon from '@mui/icons-material/PhonelinkSetup';
 import LooksOneIcon from '@mui/icons-material/LooksOne';
 import LooksTwoIcon from '@mui/icons-material/LooksTwo';
 import LooksThreeIcon from '@mui/icons-material/Looks3';
-import { ReactNode } from 'react';
 import ExternalLink from '../components/ExternalLink';
+import ticketing from './../assets/ticketing.png';
+import todo from './../assets/todo-list.png';
+import tipCalc from './../assets/tip-calculator.png';
+import webPlat from './../assets/web-platform.png';
+import sumComp from './../assets/summary-comp.png';
+import qrComp from './../assets/qr-code-comp.png';
+import thatLevel from './../assets/that-level-again.png';
+import repCount from './../assets/repcount.png';
+import sleepMinder from './../assets/sleepminder.png';
 
 export interface ProjectsType {
   [card: string]: Project;
@@ -30,7 +39,7 @@ export const projects: ProjectsType = {
     date: 'May 2024',
     technologies: ['TypeScript', 'React Native', 'Expo Go', 'SQLite'],
     sourceCode: 'https://github.com/gunnar-miklis#latest-project',
-    imageSources: ['/src/assets/ticketing.png'],
+    imageSources: [ticketing],
     footnote:
       "*The App isn't public yet. However, Version 1.0.0 already got tested recently during a music festival.",
     content: (
@@ -82,7 +91,7 @@ export const projects: ProjectsType = {
     technologies: ['HTML', 'CSS', 'JavaScript', 'MongoDB', 'Express', 'React', 'Vite'],
     liveDemo: 'https://main--restful-api-web-app.netlify.app/',
     sourceCode: 'https://github.com/gunnar-miklis/restful-api-web-app',
-    imageSources: ['/src/assets/todo-list.png'],
+    imageSources: [todo],
     footnote: '*This App was part of an application process.',
     content: (
       <p>
@@ -100,7 +109,7 @@ export const projects: ProjectsType = {
     liveDemo: 'https://main--tip-calculator-57d393.netlify.app/',
     sourceCode:
       'https://github.com/gunnar-miklis/frontend-challenges/tree/main/tip-calculator/solutions/react-mui',
-    imageSources: ['/src/assets/tip-calculator.png'],
+    imageSources: [tipCalc],
     content: (
       <>
         <p>
@@ -135,7 +144,7 @@ export const projects: ProjectsType = {
     technologies: ['React', 'MUI', 'JSS', 'Vite'],
     liveDemo: 'https://gunnar-miklis.github.io/intro-to-material-ui-react/',
     sourceCode: 'https://github.com/gunnar-miklis/intro-to-material-ui-react',
-    imageSources: ['/src/assets/web-platform.png'],
+    imageSources: [webPlat],
     content: (
       <>
         <p>
@@ -179,7 +188,7 @@ export const projects: ProjectsType = {
     technologies: ['HTML', 'CSS', 'React', 'Vite'],
     sourceCode:
       'https://github.com/gunnar-miklis/frontend-challenges/tree/main/summary-component/solutions',
-    imageSources: ['/src/assets/summary-comp.png'],
+    imageSources: [sumComp],
     content: (
       <p>
         Part of my practice projects. Re-create frontend designs provided by{' '}
@@ -195,7 +204,7 @@ export const projects: ProjectsType = {
     technologies: ['HTML', 'CSS', 'Bootstrap', 'React Native', 'Expo Go'],
     sourceCode:
       'https://github.com/gunnar-miklis/frontend-challenges/tree/main/qr-code-component/solutions',
-    imageSources: ['/src/assets/qr-code-comp.png'],
+    imageSources: [qrComp],
     content: (
       <>
         <p>
@@ -238,7 +247,7 @@ export const projects: ProjectsType = {
     ],
     liveDemo: 'https://gunnar-miklis.github.io/wait-that-level-again/',
     sourceCode: 'https://github.com/gunnar-miklis/wait-that-level-again',
-    imageSources: ['/src/assets/that-level-again.png'],
+    imageSources: [thatLevel],
     content: (
       <>
         <p>Navigate the tiny dancin&apos; potato to the exit. But wait? That level... again?</p>
@@ -296,7 +305,7 @@ export const projects: ProjectsType = {
     ],
     liveDemo: 'https://workout-tracker-repcount.cyclic.app/',
     sourceCode: 'https://github.com/gunnar-miklis/workout-tracker',
-    imageSources: ['/src/assets/repcount.png'],
+    imageSources: [repCount],
     content: (
       <>
         <p>App for documenting your progress in the Gym.</p>
@@ -358,7 +367,7 @@ export const projects: ProjectsType = {
     ],
     liveDemo: 'https://sleepminder.netlify.app/welcome',
     sourceCode: 'https://github.com/gunnar-miklis/app-sleepminder',
-    imageSources: ['/src/assets/sleepminder.png'],
+    imageSources: [sleepMinder],
     content: (
       <>
         <p>🏆 Winning Project, in the Hackshows final voting! 🏆</p>

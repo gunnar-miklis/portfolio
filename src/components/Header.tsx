@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import portrait from './../assets/gunnar-miklis.jpg';
 import '@/styles/header.css';
 
 const h1 = 'Apps with user-centered approach unlock potential.';
@@ -85,11 +86,7 @@ export default function Header() {
         </h2>
       </div>
       <div className='header-image'>
-        <img
-          src='/src/assets/gunnar-miklis.jpg'
-          alt='Portrait: Gunnar Miklis'
-          title='Gunnar Miklis'
-        />
+        <img src={portrait} alt='Portrait: Gunnar Miklis' title='Gunnar Miklis' />
       </div>
     </header>
   );
