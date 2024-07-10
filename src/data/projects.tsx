@@ -30,9 +30,7 @@ export const projects: ProjectsType = {
     date: 'May 2024',
     technologies: ['TypeScript', 'React Native', 'Expo Go', 'SQLite'],
     sourceCode: 'https://github.com/gunnar-miklis#latest-project',
-    imageSources: [
-      'https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihaHSigp0F2p4TOxtoOY65opCOvrS597T-WUcMU6_Bx2MZ_vNuU6LN6zcsUomqvcxzjX6n0sbzVfSXbrHX22YWeEWZHbnsiDt-Q=w1920-h991-rw-v1',
-    ],
+    imageSources: ['/src/assets/ticketing.png'],
     footnote:
       "*The App isn't public yet. However, Version 1.0.0 already got tested recently during a music festival.",
     content: (
@@ -84,9 +82,7 @@ export const projects: ProjectsType = {
     technologies: ['HTML', 'CSS', 'JavaScript', 'MongoDB', 'Express', 'React', 'Vite'],
     liveDemo: 'https://main--restful-api-web-app.netlify.app/',
     sourceCode: 'https://github.com/gunnar-miklis/restful-api-web-app',
-    imageSources: [
-      'https://github.com/gunnar-miklis/restful-api-web-app/raw/main/showcase/Screenshot%202023-08-29%20222357.png',
-    ],
+    imageSources: ['/src/assets/todo-list.png'],
     footnote: '*This App was part of an application process.',
     content: (
       <p>
@@ -104,9 +100,7 @@ export const projects: ProjectsType = {
     liveDemo: 'https://main--tip-calculator-57d393.netlify.app/',
     sourceCode:
       'https://github.com/gunnar-miklis/frontend-challenges/tree/main/tip-calculator/solutions/react-mui',
-    imageSources: [
-      'https://github.com/gunnar-miklis/frontend-challenges/raw/main/tip-calculator/solutions/react-mui/screenshots/Screenshot%202023-08-27%20210926.png',
-    ],
+    imageSources: ['/src/assets/tip-calculator.png'],
     content: (
       <>
         <p>
@@ -141,10 +135,7 @@ export const projects: ProjectsType = {
     technologies: ['React', 'MUI', 'JSS', 'Vite'],
     liveDemo: 'https://gunnar-miklis.github.io/intro-to-material-ui-react/',
     sourceCode: 'https://github.com/gunnar-miklis/intro-to-material-ui-react',
-    imageSources: [
-      'https://github.com/gunnar-miklis/intro-to-material-ui-react/blob/main/screenshots/Screenshot%202023-08-15%20163617.png?raw=true',
-      'https://github.com/gunnar-miklis/intro-to-material-ui-react/raw/main/screenshots/Screenshot%202023-08-15%20163658.png?raw=true',
-    ],
+    imageSources: ['/src/assets/web-platform.png'],
     content: (
       <>
         <p>
@@ -188,9 +179,7 @@ export const projects: ProjectsType = {
     technologies: ['HTML', 'CSS', 'React', 'Vite'],
     sourceCode:
       'https://github.com/gunnar-miklis/frontend-challenges/tree/main/summary-component/solutions',
-    imageSources: [
-      'https://github.com/gunnar-miklis/frontend-challenges/raw/main/summary-component/solutions/ViteReact/src/assets/demo/Screenshot%202023-07-13%20172458.png',
-    ],
+    imageSources: ['/src/assets/summary-comp.png'],
     content: (
       <p>
         Part of my practice projects. Re-create frontend designs provided by{' '}
@@ -206,9 +195,7 @@ export const projects: ProjectsType = {
     technologies: ['HTML', 'CSS', 'Bootstrap', 'React Native', 'Expo Go'],
     sourceCode:
       'https://github.com/gunnar-miklis/frontend-challenges/tree/main/qr-code-component/solutions',
-    imageSources: [
-      'https://github.com/gunnar-miklis/frontend-challenges/raw/main/qr-code-component/solutions/ReactNative/Screenshot_20230709-214738.png',
-    ],
+    imageSources: ['/src/assets/qr-code-comp.png'],
     content: (
       <>
         <p>
@@ -251,9 +238,7 @@ export const projects: ProjectsType = {
     ],
     liveDemo: 'https://gunnar-miklis.github.io/wait-that-level-again/',
     sourceCode: 'https://github.com/gunnar-miklis/wait-that-level-again',
-    imageSources: [
-      'https://github.com/gunnar-miklis/wait-that-level-again/raw/main/Screenshot.png',
-    ],
+    imageSources: ['/src/assets/that-level-again.png'],
     content: (
       <>
         <p>Navigate the tiny dancin&apos; potato to the exit. But wait? That level... again?</p>
@@ -311,7 +296,7 @@ export const projects: ProjectsType = {
     ],
     liveDemo: 'https://workout-tracker-repcount.cyclic.app/',
     sourceCode: 'https://github.com/gunnar-miklis/workout-tracker',
-    imageSources: ['https://github.com/gunnar-miklis/workout-tracker/raw/main/workout-traker.png'],
+    imageSources: ['/src/assets/repcount.png'],
     content: (
       <>
         <p>App for documenting your progress in the Gym.</p>
@@ -373,9 +358,7 @@ export const projects: ProjectsType = {
     ],
     liveDemo: 'https://sleepminder.netlify.app/welcome',
     sourceCode: 'https://github.com/gunnar-miklis/app-sleepminder',
-    imageSources: [
-      'https://github.com/gunnar-miklis/app-sleepminder/raw/main/SleepMinderPitch.png',
-    ],
+    imageSources: ['/src/assets/sleepminder.png'],
     content: (
       <>
         <p>🏆 Winning Project, in the Hackshows final voting! 🏆</p>

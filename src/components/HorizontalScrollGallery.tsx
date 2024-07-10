@@ -3,7 +3,7 @@ import EastIcon from '@mui/icons-material/East';
 import WestIcon from '@mui/icons-material/West';
 import PositionIndicatorBar from './PositionIndicatorBar';
 import Card from './Card';
-import { Project, ProjectsType } from '../utils/projects';
+import { Project, ProjectsType } from '../data/projects';
 import '@/styles/horizontal-scroll-gallery.css';
 
 export default function HorizontalScrollGallery({ projects }: { projects: ProjectsType }) {
