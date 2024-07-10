@@ -71,6 +71,17 @@ section#about {
   flex-direction: column;
   gap: var(--space-lg);
 }
+.footer {
+  color: var(--annotation-dark);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-lg);
+
+  width: 100%;
+  padding: var(--space-lg);
+}
 h1 {
   color: var(--heading-dark);
   font-size: 3.2rem;
@@ -224,6 +235,9 @@ button {
   html {
     color: var(--text-light);
     background-color: var(--bg-light);
+  }
+  .footer {
+    color: var(--annotation-light);
   }
   h1 {
     color: var(--heading-light);

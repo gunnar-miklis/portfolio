@@ -2,7 +2,8 @@ import Navbar from './components/Navbar';
 import Header from './components/Header';
 import Terminal from './components/Terminal';
 import HorizontalScrollGallery from './components/HorizontalScrollGallery';
-import { projects } from './utils/projects';
+import { projects } from './data/projects';
+import Footer from './components/Footer';
 
 export default function App() {
   return (
@@ -22,6 +23,8 @@ export default function App() {
           <HorizontalScrollGallery projects={projects} />
         </section>
       </main>
+
+      <Footer />
     </>
   );
 }
