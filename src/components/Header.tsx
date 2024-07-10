@@ -86,8 +86,8 @@ export default function Header() {
       </div>
       <div className='header-image'>
         <img
-          src='https://flowcv.me/gunnar-miklis/photo-sdqu8bojavdg.jpg'
-          alt='Gunnar Miklis'
+          src='/src/assets/gunnar-miklis.jpg'
+          alt='Portrait: Gunnar Miklis'
           title='Gunnar Miklis'
         />
       </div>

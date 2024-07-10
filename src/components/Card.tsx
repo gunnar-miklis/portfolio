@@ -265,7 +265,7 @@ export default function Card({
       >
         {/* images */}
         {imageSources.map((source, i) => (
-          <img key={i} src={source} alt='App Screenshot' />
+          <img key={i} src={source} alt={`Screenshot: ${title}`} />
         ))}
       </figure>
 
