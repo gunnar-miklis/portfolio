@@ -1,7 +1,7 @@
 import Icon from '@mui/icons-material/ChevronRight';
 import MaximizeIcon from '@mui/icons-material/CropSquare';
 import MinimizeIcon from '@mui/icons-material/Minimize';
-import WavingHandIcon from '@mui/icons-material/WavingHand';
+import AwesomeIcon from '@mui/icons-material/AutoAwesomeRounded';
 import AutoGraphRoundedIcon from '@mui/icons-material/AutoGraphRounded';
 import Diversity1Icon from '@mui/icons-material/Diversity1';
 import CenterFocusWeakRoundedIcon from '@mui/icons-material/CenterFocusWeakRounded';
@@ -33,7 +33,7 @@ export default function Terminal() {
             <Icon /> gunnar.hello
           </p>
           <p className='out'>
-            Nice to meet you! &nbsp; <WavingHandIcon fontSize='small' />
+            Nice to meet you!&nbsp; <AwesomeIcon fontSize='small' />
           </p>
           <p className='out'>I develop Single Page Web Applications and RESTful APIs.</p>
           <p className='out'>
