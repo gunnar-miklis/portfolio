@@ -30,7 +30,7 @@ export default function PositionIndicatorBar({
     const parent = document.querySelector(parentElement);
 
     if (parent instanceof HTMLElement) setMax(parent.clientWidth);
-  }, [parentElement]);
+  }, [scrollPosition, parentElement]);
 
   return <progress className='positionIndicator' max={max} value={position} />;
 }
