@@ -179,6 +179,9 @@ export default function Card({
 
   // NOTE: handel expand or shrink
   function handleExpand(): void {
+    // clear all previous intervals
+    for (let i = 0; i < 9999; i++) clearInterval(i);
+
     if (!isImageExpanded) {
       if (orientation === 'col') {
         animate('col', 'expand', 'image', setImage, 'height', 'expanded', 10, 9);
