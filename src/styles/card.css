@@ -29,21 +29,20 @@
   max-height: 100%;
 }
 
-.card-content {
-  background-color: var(--card-bg-dark);
+.details {
+  background-color: #f2f2f2; /* TESTING */
   box-shadow: var(--box-shadow-dark);
 
-  position: relative;
-  z-index: 2;
+  padding: 1rem var(--space-md);
 
+  z-index: 2;
+}
+.card-content {
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start;
   align-items: baseline;
   gap: var(--space-sm);
-
-  padding: var(--space-md);
-  padding-top: calc(var(--space-md) * 2); /* extra space for expand arrow */
 }
 .card-inner {
   display: flex;
@@ -81,33 +80,23 @@
   padding: 0 calc(var(--space-sm) / 2);
 }
 
-#shrink-up,
-#expand-down,
-#shrink-left,
-#expand-right {
-  position: absolute;
-
-  display: inline-flex;
-  align-items: center;
-
-  padding: var(--space-sm);
-  border-radius: 1rem;
-  border: unset;
-
+details summary::-webkit-details-marker,
+details summary::marker {
+  display: none;
+  content: '';
+}
+summary {
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-#shrink-up,
-#expand-down {
-  top: 0;
-  top: -0.2rem;
-  left: 50%;
-  transform: translateX(-50%);
-}
-#shrink-left,
-#expand-right {
-  top: 50%;
-  left: -0.4rem;
-  transform: translateY(-50%);
+#open-up,
+#close-down,
+#open-left,
+#close-right {
+	display: inline-flex;
+	align-items: center;
 }
 
 /* LIGHT THEME */
@@ -119,10 +108,10 @@
   .card-image {
     background-color: var(--bg-light);
   }
-  .card-content {
+  /* .details {
     background-color: var(--card-bg-light);
     box-shadow: var(--box-shadow-light);
-  }
+  } */
   .feature-list {
     background-color: var(--card-bg-light);
   }
@@ -134,7 +123,7 @@
     border-bottom-left-radius: 0rem;
     border-top-left-radius: 0rem;
   }
-  .card-content {
+  .details {
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
   }
@@ -144,10 +133,7 @@
     border-bottom-left-radius: 0rem;
     border-top-left-radius: 0rem;
   }
-  .card-content {
-    padding: var(--space-lg);
-    padding-top: calc(var(--space-md) * 2); /* extra space for expand arrow */
-
+  .details {
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
   }
@@ -168,13 +154,10 @@
 
     border-bottom-left-radius: 1rem;
   }
-  .card-content {
+  .details {
     max-width: 65%;
     max-height: 1000px;
-
-    padding: var(--space-lg);
-    padding-left: calc(var(--space-md) * 2); /* extra space for expand arrow */
-
+	
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem;
   }
