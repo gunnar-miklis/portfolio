@@ -19,7 +19,7 @@
   flex-flow: column nowrap;
   align-items: center;
 
-  max-height: 400px;
+  max-height: 400px; /* COMMENT: if change here, change in /components/Card.tsx too */
   padding: var(--space-md);
   overflow: hidden;
 }
@@ -30,10 +30,11 @@
 }
 
 .details {
-  background-color: #f2f2f2; /* TESTING */
+  background-color: var(--card-bg-dark);
   box-shadow: var(--box-shadow-dark);
 
-  padding: 1rem var(--space-md);
+  padding: var(--space-md);
+  padding-top: 1rem;
 
   z-index: 2;
 }
@@ -86,17 +87,26 @@ details summary::marker {
   content: '';
 }
 summary {
-  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  cursor: pointer;
+  border-width: 2px;
+  border-style: solid;
+  border-color: transparent;
+  border-radius: 1rem;
+  transition: all var(--transition);
 }
-#open-up,
-#close-down,
-#open-left,
-#close-right {
-	display: inline-flex;
-	align-items: center;
+summary:hover,
+summary:focus,
+summary:focus-visible {
+  color: var(--annotation-dark);
+  border-color: var(--annotation-dark);
+}
+summary > span {
+  display: inline-flex;
+  align-items: center;
 }
 
 /* LIGHT THEME */
@@ -108,16 +118,23 @@ summary {
   .card-image {
     background-color: var(--bg-light);
   }
-  /* .details {
+  .details {
     background-color: var(--card-bg-light);
     box-shadow: var(--box-shadow-light);
-  } */
+  }
+  summary:hover,
+  summary:focus,
+  summary:focus-visible {
+    color: var(--annotation-light);
+    border-color: var(--annotation-light);
+  }
   .feature-list {
     background-color: var(--card-bg-light);
   }
 }
 
 /* RESPONSIVENESS */
+/* column layout */
 @media only screen and (max-width: 576px) {
   .card-image {
     border-bottom-left-radius: 0rem;
@@ -126,8 +143,20 @@ summary {
   .details {
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
+
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
+  }
+  .details[open] {
+    padding-top: 1rem;
+    padding-bottom: var(--space-md);
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
   }
 }
+/* column layout */
 @media (min-width: 577px) and (max-width: 992px) {
   .card-image {
     border-bottom-left-radius: 0rem;
@@ -136,8 +165,20 @@ summary {
   .details {
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
+
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: var(--space-lg);
+    padding-right: var(--space-lg);
+  }
+  .details[open] {
+    padding-top: 1rem;
+    padding-bottom: var(--space-lg);
+    padding-left: var(--space-lg);
+    padding-right: var(--space-lg);
   }
 }
+/* row layout */
 @media (min-width: 993px) {
   .card {
     flex-direction: row;
@@ -146,7 +187,7 @@ summary {
     border-bottom-left-radius: 1rem;
   }
   .card-image {
-    width: 35%;
+    flex: 1 0 35%; /* COMMENT: if change here, change in /components/Card.tsx too */
     max-width: 100%;
     max-height: 1000px;
 
@@ -155,10 +196,19 @@ summary {
     border-bottom-left-radius: 1rem;
   }
   .details {
-    max-width: 65%;
+    flex: 0 1 65%; /* COMMENT: if change here, change in /components/Card.tsx too */
     max-height: 1000px;
-	
+
+    padding: var(--space-md);
+    padding-left: 1rem;
+
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem;
+  }
+  .details summary {
+    float: left;
+    height: 100%;
+    align-content: center;
+    margin-right: 1rem;
   }
 }

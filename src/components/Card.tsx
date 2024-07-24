@@ -8,7 +8,8 @@ import ArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import useWindowDimensions from '../hooks/useWindowDimensions';
 import LinkWithIcon from './LinkWithIcon';
 import '@/styles/card.css';
-import ExpandShrinkButton from './ExpandShrinkButton';
+
+type HTMLSummaryElement = HTMLElement;
 
 interface CardProps {
   children: ReactNode;
@@ -39,21 +40,50 @@ export default function Card({
   const [orientation, setOrientation] = useState<'col' | 'row'>('col');
   const [isDetailsExpanded, setIsDetailsExpanded] = useState<boolean>(true);
 
-  console.log('windowWidth :>> ', windowWidth);
-  console.log('orientation :>> ', orientation);
-  console.log('isDetailsExpanded :>> ', isDetailsExpanded);
-
-  // NOTE: reset values to intial when window resizes and the orientation changes
+  // NOTE: set the orientation and reset values to intial when window resizes
   useEffect(() => {
+    const cardImages = document.querySelectorAll(`.card-image`);
+    const cardContents = document.querySelectorAll(`.card-content`);
+    const summary = document.querySelector('summary');
+
     if (windowWidth > 992) {
       setOrientation('row');
+      if (cardImages instanceof NodeList && cardContents instanceof NodeList) {
+        cardImages.forEach((cardImage) => {
+          if (cardImage instanceof HTMLElement) {
+            cardImage.style.maxHeight = '1000px';
+            cardImage.style.flexBasis = '35%';
+          }
+        });
+        cardContents.forEach((cardContent) => {
+          if (cardContent instanceof HTMLElement) {
+            cardContent.style.maxHeight = '1000px';
+            cardContent.style.flexBasis = '65%';
+          }
+        });
+      }
     } else {
       setOrientation('col');
+      if (
+        cardImages instanceof NodeList &&
+        cardContents instanceof NodeList &&
+        summary instanceof HTMLElement
+      ) {
+        cardImages.forEach((cardImage) => {
+          if (cardImage instanceof HTMLElement) cardImage.style.maxHeight = '400px';
+        });
+        cardContents.forEach((cardContent) => {
+          if (cardContent instanceof HTMLElement)
+            cardContent.style.maxHeight = summary.offsetHeight + cardContent.offsetHeight + 'px';
+        });
+      }
     }
+
     setIsDetailsExpanded(true);
   }, [windowWidth, orientation]);
 
-  function toggleDetails(event: React.MouseEvent, cardId: string) {
+  // NOTE: animation when details is toggled
+  function toggleDetails(event: React.MouseEvent<HTMLSummaryElement>, cardId: string) {
     event.preventDefault();
 
     const details = document.querySelector(`#${cardId}`);
@@ -69,48 +99,82 @@ export default function Card({
       summary instanceof HTMLElement &&
       cardContent instanceof HTMLElement
     ) {
+      // set animations options
+      const options = {
+        duration: 400,
+        iteration: 1,
+        easing: 'ease-out',
+      };
+
       if (orientation === 'col') {
-        // card-image animation parameter
-        const imgInital = '400px'; // COMMENT: inital height
-        const imgMax = img.offsetHeight + 32 + 'px';
-        const expand = { maxHeight: [imgInital, imgMax] };
-        const shrink = { maxHeight: [imgMax, imgInital] };
+        // NOTE: up-down (height) animation for COLUMN layout
+        // card-image parameter
+        const imgShrinked = '400px'; // COMMENT: if change here, change in /styles/card.css too
+        const imgExpanded = img.offsetHeight + 32 + 'px'; // 16x2 = 32 = padding
+        const expand = { maxHeight: [imgShrinked, imgExpanded] };
+        const shrink = { maxHeight: [imgExpanded, imgShrinked] };
 
-        // card-content animation parameter
-        const contentInital = summary.offsetHeight + 'px';
-        const contentMax = summary.offsetHeight + cardContent.offsetHeight + 'px';
-        const close = { maxHeight: [contentMax, contentInital], opacity: [1, 0] };
-        const open = { maxHeight: [contentInital, contentMax], opacity: [0, 1] };
+        // card-content parameter
+        const contentClosed = summary.offsetHeight + 'px';
+        const contentOpened = summary.offsetHeight + cardContent.offsetHeight + 'px';
+        const close = { maxHeight: [contentOpened, contentClosed], opacity: [1, 0] };
+        const open = { maxHeight: [contentClosed, contentOpened], opacity: [0, 1] };
 
-        // animations
-        const options = {
-          duration: 400,
-          iteration: 1,
-          easing: 'ease-out',
-        };
-
+        // animation
         if (!isDetailsExpanded) {
-          // show details
+          // show details, shrink image
           cardImage.animate(shrink, options);
-          cardImage.style.maxHeight = imgInital;
+          cardImage.style.maxHeight = imgShrinked;
           cardContent.animate(open, options);
           setIsDetailsExpanded(true);
         } else {
-          // hide details
+          // hide details, expand image
           cardImage.animate(expand, options);
-          cardImage.style.maxHeight = imgMax;
+          cardImage.style.maxHeight = imgExpanded;
           cardContent.animate(close, options);
+          // needs a delay here, otherwise details immediatly closes and the animation won't be visible.
           const timer = setTimeout(() => {
             setIsDetailsExpanded(false);
             clearTimeout(timer);
           }, 300);
         }
       } else {
-        // TODO: row
+        // NOTE: left-right (width/flex-basis) animation for ROW layout
+        // card-image parameter
+        const imgShrinked = '35%'; // COMMENT: if change here, change in /styles/card.css too
+        const imgExpanded = `calc(100% - ${summary.offsetWidth + 32}px`; // 16x2 = 32 = padding
+        const expand = { flexBasis: [imgShrinked, imgExpanded] };
+        const shrink = { flexBasis: [imgExpanded, imgShrinked] };
+
+        // card-content parameter
+        const contentClosed = '0%';
+        const contentOpened = '65%'; // COMMENT: if change here, change in /styles/card.css too
+        const close = { flexBasis: [contentOpened, contentClosed], opacity: [1, 0] };
+        const open = { flexBasis: [contentClosed, contentOpened], opacity: [0, 1] };
+
+        // animation
+        if (!isDetailsExpanded) {
+          // show details
+          cardImage.animate(shrink, options);
+          cardImage.style.flexBasis = imgShrinked;
+          cardContent.animate(open, options);
+          setIsDetailsExpanded(true);
+        } else {
+          // hide details
+          cardImage.animate(expand, options);
+          cardImage.style.flexBasis = imgExpanded;
+          cardContent.animate(close, options);
+          // needs a delay here, otherwise details immediatly closes and the animation won't be visible.
+          const timer = setTimeout(() => {
+            setIsDetailsExpanded(false);
+            clearTimeout(timer);
+          }, 300);
+        }
       }
     }
   }
 
+  // NOTE: create an unique ID based on the given string (title). For example: #details-web-platform
   function createId(htmlTag: string, str: string): string {
     return (
       htmlTag +
@@ -124,13 +188,14 @@ export default function Card({
 
   return (
     <article id={createId('card', title)} className={`card ${className}`}>
+      {/* NOTE: image */}
       <div className='card-image' title='Project image' aria-label='Project image'>
-        {/* images */}
         {imageSources.map((source, i) => (
           <img key={i} src={source} alt={`Screenshot: ${title}`} />
         ))}
       </div>
 
+      {/* NOTE: content */}
       <details
         className='details'
         id={createId('details', title)}
@@ -141,25 +206,27 @@ export default function Card({
         <summary
           onClick={(event) => toggleDetails(event, createId('card', title))}
           title='Toggle Project Details'
+          aria-label='Toggle Project Details'
           aria-controls={createId('details', title)}
           aria-expanded={isDetailsExpanded}
         >
+          {/* show pointing arrow based on col/row layout and isDetailsExpanded */}
           {orientation === 'col' ? (
             isDetailsExpanded ? (
-              <span id='close-down' title='Hide Project Details'>
+              <span title='Hide Project Details' aria-label='Hide Project Details'>
                 <ArrowDownIcon fontSize='large' />
               </span>
             ) : (
-              <span id='open-up' title='Show Project Details'>
+              <span title='Show Project Details' aria-label='Show Project Details'>
                 <ArrowUpIcon fontSize='large' />
               </span>
             )
           ) : isDetailsExpanded ? (
-            <span id='close-right' title='Hide Project Details'>
+            <span title='Hide Project Details' aria-label='Hide Project Details'>
               <ArrowRightIcon fontSize='large' />
             </span>
           ) : (
-            <span id='open-left' title='Show Project Details'>
+            <span title='Show Project Details' aria-label='Show Project Details'>
               <ArrowLeftIcon fontSize='large' />
             </span>
           )}
