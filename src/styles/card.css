@@ -19,7 +19,7 @@
   flex-flow: column nowrap;
   align-items: center;
 
-  max-height: 400px;
+  max-height: 400px; /* COMMENT: if change here, change in /components/Card.tsx too */
   padding: var(--space-md);
   overflow: hidden;
 }
@@ -29,21 +29,21 @@
   max-height: 100%;
 }
 
-.card-content {
+.details {
   background-color: var(--card-bg-dark);
   box-shadow: var(--box-shadow-dark);
 
-  position: relative;
-  z-index: 2;
+  padding: var(--space-md);
+  padding-top: 1rem;
 
+  z-index: 2;
+}
+.card-content {
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start;
   align-items: baseline;
   gap: var(--space-sm);
-
-  padding: var(--space-md);
-  padding-top: calc(var(--space-md) * 2); /* extra space for expand arrow */
 }
 .card-inner {
   display: flex;
@@ -81,33 +81,32 @@
   padding: 0 calc(var(--space-sm) / 2);
 }
 
-#shrink-up,
-#expand-down,
-#shrink-left,
-#expand-right {
-  position: absolute;
-
-  display: inline-flex;
+details summary::-webkit-details-marker,
+details summary::marker {
+  display: none;
+  content: '';
+}
+summary {
+  display: flex;
+  justify-content: center;
   align-items: center;
 
-  padding: var(--space-sm);
-  border-radius: 1rem;
-  border: unset;
-
   cursor: pointer;
+  border-width: 2px;
+  border-style: solid;
+  border-color: transparent;
+  border-radius: 1rem;
+  transition: all var(--transition);
 }
-#shrink-up,
-#expand-down {
-  top: 0;
-  top: -0.2rem;
-  left: 50%;
-  transform: translateX(-50%);
+summary:hover,
+summary:focus,
+summary:focus-visible {
+  color: var(--annotation-dark);
+  border-color: var(--annotation-dark);
 }
-#shrink-left,
-#expand-right {
-  top: 50%;
-  left: -0.4rem;
-  transform: translateY(-50%);
+summary > span {
+  display: inline-flex;
+  align-items: center;
 }
 
 /* LIGHT THEME */
@@ -119,9 +118,15 @@
   .card-image {
     background-color: var(--bg-light);
   }
-  .card-content {
+  .details {
     background-color: var(--card-bg-light);
     box-shadow: var(--box-shadow-light);
+  }
+  summary:hover,
+  summary:focus,
+  summary:focus-visible {
+    color: var(--annotation-light);
+    border-color: var(--annotation-light);
   }
   .feature-list {
     background-color: var(--card-bg-light);
@@ -129,29 +134,51 @@
 }
 
 /* RESPONSIVENESS */
+/* column layout */
 @media only screen and (max-width: 576px) {
   .card-image {
     border-bottom-left-radius: 0rem;
     border-top-left-radius: 0rem;
   }
-  .card-content {
+  .details {
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
+
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
+  }
+  .details[open] {
+    padding-top: 1rem;
+    padding-bottom: var(--space-md);
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
   }
 }
+/* column layout */
 @media (min-width: 577px) and (max-width: 992px) {
   .card-image {
     border-bottom-left-radius: 0rem;
     border-top-left-radius: 0rem;
   }
-  .card-content {
-    padding: var(--space-lg);
-    padding-top: calc(var(--space-md) * 2); /* extra space for expand arrow */
-
+  .details {
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
+
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: var(--space-lg);
+    padding-right: var(--space-lg);
+  }
+  .details[open] {
+    padding-top: 1rem;
+    padding-bottom: var(--space-lg);
+    padding-left: var(--space-lg);
+    padding-right: var(--space-lg);
   }
 }
+/* row layout */
 @media (min-width: 993px) {
   .card {
     flex-direction: row;
@@ -160,7 +187,7 @@
     border-bottom-left-radius: 1rem;
   }
   .card-image {
-    width: 35%;
+    flex: 1 0 35%; /* COMMENT: if change here, change in /components/Card.tsx too */
     max-width: 100%;
     max-height: 1000px;
 
@@ -168,14 +195,20 @@
 
     border-bottom-left-radius: 1rem;
   }
-  .card-content {
-    max-width: 65%;
+  .details {
+    flex: 0 1 65%; /* COMMENT: if change here, change in /components/Card.tsx too */
     max-height: 1000px;
 
-    padding: var(--space-lg);
-    padding-left: calc(var(--space-md) * 2); /* extra space for expand arrow */
+    padding: var(--space-md);
+    padding-left: 1rem;
 
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem;
+  }
+  .details summary {
+    float: left;
+    height: 100%;
+    align-content: center;
+    margin-right: 1rem;
   }
 }
