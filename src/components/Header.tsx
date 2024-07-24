@@ -14,6 +14,7 @@ export default function Header() {
   const [indexH2, setIndexH2] = useState<number>(0);
   const [showCaretH2, setShowCaretH2] = useState<boolean>(false);
 
+  // reset and repeat Typewriter when click on ABOUT beyong a certain scroll position
   useEffect(() => {
     const about = document.querySelector('#nav-about');
     if (about instanceof HTMLElement) {
@@ -32,6 +33,7 @@ export default function Header() {
 
   // Typewriter
   useEffect(() => {
+    // animation 1/2 (title)
     const animateH1 = setInterval(() => {
       if (textH1.length <= h1.length) {
         setShowCaretH1(true);
@@ -46,7 +48,8 @@ export default function Header() {
       }
     }, 32);
 
-    // when animateH1 is finished
+    // animation 2/2 (subtitle)
+    // when animateH1 is finished, do animateH2
     const animateH2 = setInterval(() => {
       if (textH1.length > h1.length && textH2.length <= h2.length) {
         setShowCaretH1(false);
@@ -66,6 +69,22 @@ export default function Header() {
       clearInterval(animateH2);
     };
   }, [indexH1, indexH2, textH1.length, textH2.length]);
+
+  useEffect(() => {
+    const headerImage = document.querySelector('.header-image');
+    if (headerImage instanceof HTMLElement) {
+      headerImage.animate(
+        [
+          { opacity: 0, marginRight: '-50px' },
+          { opacity: 1, marginRight: 'none' },
+        ],
+        {
+          duration: 700,
+          easing: 'ease-out',
+        },
+      );
+    }
+  }, []);
 
   return (
     <header className='header'>
