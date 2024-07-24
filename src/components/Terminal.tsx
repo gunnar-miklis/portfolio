@@ -55,8 +55,8 @@ export default function Terminal() {
             <Icon /> gunnar.skills.technical
           </p>
           <p className='out'>
-            [ TypeScript, JavaScript, React, React Native, Node, Express, MongoDB, SQL, git, GitHub,
-            R, (Ubuntu) Shell ]
+            [ TypeScript, JavaScript, React, React Native, Node, Express, MongoDB, SQL, git,
+            Linux, R ]
           </p>
         </div>
 

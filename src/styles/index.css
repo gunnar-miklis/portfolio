@@ -28,7 +28,7 @@
   --space-md: 1.6rem;
   --space-lg: 2.4rem;
 
-  --transition: ease-in-out 0.18s;
+  --transition: ease-out 0.18s;
 }
 * {
   margin: 0;
@@ -137,7 +137,9 @@ button {
     color var(--transition),
     border-color var(--transition);
 }
-.link:hover {
+.link:hover,
+.link:focus,
+.link:focus-visible {
   color: var(--annotation-dark);
   border-color: var(--annotation-dark);
 }
@@ -159,7 +161,9 @@ button {
 
   transition: border-color var(--transition);
 }
-.button:hover {
+.button:hover,
+.button:focus,
+.button:focus-visible {
   border-color: var(--annotation-dark);
 }
 .chip {
@@ -253,7 +257,9 @@ button {
     color: var(--heading-light);
     border-color: var(--heading-light);
   }
-  .link:hover {
+  .link:hover,
+  .link:focus,
+  .link:focus-visible {
     color: var(--annotation-light);
     border-color: var(--annotation-light);
   }
@@ -261,7 +267,9 @@ button {
     color: var(--button-text-light);
     background-color: var(--button-bg-light);
   }
-  .button:hover {
+  .button:hover,
+  .button:focus,
+  .button:focus-visible {
     border-color: var(--annotation-light);
   }
   .chip {
