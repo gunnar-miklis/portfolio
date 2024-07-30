@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import portrait from './../assets/gunnar-miklis.jpg';
+import portrait from './../assets/gunnar-miklis.webp';
 import '@/styles/header.css';
 
 const h1 = 'Apps with user-centered approach unlock potential.';

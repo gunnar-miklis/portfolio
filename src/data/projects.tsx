@@ -4,15 +4,15 @@ import LooksOneIcon from '@mui/icons-material/LooksOne';
 import LooksTwoIcon from '@mui/icons-material/LooksTwo';
 import LooksThreeIcon from '@mui/icons-material/Looks3';
 import ExternalLink from '../components/ExternalLink';
-import ticketing from './../assets/ticketing.png';
-import todo from './../assets/todo-list.png';
-import tipCalc from './../assets/tip-calculator.png';
-import webPlat from './../assets/web-platform.png';
-import sumComp from './../assets/summary-comp.png';
-import qrComp from './../assets/qr-code-comp.png';
-import thatLevel from './../assets/that-level-again.png';
-import repCount from './../assets/repcount.png';
-import sleepMinder from './../assets/sleepminder.png';
+import ticketing from './../assets/ticketing.webp';
+import todo from './../assets/todo-list.webp';
+import tipCalc from './../assets/tip-calculator.webp';
+import webPlat from './../assets/web-platform.webp';
+import sumComp from './../assets/summary-comp.webp';
+import qrComp from './../assets/qr-code-comp.webp';
+import thatLevel from './../assets/that-level-again.webp';
+import repCount from './../assets/repcount.webp';
+import sleepMinder from './../assets/sleepminder.webp';
 
 export interface ProjectsType {
   [card: string]: Project;
