@@ -44,11 +44,11 @@ export default function Navbar() {
     <nav className='navbar' role='navigation'>
       <div className='center-navbar'>
         <div className='brand'>
-          <ExternalLink href='https://flowcv.me/gunnar-miklis' title='Online Business Card'>
+          <ExternalLink href='https://flowcv.me/gunnar-miklis' title='Gunnar Miklis - Online Business Card'>
             Gunnar Miklis
           </ExternalLink>
-          <ExternalLink href='https://github.com/gunnar-miklis' title='GitHub'>
-            JavaScript Web Developer
+          <ExternalLink href='https://github.com/gunnar-miklis' title='Gunnar Miklis - TypeScript Web Developer GitHub'>
+            TypeScript Web Developer
           </ExternalLink>
         </div>
         <div className='navigation'>

@@ -255,7 +255,7 @@ export default function Card({
           >
             {technologies.map((tech, i) => (
               <span className='chip' key={i}>
-                {tech}
+                <p>{tech}</p>
               </span>
             ))}
           </div>
