@@ -24,6 +24,7 @@ export default function Header() {
           setIndexH1(0);
           setTextH2(' ');
           setIndexH2(0);
+          animateImage();
         }
       };
       about.addEventListener('click', resetTypeWriter);
@@ -71,20 +72,24 @@ export default function Header() {
   }, [indexH1, indexH2, textH1.length, textH2.length]);
 
   useEffect(() => {
+    animateImage();
+  }, []);
+
+  function animateImage() {
     const headerImage = document.querySelector('.header-image');
     if (headerImage instanceof HTMLElement) {
       headerImage.animate(
         [
           { opacity: 0, marginRight: '-50px' },
-          { opacity: 1, marginRight: 'none' },
+          { opacity: 1, marginRight: 'unset' },
         ],
         {
-          duration: 700,
+          duration: 2000,
           easing: 'ease-out',
         },
       );
     }
-  }, []);
+  }
 
   return (
     <header className='header'>

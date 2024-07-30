@@ -102,7 +102,6 @@ export default function Card({
       // set animations options
       const options = {
         duration: 400,
-        iteration: 1,
         easing: 'ease-out',
       };
 
@@ -213,20 +212,20 @@ export default function Card({
           {/* show pointing arrow based on col/row layout and isDetailsExpanded */}
           {orientation === 'col' ? (
             isDetailsExpanded ? (
-              <span title='Hide Project Details' aria-label='Hide Project Details'>
+              <span title='Hide Project Details'>
                 <ArrowDownIcon fontSize='large' />
               </span>
             ) : (
-              <span title='Show Project Details' aria-label='Show Project Details'>
+              <span title='Show Project Details'>
                 <ArrowUpIcon fontSize='large' />
               </span>
             )
           ) : isDetailsExpanded ? (
-            <span title='Hide Project Details' aria-label='Hide Project Details'>
+            <span title='Hide Project Details'>
               <ArrowRightIcon fontSize='large' />
             </span>
           ) : (
-            <span title='Show Project Details' aria-label='Show Project Details'>
+            <span title='Show Project Details'>
               <ArrowLeftIcon fontSize='large' />
             </span>
           )}
