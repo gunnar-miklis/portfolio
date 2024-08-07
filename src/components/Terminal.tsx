@@ -55,8 +55,18 @@ export default function Terminal() {
             <Icon /> gunnar.skills.technical
           </p>
           <p className='out'>
-            [ TypeScript, JavaScript, React, React Native, Node, Express, MongoDB, SQL, git,
-            Linux, R ]
+            [ TypeScript, JavaScript, Node.js, React, React Native, Express, MongoDB, SQLite,
+            Lighthouse, git, Linux, R ]
+          </p>
+        </div>
+
+        <div>
+          <p className='in'>
+            <Icon /> gunnar.skills.practices
+          </p>
+          <p className='out'>
+            [ DRY, KISS, YAGNI, SOLID, Separation of Concerns, CI/CD, TDD, DevOps, REST, CRUD, OOP,
+            Accessibility ]
           </p>
         </div>
 
@@ -91,7 +101,7 @@ export default function Terminal() {
               </li>
               <li>
                 <CenterFocusWeakRoundedIcon fontSize='small' />
-                Attention-to-detail and diligent, aiming to build visually appealing web apps.
+                Attention-to-detail, conscientious and diligent, high quality delivery.
               </li>
             </ul>
 
