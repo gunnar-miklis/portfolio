@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import portrait from './../assets/gunnar-miklis.webp';
 import '@/styles/header.css';
 
-const h1 = 'Apps with user-centered approach unlock potential.';
+const h1 = 'While AI can streamline tasks, it can also lead to an unreliable and messy code base.';
 const h2 =
-  'I believe intuitive, continually evolving products that are both functional and enjoyable will deeply resonate with users and transform their experience.';
+  'Effective AI integration needs to be managed properly to ensure software quality including maintainability, scalability, security, and usability. I aim for high software quality and an user-centered approach.';
 
 export default function Header() {
   const [textH1, setTextH1] = useState<string>(' ');
