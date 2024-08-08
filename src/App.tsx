@@ -1,7 +1,7 @@
 import Navbar from './components/Navbar';
 import Header from './components/Header';
 import Terminal from './components/Terminal';
-import HorizontalScrollGallery from './components/HorizontalScrollGallery';
+import GalleryWithHorizontalScroll from './components/gallery/GalleryWithHorizontalScroll';
 import { projects } from './data/projects';
 import Footer from './components/Footer';
 
@@ -20,7 +20,7 @@ export default function App() {
           <h1 id='projects-title' style={{ marginBottom: '1rem' }}>
             Projects
           </h1>
-          <HorizontalScrollGallery projects={projects} />
+          <GalleryWithHorizontalScroll projects={projects} />
         </section>
       </main>
 

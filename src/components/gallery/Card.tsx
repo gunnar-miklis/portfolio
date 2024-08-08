@@ -1,13 +1,13 @@
-import React, { ReactNode, useEffect, useState } from 'react';
+import { type MouseEvent, type ReactNode, useEffect, useState } from 'react';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LaunchRoundedIcon from '@mui/icons-material/LaunchRounded';
 import ArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import ArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import ArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import ArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-import useWindowDimensions from '../hooks/useWindowDimensions';
-import LinkWithIcon from './LinkWithIcon';
-import '@/styles/card.css';
+import useWindowDimensions from '../../hooks/useWindowDimensions';
+import LinkWithIcon from '../common/LinkWithIcon';
+import '@/styles/gallery/card.css';
 
 type HTMLSummaryElement = HTMLElement;
 
@@ -50,13 +50,13 @@ export default function Card({
       setOrientation('row');
       if (cardImages instanceof NodeList && cardContents instanceof NodeList) {
         cardImages.forEach((cardImage) => {
-          if (cardImage instanceof HTMLElement) {
+          if (cardImage instanceof HTMLDivElement) {
             cardImage.style.maxHeight = '1000px';
             cardImage.style.flexBasis = '35%';
           }
         });
         cardContents.forEach((cardContent) => {
-          if (cardContent instanceof HTMLElement) {
+          if (cardContent instanceof HTMLDivElement) {
             cardContent.style.maxHeight = '1000px';
             cardContent.style.flexBasis = '65%';
           }
@@ -70,10 +70,10 @@ export default function Card({
         summary instanceof HTMLElement
       ) {
         cardImages.forEach((cardImage) => {
-          if (cardImage instanceof HTMLElement) cardImage.style.maxHeight = '400px';
+          if (cardImage instanceof HTMLDivElement) cardImage.style.maxHeight = '400px';
         });
         cardContents.forEach((cardContent) => {
-          if (cardContent instanceof HTMLElement)
+          if (cardContent instanceof HTMLDivElement)
             cardContent.style.maxHeight = summary.offsetHeight + cardContent.offsetHeight + 'px';
         });
       }
@@ -83,21 +83,19 @@ export default function Card({
   }, [windowWidth, orientation]);
 
   // NOTE: animation when details is toggled
-  function toggleDetails(event: React.MouseEvent<HTMLSummaryElement>, cardId: string) {
+  function toggleDetails(event: MouseEvent<HTMLSummaryElement>, cardId: string) {
     event.preventDefault();
 
-    const details = document.querySelector(`#${cardId}`);
     const cardImage = document.querySelector(`#${cardId} .card-image`);
     const img = document.querySelector(`#${cardId} .card-image img`);
-    const summary = document.querySelector(`#${cardId} .details summary`);
     const cardContent = document.querySelector(`#${cardId} .card-content`);
+    const summary = document.querySelector(`#${cardId} .details summary`);
 
     if (
-      details instanceof HTMLElement &&
-      cardImage instanceof HTMLElement &&
-      img instanceof HTMLElement &&
+      cardImage instanceof HTMLDivElement &&
+      img instanceof HTMLImageElement &&
       summary instanceof HTMLElement &&
-      cardContent instanceof HTMLElement
+      cardContent instanceof HTMLDivElement
     ) {
       // set animations options
       const options = {

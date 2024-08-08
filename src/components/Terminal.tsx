@@ -7,7 +7,7 @@ import Diversity1Icon from '@mui/icons-material/Diversity1';
 import CenterFocusWeakRoundedIcon from '@mui/icons-material/CenterFocusWeakRounded';
 import CloseIcon from '@mui/icons-material/Close';
 import '@/styles/terminal.css';
-import ExternalLink from './ExternalLink';
+import ExternalLink from './common/ExternalLink';
 
 export default function Terminal() {
   return (
@@ -55,8 +55,8 @@ export default function Terminal() {
             <Icon /> gunnar.skills.technical
           </p>
           <p className='out'>
-            [ TypeScript, JavaScript, Node.js, Next.js, React, React Native, Express, MongoDB, SQLite,
-            Lighthouse, git, Linux, R ]
+            [ TypeScript, JavaScript, Node.js, Next.js, React, React Native, Express, MongoDB,
+            SQLite, Lighthouse, git, Linux, R ]
           </p>
         </div>
 
@@ -65,8 +65,8 @@ export default function Terminal() {
             <Icon /> gunnar.skills.practices
           </p>
           <p className='out'>
-            [ DRY, KISS, YAGNI, SOLID, Separation of Concerns, CI/CD, TDD, DevOps, REST, SPA, SSR, CSR, OOP,
-            Accessibility ]
+            [ DRY, KISS, YAGNI, SOLID, Separation of Concerns, CI/CD, TDD, DevOps, REST, SPA, SSR,
+            CSR, OOP, Accessibility ]
           </p>
         </div>
 
