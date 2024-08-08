@@ -235,10 +235,15 @@ export default function Card({
           <div className='card-inner'>
             <div className='card-header'>
               <h3>{title}</h3>
-              <p className='annotation'>
-                {category && category + ', '}
-                {date && date}
-              </p>
+              {category && date ? (
+                <p className='annotation'>
+                  {category}, {date}
+                </p>
+              ) : category ? (
+                <p className='annotation'>{category}</p>
+              ) : (
+                <p className='annotation'>{date}</p>
+              )}
             </div>
 
             {/* description */}
@@ -260,19 +265,21 @@ export default function Card({
           </div>
 
           {/* action links */}
-          <div
-            className='paper paper-spacing-sm'
-            style={{ flexFlow: 'row wrap' }}
-            title='External Links'
-            aria-label='External Links'
-          >
-            {liveDemo && (
-              <LinkWithIcon href={liveDemo} icon={<LaunchRoundedIcon />} title='Live Demo' />
-            )}
-            {sourceCode && (
-              <LinkWithIcon href={sourceCode} icon={<GitHubIcon />} title='Source Code' />
-            )}
-          </div>
+          {(liveDemo || sourceCode) && (
+            <div
+              className='paper paper-spacing-sm'
+              style={{ flexFlow: 'row wrap' }}
+              title='External Links'
+              aria-label='External Links'
+            >
+              {liveDemo && (
+                <LinkWithIcon href={liveDemo} icon={<LaunchRoundedIcon />} title='Live Demo' />
+              )}
+              {sourceCode && (
+                <LinkWithIcon href={sourceCode} icon={<GitHubIcon />} title='Source Code' />
+              )}
+            </div>
+          )}
 
           {/* footnote */}
           {footnote && <p className='annotation footnote'>{footnote}</p>}

@@ -5,6 +5,7 @@ import LooksTwoIcon from '@mui/icons-material/LooksTwo';
 import LooksThreeIcon from '@mui/icons-material/Looks3';
 import ExternalLink from '../components/ExternalLink';
 import ticketing from './../assets/ticketing.webp';
+import portfolio from './../assets/portfolio.webp';
 import todo from './../assets/todo-list.webp';
 import tipCalc from './../assets/tip-calculator.webp';
 import webPlat from './../assets/web-platform.webp';
@@ -13,6 +14,7 @@ import qrComp from './../assets/qr-code-comp.webp';
 import thatLevel from './../assets/that-level-again.webp';
 import repCount from './../assets/repcount.webp';
 import sleepMinder from './../assets/sleepminder.webp';
+import tsLearning from './../assets/ts-learning-path.webp';
 
 export interface ProjectsType {
   [card: string]: Project;
@@ -37,7 +39,7 @@ export const projects: ProjectsType = {
     title: 'Event Ticketing',
     category: 'Latest Project',
     date: 'May 2024',
-    technologies: ['TypeScript', 'React Native', 'Expo Go', 'SQLite'],
+    technologies: ['TypeScript', 'SQLite', 'React Native', 'Expo Go', 'Expo-Camera', 'Axios'],
     sourceCode: 'https://github.com/gunnar-miklis#latest-project',
     imageSources: [ticketing],
     footnote:
@@ -84,11 +86,56 @@ export const projects: ProjectsType = {
       </>
     ),
   },
-  todoList: {
+  portfolio: {
     id: 2,
+    title: 'Portfolio - Gunnar Miklis',
+    date: 'Jun 2024',
+    technologies: ['TypeScript', 'React', 'Vite', 'Lighthouse'],
+    liveDemo: 'https://gunnar-miklis.netlify.app/',
+    sourceCode: 'https://github.com/gunnar-miklis/portfolio',
+    imageSources: [portfolio],
+    content: (
+      <>
+        <>
+          <p>
+            Discover a user-centric approach and explore a blend of frontend and backend skills
+            coupled with a unique personality. Specializing in TypeScript, Node.js, Next.js, React,
+            and more. Emphasizing high software quality including maintainability, scalability,
+            security, and usability. Open to work and available for collaboration.
+          </p>
+          <div className='feature-list' title='Features' aria-label='Features'>
+            <ul className='list'>
+              <li>
+                <PhoneGearIcon /> Accessibility optimzation. Semantics, ARIA, Lighthouse.
+              </li>
+              <li>
+                <PhoneGearIcon /> Scroll events and animations. Typewriter.
+              </li>
+              <li>
+                <PhoneGearIcon /> Custom components: Horizontal scrollable gallery. Progress
+                indicator.
+              </li>
+            </ul>
+          </div>
+        </>
+      </>
+    ),
+  },
+  todoList: {
+    id: 3,
     title: 'Todo List',
     date: 'Sep 2023',
-    technologies: ['HTML', 'CSS', 'JavaScript', 'MongoDB', 'Express', 'React', 'Vite'],
+    technologies: [
+      'Node.js',
+      'Express',
+      'MongoDB',
+      'Mongoose',
+      'React',
+      'Vite',
+      'Axios',
+      'REST',
+      'API',
+    ],
     liveDemo: 'https://main--restful-api-web-app.netlify.app/',
     sourceCode: 'https://github.com/gunnar-miklis/restful-api-web-app',
     imageSources: [todo],
@@ -96,16 +143,16 @@ export const projects: ProjectsType = {
     content: (
       <p>
         Develop a RESTful API Full-Stack Web Application using MERN-Stack (MongoDB, Express, React,
-        Node) and JavaScript as main language, in less than 48-hours.
+        Node.js) and JavaScript as main language, in less than 48-hours.
       </p>
     ),
   },
   tipCalculator: {
-    id: 3,
+    id: 4,
     title: 'Tip Calculator',
     category: 'Practice.Learn.Improve.',
     date: 'Aug 2023',
-    technologies: ['React', 'MUI', 'JSS', 'Vite'],
+    technologies: ['React', 'Vite', 'Material UI', 'JSS'],
     liveDemo: 'https://main--tip-calculator-57d393.netlify.app/',
     sourceCode:
       'https://github.com/gunnar-miklis/frontend-challenges/tree/main/tip-calculator/solutions/react-mui',
@@ -137,11 +184,11 @@ export const projects: ProjectsType = {
     ),
   },
   webPlatform: {
-    id: 4,
+    id: 5,
     title: 'Web Platform',
     category: 'Practice.Learn.Improve.',
     date: 'Aug 2023',
-    technologies: ['React', 'MUI', 'JSS', 'Vite'],
+    technologies: ['React', 'Material UI', 'JSS', 'Vite', 'GitHub Pages'],
     liveDemo: 'https://gunnar-miklis.github.io/intro-to-material-ui-react/',
     sourceCode: 'https://github.com/gunnar-miklis/intro-to-material-ui-react',
     imageSources: [webPlat],
@@ -181,7 +228,7 @@ export const projects: ProjectsType = {
     ),
   },
   summaryComponent: {
-    id: 5,
+    id: 6,
     title: 'Summary Component',
     category: 'Practice.Learn.Improve.',
     date: 'Jul 2023',
@@ -197,7 +244,7 @@ export const projects: ProjectsType = {
     ),
   },
   qrCodeComponent: {
-    id: 6,
+    id: 7,
     title: 'QR Code Component',
     category: 'Practice.Learn.Improve.',
     date: 'Jul 2023',
@@ -229,7 +276,7 @@ export const projects: ProjectsType = {
     ),
   },
   waitThatLevelAgain: {
-    id: 7,
+    id: 8,
     title: 'Wait...? That level, again?',
     category: 'Educational Project',
     date: 'Apr 2023',
@@ -240,6 +287,7 @@ export const projects: ProjectsType = {
       'DOM',
       'Canvas / p5js',
       'Git / GitHub',
+      'GitHub Pages',
       'OOP',
       'KISS',
       'DRY',
@@ -289,19 +337,20 @@ export const projects: ProjectsType = {
     ),
   },
   repCount: {
-    id: 8,
+    id: 9,
     title: 'RepCount',
     category: 'Educational Project',
     date: 'Apr 2023',
     technologies: [
-      'Node',
+      'Node.js',
       'Express',
       'MongoDB',
       'Mongoose',
       'Handlebars',
       'CI',
-      'Session Auth',
+      'Session Authentication',
       'CRUD',
+      'API',
     ],
     liveDemo: 'https://workout-tracker-repcount.cyclic.app/',
     sourceCode: 'https://github.com/gunnar-miklis/workout-tracker',
@@ -348,12 +397,12 @@ export const projects: ProjectsType = {
     ),
   },
   sleepMinder: {
-    id: 9,
+    id: 10,
     title: 'SleepMinder',
     category: 'Educational Project',
     date: 'May 2023',
     technologies: [
-      'Node',
+      'Node.js',
       'Express',
       'MongoDB',
       'Mongoose',
@@ -361,7 +410,7 @@ export const projects: ProjectsType = {
       'Axios',
       'Chart.js',
       'JSON Web Token',
-      'JWT Auth',
+      'JWT Authentication',
       'REST',
       'API',
     ],
@@ -401,6 +450,110 @@ export const projects: ProjectsType = {
           </ul>
         </div>
       </>
+    ),
+  },
+  codingChallenges: {
+    id: 11,
+    title: 'Coding Challenges',
+    category: 'Practice.Learn.Improve.',
+    technologies: ['JavaScript', 'Regular Expression'],
+    sourceCode: 'https://github.com/gunnar-miklis/coding-challenges',
+    imageSources: [
+      'https://www.codewars.com/packs/assets/logo-square-red-big-dark-text.2e091298.png',
+    ],
+    content: (
+      <>
+        <p>
+          Part of my practice projects. Complete coding challenges provided by{' '}
+          <ExternalLink href='https://www.codewars.com/' title='Codewars' />.
+        </p>
+        <div className='feature-list' title='Features' aria-label='Features'>
+          <ul className='list'>
+            <li>
+              <PhoneGearIcon /> Fundamentals.
+            </li>
+            <li>
+              <PhoneGearIcon /> Strings and regular expressions.
+            </li>
+            <li>
+              <PhoneGearIcon /> Data Structures, array methods, lists, sorting.
+            </li>
+            <li>
+              <PhoneGearIcon /> Logic puzzles, algorithms.
+            </li>
+            <li>
+              <PhoneGearIcon /> Performance optimized code.
+            </li>
+            <li>
+              <PhoneGearIcon /> Edge cases.
+            </li>
+          </ul>
+        </div>
+      </>
+    ),
+  },
+  tsLearningPath: {
+    id: 12,
+    title: 'TypeScript Learning Path',
+    category: 'Practice.Learn.Improve.',
+    technologies: ['TypeScript', 'Node.js', 'git'],
+    sourceCode: 'https://github.com/gunnar-miklis/learn-typescript/tree/main/ms-learning-path',
+    imageSources: [tsLearning],
+    content: (
+      <>
+        <p>
+          Part of my practice projects. &quot;Learning Path: Build JavaScript applications using
+          TypeScript&quot; provided by{' '}
+          <ExternalLink
+            href='https://learn.microsoft.com/en-us/training/paths/build-javascript-applications-typescript/'
+            title='Microsoft'
+          />
+          .
+        </p>
+        <div className='feature-list' title='Features' aria-label='Features'>
+          <ul className='list'>
+            <li>
+              <PhoneGearIcon /> Conditionals.
+            </li>
+            <li>
+              <PhoneGearIcon /> Functions.
+            </li>
+            <li>
+              <PhoneGearIcon /> Scope.
+            </li>
+            <li>
+              <PhoneGearIcon /> Arrays.
+            </li>
+            <li>
+              <PhoneGearIcon /> Loops.
+            </li>
+            <li>
+              <PhoneGearIcon /> Iterators.
+            </li>
+            <li>
+              <PhoneGearIcon /> Objects.
+            </li>
+            <li>
+              <PhoneGearIcon /> Classes.
+            </li>
+            <li>
+              <PhoneGearIcon /> Modules.
+            </li>
+          </ul>
+        </div>
+      </>
+    ),
+  },
+  gitHub: {
+    id: 13,
+    title: 'Curious for more?',
+    technologies: ['GitHub'],
+    imageSources: ['https://github.githubassets.com/assets/GitHub-Logo-ee398b662d42.png'],
+    content: (
+      <p>
+        Explore more projects on my{' '}
+        <ExternalLink href='https://github.com/gunnar-miklis' title='GitHub' /> profile.
+      </p>
     ),
   },
 };
