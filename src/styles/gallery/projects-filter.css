@@ -1,0 +1,41 @@
+.gallery-filter {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: var(--space-sm);
+
+  width: 100%;
+  margin-bottom: calc( var(--space-sm) + 0.4rem );
+
+  overflow-x: scroll;
+  scrollbar-width: none;
+}
+.filters {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-start;
+  gap: var(--space-sm);
+}
+.gallery-filter .chip {
+  border: none;
+  background-color: var(--card-bg-dark);
+  width: 100%;
+  border: 2px solid transparent;
+}
+.gallery-filter .active-filter {
+  background-color: var(--bg-dark);
+  border-color: var(--text-dark);
+  color: var(--text-dark);
+}
+
+/* LIGHT THEME */
+@media (prefers-color-scheme: light) {
+  .gallery-filter .chip {
+    background-color: var(--card-bg-light);
+  }
+  .gallery-filter .active-filter {
+    background-color: var(--bg-light);
+    border-color: var(--text-light);
+    color: var(--text-light);
+  }
+}
