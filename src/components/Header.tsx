@@ -17,7 +17,7 @@ export default function Header() {
   // reset and repeat Typewriter when click on ABOUT beyong a certain scroll position
   useEffect(() => {
     const about = document.querySelector('#nav-about');
-    if (about instanceof HTMLElement) {
+    if (about instanceof HTMLAnchorElement) {
       const resetTypeWriter = () => {
         if (window.scrollY > 1200) {
           setTextH1(' ');
@@ -77,7 +77,7 @@ export default function Header() {
 
   function animateImage() {
     const headerImage = document.querySelector('.header-image');
-    if (headerImage instanceof HTMLElement) {
+    if (headerImage instanceof HTMLDivElement) {
       headerImage.animate(
         [
           { opacity: 0, marginRight: '-50px' },

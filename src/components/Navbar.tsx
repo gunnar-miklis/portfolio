@@ -1,6 +1,6 @@
 import '@/styles/navbar.css';
-import React, { useEffect } from 'react';
-import ExternalLink from './ExternalLink';
+import { MouseEvent, useEffect } from 'react';
+import ExternalLink from './common/ExternalLink';
 
 export default function Navbar() {
   // NOTE: set nav item active if in view
@@ -23,10 +23,7 @@ export default function Navbar() {
   }, []);
 
   // NOTE: navigate to sections on click
-  function navigateTo(
-    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
-    targetId: string,
-  ): void {
+  function navigateTo(event: MouseEvent<HTMLAnchorElement>, targetId: string): void {
     event.preventDefault();
 
     const target = document.querySelector(targetId);
@@ -35,7 +32,7 @@ export default function Navbar() {
       window.scrollTo({ top: target.offsetTop - 150, behavior: 'smooth' });
     }
   }
-  function scrollToTop(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
+  function scrollToTop(event: MouseEvent<HTMLAnchorElement>) {
     event.preventDefault();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
@@ -44,10 +41,16 @@ export default function Navbar() {
     <nav className='navbar' role='navigation'>
       <div className='center-navbar'>
         <div className='brand'>
-          <ExternalLink href='https://flowcv.me/gunnar-miklis' title='Gunnar Miklis - Online Business Card'>
+          <ExternalLink
+            href='https://flowcv.me/gunnar-miklis'
+            title='Gunnar Miklis - Online Business Card'
+          >
             Gunnar Miklis
           </ExternalLink>
-          <ExternalLink href='https://github.com/gunnar-miklis' title='Gunnar Miklis - TypeScript Web Developer GitHub'>
+          <ExternalLink
+            href='https://github.com/gunnar-miklis'
+            title='Gunnar Miklis - TypeScript Web Developer GitHub'
+          >
             TypeScript Web Developer
           </ExternalLink>
         </div>
