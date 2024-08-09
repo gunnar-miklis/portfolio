@@ -61,20 +61,19 @@
   padding: var(--space-lg) var(--space-md);
 }
 .in {
-  color: var(--annotation-dark);
+  color: var(--text-dark);
 
-  font-weight: 500;
+  font-weight: 600;
 
   display: flex;
-  flex-flow: row wrap;
-  align-items: center;
+  flex-flow: row nowrap;
 }
 .out {
   color: var(--text-dark);
 
   display: flex;
-  flex-flow: row wrap;
-  align-items: center;
+  flex-flow: column nowrap;
+  align-items: flex-start;
 
   margin-left: 1.5rem;
 }
@@ -109,10 +108,10 @@
     color: var(--bg-light);
   }
   .in {
-    color: var(--annotation-light);
-  }
-  .out {
     color: var(--text-light);
+}
+.out {
+	color: var(--text-light);
   }
 }
 
@@ -133,7 +132,7 @@
 }
 @media (min-width: 993px) {
   .window-content {
-    max-width: 75%;
+    max-width: 70%;
     padding: var(--space-lg) var(--space-md);
     gap: var(--space-sm);
   }
