@@ -109,9 +109,9 @@
   }
   .in {
     color: var(--text-light);
-}
-.out {
-	color: var(--text-light);
+  }
+  .out {
+    color: var(--text-light);
   }
 }
 

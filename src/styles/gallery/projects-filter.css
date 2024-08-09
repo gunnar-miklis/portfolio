@@ -5,7 +5,7 @@
   gap: var(--space-sm);
 
   width: 100%;
-  margin-bottom: calc( var(--space-sm) + 0.4rem );
+  margin-bottom: calc(var(--space-sm) + 0.4rem);
 
   overflow-x: scroll;
   scrollbar-width: none;

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import EastIcon from '@mui/icons-material/East';
 import WestIcon from '@mui/icons-material/West';
-import { ProjectsType } from '../../data/projects';
+import { type ProjectsType } from '../../data/projects';
 import '@/styles/gallery/controls.css';
 
 interface ControllsProps {

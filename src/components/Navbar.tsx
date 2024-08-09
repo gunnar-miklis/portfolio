@@ -1,5 +1,5 @@
 import '@/styles/navbar.css';
-import { MouseEvent, useEffect } from 'react';
+import { type MouseEvent, useEffect } from 'react';
 import ExternalLink from './common/ExternalLink';
 
 export default function Navbar() {
@@ -49,7 +49,7 @@ export default function Navbar() {
           </ExternalLink>
           <ExternalLink
             href='https://github.com/gunnar-miklis'
-            title='Gunnar Miklis - TypeScript Web Developer GitHub'
+            title='Gunnar Miklis - TypeScript Web Developer - GitHub'
           >
             TypeScript Web Developer
           </ExternalLink>
