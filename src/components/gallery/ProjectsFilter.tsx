@@ -1,5 +1,6 @@
 import { type Dispatch, type SetStateAction, useEffect, useState } from 'react';
-import { type Project, type ProjectsType } from '../../data/projects';
+import { type ProjectsType } from '../../data/projects';
+import { type FiltersType, filters } from '../../data/filter';
 import '@/styles/gallery/projects-filter.css';
 
 interface ProjectsFilterProps {
@@ -13,27 +14,8 @@ export default function ProjectsFilter({
   filteredProjects,
   setFilteredProjects,
 }: ProjectsFilterProps) {
-  const [activeFilters, setActiveFilters] = useState<string[]>([]);
-  const [inactiveFilters, setInactiveFilters] = useState<string[]>([]);
-
-  // INACTIVE FILTERS (inital): get filter options dynamically: extract technologies from projects
-  useEffect(() => {
-    // extract technologies from all projects and merge them
-    const allTechs: string[] = [];
-    Object.values(projects).forEach((project: Project) =>
-      project.technologies.forEach((tech: string) => allTechs.push(tech)),
-    );
-    // filter by unique / remove duplicates
-    const filteredTechs: string[] = [];
-    allTechs.forEach((tech: string) =>
-      !filteredTechs.includes(tech) ? filteredTechs.push(tech) : null,
-    );
-    // sort them alphabetically
-    const copy = Array.from(filteredTechs);
-    const sortedTechs = copy.sort((a, b) => a.localeCompare(b));
-
-    setInactiveFilters(sortedTechs);
-  }, [projects]);
+  const [activeFilters, setActiveFilters] = useState<FiltersType>([]);
+  const [inactiveFilters, setInactiveFilters] = useState<FiltersType>(filters);
 
   // ACTIVE FILTERS: filter all projects by active filters or reset to show all projects
   useEffect(() => {
@@ -53,23 +35,24 @@ export default function ProjectsFilter({
   }, [activeFilters, projects, setFilteredProjects]);
 
   // HANDLE CHANGES: add or remove a selected filter from active filters list
-  function updateActiveFilters(clickedFilter: string): void {
-    if (!activeFilters.includes(clickedFilter)) {
-      // add to active filter
-      setActiveFilters((prevState: string[]) =>
-        [...prevState, clickedFilter].sort((a, b) => a.localeCompare(b)),
+  function updateActiveFilters(selectedFilter: string): void {
+    if (!activeFilters.includes(selectedFilter)) {
+      // add to active filter + sort by name
+      setActiveFilters((prevState: FiltersType) =>
+        [...prevState, selectedFilter].sort((a, b) => a.localeCompare(b)),
       );
-      const updatedFilters = inactiveFilters.filter((filter: string) => filter !== clickedFilter);
+      const updatedFilters = inactiveFilters.filter((filter: string) => filter !== selectedFilter);
       // remove from inactive filter
       setInactiveFilters(updatedFilters);
     } else {
       // remove from active filter
-      const updatedFilters = activeFilters.filter((filter: string) => filter !== clickedFilter);
+      const updatedFilters = activeFilters.filter((filter: string) => filter !== selectedFilter);
       setActiveFilters(updatedFilters);
-      // add to inactive filter
-      setInactiveFilters((prevState: string[]) =>
-        [...prevState, clickedFilter].sort((a, b) => a.localeCompare(b)),
+      // add to inactive filter + sort back to inital position
+      const sortedFilters: FiltersType = filters.filter(
+        (filter) => inactiveFilters.includes(filter) || selectedFilter === filter,
       );
+      setInactiveFilters(sortedFilters);
     }
     // jump back to first item
     const galleryFilter = document.querySelector('.gallery-filter');

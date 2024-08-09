@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import PhoneGearIcon from '@mui/icons-material/PhonelinkSetup';
 import LooksOneIcon from '@mui/icons-material/LooksOne';
 import LooksTwoIcon from '@mui/icons-material/LooksTwo';
@@ -98,7 +98,15 @@ export const projects: ProjectsType = {
     id: 2,
     title: 'Portfolio - Gunnar Miklis',
     date: 'Jun 2024',
-    technologies: ['Frontend', 'TypeScript', 'React', 'Vite', 'Lighthouse'],
+    technologies: [
+      'Frontend',
+      'Accessibility',
+      'CI/CD',
+      'TypeScript',
+      'React',
+      'Vite',
+      'Lighthouse',
+    ],
     liveDemo: 'https://gunnar-miklis.netlify.app/',
     sourceCode: 'https://github.com/gunnar-miklis/portfolio',
     imageSources: [portfolio],
@@ -107,9 +115,9 @@ export const projects: ProjectsType = {
         <>
           <p>
             Discover a user-centric approach and explore a blend of frontend and backend skills
-            coupled with a unique personality. Specializing in TypeScript, Node.js, Next.js, React,
-            and more. Emphasizing high software quality including maintainability, scalability,
-            security, and usability. Open to work and available for collaboration.
+            coupled with a unique personality. Expertise in TypeScript, Node.js, Next.js, React, and
+            more. Emphasizing high software quality including maintainability, scalability,
+            security, and usability.
           </p>
           <div className='feature-list' title='Features' aria-label='Features'>
             <ul className='list'>
@@ -135,6 +143,10 @@ export const projects: ProjectsType = {
     date: 'Sep 2023',
     technologies: [
       'Fullstack',
+      'CSR',
+      'SPA',
+      'REST',
+      'CI/CD',
       'JavaScript',
       'Node.js',
       'Express',
@@ -160,7 +172,7 @@ export const projects: ProjectsType = {
     title: 'Tip Calculator',
     category: 'Practice.Learn.Improve.',
     date: 'Aug 2023',
-    technologies: ['Frontend', 'JavaScript', 'React', 'Vite', 'MaterialUI', 'JSS'],
+    technologies: ['Frontend', 'CI/CD', 'JavaScript', 'React', 'Vite', 'MaterialUI', 'JSS'],
     liveDemo: 'https://main--tip-calculator-57d393.netlify.app/',
     sourceCode:
       'https://github.com/gunnar-miklis/frontend-challenges/tree/main/tip-calculator/solutions/react-mui',
@@ -290,6 +302,9 @@ export const projects: ProjectsType = {
     date: 'Apr 2023',
     technologies: [
       'Frontend',
+      'DRY',
+      'KISS',
+      'OOP',
       'HMTL',
       'CSS',
       'JavaScript',
@@ -350,13 +365,16 @@ export const projects: ProjectsType = {
     technologies: [
       'Backend',
       'SSR',
+      'CRUD',
+      'CI',
       'JavaScript',
       'Node.js',
       'Express',
       'Handlebars',
       'MongoDB',
       'Mongoose',
-      'SessionAuthentication',
+      'Cookies/Session',
+      'Authentication',
     ],
     liveDemo: 'https://workout-tracker-repcount.cyclic.app/',
     sourceCode: 'https://github.com/gunnar-miklis/workout-tracker',
@@ -410,6 +428,9 @@ export const projects: ProjectsType = {
     technologies: [
       'Fullstack',
       'CSR',
+      'SPA',
+      'REST',
+      'CI/CD',
       'JavaScript',
       'Node.js',
       'React',
@@ -417,7 +438,7 @@ export const projects: ProjectsType = {
       'Chart.js',
       'Express',
       'JSONWebToken',
-      'JWTAuthentication',
+      'Authentication',
       'MongoDB',
       'Mongoose',
     ],
@@ -466,7 +487,7 @@ export const projects: ProjectsType = {
     technologies: ['Coding', 'JavaScript', 'RegularExpression'],
     sourceCode: 'https://github.com/gunnar-miklis/coding-challenges',
     imageSources: [
-      'https://www.codewars.com/packs/assets/logo-square-red-big-dark-text.2e091298.png',
+      'https://raw.githubusercontent.com/codewars/branding/master/light-text-logo-vertical.png',
     ],
     content: (
       <>
@@ -503,7 +524,7 @@ export const projects: ProjectsType = {
     id: 12,
     title: 'TypeScript Learning Path',
     category: 'Practice.Learn.Improve.',
-    technologies: ['Coding', 'TypeScript', 'Node.js'],
+    technologies: ['Coding', 'TypeScript'],
     sourceCode: 'https://github.com/gunnar-miklis/learn-typescript/tree/main/ms-learning-path',
     imageSources: [tsLearning],
     content: (
@@ -555,7 +576,7 @@ export const projects: ProjectsType = {
     id: 13,
     title: 'Curious for more?',
     technologies: ['GitHub'],
-    imageSources: ['https://github.githubassets.com/assets/GitHub-Logo-ee398b662d42.png'],
+    imageSources: ['https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png'],
     content: (
       <p>
         Explore more projects on my{' '}
