@@ -91,14 +91,14 @@ export default function Header() {
   return (
     <header className='header'>
       <div className='header-text'>
-        <h1>
+        <h1 className='title'>
           {textTitle}
           <span
             className='typewriter-caret'
             style={showCaretTitle ? { display: 'inline' } : { display: 'none' }}
           />
         </h1>
-        <h2>
+        <h2 className='subtitle'>
           {textSubtitle}
           <span
             className='typewriter-caret'
