@@ -57,7 +57,7 @@ export default function Card({
         });
         cardContents.forEach((cardContent) => {
           if (cardContent instanceof HTMLDivElement) {
-            cardContent.style.maxHeight = '1000px';
+            cardContent.style.maxHeight = '100%';
             cardContent.style.flexBasis = '65%';
           }
         });
