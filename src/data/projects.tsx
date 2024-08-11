@@ -572,8 +572,120 @@ export const projects: ProjectsType = {
       </>
     ),
   },
-  gitHub: {
+  journeyToWebDev: {
     id: 13,
+    title: 'Journey to WebDev',
+    category: 'Practice.Learn.Improve.',
+    date: '2024',
+    technologies: [
+      'Frontend',
+      'Backend',
+      'Fullstack',
+      'SPA',
+      'MVC',
+      'ODM',
+      'CRUD',
+      'REST',
+      'CORS',
+      'Authentication',
+      'ErrorHandling',
+      'HTML',
+      'CSS',
+      'JavaScript',
+      'DOM',
+      'Node.js',
+      'React',
+      'Axios',
+      'JsonServer',
+      'Express',
+      'BcryptJS',
+      'JsonWebToken',
+      'MongoDB',
+      'Nodemailer',
+      'Cloudinary',
+    ],
+    imageSources: ['https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png'],
+    sourceCode: 'https://github.com/gunnar-miklis/recap',
+    content: (
+      <>
+        <p>
+          A look back at the journey of becoming a web developer. With personal notes to summarize
+          certain concepts, step-by-step instructions to document certain approaches, as well as
+          comments as reminders of how things been done. Simply a personalized review that I can
+          return to when a little refresher is needed.
+        </p>
+        <div className='feature-list' title='Features' aria-label='Features'>
+          <p>JS FUNDAMENTALS</p>
+          <ul className='list'>
+            <li>
+              <PhoneGearIcon /> JS coding concepts, nodeJS.
+            </li>
+            <li>
+              <PhoneGearIcon /> HTML, CSS, DOM.
+            </li>
+          </ul>
+        </div>
+        <div className='feature-list' title='Features' aria-label='Features'>
+          <p>BACKEND</p>
+          <ul className='list'>
+            <li>
+              <PhoneGearIcon /> MVC, Response-Request-Cylce.
+            </li>
+            <li>
+              <PhoneGearIcon /> REST, API, CRUD, ExpressJS.
+            </li>
+            <li>
+              <PhoneGearIcon /> DB, ODM, MongoDB.
+            </li>
+            <li>
+              <PhoneGearIcon /> CORS, security, password encryption, bcryptJS.
+            </li>
+            <li>
+              <PhoneGearIcon /> Nodemailer, Json-Server.
+            </li>
+          </ul>
+        </div>
+        <div className='feature-list' title='Features' aria-label='Features'>
+          <p>FRONTEND</p>
+          <ul className='list'>
+            <li>
+              <PhoneGearIcon /> Axios, fetch external API.
+            </li>
+            <li>
+              <PhoneGearIcon /> SPA rendering, component-based architecture.
+            </li>
+            <li>
+              <PhoneGearIcon /> React: component lifecycle: state, side-effects, hooks.
+            </li>
+            <li>
+              <PhoneGearIcon /> React: flow of information: props/callbacks (pass down/lift up).
+            </li>
+            <li>
+              <PhoneGearIcon /> React: routing, navigation.
+            </li>
+            <li>
+              <PhoneGearIcon /> React: context (theme, language, auth).
+            </li>
+          </ul>
+        </div>
+        <div className='feature-list' title='Features' aria-label='Features'>
+          <p>FULLSTACK</p>
+          <ul className='list'>
+            <li>
+              <PhoneGearIcon /> Token-based Authentication: authentication - verification -
+              authorization, public/private/protected routes, login/signup input data validation,
+              user feedback (success/error) messages, handle token expiration, error handling.
+            </li>
+            <li>
+              <PhoneGearIcon /> File-Upload via Cloudinary: multipart/form-data.
+            </li>
+          </ul>
+        </div>
+      </>
+    ),
+  },
+  gitHub: {
+    id: 14,
     title: 'Curious for more?',
     technologies: ['GitHub'],
     imageSources: ['https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png'],
