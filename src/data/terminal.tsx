@@ -37,15 +37,15 @@ export const about: About = {
   },
   skillsTechnical: {
     in: `${name}.skills.technical`,
-    out: '[ TypeScript, JavaScript, Node.js, Next.js, React, React Native, Express, MongoDB, SQLite, Lighthouse, git, Linux, R ]',
+    out: '[ TypeScript, JavaScript, Node.js, Next.js, React, React Native, Express, MongoDB, SQLite, Vitest, Lighthouse, git, Linux, R ]',
   },
   skillsPractices: {
     in: `${name}.skills.practices`,
-    out: '[ DRY, KISS, SOLID, Separation of Concerns, CI/CD, TDD, DevOps, REST, SPA, SSR, CSR, OOP, Accessibility ]',
+    out: '[ DRY, KISS, SOLID, Separation of Concerns, CI/CD, TDD, Unit Test, DevOps, REST, SPA, SSR, CSR, OOP, Accessibility ]',
   },
   skillsPersonal: {
     in: `${name}.skills.personal`,
-    out: '[ Analytical Skills, Problem Solving, Customer-Centered, Open-minded, Curiosity, Passionate, Fast Learning, Collaboration, Interdisciplinary, Agile ]',
+    out: '[ Analytical Skills, Problem Solving, Customer-Centered, Open-minded, Curiosity, Passionate, Fast Learning, Collaboration, Interdisciplinary ]',
   },
   personality: {
     in: `${name}.personality`,

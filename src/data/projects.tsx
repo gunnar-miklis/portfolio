@@ -484,7 +484,7 @@ export const projects: ProjectsType = {
     id: 11,
     title: 'Coding Challenges',
     category: 'Practice.Learn.Improve.',
-    technologies: ['Coding', 'JavaScript', 'RegularExpression'],
+    technologies: ['Coding', 'JavaScript', 'RegEx'],
     sourceCode: 'https://github.com/gunnar-miklis/coding-challenges',
     imageSources: [
       'https://raw.githubusercontent.com/codewars/branding/master/light-text-logo-vertical.png',
@@ -603,6 +603,7 @@ export const projects: ProjectsType = {
       'MongoDB',
       'Nodemailer',
       'Cloudinary',
+      'RegEx',
     ],
     imageSources: ['https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png'],
     sourceCode: 'https://github.com/gunnar-miklis/recap',
