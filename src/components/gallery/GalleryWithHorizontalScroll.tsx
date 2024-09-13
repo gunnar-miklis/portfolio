@@ -1,9 +1,10 @@
 import { type UIEvent, useState } from 'react';
-import { type Project } from '../../data/projects';
-import ProjectsFilter from './ProjectsFilter';
-import Controls from './Controls';
-import PositionIndicatorBar from './PositionIndicatorBar';
-import Card from './Card';
+
+import type { Project } from '@/data/projects';
+import ProjectsFilter from '@/components/gallery/ProjectsFilter';
+import Controls from '@/components/gallery/Controls';
+import PositionIndicatorBar from '@/components/gallery/PositionIndicatorBar';
+import Card from '@/components/gallery/Card';
 import '@/styles/gallery/gallery-with-horizontal-scroll.css';
 
 export default function GalleryWithHorizontalScroll({ projects }: { projects: Project[] }) {

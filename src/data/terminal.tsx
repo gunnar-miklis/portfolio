@@ -1,9 +1,10 @@
+import type { ReactNode } from 'react';
 import AwesomeIcon from '@mui/icons-material/AutoAwesomeRounded';
-import AutoGraphRoundedIcon from '@mui/icons-material/AutoGraphRounded';
 import Diversity1Icon from '@mui/icons-material/Diversity1';
+import AutoGraphRoundedIcon from '@mui/icons-material/AutoGraphRounded';
 import CenterFocusWeakRoundedIcon from '@mui/icons-material/CenterFocusWeakRounded';
-import ExternalLink from '../components/common/ExternalLink';
-import { type ReactNode } from 'react';
+
+import ExternalLink from '@/components/common/ExternalLink';
 
 const name = 'gunnar';
 

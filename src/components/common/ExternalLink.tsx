@@ -4,7 +4,7 @@ type ExternalLinkProps = {
   href: string;
   title: string;
   children?: ReactNode;
-}
+};
 
 export default function ExternalLink({ href, title, children }: ExternalLinkProps) {
   return (

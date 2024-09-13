@@ -2,8 +2,9 @@ import Icon from '@mui/icons-material/ChevronRight';
 import MaximizeIcon from '@mui/icons-material/CropSquare';
 import MinimizeIcon from '@mui/icons-material/Minimize';
 import CloseIcon from '@mui/icons-material/Close';
+
+import { aboutListItems } from '@/data/terminal';
 import '@/styles/terminal.css';
-import { aboutListItems } from '../data/terminal';
 
 export default function Terminal() {
   return (

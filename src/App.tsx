@@ -1,9 +1,9 @@
-import Navbar from './components/Navbar';
-import Header from './components/Header';
-import Terminal from './components/Terminal';
-import GalleryWithHorizontalScroll from './components/gallery/GalleryWithHorizontalScroll';
-import { projects } from './data/projects';
-import Footer from './components/Footer';
+import { projects } from '@/data/projects';
+import Navbar from '@/components/Navbar';
+import Header from '@/components/Header';
+import Terminal from '@/components/Terminal';
+import GalleryWithHorizontalScroll from '@/components/gallery/GalleryWithHorizontalScroll';
+import Footer from '@/components/Footer';
 
 export default function App() {
   return (

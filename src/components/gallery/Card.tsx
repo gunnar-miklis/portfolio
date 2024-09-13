@@ -6,8 +6,9 @@ import ArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import ArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import ArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import ArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-import useWindowDimensions from '../../hooks/useWindowDimensions';
-import LinkWithIcon from '../common/LinkWithIcon';
+
+import useWindowDimensions from '@/hooks/useWindowDimensions';
+import LinkWithIcon from '@/components/common/LinkWithIcon';
 import '@/styles/gallery/card.css';
 
 type HTMLSummaryElement = HTMLElement;

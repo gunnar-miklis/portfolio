@@ -4,7 +4,7 @@ type LinkWithIconProps = {
   icon: ReactElement;
   title: string;
   href: string;
-}
+};
 
 export default function LinkWithIcon({ icon, title, href }: LinkWithIconProps) {
   return (

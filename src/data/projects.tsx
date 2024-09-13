@@ -3,18 +3,19 @@ import PhoneGearIcon from '@mui/icons-material/PhonelinkSetup';
 import LooksOneIcon from '@mui/icons-material/LooksOne';
 import LooksTwoIcon from '@mui/icons-material/LooksTwo';
 import LooksThreeIcon from '@mui/icons-material/Looks3';
-import ExternalLink from '../components/common/ExternalLink';
-import ticketing from './../assets/ticketing.webp';
-import portfolio from './../assets/portfolio.webp';
-import todo from './../assets/todo-list.webp';
-import tipCalc from './../assets/tip-calculator.webp';
-import webPlat from './../assets/web-platform.webp';
-import sumComp from './../assets/summary-comp.webp';
-import qrComp from './../assets/qr-code-comp.webp';
-import thatLevel from './../assets/that-level-again.webp';
-import repCount from './../assets/repcount.webp';
-import sleepMinder from './../assets/sleepminder.webp';
-import tsLearning from './../assets/ts-learning-path.webp';
+import ExternalLink from '@/components/common/ExternalLink';
+
+import ticketing from '@/assets/ticketing.webp';
+import portfolio from '@/assets/portfolio.webp';
+import todo from '@/assets/todo-list.webp';
+import tipCalc from '@/assets/tip-calculator.webp';
+import webPlat from '@/assets/web-platform.webp';
+import sumComp from '@/assets/summary-comp.webp';
+import qrComp from '@/assets/qr-code-comp.webp';
+import thatLevel from '@/assets/that-level-again.webp';
+import repCount from '@/assets/repcount.webp';
+import sleepMinder from '@/assets/sleepminder.webp';
+import tsLearning from '@/assets/ts-learning-path.webp';
 
 export type Project = {
   id: number;
@@ -27,7 +28,7 @@ export type Project = {
   liveDemo?: string;
   sourceCode?: string;
   footnote?: string;
-}
+};
 
 export const projects: Project[] = [
   {

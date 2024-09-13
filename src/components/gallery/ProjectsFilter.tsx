@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import type { Dispatch, SetStateAction } from 'react';
-import type { Project } from '../../data/projects';
-import { type Filter, selectedFilters as initalFilters } from '../../data/filter';
+
+import type { Project } from '@/data/projects';
+import { type Filter, selectedFilters as initalFilters } from '@/data/filter';
 import '@/styles/gallery/projects-filter.css';
 
 type ProjectsFilterProps = {

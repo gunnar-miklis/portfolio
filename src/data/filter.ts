@@ -1,8 +1,8 @@
-import { projects } from './projects';
+import { projects } from '@/data/projects';
 
 export type Filter = string;
 
-// set filters manually
+// set a list of filters manually
 export const selectedFilters: Filter[] = [
   'Frontend',
   'Backend',
@@ -28,7 +28,7 @@ export const selectedFilters: Filter[] = [
   'Accessibility',
 ];
 
-// set filters dynamically based on the technologies inside projects data
+// set a list filters dynamically based on the technologies inside projects data
 export function getAllFiltersFromProjects(): Filter[] {
   const allTechs = projects.map(({ technologies }) => technologies.join(', '));
   const uniqueTechs = [...new Set(allTechs)];
