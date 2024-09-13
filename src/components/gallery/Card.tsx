@@ -1,4 +1,5 @@
-import { type MouseEvent, type ReactNode, useEffect, useState } from 'react';
+import type { MouseEvent, ReactNode } from 'react';
+import { useEffect, useState } from 'react';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LaunchRoundedIcon from '@mui/icons-material/LaunchRounded';
 import ArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
@@ -11,7 +12,7 @@ import '@/styles/gallery/card.css';
 
 type HTMLSummaryElement = HTMLElement;
 
-interface CardProps {
+type CardProps = {
   children: ReactNode;
   className: string;
   title: string;
@@ -22,7 +23,7 @@ interface CardProps {
   liveDemo?: string;
   sourceCode?: string;
   footnote?: string;
-}
+};
 
 export default function Card({
   children,
@@ -188,7 +189,7 @@ export default function Card({
       {/* NOTE: image */}
       <div className='card-image' title='Project image' aria-label='Project image'>
         {imageSources.map((source, i) => (
-          <img key={i} src={source} alt={`Screenshot: ${title}`} loading='lazy'/>
+          <img key={i} src={source} alt={`Screenshot: ${title}`} loading='lazy' />
         ))}
       </div>
 

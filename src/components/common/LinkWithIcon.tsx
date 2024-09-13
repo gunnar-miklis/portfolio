@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react';
 
-interface LinkWithIconProps {
+type LinkWithIconProps = {
   icon: ReactElement;
   title: string;
   href: string;

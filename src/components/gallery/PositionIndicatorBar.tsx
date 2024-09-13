@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 import '@/styles/gallery/position-indicator-bar.css';
 
-interface PositionIndicatorProps {
+type PositionIndicatorProps = {
   scrollPosition: number;
   targetElement: string;
   parentElement: string;
 }
+
 export default function PositionIndicatorBar({
   scrollPosition,
   targetElement,

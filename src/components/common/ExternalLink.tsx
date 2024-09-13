@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 
-interface ExternalLinkProps {
+type ExternalLinkProps = {
   href: string;
   title: string;
   children?: ReactNode;
