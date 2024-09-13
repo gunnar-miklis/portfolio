@@ -1,9 +1,0 @@
-.vscode/
-.yarn/
-dist/
-node_modules/
-.eslintrc
-.prettirrc
-tsconfig.json
-package.json
-yarn.lock
