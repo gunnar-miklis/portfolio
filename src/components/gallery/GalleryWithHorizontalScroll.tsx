@@ -36,22 +36,28 @@ export default function GalleryWithHorizontalScroll({ projects }: { projects: Pr
 
       {/* NOTE: gallery elements / cards / projects */}
       <div className='gallery' onScroll={handleScroll}>
-        {filteredProjects.map((project) => (
-          <Card
-            key={project.id}
-            className='gallery-element'
-            title={project.title}
-            category={project.category}
-            date={project.date}
-            technologies={project.technologies}
-            liveDemo={project.liveDemo}
-            sourceCode={project.sourceCode}
-            imageSources={project.imageSources}
-            footnote={project.footnote}
-          >
-            {project.content}
-          </Card>
-        ))}
+        {filteredProjects.length ? (
+          filteredProjects.map((project) => (
+            <Card
+              key={project.id}
+              className='gallery-element'
+              title={project.title}
+              category={project.category}
+              date={project.date}
+              technologies={project.technologies}
+              liveDemo={project.liveDemo}
+              sourceCode={project.sourceCode}
+              imageSources={project.imageSources}
+              footnote={project.footnote}
+            >
+              {project.content}
+            </Card>
+          ))
+        ) : (
+          <p style={{ fontWeight: 500, marginLeft: 'calc(var(--space-md) * -1 + 0.2rem)' }}>
+            No project matches the selected filters.
+          </p>
+        )}
       </div>
     </div>
   );
