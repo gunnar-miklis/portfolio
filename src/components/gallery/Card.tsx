@@ -232,7 +232,7 @@ export default function Card({
           {/* header */}
           <div className='card-inner'>
             <div className='card-header'>
-              <h3>{title}</h3>
+              <h3 id={title}>{title}</h3>
               {category && date ? (
                 <p className='annotation'>
                   {category}, {date}
