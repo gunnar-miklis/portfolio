@@ -107,7 +107,7 @@ export default function Header() {
         </h2>
       </div>
       <div className='header-image'>
-        <img src={portrait} alt='Portrait: Gunnar Miklis' title='Gunnar Miklis' />
+        <img src={portrait} alt='Portrait: Gunnar Miklis' title='Gunnar Miklis' loading='eager' />
       </div>
     </header>
   );

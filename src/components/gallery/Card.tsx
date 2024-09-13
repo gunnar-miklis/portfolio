@@ -188,7 +188,7 @@ export default function Card({
       {/* NOTE: image */}
       <div className='card-image' title='Project image' aria-label='Project image'>
         {imageSources.map((source, i) => (
-          <img key={i} src={source} alt={`Screenshot: ${title}`} />
+          <img key={i} src={source} alt={`Screenshot: ${title}`} loading='lazy'/>
         ))}
       </div>
 
