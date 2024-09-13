@@ -5,26 +5,27 @@
 coverage
 node_modules
 dist
-*.log
-*debug.*
-*error.*
+tsconfig.tsbuildinfo
 
 # ignoring all files that start with a dot.
 .*
 
 # add exceptions to the configuration files that belong to the project.
 !.gitignore
-!.eslintrc
-!.eslintignore
-!.prettierrc
-!.prettierignore
+!.gitattributes
 !.editorconfig
+!.prettier*
+!.eslint*
 
-# yarn 4.3.0
+# yarn berry
+!.pnp.*
 .yarn/*
 !.yarn/
-!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
 !.yarn/sdks
+!.yarn/versions
 
 # IDE-VSCode
 .vscode/*
