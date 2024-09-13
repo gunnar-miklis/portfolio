@@ -16,11 +16,7 @@ import repCount from './../assets/repcount.webp';
 import sleepMinder from './../assets/sleepminder.webp';
 import tsLearning from './../assets/ts-learning-path.webp';
 
-export interface ProjectsType {
-  [card: string]: Project;
-}
-
-export interface Project {
+export type Project = {
   id: number;
   title: string;
   content: ReactNode;
@@ -33,8 +29,8 @@ export interface Project {
   footnote?: string;
 }
 
-export const projects: ProjectsType = {
-  eventTicketing: {
+export const projects: Project[] = [
+  {
     id: 1,
     title: 'Event Ticketing',
     category: 'Latest Project',
@@ -94,7 +90,7 @@ export const projects: ProjectsType = {
       </>
     ),
   },
-  portfolio: {
+  {
     id: 2,
     title: 'Portfolio - Gunnar Miklis',
     date: 'Jun 2024',
@@ -137,7 +133,7 @@ export const projects: ProjectsType = {
       </>
     ),
   },
-  todoList: {
+  {
     id: 3,
     title: 'Todo List',
     date: 'Sep 2023',
@@ -167,7 +163,7 @@ export const projects: ProjectsType = {
       </p>
     ),
   },
-  tipCalculator: {
+  {
     id: 4,
     title: 'Tip Calculator',
     category: 'Practice.Learn.Improve.',
@@ -203,7 +199,7 @@ export const projects: ProjectsType = {
       </>
     ),
   },
-  webPlatform: {
+  {
     id: 5,
     title: 'Web Platform',
     category: 'Practice.Learn.Improve.',
@@ -247,7 +243,7 @@ export const projects: ProjectsType = {
       </>
     ),
   },
-  summaryComponent: {
+  {
     id: 6,
     title: 'Summary Component',
     category: 'Practice.Learn.Improve.',
@@ -263,7 +259,7 @@ export const projects: ProjectsType = {
       </p>
     ),
   },
-  qrCodeComponent: {
+  {
     id: 7,
     title: 'QR Code Component',
     category: 'Practice.Learn.Improve.',
@@ -295,7 +291,7 @@ export const projects: ProjectsType = {
       </>
     ),
   },
-  waitThatLevelAgain: {
+  {
     id: 8,
     title: 'Wait...? That level, again?',
     category: 'Educational Project',
@@ -357,7 +353,7 @@ export const projects: ProjectsType = {
       </>
     ),
   },
-  repCount: {
+  {
     id: 9,
     title: 'RepCount',
     category: 'Educational Project',
@@ -420,7 +416,7 @@ export const projects: ProjectsType = {
       </>
     ),
   },
-  sleepMinder: {
+  {
     id: 10,
     title: 'SleepMinder',
     category: 'Educational Project',
@@ -480,7 +476,7 @@ export const projects: ProjectsType = {
       </>
     ),
   },
-  codingChallenges: {
+  {
     id: 11,
     title: 'Coding Challenges',
     category: 'Practice.Learn.Improve.',
@@ -520,7 +516,7 @@ export const projects: ProjectsType = {
       </>
     ),
   },
-  tsLearningPath: {
+  {
     id: 12,
     title: 'TypeScript Learning Path',
     category: 'Practice.Learn.Improve.',
@@ -572,7 +568,7 @@ export const projects: ProjectsType = {
       </>
     ),
   },
-  journeyToWebDev: {
+  {
     id: 13,
     title: 'Journey to WebDev',
     category: 'Practice.Learn.Improve.',
@@ -685,7 +681,7 @@ export const projects: ProjectsType = {
       </>
     ),
   },
-  gitHub: {
+  {
     id: 14,
     title: 'Curious for more?',
     technologies: ['GitHub'],
@@ -697,4 +693,4 @@ export const projects: ProjectsType = {
       </p>
     ),
   },
-};
+];

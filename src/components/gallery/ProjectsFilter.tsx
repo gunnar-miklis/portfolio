@@ -1,32 +1,30 @@
-import { type Dispatch, type SetStateAction, useEffect, useState } from 'react';
-import { type ProjectsType } from '../../data/projects';
-import { type FiltersType, filters } from '../../data/filter';
+import { useEffect, useState } from 'react';
+import type { Dispatch, SetStateAction } from 'react';
+import type { Project } from '../../data/projects';
+import { type Filter, selectedFilters as initalFilters } from '../../data/filter';
 import '@/styles/gallery/projects-filter.css';
 
-interface ProjectsFilterProps {
-  projects: ProjectsType;
-  filteredProjects: ProjectsType;
-  setFilteredProjects: Dispatch<SetStateAction<ProjectsType>>;
-}
+type ProjectsFilterProps = {
+  projects: Project[];
+  filteredProjects: Project[];
+  setFilteredProjects: Dispatch<SetStateAction<Project[]>>;
+};
 
 export default function ProjectsFilter({
   projects,
   filteredProjects,
   setFilteredProjects,
 }: ProjectsFilterProps) {
-  const [activeFilters, setActiveFilters] = useState<FiltersType>([]);
-  const [inactiveFilters, setInactiveFilters] = useState<FiltersType>(filters);
+  const [activeFilters, setActiveFilters] = useState<Filter[]>([]);
+  const [inactiveFilters, setInactiveFilters] = useState<Filter[]>(initalFilters);
 
   // ACTIVE FILTERS: filter all projects by active filters or reset to show all projects
   useEffect(() => {
-    if (activeFilters.length !== 0) {
-      const filterResults: ProjectsType = {};
-      Object.entries(projects).forEach(([projectName, project]) =>
-        activeFilters.forEach((tech: string) => {
-          if (project.technologies.includes(tech)) {
-            filterResults[projectName] = project;
-          }
-        }),
+    if (activeFilters.length) {
+      // filter all projects, return those projects which use the technologies listed in activeFilters
+      // COMMENT: use some() to include any project that matches any filter combination (include all matches). use every() to only include those projects which exactly matche the filter combination (narrow down the matches)
+      const filterResults = projects.filter((project) =>
+        activeFilters.every((tech) => project.technologies.includes(tech)),
       );
       setFilteredProjects(filterResults);
     } else {
@@ -37,23 +35,26 @@ export default function ProjectsFilter({
   // HANDLE CHANGES: add or remove a selected filter from active filters list
   function updateActiveFilters(selectedFilter: string): void {
     if (!activeFilters.includes(selectedFilter)) {
-      // add to active filter + sort by name
-      setActiveFilters((prevState: FiltersType) =>
-        [...prevState, selectedFilter].sort((a, b) => a.localeCompare(b)),
-      );
-      const updatedFilters = inactiveFilters.filter((filter: string) => filter !== selectedFilter);
+      // add to active filter
+      setActiveFilters((prevState) => [...prevState, selectedFilter]);
+
       // remove from inactive filter
+      const updatedFilters: Filter[] = inactiveFilters.filter(
+        (filter) => filter !== selectedFilter,
+      );
       setInactiveFilters(updatedFilters);
     } else {
       // remove from active filter
-      const updatedFilters = activeFilters.filter((filter: string) => filter !== selectedFilter);
+      const updatedFilters: Filter[] = activeFilters.filter((filter) => filter !== selectedFilter);
       setActiveFilters(updatedFilters);
+
       // add to inactive filter + sort back to inital position
-      const sortedFilters: FiltersType = filters.filter(
+      const sortedFilters: Filter[] = initalFilters.filter(
         (filter) => inactiveFilters.includes(filter) || selectedFilter === filter,
       );
       setInactiveFilters(sortedFilters);
     }
+
     // jump back to first item
     const galleryFilter = document.querySelector('.gallery-filter');
     if (galleryFilter instanceof HTMLDivElement) {
@@ -70,7 +71,7 @@ export default function ProjectsFilter({
   return (
     <div className='gallery-filter'>
       {!!activeFilters.length &&
-        activeFilters.map((tech: string) => (
+        activeFilters.map((tech) => (
           <div className='filters' key={tech}>
             <button
               className='button chip active-filter'
@@ -82,7 +83,7 @@ export default function ProjectsFilter({
             </button>
           </div>
         ))}
-      {inactiveFilters.map((tech: string) => (
+      {inactiveFilters.map((tech) => (
         <div className='filters' key={tech}>
           <button
             className='button chip'

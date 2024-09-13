@@ -3,7 +3,7 @@ import MaximizeIcon from '@mui/icons-material/CropSquare';
 import MinimizeIcon from '@mui/icons-material/Minimize';
 import CloseIcon from '@mui/icons-material/Close';
 import '@/styles/terminal.css';
-import { about } from '../data/terminal';
+import { aboutListItems } from '../data/terminal';
 
 export default function Terminal() {
   return (
@@ -24,13 +24,13 @@ export default function Terminal() {
       </div>
 
       <div className='window-content'>
-        {Object.keys(about).map((keypoint: string) => (
-          <div key={keypoint}>
+        {aboutListItems.map((item) => (
+          <div key={item.in}>
             <p className='in'>
               <Icon />
-              {about[keypoint].in}
+              {item.in}
             </p>
-            <p className='out'>{about[keypoint].out}</p>
+            <p className='out'>{item.out}</p>
           </div>
         ))}
       </div>

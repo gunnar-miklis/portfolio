@@ -1,15 +1,15 @@
 import { useEffect } from 'react';
 import EastIcon from '@mui/icons-material/East';
 import WestIcon from '@mui/icons-material/West';
-import { type ProjectsType } from '../../data/projects';
+import type { Project } from '../../data/projects';
 import '@/styles/gallery/controls.css';
 
-interface ControllsProps {
+type ControlsProps = {
   scrollPosition: number;
-  filteredProjects: ProjectsType;
+  filteredProjects: Project[];
 }
 
-export default function Controls({ scrollPosition, filteredProjects }: ControllsProps) {
+export default function Controls({ scrollPosition, filteredProjects }: ControlsProps) {
   // show or hide navigation buttons depending on scroll position
   useEffect(() => {
     const gallery = document.querySelector('.gallery');
@@ -70,7 +70,7 @@ export default function Controls({ scrollPosition, filteredProjects }: Controlls
       className='gallery-control-buttons'
       // hide scroll navigations when there's only one project due to filtering
       style={
-        Object.keys(filteredProjects).length <= 1
+        filteredProjects.length <= 1
           ? { visibility: 'hidden' }
           : { visibility: 'visible' }
       }

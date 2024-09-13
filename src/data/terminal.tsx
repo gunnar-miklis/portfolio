@@ -5,17 +5,15 @@ import CenterFocusWeakRoundedIcon from '@mui/icons-material/CenterFocusWeakRound
 import ExternalLink from '../components/common/ExternalLink';
 import { type ReactNode } from 'react';
 
-const name: string = 'gunnar';
+const name = 'gunnar';
 
-interface About {
-  [keypoint: string]: {
-    in: string;
-    out: string | ReactNode;
-  };
-}
+type AboutListItem = {
+  in: string;
+  out: string | ReactNode;
+};
 
-export const about: About = {
-  hello: {
+export const aboutListItems: AboutListItem[] = [
+  {
     in: `${name}.hello`,
     out: (
       <>
@@ -27,7 +25,7 @@ export const about: About = {
       </>
     ),
   },
-  isOpenForWork: {
+  {
     in: `${name}.isOpenForWork && when`,
     out: (
       <span style={{ display: 'inline-flex', flexFlow: 'row nowrap' }}>
@@ -35,19 +33,19 @@ export const about: About = {
       </span>
     ),
   },
-  skillsTechnical: {
+  {
     in: `${name}.skills.technical`,
     out: '[ TypeScript, JavaScript, Node.js, Next.js, React, React Native, Express, MongoDB, SQLite, Vitest, Lighthouse, git, Linux, R ]',
   },
-  skillsPractices: {
+  {
     in: `${name}.skills.practices`,
     out: '[ DRY, KISS, SOLID, Separation of Concerns, CI/CD, TDD, Unit Test, DevOps, REST, SPA, SSR, CSR, OOP, Accessibility ]',
   },
-  skillsPersonal: {
+  {
     in: `${name}.skills.personal`,
     out: '[ Analytical Skills, Problem Solving, Customer-Centered, Open-minded, Curiosity, Passionate, Fast Learning, Collaboration, Interdisciplinary ]',
   },
-  personality: {
+  {
     in: `${name}.personality`,
     out: (
       <>
@@ -64,11 +62,11 @@ export const about: About = {
       </>
     ),
   },
-  languages: {
+  {
     in: `${name}.languages`,
     out: '{ English: Fluent, German: Native }',
   },
-  contactInfo: {
+  {
     in: `${name}.contactInfo`,
     out: (
       <span style={{ display: 'inline-flex', flexFlow: 'row nowrap' }}>
@@ -92,7 +90,7 @@ export const about: About = {
       </span>
     ),
   },
-  resume: {
+  {
     in: `${name}.resume`,
     out: (
       <ExternalLink href='https://flowcv.com/resume/u6jisbb5w9' title='Resume'>
@@ -100,8 +98,8 @@ export const about: About = {
       </ExternalLink>
     ),
   },
-  currentLocation: {
+  {
     in: `${name}.currentLocation`,
     out: 'Berlin, Germany',
   },
-};
+];

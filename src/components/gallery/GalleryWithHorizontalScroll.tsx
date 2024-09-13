@@ -1,14 +1,14 @@
 import { type UIEvent, useState } from 'react';
-import { type Project, type ProjectsType } from '../../data/projects';
+import { type Project } from '../../data/projects';
 import ProjectsFilter from './ProjectsFilter';
 import Controls from './Controls';
 import PositionIndicatorBar from './PositionIndicatorBar';
 import Card from './Card';
 import '@/styles/gallery/gallery-with-horizontal-scroll.css';
 
-export default function GalleryWithHorizontalScroll({ projects }: { projects: ProjectsType }) {
+export default function GalleryWithHorizontalScroll({ projects }: { projects: Project[] }) {
   const [scrollPosition, setScrollPosition] = useState<number>(0);
-  const [filteredProjects, setFilteredProjects] = useState<ProjectsType>(projects);
+  const [filteredProjects, setFilteredProjects] = useState<Project[]>(projects);
 
   // get current scroll postion
   function handleScroll(event: UIEvent<HTMLDivElement>): void {
@@ -35,7 +35,7 @@ export default function GalleryWithHorizontalScroll({ projects }: { projects: Pr
 
       {/* NOTE: gallery elements / cards / projects */}
       <div className='gallery' onScroll={handleScroll}>
-        {Object.values(filteredProjects).map((project: Project) => (
+        {filteredProjects.map((project) => (
           <Card
             key={project.id}
             className='gallery-element'

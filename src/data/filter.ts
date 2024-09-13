@@ -1,9 +1,9 @@
-import { type Project, projects } from './projects';
+import { projects } from './projects';
 
-export type FiltersType = string[];
+export type Filter = string;
 
-// for setting static inactiveFilters for component: ProjectsFilter.tsx
-export const filters: FiltersType = [
+// set filters manually
+export const selectedFilters: Filter[] = [
   'Frontend',
   'Backend',
   'Fullstack',
@@ -28,22 +28,10 @@ export const filters: FiltersType = [
   'Accessibility',
 ];
 
-// for setting inactiveFilters dynamically at the inital component (ProjectsFilter.tsx) mount
-// get filters: extract technologies from projects
-export function getFiltersFromProjects(): FiltersType {
-  // extract technologies from all projects and merge them
-  const allTechs: FiltersType = [];
-  Object.values(projects).forEach((project: Project) =>
-    project.technologies.forEach((tech: string) => allTechs.push(tech)),
-  );
-  // filter by unique / remove duplicates
-  const filteredTechs: FiltersType = [];
-  allTechs.forEach((tech: string) =>
-    !filteredTechs.includes(tech) ? filteredTechs.push(tech) : null,
-  );
-  // sort them alphabetically
-  const copy = Array.from(filteredTechs);
-  const sortedTechs = copy.sort((a, b) => a.localeCompare(b));
-
+// set filters dynamically based on the technologies inside projects data
+export function getAllFiltersFromProjects(): Filter[] {
+  const allTechs = projects.map(({ technologies }) => technologies.join(', '));
+  const uniqueTechs = [...new Set(allTechs)];
+  const sortedTechs = uniqueTechs.toSorted((a, b) => a.localeCompare(b));
   return sortedTechs;
 }
