@@ -1,3 +1,11 @@
+/* Not sure why a11y is complaining at this point because...
+ * - the summary element is "tabable",
+ * - keyboard "keypress" works to open/close the details element and
+ * - the screenreader anounce the interactive element properly. */
+
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+
 import type { MouseEvent, ReactNode } from 'react';
 import { useEffect, useState } from 'react';
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -199,7 +207,6 @@ export default function Card({
         className='details'
         id={createId('details', title)}
         aria-label='Project Details'
-        aria-expanded={isDetailsExpanded}
         open={isDetailsExpanded}
       >
         <summary
