@@ -1,9 +1,15 @@
-import { projects } from '@/data/projects';
+import { projects, type ProjectCategories } from '@/data/projects';
 
-export type TagFilter = string;
+export type Filter = string;
 
-// set a list of filters manually
-export const selectedFilters: TagFilter[] = [
+// set lists of filters manually
+export const selectedCategories: Filter[] = [
+  'Semi-Professional',
+  'Practice.Learn.Improve.',
+  'Educational Project',
+] satisfies ProjectCategories[];
+
+export const selectedTags: Filter[] = [
   'Frontend',
   'Backend',
   'Fullstack',
@@ -23,9 +29,9 @@ export const selectedFilters: TagFilter[] = [
   'Accessibility',
 ];
 
-// set a list filters dynamically based on the tags inside projects data
-export function getAllTagsFromProjects(): TagFilter[] {
-  const allTags: TagFilter[] = [];
+// set a filter-list of tags dynamically based projects data
+export function getAllTagsFromProjects(): Filter[] {
+  const allTags: Filter[] = [];
   projects.forEach(({ tags }) => tags.forEach((tag) => allTags.push(tag)));
 
   const uniqueTags = [...new Set(allTags)];

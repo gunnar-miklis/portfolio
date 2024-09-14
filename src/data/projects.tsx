@@ -22,12 +22,17 @@ export type Project = {
   content: ReactNode;
   tags: string[];
   imageSources: string[];
-  category?: 'Semi-Professional' | 'Educational Project' | 'Practice.Learn.Improve.';
+  category?: ProjectCategories;
   date?: string;
   liveDemo?: string;
   sourceCode?: string;
   footnote?: string;
 };
+
+export type ProjectCategories =
+  | 'Semi-Professional'
+  | 'Educational Project'
+  | 'Practice.Learn.Improve.';
 
 const unsortedProjects: Project[] = [
   {
