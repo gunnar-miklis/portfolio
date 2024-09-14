@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import Terminal from '@/components/Terminal';
 import GalleryWithHorizontalScroll from '@/components/gallery/GalleryWithHorizontalScroll';
 import Footer from '@/components/Footer';
+import TagsList from '@/components/TagsList';
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
         <section id='about'>
           <Header />
           <Terminal />
+          <TagsList />
         </section>
 
         <section id='projects'>
