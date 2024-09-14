@@ -33,5 +33,5 @@ function getSelectedVersion() {
   else return headerTitles[headerTitles.length - 1]; // latest version (as fallback)
 }
 
-export const title: string = `${getSelectedVersion().hook}`;
-export const subtitle: string = `${getSelectedVersion().context} ${getSelectedVersion().offer}`;
+export const title = getSelectedVersion().hook;
+export const subtitle = getSelectedVersion().context + ' ' + getSelectedVersion().offer;
