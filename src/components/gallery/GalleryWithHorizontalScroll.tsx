@@ -54,7 +54,7 @@ export default function GalleryWithHorizontalScroll({ projects }: { projects: Pr
             </Card>
           ))
         ) : (
-          <p style={{ fontWeight: 500, marginLeft: 'calc(var(--space-md) * -1 + 0.2rem)' }}>
+          <p style={{ fontWeight: 500 }}>
             No project matches the selected filters.
           </p>
         )}
