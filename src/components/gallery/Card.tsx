@@ -25,7 +25,7 @@ type CardProps = {
   children: ReactNode;
   className: string;
   title: string;
-  technologies: string[];
+  tags: string[];
   imageSources: string[];
   category?: string;
   date?: string;
@@ -40,7 +40,7 @@ export default function Card({
   title,
   category,
   date,
-  technologies,
+  tags,
   imageSources,
   liveDemo,
   sourceCode,
@@ -257,16 +257,16 @@ export default function Card({
             <div className='card-description'>{children}</div>
           </div>
 
-          {/* technologies */}
+          {/* tags */}
           <div
             className='paper paper-spacing-sm'
             style={{ flexFlow: 'row wrap' }}
-            title='Technologies'
-            aria-label='Technologies'
+            title='Tags'
+            aria-label='Tags'
           >
-            {technologies.map((tech, i) => (
+            {tags.map((tag, i) => (
               <span className='chip' key={i}>
-                <p>{tech}</p>
+                <p>{tag}</p>
               </span>
             ))}
           </div>

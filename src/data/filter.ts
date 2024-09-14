@@ -1,37 +1,32 @@
 import { projects } from '@/data/projects';
 
-export type Filter = string;
+export type TagsFilter = string;
 
 // set a list of filters manually
-export const selectedFilters: Filter[] = [
+export const selectedFilters: TagsFilter[] = [
   'Frontend',
   'Backend',
   'Fullstack',
   'TypeScript',
   'JavaScript',
   'Node.js',
+  'Next.js',
   'React',
   'ReactNative',
   'Express',
   'MongoDB',
   'SQLite',
-  'Lighthouse',
   'Authentication',
-  'MaterialUI',
-  'CI',
-  'CI/CD',
   'REST',
-  'SPA',
   'SSR',
   'CSR',
-  'OOP',
   'Accessibility',
 ];
 
-// set a list filters dynamically based on the technologies inside projects data
-export function getAllFiltersFromProjects(): Filter[] {
-  const allTechs = projects.map(({ technologies }) => technologies.join(', '));
-  const uniqueTechs = [...new Set(allTechs)];
-  const sortedTechs = uniqueTechs.toSorted((a, b) => a.localeCompare(b));
-  return sortedTechs;
+// set a list filters dynamically based on the tags inside projects data
+export function getAllFiltersFromProjects(): TagsFilter[] {
+  const allTags = projects.map(({ tags }) => tags.join(', '));
+  const uniqueTags = [...new Set(allTags)];
+  const sortedTags = uniqueTags.toSorted((a, b) => a.localeCompare(b));
+  return sortedTags;
 }

@@ -44,7 +44,7 @@ export default function GalleryWithHorizontalScroll({ projects }: { projects: Pr
               title={project.title}
               category={project.category}
               date={project.date}
-              technologies={project.technologies}
+              tags={project.tags}
               liveDemo={project.liveDemo}
               sourceCode={project.sourceCode}
               imageSources={project.imageSources}

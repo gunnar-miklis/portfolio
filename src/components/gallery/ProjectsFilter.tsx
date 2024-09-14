@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import type { Dispatch, SetStateAction } from 'react';
 
 import type { Project } from '@/data/projects';
-import { type Filter, selectedFilters as initalFilters } from '@/data/filter';
+import { type TagsFilter, selectedFilters as initalFilters } from '@/data/filter';
 import '@/styles/gallery/projects-filter.css';
 
 type ProjectsFilterProps = {
@@ -16,16 +16,16 @@ export default function ProjectsFilter({
   filteredProjects,
   setFilteredProjects,
 }: ProjectsFilterProps) {
-  const [activeFilters, setActiveFilters] = useState<Filter[]>([]);
-  const [inactiveFilters, setInactiveFilters] = useState<Filter[]>(initalFilters);
+  const [activeFilters, setActiveFilters] = useState<TagsFilter[]>([]);
+  const [inactiveFilters, setInactiveFilters] = useState<TagsFilter[]>(initalFilters);
 
   // ACTIVE FILTERS: filter all projects by active filters or reset to show all projects
   useEffect(() => {
     if (activeFilters.length) {
-      // filter all projects, return those projects which use the technologies listed in activeFilters
+      // filter all projects, return those projects which use the tags listed in activeFilters
       // COMMENT: use some() to include any project that matches any filter combination (include all matches). use every() to only include those projects which exactly matche the filter combination (narrow down the matches)
       const filterResults = projects.filter((project) =>
-        activeFilters.every((tech) => project.technologies.includes(tech)),
+        activeFilters.every((tag) => project.tags.includes(tag)),
       );
       setFilteredProjects(filterResults);
     } else {
@@ -40,17 +40,19 @@ export default function ProjectsFilter({
       setActiveFilters((prevState) => [...prevState, selectedFilter]);
 
       // remove from inactive filter
-      const updatedFilters: Filter[] = inactiveFilters.filter(
+      const updatedFilters: TagsFilter[] = inactiveFilters.filter(
         (filter) => filter !== selectedFilter,
       );
       setInactiveFilters(updatedFilters);
     } else {
       // remove from active filter
-      const updatedFilters: Filter[] = activeFilters.filter((filter) => filter !== selectedFilter);
+      const updatedFilters: TagsFilter[] = activeFilters.filter(
+        (filter) => filter !== selectedFilter,
+      );
       setActiveFilters(updatedFilters);
 
       // add to inactive filter + sort back to inital position
-      const sortedFilters: Filter[] = initalFilters.filter(
+      const sortedFilters: TagsFilter[] = initalFilters.filter(
         (filter) => inactiveFilters.includes(filter) || selectedFilter === filter,
       );
       setInactiveFilters(sortedFilters);
@@ -72,27 +74,27 @@ export default function ProjectsFilter({
   return (
     <div className='gallery-filter'>
       {!!activeFilters.length &&
-        activeFilters.map((tech) => (
-          <div className='filters' key={tech}>
+        activeFilters.map((tag) => (
+          <div className='filters' key={tag}>
             <button
               className='button chip active-filter'
-              onClick={() => updateActiveFilters(tech)}
-              title={`Filter by: ${tech}`}
-              aria-label={`Filter by: ${tech}`}
+              onClick={() => updateActiveFilters(tag)}
+              title={`Filter by: ${tag}`}
+              aria-label={`Filter by: ${tag}`}
             >
-              {tech}
+              {tag}
             </button>
           </div>
         ))}
-      {inactiveFilters.map((tech) => (
-        <div className='filters' key={tech}>
+      {inactiveFilters.map((tag) => (
+        <div className='filters' key={tag}>
           <button
             className='button chip'
-            onClick={() => updateActiveFilters(tech)}
-            title={`Filter by: ${tech}`}
-            aria-label={`Filter by: ${tech}`}
+            onClick={() => updateActiveFilters(tag)}
+            title={`Filter by: ${tag}`}
+            aria-label={`Filter by: ${tag}`}
           >
-            {tech}
+            {tag}
           </button>
         </div>
       ))}

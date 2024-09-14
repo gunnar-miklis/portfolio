@@ -20,7 +20,7 @@ export type Project = {
   id: number;
   title: string;
   content: ReactNode;
-  technologies: string[];
+  tags: string[];
   imageSources: string[];
   category?: 'Semi-Professional' | 'Educational Project' | 'Practice.Learn.Improve.';
   date?: string;
@@ -35,7 +35,7 @@ const unsortedProjects: Project[] = [
     title: 'Spotify Playlist Assistant (Prototype)',
     category: 'Semi-Professional',
     date: 'Sep 2024',
-    technologies: [
+    tags: [
       'Fullstack',
       'Frontend',
       'Typescript',
@@ -82,7 +82,7 @@ const unsortedProjects: Project[] = [
     title: 'Introduction to Next.js',
     category: 'Educational Project',
     date: 'Aug 2024',
-    technologies: [
+    tags: [
       'Fullstack',
       'SSR',
       'CSR',
@@ -168,7 +168,7 @@ const unsortedProjects: Project[] = [
     title: 'Event Ticketing',
     category: 'Semi-Professional',
     date: 'May 2024',
-    technologies: [
+    tags: [
       'Frontend',
       'TypeScript',
       'SQLite',
@@ -228,7 +228,7 @@ const unsortedProjects: Project[] = [
     title: 'Portfolio - Gunnar Miklis',
     category: 'Semi-Professional',
     date: 'Jun 2024',
-    technologies: [
+    tags: [
       'Frontend',
       'Accessibility',
       'CI/CD',
@@ -273,7 +273,7 @@ const unsortedProjects: Project[] = [
     title: 'Tip Calculator',
     category: 'Practice.Learn.Improve.',
     date: 'Aug 2023',
-    technologies: ['Frontend', 'CI/CD', 'JavaScript', 'React', 'Vite', 'MaterialUI', 'JSS'],
+    tags: ['Frontend', 'CI/CD', 'JavaScript', 'React', 'Vite', 'MaterialUI', 'JSS'],
     liveDemo: 'https://main--tip-calculator-57d393.netlify.app/',
     sourceCode:
       'https://github.com/gunnar-miklis/frontend-challenges/tree/main/tip-calculator/solutions/react-mui',
@@ -310,7 +310,7 @@ const unsortedProjects: Project[] = [
     title: 'Web Platform',
     category: 'Practice.Learn.Improve.',
     date: 'Aug 2023',
-    technologies: ['Frontend', 'JavaScript', 'React', 'Vite', 'MaterialUI', 'JSS', 'GitHubPages'],
+    tags: ['Frontend', 'JavaScript', 'React', 'Vite', 'MaterialUI', 'JSS', 'GitHubPages'],
     liveDemo: 'https://gunnar-miklis.github.io/intro-to-material-ui-react/',
     sourceCode: 'https://github.com/gunnar-miklis/intro-to-material-ui-react',
     imageSources: [webPlat],
@@ -355,7 +355,7 @@ const unsortedProjects: Project[] = [
     title: 'Summary Component',
     category: 'Practice.Learn.Improve.',
     date: 'Jul 2023',
-    technologies: ['Frontend', 'HTML', 'CSS', 'React', 'Vite'],
+    tags: ['Frontend', 'HTML', 'CSS', 'React', 'Vite'],
     sourceCode:
       'https://github.com/gunnar-miklis/frontend-challenges/tree/main/summary-component/solutions',
     imageSources: [sumComp],
@@ -371,7 +371,7 @@ const unsortedProjects: Project[] = [
     title: 'QR Code Component',
     category: 'Practice.Learn.Improve.',
     date: 'Jul 2023',
-    technologies: ['Frontend', 'HTML', 'CSS', 'Bootstrap', 'ReactNative', 'ExpoGo'],
+    tags: ['Frontend', 'HTML', 'CSS', 'Bootstrap', 'ReactNative', 'ExpoGo'],
     sourceCode:
       'https://github.com/gunnar-miklis/frontend-challenges/tree/main/qr-code-component/solutions',
     imageSources: [qrComp],
@@ -404,7 +404,7 @@ const unsortedProjects: Project[] = [
     title: 'Wait...? That level, again?',
     category: 'Educational Project',
     date: 'Apr 2023',
-    technologies: [
+    tags: [
       'Frontend',
       'DRY',
       'KISS',
@@ -468,7 +468,7 @@ const unsortedProjects: Project[] = [
     title: 'RepCount',
     category: 'Educational Project',
     date: 'Apr 2023',
-    technologies: [
+    tags: [
       'Backend',
       'SSR',
       'CRUD',
@@ -533,7 +533,7 @@ const unsortedProjects: Project[] = [
     title: 'SleepMinder',
     category: 'Educational Project',
     date: 'May 2023',
-    technologies: [
+    tags: [
       'Fullstack',
       'CSR',
       'SPA',
@@ -594,7 +594,7 @@ const unsortedProjects: Project[] = [
     id: 2,
     title: 'Coding Challenges',
     category: 'Practice.Learn.Improve.',
-    technologies: ['Coding', 'JavaScript', 'RegEx'],
+    tags: ['Coding', 'JavaScript', 'RegEx'],
     sourceCode: 'https://github.com/gunnar-miklis/coding-challenges',
     imageSources: [
       'https://raw.githubusercontent.com/codewars/branding/master/light-text-logo-vertical.png',
@@ -635,7 +635,7 @@ const unsortedProjects: Project[] = [
     id: 3,
     title: 'TypeScript Learning Path',
     category: 'Practice.Learn.Improve.',
-    technologies: ['Coding', 'TypeScript'],
+    tags: ['Coding', 'TypeScript'],
     sourceCode: 'https://github.com/gunnar-miklis/learn-typescript/tree/main/ms-learning-path',
     imageSources: [tsLearning],
     content: (
@@ -689,7 +689,7 @@ const unsortedProjects: Project[] = [
     title: 'Journey to WebDev',
     category: 'Practice.Learn.Improve.',
     date: '2024',
-    technologies: [
+    tags: [
       'Frontend',
       'Backend',
       'Fullstack',
@@ -801,7 +801,7 @@ const unsortedProjects: Project[] = [
   {
     id: 0,
     title: 'Curious for more?',
-    technologies: ['GitHub'],
+    tags: ['GitHub'],
     imageSources: ['https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png'],
     content: (
       <p>
