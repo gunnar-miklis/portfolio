@@ -27,7 +27,7 @@ export const selectedFilters: TagsFilter[] = [
 export function getAllTagsFromProjects(): TagsFilter[] {
   const allTags: TagsFilter[] = [];
   projects.forEach(({ tags }) => tags.forEach((tag) => allTags.push(tag)));
-  
+
   const uniqueTags = [...new Set(allTags)];
   const sortedTags = uniqueTags.toSorted((a, b) => a.localeCompare(b));
   return sortedTags;

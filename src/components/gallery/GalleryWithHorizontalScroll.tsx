@@ -54,9 +54,7 @@ export default function GalleryWithHorizontalScroll({ projects }: { projects: Pr
             </Card>
           ))
         ) : (
-          <p style={{ fontWeight: 500 }}>
-            No project matches the selected filters.
-          </p>
+          <p style={{ fontWeight: 500 }}>No project matches the selected filters.</p>
         )}
       </div>
     </div>
