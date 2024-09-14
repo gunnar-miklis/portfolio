@@ -8,6 +8,7 @@ export default function TagsList() {
       style={{
         display: 'flex',
         flexWrap: 'wrap',
+        justifyContent: 'center',
         gap: 'var(--space-sm)',
       }}
       title='Tags'

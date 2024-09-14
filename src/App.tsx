@@ -15,7 +15,6 @@ export default function App() {
         <section id='about'>
           <Header />
           <Terminal />
-          <TagsList />
         </section>
 
         <section id='projects'>
@@ -23,6 +22,10 @@ export default function App() {
             Projects
           </h1>
           <GalleryWithHorizontalScroll projects={projects} />
+        </section>
+
+        <section id='tags'>
+          <TagsList />
         </section>
       </main>
 

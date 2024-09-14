@@ -2,8 +2,8 @@
   background-color: var(--bg-dark);
 
   position: sticky;
-  top: 6rem;
-  z-index: 10;
+  top: 7rem;
+  z-index: 3;
 
   display: flex;
   flex-flow: column nowrap;
