@@ -1,4 +1,4 @@
-import { type ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import PhoneGearIcon from '@mui/icons-material/PhonelinkSetup';
 import LooksOneIcon from '@mui/icons-material/LooksOne';
 import LooksTwoIcon from '@mui/icons-material/LooksTwo';
@@ -7,7 +7,6 @@ import ExternalLink from '@/components/common/ExternalLink';
 
 import ticketing from '@/assets/ticketing.webp';
 import portfolio from '@/assets/portfolio.webp';
-import todo from '@/assets/todo-list.webp';
 import tipCalc from '@/assets/tip-calculator.webp';
 import webPlat from '@/assets/web-platform.webp';
 import sumComp from '@/assets/summary-comp.webp';
@@ -23,18 +22,151 @@ export type Project = {
   content: ReactNode;
   technologies: string[];
   imageSources: string[];
-  category?: string;
+  category?: 'Semi-Professional' | 'Educational Project' | 'Practice.Learn.Improve.';
   date?: string;
   liveDemo?: string;
   sourceCode?: string;
   footnote?: string;
 };
 
-export const projects: Project[] = [
+const unsortedProjects: Project[] = [
   {
-    id: 1,
+    id: 23,
+    title: 'Spotify Playlist Assistant (Prototype)',
+    category: 'Semi-Professional',
+    date: 'Sep 2024',
+    technologies: [
+      'Fullstack',
+      'Frontend',
+      'Typescript',
+      'Next.js',
+      'Next-Auth',
+      'Spotify Web API',
+      'Authentication',
+      'OAuth',
+    ],
+    sourceCode: 'https://github.com/gunnar-miklis/spotify-playlist-assistant',
+    liveDemo: 'https://spotify-playlist-assistant.vercel.app',
+    imageSources: [
+      'https://raw.githubusercontent.com/gunnar-miklis/spotify-playlist-assistant/main/public/screenshot.webp',
+    ],
+    content: (
+      <>
+        <p>
+          Spotify Playlist Assistant is a simple interface that provides methods to interact with
+          the Spotify API. It allows users to fetch playlists and their tracks, apply filters to
+          refine the tracklist, and create new playlists based on the selected criteria.
+        </p>
+
+        <div className='feature-list' title='Features' aria-label='Features'>
+          <ul className='list'>
+            <li>
+              <PhoneGearIcon /> Fetch playlists and tracks from the Spotify API.
+            </li>
+            <li>
+              <PhoneGearIcon /> Filter playlists based on selected criteria.
+            </li>
+            <li>
+              <PhoneGearIcon /> Create new playlists and send them back to the Spotify API.
+            </li>
+            <li>
+              <PhoneGearIcon /> Light/Dark mode.
+            </li>
+          </ul>
+        </div>
+      </>
+    ),
+  },
+  {
+    id: 22,
+    title: 'Introduction to Next.js',
+    category: 'Educational Project',
+    date: 'Aug 2024',
+    technologies: [
+      'Fullstack',
+      'SSR',
+      'CSR',
+      'TypeScript',
+      'Next.js',
+      'Next-Auth',
+      'PostgreSQL',
+      'Prisma',
+      'ZOD',
+      'Authentication',
+      'OAuth',
+      'ORM',
+    ],
+    sourceCode: 'https://github.com/gunnar-miklis/cim-next-db',
+    liveDemo: 'https://cim-next-db.vercel.app',
+    imageSources: [
+      'https://res.cloudinary.com/dyrcsywk9/image/upload/v1725998093/cim-next-db-home-phone.webp',
+    ],
+    content: (
+      <>
+        <p>
+          Learn how to use Next.js as Full-Stack SSR/CSR Application. Integrate a relational SQL
+          Database and an OAuth Authentication.
+        </p>
+
+        <div className='feature-list' title='Features' aria-label='Features'>
+          <p>NEXT.JS</p>
+          <ul className='list'>
+            <li>
+              <PhoneGearIcon /> Create client and server components.
+            </li>
+            <li>
+              <PhoneGearIcon /> Handle form submit in Next.js via: useFormState() + useFormStatus()
+              to control the &quot;pending-status&quot; and &quot;response-messages&quot; on the
+              client-side.
+            </li>
+            <li>
+              <PhoneGearIcon /> Use Next.js Server Actions for CRUD operations. Read and write data
+              from the database via Prisma ORM on the server-side.
+            </li>
+            <li>
+              <PhoneGearIcon /> Validate form data against a Zod schema.
+            </li>
+          </ul>
+        </div>
+
+        <div className='feature-list' title='Features' aria-label='Features'>
+          <p>DATABASE</p>
+          <ul className='list'>
+            <li>
+              <PhoneGearIcon /> Create a Prisma ORM schema and connect to the Vercel PostgreSQL
+              Database.
+            </li>
+            <li>
+              <PhoneGearIcon /> Add various SQL relations: one-to-one, one-to-many, many-to-many.
+            </li>
+            <li>
+              <PhoneGearIcon /> Query the database via Prisma ORM and &quot;populate&quot; relations
+              during querying.
+            </li>
+            <li>
+              <PhoneGearIcon /> Integrate a simple pagination mechanism to read the database.
+            </li>
+          </ul>
+        </div>
+
+        <div className='feature-list' title='Features' aria-label='Features'>
+          <p>AUTHENTICATION</p>
+          <ul className='list'>
+            <li>
+              <PhoneGearIcon /> Authenticate a user via GitHub OAuth procedure.
+            </li>
+            <li>
+              <PhoneGearIcon /> Lock certain features based on the session/login status.
+            </li>
+          </ul>
+        </div>
+      </>
+    ),
+  },
+  {
+    id: 19,
     title: 'Event Ticketing',
-    category: 'Latest Project',
+    category: 'Semi-Professional',
     date: 'May 2024',
     technologies: [
       'Frontend',
@@ -92,8 +224,9 @@ export const projects: Project[] = [
     ),
   },
   {
-    id: 2,
+    id: 21,
     title: 'Portfolio - Gunnar Miklis',
+    category: 'Semi-Professional',
     date: 'Jun 2024',
     technologies: [
       'Frontend',
@@ -116,6 +249,7 @@ export const projects: Project[] = [
             more. Emphasizing high software quality including maintainability, scalability,
             security, and usability.
           </p>
+
           <div className='feature-list' title='Features' aria-label='Features'>
             <ul className='list'>
               <li>
@@ -135,37 +269,7 @@ export const projects: Project[] = [
     ),
   },
   {
-    id: 3,
-    title: 'Todo List',
-    date: 'Sep 2023',
-    technologies: [
-      'Fullstack',
-      'CSR',
-      'SPA',
-      'REST',
-      'CI/CD',
-      'JavaScript',
-      'Node.js',
-      'Express',
-      'MongoDB',
-      'Mongoose',
-      'React',
-      'Vite',
-      'Axios',
-    ],
-    liveDemo: 'https://main--restful-api-web-app.netlify.app/',
-    sourceCode: 'https://github.com/gunnar-miklis/restful-api-web-app',
-    imageSources: [todo],
-    footnote: '*This App was part of an application process.',
-    content: (
-      <p>
-        Develop a RESTful API Full-Stack Web Application using MERN-Stack (MongoDB, Express, React,
-        Node.js) and JavaScript as main language, in less than 48-hours.
-      </p>
-    ),
-  },
-  {
-    id: 4,
+    id: 16,
     title: 'Tip Calculator',
     category: 'Practice.Learn.Improve.',
     date: 'Aug 2023',
@@ -180,6 +284,7 @@ export const projects: Project[] = [
           Part of my practice projects. Re-create frontend designs provided by{' '}
           <ExternalLink href='https://www.frontendmentor.io' title='Frontend Mentor' />.
         </p>
+
         <div className='feature-list' title='Features' aria-label='Features'>
           <ul className='list'>
             <li>
@@ -201,7 +306,7 @@ export const projects: Project[] = [
     ),
   },
   {
-    id: 5,
+    id: 15,
     title: 'Web Platform',
     category: 'Practice.Learn.Improve.',
     date: 'Aug 2023',
@@ -219,6 +324,7 @@ export const projects: Project[] = [
           />
           .
         </p>
+
         <div className='feature-list' title='Features' aria-label='Features'>
           <ul className='list'>
             <li>
@@ -245,7 +351,7 @@ export const projects: Project[] = [
     ),
   },
   {
-    id: 6,
+    id: 14,
     title: 'Summary Component',
     category: 'Practice.Learn.Improve.',
     date: 'Jul 2023',
@@ -261,7 +367,7 @@ export const projects: Project[] = [
     ),
   },
   {
-    id: 7,
+    id: 17,
     title: 'QR Code Component',
     category: 'Practice.Learn.Improve.',
     date: 'Jul 2023',
@@ -275,6 +381,7 @@ export const projects: Project[] = [
           Part of my practice projects. Re-create frontend designs provided by{' '}
           <ExternalLink href='https://www.frontendmentor.io' title='Frontend Mentor' />.
         </p>
+
         <div className='feature-list' title='Features' aria-label='Features'>
           Design this QR Code component in three different ways, using...
           <ul className='list'>
@@ -293,7 +400,7 @@ export const projects: Project[] = [
     ),
   },
   {
-    id: 8,
+    id: 11,
     title: 'Wait...? That level, again?',
     category: 'Educational Project',
     date: 'Apr 2023',
@@ -317,10 +424,12 @@ export const projects: Project[] = [
     content: (
       <>
         <p>Navigate the tiny dancin&apos; potato to the exit. But wait? That level... again?</p>
+
         <p>
           This game was the final project for module 1, week 3. Develop a Browser Game using
           Frontend Technologies. Learn to use basic concepts.
         </p>
+
         <div className='feature-list' title='Features' aria-label='Features'>
           <ul className='list'>
             <li>
@@ -355,7 +464,7 @@ export const projects: Project[] = [
     ),
   },
   {
-    id: 9,
+    id: 12,
     title: 'RepCount',
     category: 'Educational Project',
     date: 'Apr 2023',
@@ -379,11 +488,13 @@ export const projects: Project[] = [
     content: (
       <>
         <p>App for documenting your progress in the Gym.</p>
+
         <p>
           This Web Application was the final project for module 2, week 6. Collaborative Development
           of a Full-Stack Web Application that runs on a server. Introduction to Backend
           Technologies and collaborative Version Control (CI).
         </p>
+
         <div className='feature-list' title='Features' aria-label='Features'>
           <ul className='list'>
             <li>
@@ -418,7 +529,7 @@ export const projects: Project[] = [
     ),
   },
   {
-    id: 10,
+    id: 13,
     title: 'SleepMinder',
     category: 'Educational Project',
     date: 'May 2023',
@@ -444,12 +555,14 @@ export const projects: Project[] = [
     imageSources: [sleepMinder],
     content: (
       <>
-        <p>🏆 Winning Project, in the Hackshows final voting! 🏆</p>
+        <p>🏆 Winning project in a Hackshow competition. 🏆</p>
+
         <p>
           This SPA Web Application was the final project for module 3, week 9. Develope a Full-Stack
           Web Application using the MERN stack. It&apos;s a cross-cohort collaboration of Data
           Analytics students, UX/UI Design students and Me (Web Development student).
         </p>
+
         <div className='feature-list' title='Features' aria-label='Features'>
           <ul className='list'>
             <li>
@@ -478,7 +591,7 @@ export const projects: Project[] = [
     ),
   },
   {
-    id: 11,
+    id: 2,
     title: 'Coding Challenges',
     category: 'Practice.Learn.Improve.',
     technologies: ['Coding', 'JavaScript', 'RegEx'],
@@ -492,6 +605,7 @@ export const projects: Project[] = [
           Part of my practice projects. Complete coding challenges provided by{' '}
           <ExternalLink href='https://www.codewars.com/' title='Codewars' />.
         </p>
+
         <div className='feature-list' title='Features' aria-label='Features'>
           <ul className='list'>
             <li>
@@ -518,7 +632,7 @@ export const projects: Project[] = [
     ),
   },
   {
-    id: 12,
+    id: 3,
     title: 'TypeScript Learning Path',
     category: 'Practice.Learn.Improve.',
     technologies: ['Coding', 'TypeScript'],
@@ -535,6 +649,7 @@ export const projects: Project[] = [
           />
           .
         </p>
+
         <div className='feature-list' title='Features' aria-label='Features'>
           <ul className='list'>
             <li>
@@ -570,7 +685,7 @@ export const projects: Project[] = [
     ),
   },
   {
-    id: 13,
+    id: 1,
     title: 'Journey to WebDev',
     category: 'Practice.Learn.Improve.',
     date: '2024',
@@ -612,6 +727,7 @@ export const projects: Project[] = [
           comments as reminders of how things been done. Simply a personalized review that I can
           return to when a little refresher is needed.
         </p>
+
         <div className='feature-list' title='Features' aria-label='Features'>
           <p>JS FUNDAMENTALS</p>
           <ul className='list'>
@@ -683,7 +799,7 @@ export const projects: Project[] = [
     ),
   },
   {
-    id: 14,
+    id: 0,
     title: 'Curious for more?',
     technologies: ['GitHub'],
     imageSources: ['https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png'],
@@ -695,3 +811,5 @@ export const projects: Project[] = [
     ),
   },
 ];
+
+export const projects = unsortedProjects.toSorted((a, b) => b.id - a.id);

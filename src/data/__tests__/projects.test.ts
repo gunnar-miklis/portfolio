@@ -7,8 +7,20 @@ describe('the projects data array', () => {
   });
   it('should have unique ids', () => {
     const projectIds = projects.map(({ id }) => id);
-    const uniqueProjectIds = [...new Set(projectIds)];
+    const duplicates = projectIds.filter((id, idx) => projectIds.indexOf(id) !== idx);
 
-    expect(projectIds.length).toEqual(uniqueProjectIds.length);
+    expect(duplicates).toHaveLength(0);
+  });
+  it('should have valid categories', () => {
+    const validCategories = [
+      'Semi-Professional',
+      'Educational Project',
+      'Practice.Learn.Improve.',
+      undefined,
+    ];
+
+    for (const { category } of projects) {
+      expect(validCategories.includes(category)).toBe(true);
+    }
   });
 });
