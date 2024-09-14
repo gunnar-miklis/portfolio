@@ -1,9 +1,9 @@
 import { projects } from '@/data/projects';
 
-export type TagsFilter = string;
+export type TagFilter = string;
 
 // set a list of filters manually
-export const selectedFilters: TagsFilter[] = [
+export const selectedFilters: TagFilter[] = [
   'Frontend',
   'Backend',
   'Fullstack',
@@ -24,8 +24,8 @@ export const selectedFilters: TagsFilter[] = [
 ];
 
 // set a list filters dynamically based on the tags inside projects data
-export function getAllTagsFromProjects(): TagsFilter[] {
-  const allTags: TagsFilter[] = [];
+export function getAllTagsFromProjects(): TagFilter[] {
+  const allTags: TagFilter[] = [];
   projects.forEach(({ tags }) => tags.forEach((tag) => allTags.push(tag)));
 
   const uniqueTags = [...new Set(allTags)];

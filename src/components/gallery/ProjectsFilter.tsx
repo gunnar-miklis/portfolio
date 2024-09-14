@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import type { Dispatch, SetStateAction } from 'react';
 
 import type { Project } from '@/data/projects';
-import { type TagsFilter, selectedFilters as initalFilters } from '@/data/filter';
+import { type TagFilter, selectedFilters as initalFilters } from '@/data/filter';
 import '@/styles/gallery/projects-filter.css';
 
 type ProjectsFilterProps = {
@@ -16,8 +16,8 @@ export default function ProjectsFilter({
   filteredProjects,
   setFilteredProjects,
 }: ProjectsFilterProps) {
-  const [activeFilters, setActiveFilters] = useState<TagsFilter[]>([]);
-  const [inactiveFilters, setInactiveFilters] = useState<TagsFilter[]>(initalFilters);
+  const [activeFilters, setActiveFilters] = useState<TagFilter[]>([]);
+  const [inactiveFilters, setInactiveFilters] = useState<TagFilter[]>(initalFilters);
 
   // ACTIVE FILTERS: filter all projects by active filters or reset to show all projects
   useEffect(() => {
@@ -40,19 +40,19 @@ export default function ProjectsFilter({
       setActiveFilters((prevState) => [...prevState, selectedFilter]);
 
       // remove from inactive filter
-      const updatedFilters: TagsFilter[] = inactiveFilters.filter(
+      const updatedFilters: TagFilter[] = inactiveFilters.filter(
         (filter) => filter !== selectedFilter,
       );
       setInactiveFilters(updatedFilters);
     } else {
       // remove from active filter
-      const updatedFilters: TagsFilter[] = activeFilters.filter(
+      const updatedFilters: TagFilter[] = activeFilters.filter(
         (filter) => filter !== selectedFilter,
       );
       setActiveFilters(updatedFilters);
 
       // add to inactive filter + sort back to inital position
-      const sortedFilters: TagsFilter[] = initalFilters.filter(
+      const sortedFilters: TagFilter[] = initalFilters.filter(
         (filter) => inactiveFilters.includes(filter) || selectedFilter === filter,
       );
       setInactiveFilters(sortedFilters);
