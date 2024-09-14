@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react';
 import browserslist from 'browserslist';
 import { browserslistToTargets } from 'lightningcss';
@@ -16,4 +16,10 @@ export default defineConfig({
     lightningcss: { targets: browserslistToTargets(browserslist('>= 0.25%')) },
   },
   build: { cssMinify: 'lightningcss' },
+  test: {
+    coverage: {
+      provider: 'v8',
+      reporter: ['text'],
+    },
+  },
 });
