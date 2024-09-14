@@ -21,8 +21,13 @@ export const aboutListItems: AboutListItem[] = [
         <span style={{ display: 'inline-flex', flexFlow: 'row nowrap', alignItems: 'center' }}>
           Nice to meet you!&nbsp; <AwesomeIcon fontSize='small' />
         </span>
-        <span>I develop Single Page Web Applications and RESTful APIs.</span>
-        <span>Whether frontend or backend, as Full-Stack Web Developer I unify both.</span>
+        <span>
+          With a dedication for user-centered experience, I develop web applications by bringing
+          together frontend and backend technologies. I&apos;m committed to deliver maintainable and
+          high quality software, while staying flexible with evolving tech trends. I thrive in
+          collaborative environments where I passionately and conscientiously contribute and strive
+          to exceed expectations.
+        </span>
       </>
     ),
   },
