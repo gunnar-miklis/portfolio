@@ -38,10 +38,10 @@ const unsortedProjects: Project[] = [
     tags: [
       'Fullstack',
       'Frontend',
-      'Typescript',
+      'TypeScript',
       'Next.js',
-      'Next-Auth',
-      'Spotify Web API',
+      'NextAuth',
+      'SpotifyWebAPI',
       'Authentication',
       'OAuth',
     ],
@@ -54,20 +54,20 @@ const unsortedProjects: Project[] = [
       <>
         <p>
           Spotify Playlist Assistant is a simple interface that provides methods to interact with
-          the Spotify API. It allows users to fetch playlists and their tracks, apply filters to
+          the Spotify Web API. It allows users to fetch playlists and their tracks, apply filters to
           refine the tracklist, and create new playlists based on the selected criteria.
         </p>
 
         <div className='feature-list' title='Features' aria-label='Features'>
           <ul className='list'>
             <li>
-              <PhoneGearIcon /> Fetch playlists and tracks from the Spotify API.
+              <PhoneGearIcon /> Fetch playlists and tracks from the Spotify Web API.
             </li>
             <li>
               <PhoneGearIcon /> Filter playlists based on selected criteria.
             </li>
             <li>
-              <PhoneGearIcon /> Create new playlists and send them back to the Spotify API.
+              <PhoneGearIcon /> Create new playlists and send them back to the Spotify Web API.
             </li>
             <li>
               <PhoneGearIcon /> Light/Dark mode.
@@ -88,7 +88,7 @@ const unsortedProjects: Project[] = [
       'CSR',
       'TypeScript',
       'Next.js',
-      'Next-Auth',
+      'NextAuth',
       'PostgreSQL',
       'Prisma',
       'ZOD',
@@ -168,16 +168,8 @@ const unsortedProjects: Project[] = [
     title: 'Event Ticketing',
     category: 'Semi-Professional',
     date: 'May 2024',
-    tags: [
-      'Frontend',
-      'TypeScript',
-      'SQLite',
-      'ReactNative',
-      'ExpoGo',
-      'ExpoCamera',
-      'Axios',
-    ],
-    sourceCode: 'https://github.com/gunnar-miklis#latest-project',
+    tags: ['Frontend', 'TypeScript', 'SQLite', 'ReactNative', 'ExpoGo', 'ExpoCamera', 'Axios'],
+    sourceCode: 'https://github.com/gunnar-miklis#ticketing-app-',
     imageSources: [ticketing],
     footnote:
       "*The App isn't public yet. However, Version 1.0.0 already got tested recently during a music festival.",
@@ -235,6 +227,7 @@ const unsortedProjects: Project[] = [
       'TypeScript',
       'React',
       'Vite',
+      'Vitest',
       'Lighthouse',
     ],
     liveDemo: 'https://gunnar-miklis.netlify.app/',
@@ -371,7 +364,7 @@ const unsortedProjects: Project[] = [
     title: 'QR Code Component',
     category: 'Practice.Learn.Improve.',
     date: 'Jul 2023',
-    tags: ['Frontend', 'HTML', 'CSS', 'Bootstrap', 'ReactNative', 'ExpoGo'],
+    tags: ['Frontend', 'HTML', 'CSS', 'ReactNative', 'ExpoGo'],
     sourceCode:
       'https://github.com/gunnar-miklis/frontend-challenges/tree/main/qr-code-component/solutions',
     imageSources: [qrComp],
@@ -409,11 +402,11 @@ const unsortedProjects: Project[] = [
       'DRY',
       'KISS',
       'OOP',
-      'HMTL',
+      'HTML',
       'CSS',
       'JavaScript',
       'DOM',
-      'Canvas/p5js',
+      'Canvas/p5.js',
       'Git',
       'GitHub',
       'GitHubPages',
@@ -472,14 +465,16 @@ const unsortedProjects: Project[] = [
       'Backend',
       'SSR',
       'CRUD',
-      'CI',
+      'CI/CD',
       'JavaScript',
       'Node.js',
       'Express',
-      'Handlebars',
+      'Handlebars.js',
       'MongoDB',
       'Mongoose',
-      'Cookies/Session',
+      'ORM',
+      'Session',
+      'Cookies',
       'Authentication',
     ],
     liveDemo: 'https://workout-tracker-repcount.cyclic.app/',
@@ -545,10 +540,11 @@ const unsortedProjects: Project[] = [
       'Axios',
       'Chart.js',
       'Express',
-      'JSONWebToken',
+      'JsonWebToken',
       'Authentication',
       'MongoDB',
       'Mongoose',
+      'ORM',
     ],
     liveDemo: 'https://sleepminder.netlify.app/welcome',
     sourceCode: 'https://github.com/gunnar-miklis/app-sleepminder',
@@ -594,7 +590,7 @@ const unsortedProjects: Project[] = [
     id: 2,
     title: 'Coding Challenges',
     category: 'Practice.Learn.Improve.',
-    tags: ['Coding', 'JavaScript', 'RegEx'],
+    tags: ['JavaScript', 'RegEx'],
     sourceCode: 'https://github.com/gunnar-miklis/coding-challenges',
     imageSources: [
       'https://raw.githubusercontent.com/codewars/branding/master/light-text-logo-vertical.png',
@@ -635,7 +631,7 @@ const unsortedProjects: Project[] = [
     id: 3,
     title: 'TypeScript Learning Path',
     category: 'Practice.Learn.Improve.',
-    tags: ['Coding', 'TypeScript'],
+    tags: ['TypeScript'],
     sourceCode: 'https://github.com/gunnar-miklis/learn-typescript/tree/main/ms-learning-path',
     imageSources: [tsLearning],
     content: (
@@ -710,7 +706,7 @@ const unsortedProjects: Project[] = [
       'Axios',
       'JsonServer',
       'Express',
-      'BcryptJS',
+      'Bcrypt.js',
       'JsonWebToken',
       'MongoDB',
       'Nodemailer',
