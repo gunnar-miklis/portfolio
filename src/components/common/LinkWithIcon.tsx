@@ -1,6 +1,6 @@
-import type { ReactElement } from 'react';
+import type { AnchorHTMLAttributes, ReactElement } from 'react';
 
-type LinkWithIconProps = {
+type LinkWithIconProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
   icon: ReactElement;
   title: string;
   href: string;
@@ -9,12 +9,12 @@ type LinkWithIconProps = {
 export default function LinkWithIcon({ icon, title, href }: LinkWithIconProps) {
   return (
     <a
+      className='button'
       href={href}
       target='_blank'
       rel='noreferrer'
       title={`View ${title} (external website opens in new tab)`}
       aria-label={`View ${title} (external website opens in new tab)`}
-      className='button'
       style={{
         display: 'inline-flex',
         justifyContent: 'space-between',
