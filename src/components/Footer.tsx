@@ -1,8 +1,11 @@
+import styles from '@styles/footer.module.css';
+
 export default function Footer() {
   return (
-    <footer className='footer'>
-      <p style={{ display: 'inline-flex', alignItems: 'center', gap: 'var(--space-sm)' }}>
-        <span>&lt;&#47;&gt;</span> with <span style={{ fontSize: '1.35rem' }}>&#9825;</span>
+    <footer className={styles['footer']}>
+      <p className={styles['footer__text']}>
+        <span>&lt;&#47;&gt;</span> with{' '}
+        <span className={styles['footer__text-heart']}>&#9825;</span>
       </p>
     </footer>
   );

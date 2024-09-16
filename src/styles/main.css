@@ -50,17 +50,7 @@ body {
 /* SEMANTICS */
 
 
-.footer {
-  color: var(--col-annotation);
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: var(--space-lg);
-
-  width: 100%;
-  padding: var(--space-lg);
-}
 h1 {
   color: var(--col-heading);
   font-size: 3.2rem;

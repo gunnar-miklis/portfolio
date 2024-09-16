@@ -1,0 +1,19 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-lg);
+
+  width: 100%;
+  padding: var(--space-lg);
+
+  color: var(--col-annotation);
+}
+.footer__text {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+.footer__text-heart {
+    font-size: 1.35rem;
+}
