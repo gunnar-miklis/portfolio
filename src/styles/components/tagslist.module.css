@@ -1,0 +1,9 @@
+.tags-list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: var(--space-sm);
+}
+.chip {
+  background-color: var(--col-card-bg);
+}

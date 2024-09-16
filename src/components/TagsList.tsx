@@ -1,22 +1,13 @@
 import { getAllTagsFromProjects } from '@data/filter';
-import '@styles/gallery/projects-filter.css';
 import Chip from '@components/common/Chip';
+import styles from '@styles/components/tagslist.module.css';
 
 export default function TagsList() {
   const allTags = getAllTagsFromProjects();
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        justifyContent: 'center',
-        gap: 'var(--space-sm)',
-      }}
-      title='Tags'
-      aria-label='Tags'
-    >
+    <div className={styles['tags-list']} title='Tags' aria-label='Tags'>
       {allTags.map((tag) => (
-        <Chip key={tag}>{tag}</Chip>
+        <Chip className={styles['chip']} key={tag}>{tag}</Chip>
       ))}
     </div>
   );
