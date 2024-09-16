@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import '@styles/components/header.css';
+import '@components/layout/header.css';
 import portrait from '@assets/gunnar-miklis.webp';
 import { title, subtitle } from '@data/header';
 

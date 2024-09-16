@@ -1,5 +1,5 @@
-import Chip from '@components/common/Chip';
-import '@styles/components/tagslist.css';
+import Chip from '@components/common/Chip/Chip';
+import '@components/layout/tagslist.css';
 import { getAllTagsFromProjects } from '@data/filter';
 
 export default function TagsList() {

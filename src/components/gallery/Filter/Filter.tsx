@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import type { Dispatch, SetStateAction } from 'react';
 
-import Chip from '@components/common/Chip';
-import '@styles/components/gallery/projects-filter.css';
+import Chip from '@components/common/Chip/Chip';
+import '@components/gallery/Filter/filter.css';
 import type { Project } from '@data/projects';
 import { type Filter, selectedTags as initalFilters } from '@data/filter';
 
@@ -12,7 +12,7 @@ type ProjectsFilterProps = {
   setFilteredProjects: Dispatch<SetStateAction<Project[]>>;
 };
 
-export default function ProjectsFilter({
+export default function Filter({
   projects,
   filteredProjects,
   setFilteredProjects,

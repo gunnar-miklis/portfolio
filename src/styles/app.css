@@ -1,4 +1,28 @@
-/* SEMANTICS */
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-size: 16px;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  color-scheme: light dark;
+}
+
+html {
+  color: var(--col-text);
+  background-color: var(--col-bg);
+
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0 auto;
+}
+
 .main {
   display: flex;
   flex-flow: column nowrap;
@@ -101,13 +125,25 @@
   padding: 0.1rem;
 }
 
-/* UTILITY CLASSES */
-.gap-sm {
-  gap: var(--space-sm);
+/* RESPONSIVENESS */
+/* Small devices (phones, 576px and down) */
+@media only screen and (max-width: 576px) {
+  .main {
+    padding: var(--space-sm);
+    padding-top: 150px;
+  }
 }
-.gap-md {
-  gap: var(--space-md);
+/* Medium devices (tablets, 992px and up) */
+@media (min-width: 577px) and (max-width: 992px) {
+  .main {
+    padding: var(--space-md);
+    padding-top: 150px;
+  }
 }
-.gap-lg {
-  gap: var(--space-lg);
+/* Large devices (laptops and desktops, 1200px and up) */
+@media (min-width: 993px) {
+  .main {
+    padding: var(--space-md);
+    padding-top: 150px;
+  }
 }

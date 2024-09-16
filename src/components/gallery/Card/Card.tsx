@@ -16,10 +16,10 @@ import ArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import ArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 import useWindowDimensions from '@/hooks/useWindowDimensions';
-import Paper from '@components/common/Paper';
-import LinkWithIcon from '@components/common/LinkWithIcon';
-import Chip from '@components/common/Chip';
-import '@styles/components/gallery/card.css';
+import Paper from '@components/common/Paper/Paper';
+import LinkWithIcon from '@components/common/LinkWithIcon/LinkWithIcon';
+import Chip from '@components/common/Chip/Chip';
+import '@components/gallery/Card/card.css';
 
 type HTMLSummaryElement = HTMLElement;
 

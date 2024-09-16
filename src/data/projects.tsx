@@ -4,8 +4,8 @@ import LooksOneIcon from '@mui/icons-material/LooksOne';
 import LooksTwoIcon from '@mui/icons-material/LooksTwo';
 import LooksThreeIcon from '@mui/icons-material/Looks3';
 
-import Paper from '@components/common/Paper';
-import ExternalLink from '@components/common/ExternalLink';
+import Paper from '@components/common/Paper/Paper';
+import ExternalLink from '@components/common/ExternalLink/ExternalLink';
 
 import ticketing from '@assets/ticketing.webp';
 import portfolio from '@assets/portfolio.webp';

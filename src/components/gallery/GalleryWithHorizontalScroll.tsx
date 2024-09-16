@@ -1,10 +1,10 @@
 import { type UIEvent, useState } from 'react';
 
-import ProjectsFilter from '@components/gallery/ProjectsFilter';
-import Controls from '@components/gallery/Controls';
-import PositionIndicatorBar from '@components/gallery/PositionIndicatorBar';
-import Card from '@components/gallery/Card';
-import '@styles/components/gallery/gallery-with-horizontal-scroll.css';
+import Filter from '@/components/gallery/Filter/Filter';
+import Controls from '@/components/gallery/Controls/Controls';
+import PositionIndicator from '@/components/gallery/PositionIndicator/PositionIndicator';
+import Card from '@/components/gallery/Card/Card';
+import '@components/gallery/gallery-with-horizontal-scroll.css';
 import type { Project } from '@data/projects';
 
 export default function GalleryWithHorizontalScroll({ projects }: { projects: Project[] }) {
@@ -18,7 +18,7 @@ export default function GalleryWithHorizontalScroll({ projects }: { projects: Pr
 
   return (
     <div className='gallery-wrapper'>
-      <ProjectsFilter
+      <Filter
         projects={projects}
         filteredProjects={filteredProjects}
         setFilteredProjects={setFilteredProjects}
@@ -27,7 +27,7 @@ export default function GalleryWithHorizontalScroll({ projects }: { projects: Pr
       {/* NOTE: control buttons + progress indicator  */}
       <nav className='gallery-controls'>
         <Controls scrollPosition={scrollPosition} filteredProjects={filteredProjects} />
-        <PositionIndicatorBar
+        <PositionIndicator
           scrollPosition={scrollPosition}
           targetElement='.gallery'
           parentElement='.gallery-wrapper'

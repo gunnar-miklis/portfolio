@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'react';
 
-import styles from '@styles/components/common/paper.module.css';
+import styles from '@components/common/Paper/paper.module.css';
 
 type Props = HTMLAttributes<HTMLDivElement> & {
   paperSpacing?: 'sm' | 'md' | 'lg';

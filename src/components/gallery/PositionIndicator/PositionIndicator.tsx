@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import '@styles/components/gallery/position-indicator-bar.css';
+import '@components/gallery/PositionIndicator/position-indicator.css';
 
 type PositionIndicatorProps = {
   scrollPosition: number;
@@ -8,7 +8,7 @@ type PositionIndicatorProps = {
   parentElement: string;
 };
 
-export default function PositionIndicatorBar({
+export default function PositionIndicator({
   scrollPosition,
   targetElement,
   parentElement,

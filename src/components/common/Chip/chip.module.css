@@ -1,0 +1,9 @@
+.chip {
+  padding: calc(var(--space-sm) / 1.6) calc(var(--space-sm) / 1.3);
+  border: 2px solid transparent;
+  border-radius: 1rem;
+
+  color: var(--col-annotation);
+  background-color: var(--col-button-bg);
+  text-align: center;
+}

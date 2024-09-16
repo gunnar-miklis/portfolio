@@ -1,10 +1,10 @@
 import '@styles/app.css';
-import Navbar from '@components/Navbar';
-import Header from '@components/Header';
-import Terminal from '@components/Terminal';
+import Navbar from '@/components/layout/Navbar';
+import Header from '@/components/layout/Header';
+import Terminal from '@/components/layout/Terminal';
 import GalleryWithHorizontalScroll from '@components/gallery/GalleryWithHorizontalScroll';
-import Footer from '@components/Footer';
-import TagsList from '@components/TagsList';
+import Footer from '@/components/layout/Footer';
+import TagsList from '@/components/layout/TagsList';
 import { projects } from '@data/projects';
 
 export default function App() {

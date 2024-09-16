@@ -4,8 +4,8 @@ import Diversity1Icon from '@mui/icons-material/Diversity1';
 import AutoGraphRoundedIcon from '@mui/icons-material/AutoGraphRounded';
 import CenterFocusWeakRoundedIcon from '@mui/icons-material/CenterFocusWeakRounded';
 
-import ExternalLink from '@components/common/ExternalLink';
-import '@styles/components/terminal.css';
+import ExternalLink from '@components/common/ExternalLink/ExternalLink';
+import '@components/layout/terminal.css';
 
 const name = 'gunnar';
 

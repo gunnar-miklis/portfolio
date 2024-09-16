@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import EastIcon from '@mui/icons-material/East';
 import WestIcon from '@mui/icons-material/West';
 
-import '@styles/components/gallery/controls.css';
+import '@components/gallery/Controls/controls.css';
 import type { Project } from '@data/projects';
 
 type ControlsProps = {
