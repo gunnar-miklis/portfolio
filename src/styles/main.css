@@ -58,29 +58,7 @@ button {
 }
 
 /* COMPONENT CLASSES */
-.button {
-  color: var(--col-button-text);
-  background-color: var(--col-button-bg);
-  border-color: transparent;
 
-  border-width: 2px;
-  border-style: solid;
-  border-radius: 1rem;
-
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 1rem;
-  font-weight: 500;
-  padding: var(--space-sm);
-
-  cursor: pointer;
-
-  transition: border-color var(--transition);
-}
-.button:hover,
-.button:focus,
-.button:focus-visible {
-  border-color: var(--col-annotation);
-}
 .list {
   list-style: none;
 }
