@@ -43,7 +43,7 @@ export default function GalleryWithHorizontalScroll({ projects }: Props) {
             </Card>
           ))
         ) : (
-          <strong>No project matches the selected filters.</strong>
+          <strong className='strong'>No project matches the selected filters.</strong>
         )}
       </div>
     </div>
