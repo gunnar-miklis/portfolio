@@ -2,17 +2,13 @@ import { useEffect, useState } from 'react';
 
 import '@components/gallery/PositionIndicator/position-indicator.css';
 
-type PositionIndicatorProps = {
+type Props = {
   scrollPosition: number;
   targetElement: string;
   parentElement: string;
 };
 
-export default function PositionIndicator({
-  scrollPosition,
-  targetElement,
-  parentElement,
-}: PositionIndicatorProps) {
+export default function PositionIndicator({ scrollPosition, targetElement, parentElement }: Props) {
   const [position, setPosition] = useState<number>(0);
   const [max, setMax] = useState<number>(0);
 
@@ -28,11 +24,14 @@ export default function PositionIndicator({
     }
   }, [scrollPosition, targetElement, parentElement]);
 
+  // set the maximum width based on parentElement
   useEffect(() => {
     const parent = document.querySelector(parentElement);
 
-    if (parent instanceof HTMLDivElement) setMax(parent.clientWidth);
+    if (parent instanceof HTMLDivElement) {
+      setMax(parent.clientWidth);
+    }
   }, [scrollPosition, parentElement]);
 
-  return <progress className='positionIndicator' max={max} value={position} />;
+  return <progress className='position-indicator' max={max} value={position} />;
 }
