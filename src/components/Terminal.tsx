@@ -5,10 +5,11 @@ import CloseIcon from '@mui/icons-material/Close';
 
 import { aboutListItems } from '@/data/terminal';
 import '@/styles/terminal.css';
+import Paper from '@/components/common/Paper';
 
 export default function Terminal() {
   return (
-    <article className='terminal window paper'>
+    <Paper className='terminal window'>
       <div className='window-top-bar'>
         <h3>About</h3>
         <div>
@@ -35,6 +36,6 @@ export default function Terminal() {
           </div>
         ))}
       </div>
-    </article>
+    </Paper>
   );
 }

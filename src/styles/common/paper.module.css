@@ -1,0 +1,27 @@
+.paper {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+
+  background-color: var(--card-bg-dark);
+  border-radius: 1rem;
+}
+
+.paper--spacing-sm {
+  gap: var(--space-sm);
+  padding: var(--space-sm);
+}
+.paper--spacing-md {
+  gap: var(--space-sm);
+  padding: var(--space-md);
+}
+.paper--spacing-lg {
+  gap: var(--space-md);
+  padding: var(--space-lg);
+}
+
+@media (prefers-color-scheme: light) {
+  .paper {
+    background-color: var(--card-bg-light);
+  }
+}

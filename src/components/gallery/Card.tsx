@@ -19,6 +19,7 @@ import useWindowDimensions from '@/hooks/useWindowDimensions';
 import LinkWithIcon from '@/components/common/LinkWithIcon';
 import Chip from '@/components/common/Chip';
 import '@/styles/gallery/card.css';
+import Paper from '@/components/common/Paper';
 
 type HTMLSummaryElement = HTMLElement;
 
@@ -259,8 +260,8 @@ export default function Card({
           </div>
 
           {/* tags */}
-          <div
-            className='paper paper-spacing-sm'
+          <Paper
+            paperSpacing='sm'
             style={{ flexFlow: 'row wrap' }}
             title='Tags'
             aria-label='Tags'
@@ -268,12 +269,12 @@ export default function Card({
             {tags.map((tag) => (
               <Chip key={tag}>{tag}</Chip>
             ))}
-          </div>
+          </Paper>
 
           {/* action links */}
           {(liveDemo || sourceCode) && (
-            <div
-              className='paper paper-spacing-sm'
+            <Paper
+              paperSpacing='sm'
               style={{ flexFlow: 'row wrap' }}
               title='External Links'
               aria-label='External Links'
@@ -284,7 +285,7 @@ export default function Card({
               {sourceCode && (
                 <LinkWithIcon href={sourceCode} icon={<GitHubIcon />} title='Source Code' />
               )}
-            </div>
+            </Paper>
           )}
 
           {/* footnote */}
