@@ -20,20 +20,13 @@ import Paper from '@components/common/Paper/Paper';
 import LinkWithIcon from '@components/common/LinkWithIcon/LinkWithIcon';
 import Chip from '@components/common/Chip/Chip';
 import '@components/gallery/Card/card.css';
+import type { Project } from '@/data/projects';
 
 type HTMLSummaryElement = HTMLElement;
 
-type CardProps = {
+type Props = Omit<Project, 'id' | 'content'> & {
   children: ReactNode;
   className: string;
-  title: string;
-  tags: string[];
-  imageSources: string[];
-  category?: string;
-  date?: string;
-  liveDemo?: string;
-  sourceCode?: string;
-  footnote?: string;
 };
 
 export default function Card({
@@ -47,27 +40,26 @@ export default function Card({
   liveDemo,
   sourceCode,
   footnote,
-}: CardProps) {
+}: Props) {
   const { windowWidth } = useWindowDimensions();
   const [orientation, setOrientation] = useState<'col' | 'row'>('col');
   const [isDetailsExpanded, setIsDetailsExpanded] = useState<boolean>(true);
 
-  // NOTE: set the orientation and reset values to intial when window resizes
+  // RESET: when window resizes, reset the orientation and values to intial
   useEffect(() => {
-    const cardImages = document.querySelectorAll(`.card-image`);
-    const cardContents = document.querySelectorAll(`.card-content`);
-    const summary = document.querySelector('summary');
+    const allCardHeaders = document.querySelectorAll('.card__header');
+    const allCardContents = document.querySelectorAll('.card__content');
 
     if (windowWidth > 992) {
       setOrientation('row');
-      if (cardImages instanceof NodeList && cardContents instanceof NodeList) {
-        cardImages.forEach((cardImage) => {
-          if (cardImage instanceof HTMLDivElement) {
-            cardImage.style.maxHeight = '1000px';
-            cardImage.style.flexBasis = '35%';
+      if (allCardHeaders instanceof NodeList && allCardContents instanceof NodeList) {
+        allCardHeaders.forEach((cardHeader) => {
+          if (cardHeader instanceof HTMLDivElement) {
+            cardHeader.style.maxHeight = '1000px';
+            cardHeader.style.flexBasis = '35%';
           }
         });
-        cardContents.forEach((cardContent) => {
+        allCardContents.forEach((cardContent) => {
           if (cardContent instanceof HTMLDivElement) {
             cardContent.style.maxHeight = '100%';
             cardContent.style.flexBasis = '65%';
@@ -76,17 +68,23 @@ export default function Card({
       }
     } else {
       setOrientation('col');
+
+      // one summary element is need as reference to calculate the offset
+      const summary = document.querySelector('.card__summary');
+
       if (
-        cardImages instanceof NodeList &&
-        cardContents instanceof NodeList &&
+        allCardHeaders instanceof NodeList &&
+        allCardContents instanceof NodeList &&
         summary instanceof HTMLElement
       ) {
-        cardImages.forEach((cardImage) => {
-          if (cardImage instanceof HTMLDivElement) cardImage.style.maxHeight = '400px';
+        allCardHeaders.forEach((cardHeader) => {
+          if (cardHeader instanceof HTMLDivElement) {
+            cardHeader.style.maxHeight = '400px';
+          }
         });
-        cardContents.forEach((cardContent) => {
-          if (cardContent instanceof HTMLDivElement)
-            cardContent.style.maxHeight = summary.offsetHeight + cardContent.offsetHeight + 'px';
+        allCardContents.forEach((cardBody) => {
+          if (cardBody instanceof HTMLDivElement)
+            cardBody.style.maxHeight = summary.offsetHeight + cardBody.offsetHeight + 'px';
         });
       }
     }
@@ -94,20 +92,20 @@ export default function Card({
     setIsDetailsExpanded(true);
   }, [windowWidth, orientation]);
 
-  // NOTE: animation when details is toggled
+  // ANIMATION: when details is toggled
   function toggleDetails(event: MouseEvent<HTMLSummaryElement>, cardId: string) {
     event.preventDefault();
 
-    const cardImage = document.querySelector(`#${cardId} .card-image`);
-    const img = document.querySelector(`#${cardId} .card-image img`);
-    const cardContent = document.querySelector(`#${cardId} .card-content`);
-    const summary = document.querySelector(`#${cardId} .details summary`);
+    const cardHeader = document.querySelector(`#${cardId} .card__header`);
+    const cardContent = document.querySelector(`#${cardId} .card__content`);
+    const cardImage = document.querySelector(`#${cardId} .card__image`);
+    const cardSummary = document.querySelector(`#${cardId} .card__summary`);
 
     if (
-      cardImage instanceof HTMLDivElement &&
-      img instanceof HTMLImageElement &&
-      summary instanceof HTMLElement &&
-      cardContent instanceof HTMLDivElement
+      cardHeader instanceof HTMLDivElement &&
+      cardContent instanceof HTMLDivElement &&
+      cardImage instanceof HTMLImageElement &&
+      cardSummary instanceof HTMLElement
     ) {
       // set animations options
       const options = {
@@ -116,46 +114,50 @@ export default function Card({
       };
 
       if (orientation === 'col') {
-        // NOTE: up-down (height) animation for COLUMN layout
-        // card-image parameter
-        const imgShrinked = '400px'; // COMMENT: if change here, change in /styles/card.css too
-        const imgExpanded = img.offsetHeight + 32 + 'px'; // 16x2 = 32 = padding
-        const expand = { maxHeight: [imgShrinked, imgExpanded] };
-        const shrink = { maxHeight: [imgExpanded, imgShrinked] };
+        // UP-DOWN ANIMATION: for COLUMN layout (height)
 
-        // card-content parameter
-        const contentClosed = summary.offsetHeight + 'px';
-        const contentOpened = summary.offsetHeight + cardContent.offsetHeight + 'px';
+        // card__header parameter
+        const headerShrinked = '400px'; // COMMENT: if change here, change in /styles/card.css too
+        const headerExpanded = cardImage.offsetHeight + 32 + 'px'; // 16x2 = 32 = padding
+        const expand = { maxHeight: [headerShrinked, headerExpanded] };
+        const shrink = { maxHeight: [headerExpanded, headerShrinked] };
+
+        // card__content parameter
+        const contentClosed = cardSummary.offsetHeight + 'px';
+        const contentOpened = cardSummary.offsetHeight + cardContent.offsetHeight + 'px';
         const close = { maxHeight: [contentOpened, contentClosed], opacity: [1, 0] };
         const open = { maxHeight: [contentClosed, contentOpened], opacity: [0, 1] };
 
         // animation
         if (!isDetailsExpanded) {
-          // show details, shrink image
-          cardImage.animate(shrink, options);
-          cardImage.style.maxHeight = imgShrinked;
+          // show content, shrink header
+          cardHeader.animate(shrink, options);
+          cardHeader.style.maxHeight = headerShrinked;
           cardContent.animate(open, options);
+
           setIsDetailsExpanded(true);
         } else {
-          // hide details, expand image
-          cardImage.animate(expand, options);
-          cardImage.style.maxHeight = imgExpanded;
+          // hide content, expand header
+          cardHeader.animate(expand, options);
+          cardHeader.style.maxHeight = headerExpanded;
           cardContent.animate(close, options);
-          // needs a delay here, otherwise details immediatly closes and the animation won't be visible.
+
+          // needs a delay here, otherwise content immediatly closes and the animation won't be visible.
           const timer = setTimeout(() => {
             setIsDetailsExpanded(false);
             clearTimeout(timer);
-          }, 300);
+          }, options.duration - 100);
         }
       } else {
-        // NOTE: left-right (width/flex-basis) animation for ROW layout
-        // card-image parameter
-        const imgShrinked = '35%'; // COMMENT: if change here, change in /styles/card.css too
-        const imgExpanded = `calc(100% - ${summary.offsetWidth + 32}px`; // 16x2 = 32 = padding
-        const expand = { flexBasis: [imgShrinked, imgExpanded] };
-        const shrink = { flexBasis: [imgExpanded, imgShrinked] };
+        // LEFT-RIGHT ANIMATION: for ROW layout (width/flex-basis)
 
-        // card-content parameter
+        // card__header parameter
+        const headerShrinked = '35%'; // COMMENT: if change here, change in /styles/card.css too
+        const headerExpanded = `calc(100% - ${cardSummary.offsetWidth + 32}px`; // 16x2 = 32 = padding
+        const expand = { flexBasis: [headerShrinked, headerExpanded] };
+        const shrink = { flexBasis: [headerExpanded, headerShrinked] };
+
+        // card__content parameter
         const contentClosed = '0%';
         const contentOpened = '65%'; // COMMENT: if change here, change in /styles/card.css too
         const close = { flexBasis: [contentOpened, contentClosed], opacity: [1, 0] };
@@ -164,85 +166,92 @@ export default function Card({
         // animation
         if (!isDetailsExpanded) {
           // show details
-          cardImage.animate(shrink, options);
-          cardImage.style.flexBasis = imgShrinked;
+          cardHeader.animate(shrink, options);
+          cardHeader.style.flexBasis = headerShrinked;
           cardContent.animate(open, options);
+
           setIsDetailsExpanded(true);
         } else {
           // hide details
-          cardImage.animate(expand, options);
-          cardImage.style.flexBasis = imgExpanded;
+          cardHeader.animate(expand, options);
+          cardHeader.style.flexBasis = headerExpanded;
           cardContent.animate(close, options);
+
           // needs a delay here, otherwise details immediatly closes and the animation won't be visible.
           const timer = setTimeout(() => {
             setIsDetailsExpanded(false);
             clearTimeout(timer);
-          }, 300);
+          }, options.duration - 100);
         }
       }
     }
   }
 
-  // NOTE: create an unique ID based on the given string (title). For example: #details-web-platform
-  function createId(htmlTag: string, str: string): string {
-    return (
-      htmlTag +
-      '-' +
-      str
-        .toLowerCase()
-        .replace(/\W+(?=\W?)/g, '-')
-        .replace(/\W+$/g, '')
-    );
+  // UTILITY: create unique ID based on the given string (title). For example: #details-web-platform
+  function createId(str: string, htmlElement?: string): string {
+    const cleanedStr = str
+      .toLowerCase()
+      .replace(/\W+(?=\W?)/g, '-') // replaces everything that's not a character with "-"
+      .replace(/(^\W+)|(\W+$)/g, ''); // replaces a non-word char at the beginning and end of the string
+
+    if (htmlElement) return htmlElement + '-' + cleanedStr;
+    else return cleanedStr;
   }
 
   return (
-    <article id={createId('card', title)} className={`card ${className}`}>
-      {/* NOTE: image */}
-      <div className='card-image' title='Project image' aria-label='Project image'>
+    <article id={createId(title, 'card')} className={`card ${className}`}>
+      <div className='card__header' title='Project image' aria-label='Project image'>
         {imageSources.map((source, i) => (
-          <img key={i} src={source} alt={`Screenshot: ${title}`} loading='lazy' />
+          <img
+            className='card__image'
+            key={i}
+            src={source}
+            alt={`Screenshot: ${title}`}
+            loading='lazy'
+          />
         ))}
       </div>
 
-      {/* NOTE: content */}
       <details
-        className='details'
-        id={createId('details', title)}
+        className='card__details'
+        id={createId(title, 'details')}
         aria-label='Project Details'
         open={isDetailsExpanded}
       >
         <summary
-          onClick={(event) => toggleDetails(event, createId('card', title))}
+          className='card__summary'
+          onClick={(event) => toggleDetails(event, createId(title, 'card'))}
           title='Toggle Project Details'
           aria-label='Toggle Project Details'
-          aria-controls={createId('details', title)}
+          aria-controls={createId(title, 'details')}
           aria-expanded={isDetailsExpanded}
         >
           {/* show pointing arrow based on col/row layout and isDetailsExpanded */}
           {orientation === 'col' ? (
             isDetailsExpanded ? (
-              <span title='Hide Project Details'>
+              <span className='card__summary-icon' title='Hide Project Details'>
                 <ArrowDownIcon fontSize='large' />
               </span>
             ) : (
-              <span title='Show Project Details'>
+              <span className='card__summary-icon' title='Show Project Details'>
                 <ArrowUpIcon fontSize='large' />
               </span>
             )
           ) : isDetailsExpanded ? (
-            <span title='Hide Project Details'>
+            <span className='card__summary-icon' title='Hide Project Details'>
               <ArrowRightIcon fontSize='large' />
             </span>
           ) : (
-            <span title='Show Project Details'>
+            <span className='card__summary-icon' title='Show Project Details'>
               <ArrowLeftIcon fontSize='large' />
             </span>
           )}
         </summary>
-        <div className='card-content'>
-          {/* header */}
-          <div className='card-header'>
-            <h3 className='heading-3' id={title}>
+
+        <div className='card__content'>
+          {/* title */}
+          <div className='card__title'>
+            <h3 className='heading-3' id={createId(title)}>
               {title}
             </h3>
             {category && date ? (
@@ -257,17 +266,12 @@ export default function Card({
           </div>
 
           {/* body */}
-          <div className='card-body'>
+          <div className='card__body'>
             {/* desription + features */}
             {children}
 
             {/* tags */}
-            <Paper
-              paperSpacing='sm'
-              style={{ flexFlow: 'row wrap' }}
-              title='Tags'
-              aria-label='Tags'
-            >
+            <Paper className='card__tags' paperSpacing='sm' title='Tags' aria-label='Tags'>
               {tags.map((tag) => (
                 <Chip key={tag}>{tag}</Chip>
               ))}
@@ -276,8 +280,8 @@ export default function Card({
             {/* action links */}
             {(liveDemo || sourceCode) && (
               <Paper
+                className='card__action-links'
                 paperSpacing='sm'
-                style={{ flexFlow: 'row wrap' }}
                 title='External Links'
                 aria-label='External Links'
               >
@@ -291,7 +295,7 @@ export default function Card({
             )}
 
             {/* footnote */}
-            {footnote && <small className='small footnote'>{footnote}</small>}
+            {footnote && <small className='small card__footnote'>{footnote}</small>}
           </div>
         </div>
       </details>

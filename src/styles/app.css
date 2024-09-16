@@ -11,6 +11,15 @@
   color-scheme: light dark;
 }
 
+::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 1rem;
+  background: var(--col-annotation);
+}
+
 html {
   color: var(--col-text);
   background-color: var(--col-bg);

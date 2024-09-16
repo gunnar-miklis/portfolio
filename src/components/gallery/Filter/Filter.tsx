@@ -6,17 +6,13 @@ import '@components/gallery/Filter/filter.css';
 import type { Project } from '@data/projects';
 import { type Filter, selectedTags as initalFilters } from '@data/filter';
 
-type ProjectsFilterProps = {
+type Props = {
   projects: Project[];
   filteredProjects: Project[];
   setFilteredProjects: Dispatch<SetStateAction<Project[]>>;
 };
 
-export default function Filter({
-  projects,
-  filteredProjects,
-  setFilteredProjects,
-}: ProjectsFilterProps) {
+export default function Filter({ projects, filteredProjects, setFilteredProjects }: Props) {
   const [activeFilters, setActiveFilters] = useState<Filter[]>([]);
   const [inactiveFilters, setInactiveFilters] = useState<Filter[]>(initalFilters);
 
@@ -58,7 +54,7 @@ export default function Filter({
     }
 
     // jump back to first item
-    const galleryFilter = document.querySelector('.gallery-filter');
+    const galleryFilter = document.querySelector('.gallery__filter');
     if (galleryFilter instanceof HTMLDivElement) {
       galleryFilter.scrollTo({ left: 0, behavior: 'instant' });
     }
@@ -66,19 +62,19 @@ export default function Filter({
 
   // smooth scroll to start when filter changes
   useEffect(() => {
-    const gallery = document.querySelector('.gallery');
+    const gallery = document.querySelector('.gallery__wrapper');
     if (gallery instanceof HTMLDivElement) gallery.scrollTo({ left: 0, behavior: 'smooth' });
   }, [filteredProjects]);
 
   return (
-    <div className='filter'>
+    <div className='gallery__filter'>
       {!!activeFilters.length &&
         activeFilters.map((tag) => (
           <Chip
-            className='filter__chip filter__chip--active'
+            className='gallery__filter-chip gallery__filter-chip--active'
             onClick={() => updateActiveFilters(tag)}
-            title={`Filter by: ${tag}`}
-            aria-label={`Filter by: ${tag}`}
+            title={`Filter projects by ${tag}`}
+            aria-label={`Filter projects by ${tag}`}
             role='button'
             key={tag}
           >
@@ -87,10 +83,10 @@ export default function Filter({
         ))}
       {inactiveFilters.map((tag) => (
         <Chip
-          className='filter__chip'
+          className='gallery__filter-chip'
           onClick={() => updateActiveFilters(tag)}
-          title={`Filter by: ${tag}`}
-          aria-label={`Filter by: ${tag}`}
+          title={`Filter projects by ${tag}`}
+          aria-label={`Filter projects by ${tag}`}
           role='button'
           key={tag}
         >

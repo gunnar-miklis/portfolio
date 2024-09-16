@@ -1,4 +1,4 @@
-.filter {
+.gallery__filter {
   display: flex;
   flex-flow: row wrap;
   gap: var(--space-sm);
@@ -6,18 +6,18 @@
   width: 100%;
   margin-bottom: calc(var(--space-sm) + 0.4rem);
 }
-.filter__chip {
+.gallery__filter-chip {
   background-color: var(--col-card-bg);
   font-weight: 500;
 
   cursor: pointer;
 }
-.filter__chip:hover,
-.filter__chip:focus {
+.gallery__filter-chip:hover,
+.gallery__filter-chip:focus {
   color: var(--col-annotation);
   border-color: var(--col-annotation);
 }
-.filter__chip--active {
+.gallery__filter-chip--active {
   color: var(--col-text);
   background-color: var(--col-bg);
   border-color: var(--col-text);
