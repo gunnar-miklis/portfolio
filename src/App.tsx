@@ -19,7 +19,7 @@ export default function App() {
         </section>
 
         <section className='section' id='projects'>
-          <h1 className='section__title' id='projects-title'>
+          <h1 className='heading-1 section__title' id='projects-title'>
             Projects
           </h1>
           <GalleryWithHorizontalScroll projects={projects} />

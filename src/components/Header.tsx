@@ -92,7 +92,7 @@ export default function Header() {
   return (
     <header className='header'>
       <div className='header-text'>
-        <h1 className='title'>
+        <h1 className='heading-1 title'>
           {textTitle}
           <span
             className='typewriter-caret'

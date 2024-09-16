@@ -23,5 +23,14 @@
   gap: var(--space-lg);
 }
 .section__title {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+.heading-1 {
+  margin-top: 1rem;
+
+  color: var(--col-heading);
+  font-size: 3.2rem;
+  font-weight: 700;
+  line-height: normal;
 }
