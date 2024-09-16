@@ -3,7 +3,7 @@ import EastIcon from '@mui/icons-material/East';
 import WestIcon from '@mui/icons-material/West';
 
 import type { Project } from '@data/projects';
-import '@styles/gallery/controls.css';
+import '@styles/components/gallery/controls.css';
 
 type ControlsProps = {
   scrollPosition: number;

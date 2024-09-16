@@ -4,8 +4,8 @@ import MinimizeIcon from '@mui/icons-material/Minimize';
 import CloseIcon from '@mui/icons-material/Close';
 
 import { aboutListItems } from '@data/terminal';
-import styles from '@styles/terminal.module.css';
 import Paper from '@components/common/Paper';
+import styles from '@styles/components/terminal.module.css';
 
 export default function Terminal() {
   return (
@@ -28,16 +28,16 @@ export default function Terminal() {
       <div className={styles['terminal__content']}>
         {aboutListItems.map((item) => (
           <div key={item.in}>
-            <p className={styles['terminal__in']}>
+            <p className={styles['terminal__input']}>
               <Icon />
               {item.in}
             </p>
-            <p className={styles['terminal__out']}>{item.out}</p>
+            <div className={styles['terminal__output']}>{item.out}</div>
           </div>
         ))}
 
         <div>
-          <p className={styles['terminal__in']}>
+          <p className={styles['terminal__input']}>
             <Icon /> <span className={styles['terminal__cursor']} />
           </p>
         </div>

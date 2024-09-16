@@ -4,7 +4,9 @@ import LooksOneIcon from '@mui/icons-material/LooksOne';
 import LooksTwoIcon from '@mui/icons-material/LooksTwo';
 import LooksThreeIcon from '@mui/icons-material/Looks3';
 
+import Paper from '@components/common/Paper';
 import ExternalLink from '@components/common/ExternalLink';
+
 import ticketing from '@assets/ticketing.webp';
 import portfolio from '@assets/portfolio.webp';
 import tipCalc from '@assets/tip-calculator.webp';
@@ -15,7 +17,6 @@ import thatLevel from '@assets/that-level-again.webp';
 import repCount from '@assets/repcount.webp';
 import sleepMinder from '@assets/sleepminder.webp';
 import tsLearning from '@assets/ts-learning-path.webp';
-import Paper from '@components/common/Paper';
 
 export type Project = {
   id: number;
@@ -741,7 +742,7 @@ const unsortedProjects: Project[] = [
             </li>
           </ul>
         </Paper>
-        
+
         <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
           <p>BACKEND</p>
           <ul className='list'>
@@ -762,7 +763,7 @@ const unsortedProjects: Project[] = [
             </li>
           </ul>
         </Paper>
-        
+
         <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
           <p>FRONTEND</p>
           <ul className='list'>
@@ -786,7 +787,7 @@ const unsortedProjects: Project[] = [
             </li>
           </ul>
         </Paper>
-        
+
         <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
           <p>FULLSTACK</p>
           <ul className='list'>

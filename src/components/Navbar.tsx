@@ -1,7 +1,7 @@
 import { type MouseEvent, useEffect } from 'react';
 
 import ExternalLink from '@components/common/ExternalLink';
-import '@styles/navbar.css';
+import '@styles/components/navbar.css';
 
 export default function Navbar() {
   // NOTE: set nav item active if in view

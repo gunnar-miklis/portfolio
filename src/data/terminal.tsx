@@ -5,13 +5,13 @@ import AutoGraphRoundedIcon from '@mui/icons-material/AutoGraphRounded';
 import CenterFocusWeakRoundedIcon from '@mui/icons-material/CenterFocusWeakRounded';
 
 import ExternalLink from '@components/common/ExternalLink';
-import styles from '@styles/terminal.module.css';
+import styles from '@styles/components/terminal.module.css';
 
 const name = 'gunnar';
 
 type AboutListItem = {
   in: string;
-  out: string | ReactNode;
+  out: ReactNode;
 };
 
 export const aboutListItems: AboutListItem[] = [
@@ -38,22 +38,37 @@ export const aboutListItems: AboutListItem[] = [
   {
     in: `${name}.isOpenForWork && when`,
     out: (
-      <>
+      <p>
         <span className={styles['terminal__text-highlight']}>TRUE</span>; immediately
-      </>
+      </p>
     ),
   },
   {
     in: `${name}.skills.technical`,
-    out: '[ TypeScript, JavaScript, Node.js, Next.js, React, React Native, Express, MongoDB, SQLite, Vitest, Lighthouse, git, Linux, R ]',
+    out: (
+      <p>
+        &#91; TypeScript, JavaScript, Node.js, Next.js, React, React Native, Express, MongoDB,
+        SQLite, Vitest, Lighthouse, git, Linux, R &#93;
+      </p>
+    ),
   },
   {
     in: `${name}.skills.practices`,
-    out: '[ DRY, KISS, SOLID, Separation of Concerns, CI/CD, TDD, Unit Test, DevOps, REST, SPA, SSR, CSR, OOP, Accessibility ]',
+    out: (
+      <p>
+        &#91; DRY, KISS, SOLID, Separation of Concerns, CI/CD, TDD, Unit Test, DevOps, REST, SPA,
+        SSR, CSR, OOP, Accessibility &#93;
+      </p>
+    ),
   },
   {
     in: `${name}.skills.personal`,
-    out: '[ Analytical Skills, Problem Solving, Customer-Centered, Open-minded, Curiosity, Passionate, Fast Learning, Collaboration, Interdisciplinary ]',
+    out: (
+      <p>
+        &#91; Analytical Skills, Problem Solving, Customer-Centered, Open-minded, Curiosity,
+        Passionate, Fast Learning, Collaboration, Interdisciplinary &#93;
+      </p>
+    ),
   },
   {
     in: `${name}.personality`,
@@ -74,13 +89,13 @@ export const aboutListItems: AboutListItem[] = [
   },
   {
     in: `${name}.languages`,
-    out: '{ English: Fluent, German: Native }',
+    out: <p>&#123; English: Fluent, German: Native &#125;</p>,
   },
   {
     in: `${name}.contactInfo`,
     out: (
       <>
-        [&nbsp;
+        &#91;&nbsp;
         <ExternalLink
           href='mailto:gunnar.miklis@gmail.com'
           title='Sent an Email (opens external dialog)'
@@ -91,7 +106,7 @@ export const aboutListItems: AboutListItem[] = [
         <ExternalLink href='https://linkedin.com/in/gunnar-miklis' title='LinkedIn' />
         ,&nbsp;
         <ExternalLink href='https://github.com/gunnar-miklis' title='GitHub' />
-        &nbsp;]
+        &nbsp;&#93;
       </>
     ),
   },
@@ -105,6 +120,6 @@ export const aboutListItems: AboutListItem[] = [
   },
   {
     in: `${name}.currentLocation`,
-    out: 'Berlin, Germany',
+    out: <p>Berlin, Germany</p>,
   },
 ];

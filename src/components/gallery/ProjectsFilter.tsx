@@ -3,7 +3,7 @@ import type { Dispatch, SetStateAction } from 'react';
 
 import type { Project } from '@data/projects';
 import { type Filter, selectedTags as initalFilters } from '@data/filter';
-import '@styles/gallery/projects-filter.css';
+import '@styles/components/gallery/projects-filter.css';
 
 type ProjectsFilterProps = {
   projects: Project[];
