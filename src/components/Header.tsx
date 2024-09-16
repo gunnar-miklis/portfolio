@@ -99,7 +99,7 @@ export default function Header() {
             style={showCaretTitle ? { display: 'inline' } : { display: 'none' }}
           />
         </h1>
-        <h2 className='subtitle'>
+        <h2 className='heading-2 subtitle'>
           {textSubtitle}
           <span
             className='typewriter-caret'
