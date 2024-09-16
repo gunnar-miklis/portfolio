@@ -1,26 +1,22 @@
 import type { AnchorHTMLAttributes, ReactElement } from 'react';
 
-type LinkWithIconProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
-  icon: ReactElement;
-  title: string;
+import styles from '@components/common/LinkWithIcon/LinkWithIcon.module.css';
+
+type LinkWithIconProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href' | 'title'> & {
   href: string;
+  title: string;
+  icon: ReactElement;
 };
 
 export default function LinkWithIcon({ icon, title, href, ...props }: LinkWithIconProps) {
   return (
     <a
-      className='button'
+      className={`button ${styles['link-with-icon']}`}
       href={href}
       target='_blank'
       rel='noreferrer'
       title={`View ${title} (external website opens in new tab)`}
       aria-label={`View ${title} (external website opens in new tab)`}
-      style={{
-        display: 'inline-flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        gap: '0.6rem',
-      }}
       {...props}
     >
       {icon}
