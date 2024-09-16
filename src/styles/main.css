@@ -50,14 +50,7 @@ body {
 /* SEMANTICS */
 
 
-h3 {
-  color: var(--col-heading);
-  font-size: 1.8rem;
-  font-weight: 700;
-  line-height: 1.5;
 
-  margin-top: 0.8rem;
-}
 a {
   text-decoration: none;
 }

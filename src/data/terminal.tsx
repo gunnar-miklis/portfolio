@@ -5,6 +5,7 @@ import AutoGraphRoundedIcon from '@mui/icons-material/AutoGraphRounded';
 import CenterFocusWeakRoundedIcon from '@mui/icons-material/CenterFocusWeakRounded';
 
 import ExternalLink from '@components/common/ExternalLink';
+import styles from '@styles/terminal.module.css';
 
 const name = 'gunnar';
 
@@ -18,25 +19,28 @@ export const aboutListItems: AboutListItem[] = [
     in: `${name}.hello`,
     out: (
       <>
-        <span style={{ display: 'inline-flex', flexFlow: 'row nowrap', alignItems: 'center' }}>
-          Nice to meet you!&nbsp; <AwesomeIcon fontSize='small' />
-        </span>
-        <span>
+        <p className={styles['terminal__text-with-icon']}>
+          Nice to meet you!
+          <AwesomeIcon fontSize='small' />
+        </p>
+        <p>
           With a dedication for user-centered experience, I develop web applications by bringing
           together frontend and backend technologies. I&apos;m committed to deliver maintainable and
-          high quality software, while staying flexible with evolving tech trends. I thrive in
-          collaborative environments where I passionately and conscientiously contribute and strive
-          to exceed expectations.
-        </span>
+          high quality software, while staying flexible with evolving tech trends.
+        </p>
+        <p>
+          I thrive in collaborative environments where I passionately and conscientiously contribute
+          and strive to exceed expectations.
+        </p>
       </>
     ),
   },
   {
     in: `${name}.isOpenForWork && when`,
     out: (
-      <span style={{ display: 'inline-flex', flexFlow: 'row nowrap' }}>
-        <span style={{ color: '#e64a19', fontWeight: 700 }}>TRUE</span>; immediately
-      </span>
+      <>
+        <span className={styles['terminal__text-highlight']}>TRUE</span>; immediately
+      </>
     ),
   },
   {
@@ -55,16 +59,16 @@ export const aboutListItems: AboutListItem[] = [
     in: `${name}.personality`,
     out: (
       <>
-        <span style={{ display: 'inline-flex', flexFlow: 'row nowrap', gap: 'var(--space-sm)' }}>
+        <p className={styles['terminal__text-with-icon']}>
           <AutoGraphRoundedIcon fontSize='small' /> Loves new challenges, eager to learn.
-        </span>
-        <span style={{ display: 'inline-flex', flexFlow: 'row nowrap', gap: 'var(--space-sm)' }}>
+        </p>
+        <p className={styles['terminal__text-with-icon']}>
           <Diversity1Icon fontSize='small' /> Calm and patient individual, easy to get along.
-        </span>
-        <span style={{ display: 'inline-flex', flexFlow: 'row nowrap', gap: 'var(--space-sm)' }}>
+        </p>
+        <p className={styles['terminal__text-with-icon']}>
           <CenterFocusWeakRoundedIcon fontSize='small' /> Attention-to-detail, conscientious and
           diligent, high quality delivery.
-        </span>
+        </p>
       </>
     ),
   },
@@ -75,25 +79,20 @@ export const aboutListItems: AboutListItem[] = [
   {
     in: `${name}.contactInfo`,
     out: (
-      <span style={{ display: 'inline-flex', flexFlow: 'row nowrap' }}>
+      <>
         [&nbsp;
-        <a
-          className='link'
+        <ExternalLink
           href='mailto:gunnar.miklis@gmail.com'
-          target='_blank'
-          rel='noreferrer'
           title='Sent an Email (opens external dialog)'
-          aria-label='Sent an Email (opens external dialog)'
-          key={1}
         >
           E-Mail
-        </a>
+        </ExternalLink>
         ,&nbsp;
-        <ExternalLink href='https://linkedin.com/in/gunnar-miklis' title='LinkedIn' key={2} />
+        <ExternalLink href='https://linkedin.com/in/gunnar-miklis' title='LinkedIn' />
         ,&nbsp;
-        <ExternalLink href='https://github.com/gunnar-miklis' title='GitHub' key={3} />
+        <ExternalLink href='https://github.com/gunnar-miklis' title='GitHub' />
         &nbsp;]
-      </span>
+      </>
     ),
   },
   {

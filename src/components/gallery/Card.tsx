@@ -243,7 +243,9 @@ export default function Card({
           {/* header */}
           <div className='card-inner'>
             <div className='card-header'>
-              <h3 id={title}>{title}</h3>
+              <h3 className='heading-3' id={title}>
+                {title}
+              </h3>
               {category && date ? (
                 <small className='small'>
                   {category}, {date}

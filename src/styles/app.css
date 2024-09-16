@@ -36,8 +36,16 @@
 }
 .heading-2 {
   margin-top: 0.8rem;
-  
+
   font-size: 2.1rem;
   font-weight: 600;
   line-height: normal;
+}
+.heading-3 {
+  margin-top: 0.8rem;
+
+  color: var(--col-heading);
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.5;
 }
