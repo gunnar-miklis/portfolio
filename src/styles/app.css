@@ -13,3 +13,15 @@
 
   transition: all var(--transition);
 }
+
+.section {
+  width: 100%;
+}
+.section--about {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+.section__title {
+    margin-bottom: 1rem;
+}

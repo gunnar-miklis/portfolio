@@ -13,19 +13,19 @@ export default function App() {
       <Navbar />
 
       <main className='main'>
-        <section id='about'>
+        <section className='section section--about' id='about'>
           <Header />
           <Terminal />
         </section>
 
-        <section id='projects'>
-          <h1 id='projects-title' style={{ marginBottom: '1rem' }}>
+        <section className='section' id='projects'>
+          <h1 className='section__title' id='projects-title'>
             Projects
           </h1>
           <GalleryWithHorizontalScroll projects={projects} />
         </section>
 
-        <section id='tags'>
+        <section className='section' id='tags'>
           <TagsList />
         </section>
       </main>
