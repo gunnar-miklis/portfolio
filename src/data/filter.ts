@@ -1,4 +1,4 @@
-import { projects, type ProjectCategories } from '@/data/projects';
+import { projects, type ProjectCategories } from '@data/projects';
 
 export type Filter = string;
 

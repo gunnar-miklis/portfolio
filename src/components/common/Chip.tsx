@@ -1,5 +1,5 @@
 import type { HTMLAttributes } from 'react';
-import styles from '@/styles/common/chip.module.css';
+import styles from '@styles/common/chip.module.css';
 
 type Props = HTMLAttributes<HTMLSpanElement>;
 

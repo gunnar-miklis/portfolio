@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { projects } from '@/data/projects';
+import { projects } from '@data/projects';
 
 describe('the projects data array', () => {
   it('should be not empty', () => {

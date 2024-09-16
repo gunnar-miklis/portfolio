@@ -2,8 +2,8 @@ import { useEffect } from 'react';
 import EastIcon from '@mui/icons-material/East';
 import WestIcon from '@mui/icons-material/West';
 
-import type { Project } from '@/data/projects';
-import '@/styles/gallery/controls.css';
+import type { Project } from '@data/projects';
+import '@styles/gallery/controls.css';
 
 type ControlsProps = {
   scrollPosition: number;

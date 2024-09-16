@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import type { Dispatch, SetStateAction } from 'react';
 
-import type { Project } from '@/data/projects';
-import { type Filter, selectedTags as initalFilters } from '@/data/filter';
-import '@/styles/gallery/projects-filter.css';
+import type { Project } from '@data/projects';
+import { type Filter, selectedTags as initalFilters } from '@data/filter';
+import '@styles/gallery/projects-filter.css';
 
 type ProjectsFilterProps = {
   projects: Project[];
@@ -46,9 +46,7 @@ export default function ProjectsFilter({
       setInactiveFilters(updatedFilters);
     } else {
       // remove from active filter
-      const updatedFilters: Filter[] = activeFilters.filter(
-        (filter) => filter !== selectedFilter,
-      );
+      const updatedFilters: Filter[] = activeFilters.filter((filter) => filter !== selectedFilter);
       setActiveFilters(updatedFilters);
 
       // add to inactive filter + sort back to inital position

@@ -9,6 +9,10 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': '/src',
+      '@assets': '/src/assets',
+      '@data': '/src/data',
+      '@components': '/src/components',
+      '@styles': '/src/styles',
     },
   },
   css: {
