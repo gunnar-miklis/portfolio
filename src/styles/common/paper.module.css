@@ -19,9 +19,3 @@
   gap: var(--space-md);
   padding: var(--space-lg);
 }
-
-@media (prefers-color-scheme: light) {
-  .paper {
-    background-color: var(--card-bg-light);
-  }
-}

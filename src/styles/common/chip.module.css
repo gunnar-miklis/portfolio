@@ -8,10 +8,3 @@
   border-radius: 1rem;
   padding: calc(var(--space-sm) / 1.4);
 }
-
-@media (prefers-color-scheme: light) {
-  .chip {
-    color: var(--annotation-light);
-    background-color: var(--button-bg-light);
-  }
-}
