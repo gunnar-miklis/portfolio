@@ -77,7 +77,7 @@ export default function ProjectsFilter({
         activeFilters.map((tag) => (
           <div className='filters' key={tag}>
             <button
-              className='button chip active-filter'
+              className='button active-filter'
               onClick={() => updateActiveFilters(tag)}
               title={`Filter by: ${tag}`}
               aria-label={`Filter by: ${tag}`}
@@ -89,7 +89,7 @@ export default function ProjectsFilter({
       {inactiveFilters.map((tag) => (
         <div className='filters' key={tag}>
           <button
-            className='button chip'
+            className='button'
             onClick={() => updateActiveFilters(tag)}
             title={`Filter by: ${tag}`}
             aria-label={`Filter by: ${tag}`}

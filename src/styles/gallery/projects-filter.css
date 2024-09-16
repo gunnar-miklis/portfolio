@@ -16,7 +16,7 @@
   align-items: flex-start;
   gap: var(--space-sm);
 }
-.gallery-filter .chip {
+.gallery-filter {
   border: none;
   background-color: var(--card-bg-dark);
   width: 100%;
@@ -30,7 +30,7 @@
 
 /* LIGHT THEME */
 @media (prefers-color-scheme: light) {
-  .gallery-filter .chip {
+  .gallery-filter {
     background-color: var(--card-bg-light);
   }
   .gallery-filter .active-filter {

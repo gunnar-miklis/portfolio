@@ -1,5 +1,6 @@
 import { getAllTagsFromProjects } from '@/data/filter';
 import '@/styles/gallery/projects-filter.css';
+import Chip from '@/components/common/Chip';
 
 export default function TagsList() {
   const allTags = getAllTagsFromProjects();
@@ -15,15 +16,7 @@ export default function TagsList() {
       aria-label='Tags'
     >
       {allTags.map((tag) => (
-        <span
-          className='chip'
-          key={tag}
-          style={{
-            backgroundColor: 'light-dark(var(--card-bg-light), var(--card-bg-dark))',
-          }}
-        >
-          <p style={{ textAlign: 'center' }}>{tag}</p>
-        </span>
+        <Chip key={tag}>{tag}</Chip>
       ))}
     </div>
   );

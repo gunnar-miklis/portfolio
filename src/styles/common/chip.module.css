@@ -1,0 +1,17 @@
+.chip {
+  color: var(--annotation-dark);
+  background-color: var(--button-bg-dark);
+
+  font-size: 0.9rem;
+  text-align: center;
+
+  border-radius: 1rem;
+  padding: calc(var(--space-sm) / 1.4);
+}
+
+@media (prefers-color-scheme: light) {
+  .chip {
+    color: var(--annotation-light);
+    background-color: var(--button-bg-light);
+  }
+}

@@ -166,16 +166,6 @@ button {
 .button:focus-visible {
   border-color: var(--annotation-dark);
 }
-.chip {
-  color: var(--annotation-dark);
-  background-color: var(--button-bg-dark);
-
-  font-size: 0.8rem;
-  font-weight: 500;
-
-  border-radius: 1rem;
-  padding: calc(var(--space-sm) / 1.4);
-}
 .list {
   list-style: none;
 }
@@ -271,10 +261,6 @@ button {
   .button:focus,
   .button:focus-visible {
     border-color: var(--annotation-light);
-  }
-  .chip {
-    color: var(--annotation-light);
-    background-color: var(--button-bg-light);
   }
   .annotation {
     color: var(--annotation-light);
