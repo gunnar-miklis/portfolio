@@ -245,13 +245,13 @@ export default function Card({
             <div className='card-header'>
               <h3 id={title}>{title}</h3>
               {category && date ? (
-                <p className='annotation'>
+                <small className='small'>
                   {category}, {date}
-                </p>
+                </small>
               ) : category ? (
-                <p className='annotation'>{category}</p>
+                <small className='small'>{category}</small>
               ) : (
-                <p className='annotation'>{date}</p>
+                <small className='small'>{date}</small>
               )}
             </div>
 
@@ -260,12 +260,7 @@ export default function Card({
           </div>
 
           {/* tags */}
-          <Paper
-            paperSpacing='sm'
-            style={{ flexFlow: 'row wrap' }}
-            title='Tags'
-            aria-label='Tags'
-          >
+          <Paper paperSpacing='sm' style={{ flexFlow: 'row wrap' }} title='Tags' aria-label='Tags'>
             {tags.map((tag) => (
               <Chip key={tag}>{tag}</Chip>
             ))}
@@ -289,7 +284,7 @@ export default function Card({
           )}
 
           {/* footnote */}
-          {footnote && <p className='annotation footnote'>{footnote}</p>}
+          {footnote && <small className='small footnote'>{footnote}</small>}
         </div>
       </details>
     </article>

@@ -176,12 +176,11 @@ button {
 
   padding: 0.1rem;
 }
-.annotation {
+.small {
   color: var(--annotation-dark);
 
   font-size: 0.8rem;
 }
-
 
 /* UTILITY CLASSES */
 
@@ -243,7 +242,7 @@ button {
   .button:focus-visible {
     border-color: var(--annotation-light);
   }
-  .annotation {
+  .small {
     color: var(--annotation-light);
   }
 }
