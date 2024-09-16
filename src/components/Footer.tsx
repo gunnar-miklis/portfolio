@@ -1,11 +1,10 @@
-import styles from '@styles/components/footer.module.css';
+import '@styles/components/footer.css';
 
 export default function Footer() {
   return (
-    <footer className={styles['footer']}>
-      <p className={styles['footer__text']}>
-        <span>&lt;&#47;&gt;</span> with{' '}
-        <span className={styles['footer__text-heart']}>&#9825;</span>
+    <footer className='footer'>
+      <p className='footer__text'>
+        <span>&lt;&#47;&gt;</span> with <span className='footer__text-heart'>&#9825;</span>
       </p>
     </footer>
   );

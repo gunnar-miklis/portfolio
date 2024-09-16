@@ -4,6 +4,6 @@
   justify-content: center;
   gap: var(--space-sm);
 }
-.chip {
+.tags-list__chip {
   background-color: var(--col-card-bg);
 }

@@ -5,7 +5,7 @@ import AutoGraphRoundedIcon from '@mui/icons-material/AutoGraphRounded';
 import CenterFocusWeakRoundedIcon from '@mui/icons-material/CenterFocusWeakRounded';
 
 import ExternalLink from '@components/common/ExternalLink';
-import styles from '@styles/components/terminal.module.css';
+import '@styles/components/terminal.css';
 
 const name = 'gunnar';
 
@@ -19,7 +19,7 @@ export const aboutListItems: AboutListItem[] = [
     in: `${name}.hello`,
     out: (
       <>
-        <p className={styles['terminal__text-with-icon']}>
+        <p className='terminal__text-with-icon'>
           Nice to meet you!
           <AwesomeIcon fontSize='small' />
         </p>
@@ -39,7 +39,7 @@ export const aboutListItems: AboutListItem[] = [
     in: `${name}.isOpenForWork && when`,
     out: (
       <p>
-        <span className={styles['terminal__text-highlight']}>TRUE</span>; immediately
+        <span className='terminal__text-highlight'>TRUE</span>; immediately
       </p>
     ),
   },
@@ -74,13 +74,13 @@ export const aboutListItems: AboutListItem[] = [
     in: `${name}.personality`,
     out: (
       <>
-        <p className={styles['terminal__text-with-icon']}>
+        <p className='terminal__text-with-icon'>
           <AutoGraphRoundedIcon fontSize='small' /> Loves new challenges, eager to learn.
         </p>
-        <p className={styles['terminal__text-with-icon']}>
+        <p className='terminal__text-with-icon'>
           <Diversity1Icon fontSize='small' /> Calm and patient individual, easy to get along.
         </p>
-        <p className={styles['terminal__text-with-icon']}>
+        <p className='terminal__text-with-icon'>
           <CenterFocusWeakRoundedIcon fontSize='small' /> Attention-to-detail, conscientious and
           diligent, high quality delivery.
         </p>
