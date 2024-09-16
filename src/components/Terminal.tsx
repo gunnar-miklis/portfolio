@@ -14,13 +14,13 @@ export default function Terminal() {
         <h3 className='heading-3 heading-3--about'>About</h3>
         <div className='terminal__decorative-group'>
           <span className='terminal__decorative-item'>
-            <MinimizeIcon className='terminal__decorative-icon' />
+            <MinimizeIcon />
           </span>
           <span className='terminal__decorative-item'>
-            <MaximizeIcon className='terminal__decorative-icon' />
+            <MaximizeIcon />
           </span>
           <span className='terminal__decorative-item'>
-            <CloseIcon className='terminal__decorative-icon' />
+            <CloseIcon />
           </span>
         </div>
       </div>

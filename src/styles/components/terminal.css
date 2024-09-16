@@ -43,11 +43,15 @@
 
   padding: 0.15rem;
   border-radius: 50%;
-
+  
   color: #fafafa;
   background-color: light-dark(#9e9e9e, #757575);
 }
-.terminal__decorative-icon {
+.terminal__decorative-item svg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
   font-size: 1.1rem;
 }
 
