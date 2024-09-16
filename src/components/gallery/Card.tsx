@@ -241,52 +241,58 @@ export default function Card({
         </summary>
         <div className='card-content'>
           {/* header */}
-          <div className='card-inner'>
-            <div className='card-header'>
-              <h3 className='heading-3' id={title}>
-                {title}
-              </h3>
-              {category && date ? (
-                <small className='small'>
-                  {category}, {date}
-                </small>
-              ) : category ? (
-                <small className='small'>{category}</small>
-              ) : (
-                <small className='small'>{date}</small>
-              )}
-            </div>
-
-            {/* description */}
-            <div className='card-description'>{children}</div>
+          <div className='card-header'>
+            <h3 className='heading-3' id={title}>
+              {title}
+            </h3>
+            {category && date ? (
+              <small className='small'>
+                {category}, {date}
+              </small>
+            ) : category ? (
+              <small className='small'>{category}</small>
+            ) : (
+              <small className='small'>{date}</small>
+            )}
           </div>
 
-          {/* tags */}
-          <Paper paperSpacing='sm' style={{ flexFlow: 'row wrap' }} title='Tags' aria-label='Tags'>
-            {tags.map((tag) => (
-              <Chip key={tag}>{tag}</Chip>
-            ))}
-          </Paper>
+          {/* body */}
+          <div className='card-body'>
+            {/* desription + features */}
+            {children}
 
-          {/* action links */}
-          {(liveDemo || sourceCode) && (
+            {/* tags */}
             <Paper
               paperSpacing='sm'
               style={{ flexFlow: 'row wrap' }}
-              title='External Links'
-              aria-label='External Links'
+              title='Tags'
+              aria-label='Tags'
             >
-              {liveDemo && (
-                <LinkWithIcon href={liveDemo} icon={<LaunchRoundedIcon />} title='Live Demo' />
-              )}
-              {sourceCode && (
-                <LinkWithIcon href={sourceCode} icon={<GitHubIcon />} title='Source Code' />
-              )}
+              {tags.map((tag) => (
+                <Chip key={tag}>{tag}</Chip>
+              ))}
             </Paper>
-          )}
 
-          {/* footnote */}
-          {footnote && <small className='small footnote'>{footnote}</small>}
+            {/* action links */}
+            {(liveDemo || sourceCode) && (
+              <Paper
+                paperSpacing='sm'
+                style={{ flexFlow: 'row wrap' }}
+                title='External Links'
+                aria-label='External Links'
+              >
+                {liveDemo && (
+                  <LinkWithIcon href={liveDemo} icon={<LaunchRoundedIcon />} title='Live Demo' />
+                )}
+                {sourceCode && (
+                  <LinkWithIcon href={sourceCode} icon={<GitHubIcon />} title='Source Code' />
+                )}
+              </Paper>
+            )}
+
+            {/* footnote */}
+            {footnote && <small className='small footnote'>{footnote}</small>}
+          </div>
         </div>
       </details>
     </article>

@@ -84,3 +84,14 @@
 .button:focus {
   border-color: var(--col-annotation);
 }
+
+.list {
+  list-style: none;
+}
+.list__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+
+  padding: 0.1rem;
+}

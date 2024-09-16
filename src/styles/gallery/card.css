@@ -1,3 +1,10 @@
+/* COMPONENT CLASSES MODIFIER */
+.paper--list {
+  flex-flow: column nowrap;
+  padding: var(--space-md) var(--space-sm);
+}
+
+/* COMPONENT CLASSES */
 .card {
   box-shadow: var(--col-box-shadow);
   border: 1px solid var(--col-card-bg);
@@ -41,15 +48,9 @@
 .card-content {
   display: flex;
   flex-flow: column nowrap;
-  justify-content: flex-start;
-  align-items: baseline;
+  /* justify-content: flex-start;
+  align-items: baseline; */
   gap: var(--space-sm);
-}
-.card-inner {
-  display: flex;
-  flex-flow: column nowrap;
-
-  width: 100%;
 }
 .card-header {
   display: flex;
@@ -57,25 +58,11 @@
 
   padding-bottom: 0.6rem;
 }
-.card-description {
+.card-body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: var(--space-sm);
-}
-.feature-list {
-  background-color: var(--col-card-bg);
-
-  border-radius: 1rem;
-
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: flex-start;
-  gap: var(--space-sm);
-
-  width: 100%;
-  padding: var(--space-md) var(--space-sm);
-  overflow: hidden;
 }
 .card .footnote {
   padding: 0 calc(var(--space-sm) / 2);

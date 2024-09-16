@@ -59,16 +59,6 @@ button {
 
 /* COMPONENT CLASSES */
 
-.list {
-  list-style: none;
-}
-.list li {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-sm);
-
-  padding: 0.1rem;
-}
 .small {
   color: var(--col-annotation);
 

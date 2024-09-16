@@ -15,6 +15,7 @@ import thatLevel from '@assets/that-level-again.webp';
 import repCount from '@assets/repcount.webp';
 import sleepMinder from '@assets/sleepminder.webp';
 import tsLearning from '@assets/ts-learning-path.webp';
+import Paper from '@components/common/Paper';
 
 export type Project = {
   id: number;
@@ -63,22 +64,22 @@ const unsortedProjects: Project[] = [
           refine the tracklist, and create new playlists based on the selected criteria.
         </p>
 
-        <div className='feature-list' title='Features' aria-label='Features'>
+        <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
           <ul className='list'>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Fetch playlists and tracks from the Spotify Web API.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Filter playlists based on selected criteria.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Create new playlists and send them back to the Spotify Web API.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Light/Dark mode.
             </li>
           </ul>
-        </div>
+        </Paper>
       </>
     ),
   },
@@ -113,58 +114,58 @@ const unsortedProjects: Project[] = [
           Database and an OAuth Authentication.
         </p>
 
-        <div className='feature-list' title='Features' aria-label='Features'>
+        <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
           <p>NEXT.JS</p>
           <ul className='list'>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Create client and server components.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Handle form submit in Next.js via: useFormState() + useFormStatus()
               to control the &quot;pending-status&quot; and &quot;response-messages&quot; on the
               client-side.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Use Next.js Server Actions for CRUD operations. Read and write data
               from the database via Prisma ORM on the server-side.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Validate form data against a Zod schema.
             </li>
           </ul>
-        </div>
+        </Paper>
 
-        <div className='feature-list' title='Features' aria-label='Features'>
+        <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
           <p>DATABASE</p>
           <ul className='list'>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Create a Prisma ORM schema and connect to the Vercel PostgreSQL
               Database.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Add various SQL relations: one-to-one, one-to-many, many-to-many.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Query the database via Prisma ORM and &quot;populate&quot; relations
               during querying.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Integrate a simple pagination mechanism to read the database.
             </li>
           </ul>
-        </div>
+        </Paper>
 
-        <div className='feature-list' title='Features' aria-label='Features'>
+        <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
           <p>AUTHENTICATION</p>
           <ul className='list'>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Authenticate a user via GitHub OAuth procedure.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Lock certain features based on the session/login status.
             </li>
           </ul>
-        </div>
+        </Paper>
       </>
     ),
   },
@@ -186,37 +187,37 @@ const unsortedProjects: Project[] = [
           use, because the current venue has poor internet coverage.
         </p>
 
-        <div className='feature-list' title='Features' aria-label='Features'>
+        <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
           <ul className='list'>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> QR-Code Scanner/Camera.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Offline storage (app works without internet).
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Manage two ticket types: qr-code & box office.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Download, update, search or filter a list of tickets.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Statistics for: total sales & daily checkins.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Counter for recent checkins.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Light/Dark theme.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Switch Languages.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Always keep screen awake.
             </li>
           </ul>
-        </div>
+        </Paper>
       </>
     ),
   },
@@ -248,20 +249,20 @@ const unsortedProjects: Project[] = [
             security, and usability.
           </p>
 
-          <div className='feature-list' title='Features' aria-label='Features'>
+          <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
             <ul className='list'>
-              <li>
+              <li className='list__item'>
                 <PhoneGearIcon /> Accessibility optimzation. Semantics, ARIA, Lighthouse.
               </li>
-              <li>
+              <li className='list__item'>
                 <PhoneGearIcon /> Scroll events and animations. Typewriter.
               </li>
-              <li>
+              <li className='list__item'>
                 <PhoneGearIcon /> Custom components: Horizontal scrollable gallery. Progress
                 indicator.
               </li>
             </ul>
-          </div>
+          </Paper>
         </>
       </>
     ),
@@ -283,23 +284,23 @@ const unsortedProjects: Project[] = [
           <ExternalLink href='https://www.frontendmentor.io' title='Frontend Mentor' />.
         </p>
 
-        <div className='feature-list' title='Features' aria-label='Features'>
+        <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
           <ul className='list'>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Mobile-first, fully responsive (phone, tablet, laptop)
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Calculator functionality.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> MUI components (input, snackbar, grids, paper), color palettes and
               typography.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Customize MUI theme based on style guide.
             </li>
           </ul>
-        </div>
+        </Paper>
       </>
     ),
   },
@@ -323,28 +324,28 @@ const unsortedProjects: Project[] = [
           .
         </p>
 
-        <div className='feature-list' title='Features' aria-label='Features'>
+        <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
           <ul className='list'>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Grid Layout, Navbar and Routing, Header, Notification, Tooltips.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Modal, Form Input, Form Validation, Searchbar, Filter Function.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Dynamic Data Table, Pagination, Page Size.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Progress Stepper, Conditional Next/Back/Finish/Reset Functionality.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Loading Skeleton.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Snackbar/Alert Functionality.
             </li>
           </ul>
-        </div>
+        </Paper>
       </>
     ),
   },
@@ -380,20 +381,20 @@ const unsortedProjects: Project[] = [
           <ExternalLink href='https://www.frontendmentor.io' title='Frontend Mentor' />.
         </p>
 
-        <div className='feature-list' title='Features' aria-label='Features'>
+        <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
           Design this QR Code component in three different ways, using...
           <ul className='list'>
-            <li>
+            <li className='list__item'>
               <LooksOneIcon /> HTML + CSS
             </li>
-            <li>
+            <li className='list__item'>
               <LooksTwoIcon /> HTML + Bootstrap CSS
             </li>
-            <li>
+            <li className='list__item'>
               <LooksThreeIcon /> React Native
             </li>
           </ul>
-        </div>
+        </Paper>
       </>
     ),
   },
@@ -428,36 +429,36 @@ const unsortedProjects: Project[] = [
           Frontend Technologies. Learn to use basic concepts.
         </p>
 
-        <div className='feature-list' title='Features' aria-label='Features'>
+        <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
           <ul className='list'>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Render a game in the browser.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Have logic for winning and/or losing and show feedback to the player
               in either case.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Use plain JavaScript for DOM manipulation (or HTML canvas for
               graphics).
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Have a repo on GitHub.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Be deployed online using GitHub Pages so that anybody can play it.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Stick with KISS, DRY, YAGNI principles.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Make use of OOP paradigm.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Present and demo your app during the Final Project presentations.
             </li>
           </ul>
-        </div>
+        </Paper>
       </>
     ),
   },
@@ -495,36 +496,36 @@ const unsortedProjects: Project[] = [
           Technologies and collaborative Version Control (CI).
         </p>
 
-        <div className='feature-list' title='Features' aria-label='Features'>
+        <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
           <ul className='list'>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Use Express as a foundation.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Use Mongoose for models and database communication.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Have 2 models or more.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Have validation on the models with feedback for users if their
               submission is invalid.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Include sign up, log in & log out functionality with encrypted
               passwords and authorization.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Implement all CRUD actions on models.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Make use of OOP paradigm.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Present and demo your app during the Final Project presentations.
             </li>
           </ul>
-        </div>
+        </Paper>
       </>
     ),
   },
@@ -564,30 +565,30 @@ const unsortedProjects: Project[] = [
           Analytics students, UX/UI Design students and Me (Web Development student).
         </p>
 
-        <div className='feature-list' title='Features' aria-label='Features'>
+        <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
           <ul className='list'>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Have a SPA frontend, built with React.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Have a REST API backend built with ExpressJS, MongoDB and Mongoose.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Have a REST API backend with routes that perform all CRUD actions.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Include sign up, log in & log out functionality with encrypted
               passwords and authorization.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Have two separate repos on GitHub. One repo is for your frontend
               React application and the other is for your backend REST API.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Present and demo your app during the Final Project presentations.
             </li>
           </ul>
-        </div>
+        </Paper>
       </>
     ),
   },
@@ -607,28 +608,28 @@ const unsortedProjects: Project[] = [
           <ExternalLink href='https://www.codewars.com/' title='Codewars' />.
         </p>
 
-        <div className='feature-list' title='Features' aria-label='Features'>
+        <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
           <ul className='list'>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Fundamentals.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Strings and regular expressions.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Data Structures, array methods, lists, sorting.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Logic puzzles, algorithms.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Performance optimized code.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Edge cases.
             </li>
           </ul>
-        </div>
+        </Paper>
       </>
     ),
   },
@@ -651,37 +652,37 @@ const unsortedProjects: Project[] = [
           .
         </p>
 
-        <div className='feature-list' title='Features' aria-label='Features'>
+        <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
           <ul className='list'>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Conditionals.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Functions.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Scope.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Arrays.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Loops.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Iterators.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Objects.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Classes.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Modules.
             </li>
           </ul>
-        </div>
+        </Paper>
       </>
     ),
   },
@@ -729,73 +730,76 @@ const unsortedProjects: Project[] = [
           return to when a little refresher is needed.
         </p>
 
-        <div className='feature-list' title='Features' aria-label='Features'>
+        <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
           <p>JS FUNDAMENTALS</p>
           <ul className='list'>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> JS coding concepts, nodeJS.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> HTML, CSS, DOM.
             </li>
           </ul>
-        </div>
-        <div className='feature-list' title='Features' aria-label='Features'>
+        </Paper>
+        
+        <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
           <p>BACKEND</p>
           <ul className='list'>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> MVC, Response-Request-Cylce.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> REST, API, CRUD, ExpressJS.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> DB, ODM, MongoDB.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> CORS, security, password encryption, bcryptJS.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Nodemailer, Json-Server.
             </li>
           </ul>
-        </div>
-        <div className='feature-list' title='Features' aria-label='Features'>
+        </Paper>
+        
+        <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
           <p>FRONTEND</p>
           <ul className='list'>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Axios, fetch external API.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> SPA rendering, component-based architecture.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> React: component lifecycle: state, side-effects, hooks.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> React: flow of information: props/callbacks (pass down/lift up).
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> React: routing, navigation.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> React: context (theme, language, auth).
             </li>
           </ul>
-        </div>
-        <div className='feature-list' title='Features' aria-label='Features'>
+        </Paper>
+        
+        <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
           <p>FULLSTACK</p>
           <ul className='list'>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> Token-based Authentication: authentication - verification -
               authorization, public/private/protected routes, login/signup input data validation,
               user feedback (success/error) messages, handle token expiration, error handling.
             </li>
-            <li>
+            <li className='list__item'>
               <PhoneGearIcon /> File-Upload via Cloudinary: multipart/form-data.
             </li>
           </ul>
-        </div>
+        </Paper>
       </>
     ),
   },
