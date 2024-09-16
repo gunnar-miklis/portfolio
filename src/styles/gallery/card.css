@@ -1,6 +1,6 @@
 .card {
-  box-shadow: var(--box-shadow-dark);
-  border: 1px solid var(--card-bg-dark);
+  box-shadow: var(--col-box-shadow);
+  border: 1px solid var(--col-card-bg);
   border-radius: 1rem;
 
   display: flex;
@@ -11,7 +11,7 @@
 }
 
 .card-image {
-  background-color: var(--bg-dark);
+  background-color: var(--col-bg);
   position: relative;
   z-index: 1;
 
@@ -30,8 +30,8 @@
 }
 
 .details {
-  background-color: var(--card-bg-dark);
-  box-shadow: var(--box-shadow-dark);
+  background-color: var(--col-card-bg);
+  box-shadow: var(--col-box-shadow);
 
   padding: var(--space-md);
   padding-top: 1rem;
@@ -64,7 +64,7 @@
   gap: var(--space-sm);
 }
 .feature-list {
-  background-color: var(--card-bg-dark);
+  background-color: var(--col-card-bg);
 
   border-radius: 1rem;
 
@@ -101,36 +101,12 @@ summary {
 summary:hover,
 summary:focus,
 summary:focus-visible {
-  color: var(--annotation-dark);
-  border-color: var(--annotation-dark);
+  color: var(--col-annotation);
+  border-color: var(--col-annotation);
 }
 summary > span {
   display: inline-flex;
   align-items: center;
-}
-
-/* LIGHT THEME */
-@media (prefers-color-scheme: light) {
-  .card {
-    box-shadow: var(--box-shadow-light);
-    border: 1px solid var(--card-bg-light);
-  }
-  .card-image {
-    background-color: var(--bg-light);
-  }
-  .details {
-    background-color: var(--card-bg-light);
-    box-shadow: var(--box-shadow-light);
-  }
-  summary:hover,
-  summary:focus,
-  summary:focus-visible {
-    color: var(--annotation-light);
-    border-color: var(--annotation-light);
-  }
-  .feature-list {
-    background-color: var(--card-bg-light);
-  }
 }
 
 /* RESPONSIVENESS */

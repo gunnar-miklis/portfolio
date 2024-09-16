@@ -1,6 +1,6 @@
 .chip {
-  color: var(--annotation-dark);
-  background-color: var(--button-bg-dark);
+  color: var(--col-annotation);
+  background-color: var(--col-button-bg);
 
   font-size: 0.9rem;
   text-align: center;

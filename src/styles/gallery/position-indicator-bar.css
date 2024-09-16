@@ -7,15 +7,5 @@ progress::-webkit-progress-bar {
   background-color: transparent;
 }
 progress::-webkit-progress-value {
-  background-color: var(--heading-dark);
-}
-
-/* LIGHT THEME */
-@media (prefers-color-scheme: light) {
-  progress::-webkit-progress-bar {
-    background-color: transparent;
-  }
-  progress::-webkit-progress-value {
-    background-color: var(--heading-light);
-  }
+  background-color: var(--col-heading);
 }

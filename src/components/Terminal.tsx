@@ -35,6 +35,13 @@ export default function Terminal() {
             <p className='out'>{item.out}</p>
           </div>
         ))}
+
+        <div>
+          <p className='in'>
+            <Icon /> <span className='cursor' />
+          </p>
+          <p className='out'></p>
+        </div>
       </div>
     </Paper>
   );

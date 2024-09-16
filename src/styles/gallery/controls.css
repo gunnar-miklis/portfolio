@@ -1,5 +1,5 @@
 .gallery-controls {
-  background-color: var(--bg-dark);
+  background-color: var(--col-bg);
 
   position: sticky;
   top: 7rem;
@@ -45,15 +45,5 @@
   }
   40% {
     transform: translateX(0);
-  }
-}
-
-/* LIGHT THEME */
-@media (prefers-color-scheme: light) {
-  ::-webkit-scrollbar-thumb {
-    background: var(--annotation-light);
-  }
-  .gallery-controls {
-    background-color: var(--bg-light);
   }
 }

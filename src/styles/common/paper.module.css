@@ -3,7 +3,7 @@
   flex-flow: row wrap;
   width: 100%;
 
-  background-color: var(--card-bg-dark);
+  background-color: var(--col-card-bg);
   border-radius: 1rem;
 }
 

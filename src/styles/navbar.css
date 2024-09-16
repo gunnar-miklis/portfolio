@@ -1,6 +1,6 @@
 .navbar {
-  color: var(--heading-dark);
-  background-color: var(--bg-dark);
+  color: var(--col-heading);
+  background-color: var(--col-bg);
 
   position: fixed;
   top: 0;
@@ -51,14 +51,6 @@
 }
 .active {
   font-weight: 800 !important;
-}
-
-/* LIGHT THEME */
-@media (prefers-color-scheme: light) {
-  .navbar {
-    color: var(--heading-light);
-    background-color: var(--bg-light);
-  }
 }
 
 /* RESPONSIVENESS */

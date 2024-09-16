@@ -18,24 +18,12 @@
 }
 .gallery-filter {
   border: none;
-  background-color: var(--card-bg-dark);
+  background-color: var(--col-card-bg);
   width: 100%;
   border: 2px solid transparent;
 }
 .gallery-filter .active-filter {
-  background-color: var(--bg-dark);
-  border-color: var(--text-dark);
-  color: var(--text-dark);
-}
-
-/* LIGHT THEME */
-@media (prefers-color-scheme: light) {
-  .gallery-filter {
-    background-color: var(--card-bg-light);
-  }
-  .gallery-filter .active-filter {
-    background-color: var(--bg-light);
-    border-color: var(--text-light);
-    color: var(--text-light);
-  }
+  background-color: var(--col-bg);
+  border-color: var(--col-text);
+  color: var(--col-text);
 }
