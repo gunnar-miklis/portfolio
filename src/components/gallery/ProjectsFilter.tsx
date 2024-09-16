@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import type { Dispatch, SetStateAction } from 'react';
 
-import type { Project } from '@data/projects';
-import { type Filter, selectedTags as initalFilters } from '@data/filter';
 import Chip from '@components/common/Chip';
 import '@styles/components/gallery/projects-filter.css';
+import type { Project } from '@data/projects';
+import { type Filter, selectedTags as initalFilters } from '@data/filter';
 
 type ProjectsFilterProps = {
   projects: Project[];

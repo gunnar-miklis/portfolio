@@ -1,6 +1,6 @@
-import { getAllTagsFromProjects } from '@data/filter';
 import Chip from '@components/common/Chip';
 import '@styles/components/tagslist.css';
+import { getAllTagsFromProjects } from '@data/filter';
 
 export default function TagsList() {
   const allTags = getAllTagsFromProjects();

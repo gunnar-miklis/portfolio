@@ -1,11 +1,11 @@
-import { projects } from '@data/projects';
+import '@styles/app.css';
 import Navbar from '@components/Navbar';
 import Header from '@components/Header';
 import Terminal from '@components/Terminal';
 import GalleryWithHorizontalScroll from '@components/gallery/GalleryWithHorizontalScroll';
 import Footer from '@components/Footer';
 import TagsList from '@components/TagsList';
-import '@styles/app.css';
+import { projects } from '@data/projects';
 
 export default function App() {
   return (

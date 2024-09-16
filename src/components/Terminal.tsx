@@ -3,9 +3,9 @@ import MaximizeIcon from '@mui/icons-material/CropSquare';
 import MinimizeIcon from '@mui/icons-material/Minimize';
 import CloseIcon from '@mui/icons-material/Close';
 
-import { aboutListItems } from '@data/terminal';
 import Paper from '@components/common/Paper';
 import '@styles/components/terminal.css';
+import { aboutListItems } from '@data/terminal';
 
 export default function Terminal() {
   return (

@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 
-import { title, subtitle } from '@data/header';
-import portrait from '@assets/gunnar-miklis.webp';
 import '@styles/components/header.css';
+import portrait from '@assets/gunnar-miklis.webp';
+import { title, subtitle } from '@data/header';
 
 export default function Header() {
   const [textTitle, setTextTitle] = useState<string>(' ');
