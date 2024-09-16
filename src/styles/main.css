@@ -57,14 +57,6 @@ button {
   font-weight: inherit;
 }
 
-/* COMPONENT CLASSES */
-
-.small {
-  color: var(--col-annotation);
-
-  font-size: 0.8rem;
-}
-
 /* UTILITY CLASSES */
 
 .gap-sm {

@@ -50,6 +50,11 @@
   line-height: 1.5;
 }
 
+.small {
+  color: var(--col-annotation);
+  font-size: 0.8rem;
+}
+
 .link {
   border-bottom: 2px solid var(--col-heading);
 
