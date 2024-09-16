@@ -3,6 +3,7 @@ import type { Dispatch, SetStateAction } from 'react';
 
 import type { Project } from '@data/projects';
 import { type Filter, selectedTags as initalFilters } from '@data/filter';
+import Chip from '@components/common/Chip';
 import '@styles/components/gallery/projects-filter.css';
 
 type ProjectsFilterProps = {
@@ -70,31 +71,31 @@ export default function ProjectsFilter({
   }, [filteredProjects]);
 
   return (
-    <div className='gallery-filter'>
+    <div className='filter'>
       {!!activeFilters.length &&
         activeFilters.map((tag) => (
-          <div className='filters' key={tag}>
-            <button
-              className='button active-filter'
-              onClick={() => updateActiveFilters(tag)}
-              title={`Filter by: ${tag}`}
-              aria-label={`Filter by: ${tag}`}
-            >
-              {tag}
-            </button>
-          </div>
-        ))}
-      {inactiveFilters.map((tag) => (
-        <div className='filters' key={tag}>
-          <button
-            className='button'
+          <Chip
+            className='filter__chip filter__chip--active'
             onClick={() => updateActiveFilters(tag)}
             title={`Filter by: ${tag}`}
             aria-label={`Filter by: ${tag}`}
+            role='button'
+            key={tag}
           >
             {tag}
-          </button>
-        </div>
+          </Chip>
+        ))}
+      {inactiveFilters.map((tag) => (
+        <Chip
+          className='filter__chip'
+          onClick={() => updateActiveFilters(tag)}
+          title={`Filter by: ${tag}`}
+          aria-label={`Filter by: ${tag}`}
+          role='button'
+          key={tag}
+        >
+          {tag}
+        </Chip>
       ))}
     </div>
   );

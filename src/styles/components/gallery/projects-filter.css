@@ -1,29 +1,24 @@
-.gallery-filter {
+.filter {
   display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
+  flex-flow: row wrap;
   gap: var(--space-sm);
 
   width: 100%;
   margin-bottom: calc(var(--space-sm) + 0.4rem);
-
-  overflow-x: scroll;
-  scrollbar-width: none;
 }
-.filters {
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: flex-start;
-  gap: var(--space-sm);
-}
-.gallery-filter {
-  border: none;
+.filter__chip {
   background-color: var(--col-card-bg);
-  width: 100%;
-  border: 2px solid transparent;
+  font-weight: 500;
+
+  cursor: pointer;
 }
-.gallery-filter .active-filter {
+.filter__chip:hover,
+.filter__chip:focus {
+  color: var(--col-annotation);
+  border-color: var(--col-annotation);
+}
+.filter__chip--active {
+  color: var(--col-text);
   background-color: var(--col-bg);
   border-color: var(--col-text);
-  color: var(--col-text);
 }
