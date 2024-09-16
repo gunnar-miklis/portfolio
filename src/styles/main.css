@@ -48,21 +48,7 @@ body {
 }
 
 /* SEMANTICS */
-main {
-  max-width: var(--app-width);
-  min-height: 100vh;
 
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  gap: calc(var(--space-lg) * 3);
-
-  margin: 0 auto;
-  padding: var(--space-md);
-  padding-top: 150px;
-
-  transition: all var(--transition);
-}
 section {
   width: 100%;
 }

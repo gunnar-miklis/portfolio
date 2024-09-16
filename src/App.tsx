@@ -5,13 +5,14 @@ import Terminal from '@components/Terminal';
 import GalleryWithHorizontalScroll from '@components/gallery/GalleryWithHorizontalScroll';
 import Footer from '@components/Footer';
 import TagsList from '@components/TagsList';
+import '@styles/app.css';
 
 export default function App() {
   return (
     <>
       <Navbar />
 
-      <main>
+      <main className='main'>
         <section id='about'>
           <Header />
           <Terminal />
