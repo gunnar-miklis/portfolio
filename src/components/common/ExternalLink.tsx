@@ -6,7 +6,7 @@ type ExternalLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
   children?: ReactNode;
 };
 
-export default function ExternalLink({ href, title, children }: ExternalLinkProps) {
+export default function ExternalLink({ href, title, children, ...props }: ExternalLinkProps) {
   return (
     <a
       className='link'
@@ -15,6 +15,7 @@ export default function ExternalLink({ href, title, children }: ExternalLinkProp
       rel='noreferrer'
       title={`Visit ${title} (external website opens in new tab)`}
       aria-label={`Visit ${title} (external website opens in new tab)`}
+      {...props}
     >
       {children || title}
     </a>

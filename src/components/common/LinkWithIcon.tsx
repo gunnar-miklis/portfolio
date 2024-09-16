@@ -6,7 +6,7 @@ type LinkWithIconProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
   href: string;
 };
 
-export default function LinkWithIcon({ icon, title, href }: LinkWithIconProps) {
+export default function LinkWithIcon({ icon, title, href, ...props }: LinkWithIconProps) {
   return (
     <a
       className='button'
@@ -21,6 +21,7 @@ export default function LinkWithIcon({ icon, title, href }: LinkWithIconProps) {
         alignItems: 'center',
         gap: '0.6rem',
       }}
+      {...props}
     >
       {icon}
       {title}

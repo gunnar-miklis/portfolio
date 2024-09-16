@@ -5,7 +5,11 @@ type Props = HTMLAttributes<HTMLDivElement> & {
   paperSpacing?: 'sm' | 'md' | 'lg';
 };
 
-export default function Paper({ children, className, paperSpacing }: Props) {
+export default function Paper({ children, className, paperSpacing, ...props }: Props) {
   const spacing = `paper--spacing-${paperSpacing}`;
-  return <div className={`${styles.paper} ${styles[spacing]} ${className}`}>{children}</div>;
+  return (
+    <div className={`${styles.paper} ${styles[spacing]} ${className}`} {...props}>
+      {children}
+    </div>
+  );
 }
