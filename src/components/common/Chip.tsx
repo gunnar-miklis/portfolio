@@ -5,8 +5,8 @@ type Props = HTMLAttributes<HTMLSpanElement>;
 
 export default function Chip({ children, className, ...props }: Props) {
   return (
-    <span className={`${styles.chip} ${className}`} {...props}>
-      <small className='small'>{children}</small>
-    </span>
+    <small className={`small ${styles.chip} ${className}`} {...props}>
+      {children}
+    </small>
   );
 }
