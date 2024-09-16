@@ -49,3 +49,26 @@
   font-weight: 700;
   line-height: 1.5;
 }
+
+.link {
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  border-color: var(--col-heading);
+
+  color: var(--col-heading);
+  background-color: unset;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    color var(--transition),
+    border-color var(--transition);
+}
+.link:hover,
+.link:focus {
+  color: var(--col-annotation);
+  border-color: var(--col-annotation);
+}
