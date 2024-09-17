@@ -21,11 +21,12 @@ import tsLearning from '@assets/ts-learning-path.webp';
 export type Project = {
   id: number;
   title: string;
-  content: ReactNode;
+  description: ReactNode;
   tags: string[];
   imageSources: string[];
   category?: ProjectCategories;
   date?: string;
+  features?: ReactNode;
   liveDemo?: string;
   sourceCode?: string;
   footnote?: string;
@@ -57,31 +58,30 @@ const unsortedProjects: Project[] = [
     imageSources: [
       'https://raw.githubusercontent.com/gunnar-miklis/spotify-playlist-assistant/main/public/screenshot.webp',
     ],
-    content: (
-      <>
-        <p>
-          Spotify Playlist Assistant is a simple interface that provides methods to interact with
-          the Spotify Web API. It allows users to fetch playlists and their tracks, apply filters to
-          refine the tracklist, and create new playlists based on the selected criteria.
-        </p>
-
-        <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
-          <ul className='list'>
-            <li className='list__item'>
-              <PhoneGearIcon /> Fetch playlists and tracks from the Spotify Web API.
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Filter playlists based on selected criteria.
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Create new playlists and send them back to the Spotify Web API.
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Light/Dark mode.
-            </li>
-          </ul>
-        </Paper>
-      </>
+    description: (
+      <p>
+        Spotify Playlist Assistant is a simple interface that provides methods to interact with the
+        Spotify Web API. It allows users to fetch playlists and their tracks, apply filters to
+        refine the tracklist, and create new playlists based on the selected criteria.
+      </p>
+    ),
+    features: (
+      <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
+        <ul className='list'>
+          <li className='list__item'>
+            <PhoneGearIcon /> Fetch playlists and tracks from the Spotify Web API.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Filter playlists based on selected criteria.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Create new playlists and send them back to the Spotify Web API.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Light/Dark mode.
+          </li>
+        </ul>
+      </Paper>
     ),
   },
   {
@@ -108,13 +108,14 @@ const unsortedProjects: Project[] = [
     imageSources: [
       'https://res.cloudinary.com/dyrcsywk9/image/upload/v1725998093/cim-next-db-home-phone.webp',
     ],
-    content: (
+    description: (
+      <p>
+        Learn how to use Next.js as Full-Stack SSR/CSR Application. Integrate a relational SQL
+        Database and an OAuth Authentication.
+      </p>
+    ),
+    features: (
       <>
-        <p>
-          Learn how to use Next.js as Full-Stack SSR/CSR Application. Integrate a relational SQL
-          Database and an OAuth Authentication.
-        </p>
-
         <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
           <p>NEXT.JS</p>
           <ul className='list'>
@@ -180,46 +181,45 @@ const unsortedProjects: Project[] = [
     imageSources: [ticketing],
     footnote:
       "*The App isn't public yet. However, Version 1.0.0 already got tested recently during a music festival.",
-    content: (
-      <>
-        <p>
-          For the validation of event tickets at the door check-in. Can either scan &quot;QR-Code
-          tickets&quot; or check-in &quot;Box Office tickets&quot;. Intentionally built for offline
-          use, because the current venue has poor internet coverage.
-        </p>
-
-        <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
-          <ul className='list'>
-            <li className='list__item'>
-              <PhoneGearIcon /> QR-Code Scanner/Camera.
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Offline storage (app works without internet).
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Manage two ticket types: qr-code & box office.
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Download, update, search or filter a list of tickets.
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Statistics for: total sales & daily checkins.
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Counter for recent checkins.
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Light/Dark theme.
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Switch Languages.
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Always keep screen awake.
-            </li>
-          </ul>
-        </Paper>
-      </>
+    description: (
+      <p>
+        For the validation of event tickets at the door check-in. Can either scan &quot;QR-Code
+        tickets&quot; or check-in &quot;Box Office tickets&quot;. Intentionally built for offline
+        use, because the current venue has poor internet coverage.
+      </p>
+    ),
+    features: (
+      <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
+        <ul className='list'>
+          <li className='list__item'>
+            <PhoneGearIcon /> QR-Code Scanner/Camera.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Offline storage (app works without internet).
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Manage two ticket types: qr-code & box office.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Download, update, search or filter a list of tickets.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Statistics for: total sales & daily checkins.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Counter for recent checkins.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Light/Dark theme.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Switch Languages.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Always keep screen awake.
+          </li>
+        </ul>
+      </Paper>
     ),
   },
   {
@@ -240,32 +240,28 @@ const unsortedProjects: Project[] = [
     liveDemo: 'https://gunnar-miklis.netlify.app/',
     sourceCode: 'https://github.com/gunnar-miklis/portfolio',
     imageSources: [portfolio],
-    content: (
-      <>
-        <>
-          <p>
-            Discover a user-centric approach and explore a blend of frontend and backend skills
-            coupled with a unique personality. Expertise in TypeScript, Node.js, Next.js, React, and
-            more. Emphasizing high software quality including maintainability, scalability,
-            security, and usability.
-          </p>
-
-          <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
-            <ul className='list'>
-              <li className='list__item'>
-                <PhoneGearIcon /> Accessibility optimzation. Semantics, ARIA, Lighthouse.
-              </li>
-              <li className='list__item'>
-                <PhoneGearIcon /> Scroll events and animations. Typewriter.
-              </li>
-              <li className='list__item'>
-                <PhoneGearIcon /> Custom components: Horizontal scrollable gallery. Progress
-                indicator.
-              </li>
-            </ul>
-          </Paper>
-        </>
-      </>
+    description: (
+      <p>
+        Discover a user-centric approach and explore a blend of frontend and backend skills coupled
+        with a unique personality. Expertise in TypeScript, Node.js, Next.js, React, and more.
+        Emphasizing high software quality including maintainability, scalability, security, and
+        usability.
+      </p>
+    ),
+    features: (
+      <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
+        <ul className='list'>
+          <li className='list__item'>
+            <PhoneGearIcon /> Accessibility optimzation. Semantics, ARIA, Lighthouse.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Scroll events and animations. Typewriter.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Custom components: Horizontal scrollable gallery. Progress indicator.
+          </li>
+        </ul>
+      </Paper>
     ),
   },
   {
@@ -278,31 +274,30 @@ const unsortedProjects: Project[] = [
     sourceCode:
       'https://github.com/gunnar-miklis/frontend-challenges/tree/main/tip-calculator/solutions/react-mui',
     imageSources: [tipCalc],
-    content: (
-      <>
-        <p>
-          Part of my practice projects. Re-create frontend designs provided by{' '}
-          <ExternalLink href='https://www.frontendmentor.io' title='Frontend Mentor' />.
-        </p>
-
-        <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
-          <ul className='list'>
-            <li className='list__item'>
-              <PhoneGearIcon /> Mobile-first, fully responsive (phone, tablet, laptop)
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Calculator functionality.
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> MUI components (input, snackbar, grids, paper), color palettes and
-              typography.
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Customize MUI theme based on style guide.
-            </li>
-          </ul>
-        </Paper>
-      </>
+    description: (
+      <p>
+        Part of my practice projects. Re-create frontend designs provided by{' '}
+        <ExternalLink href='https://www.frontendmentor.io' title='Frontend Mentor' />.
+      </p>
+    ),
+    features: (
+      <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
+        <ul className='list'>
+          <li className='list__item'>
+            <PhoneGearIcon /> Mobile-first, fully responsive (phone, tablet, laptop)
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Calculator functionality.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> MUI components (input, snackbar, grids, paper), color palettes and
+            typography.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Customize MUI theme based on style guide.
+          </li>
+        </ul>
+      </Paper>
     ),
   },
   {
@@ -314,40 +309,39 @@ const unsortedProjects: Project[] = [
     liveDemo: 'https://gunnar-miklis.github.io/intro-to-material-ui-react/',
     sourceCode: 'https://github.com/gunnar-miklis/intro-to-material-ui-react',
     imageSources: [webPlat],
-    content: (
-      <>
-        <p>
-          Part of my practice projects. Introduction into Material UI following the{' '}
-          <ExternalLink
-            href='https://www.youtube.com/playlist?list=PLDxCaNaYIuUlG5ZqoQzFE27CUOoQvOqnQ'
-            title='MUI Series'
-          />
-          .
-        </p>
-
-        <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
-          <ul className='list'>
-            <li className='list__item'>
-              <PhoneGearIcon /> Grid Layout, Navbar and Routing, Header, Notification, Tooltips.
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Modal, Form Input, Form Validation, Searchbar, Filter Function.
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Dynamic Data Table, Pagination, Page Size.
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Progress Stepper, Conditional Next/Back/Finish/Reset Functionality.
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Loading Skeleton.
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Snackbar/Alert Functionality.
-            </li>
-          </ul>
-        </Paper>
-      </>
+    description: (
+      <p>
+        Part of my practice projects. Introduction into Material UI following the{' '}
+        <ExternalLink
+          href='https://www.youtube.com/playlist?list=PLDxCaNaYIuUlG5ZqoQzFE27CUOoQvOqnQ'
+          title='MUI Series'
+        />
+        .
+      </p>
+    ),
+    features: (
+      <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
+        <ul className='list'>
+          <li className='list__item'>
+            <PhoneGearIcon /> Grid Layout, Navbar and Routing, Header, Notification, Tooltips.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Modal, Form Input, Form Validation, Searchbar, Filter Function.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Dynamic Data Table, Pagination, Page Size.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Progress Stepper, Conditional Next/Back/Finish/Reset Functionality.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Loading Skeleton.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Snackbar/Alert Functionality.
+          </li>
+        </ul>
+      </Paper>
     ),
   },
   {
@@ -359,7 +353,7 @@ const unsortedProjects: Project[] = [
     sourceCode:
       'https://github.com/gunnar-miklis/frontend-challenges/tree/main/summary-component/solutions',
     imageSources: [sumComp],
-    content: (
+    description: (
       <p>
         Part of my practice projects. Re-create frontend designs provided by{' '}
         <ExternalLink href='https://www.frontendmentor.io' title='Frontend Mentor' />.
@@ -375,28 +369,27 @@ const unsortedProjects: Project[] = [
     sourceCode:
       'https://github.com/gunnar-miklis/frontend-challenges/tree/main/qr-code-component/solutions',
     imageSources: [qrComp],
-    content: (
-      <>
-        <p>
-          Part of my practice projects. Re-create frontend designs provided by{' '}
-          <ExternalLink href='https://www.frontendmentor.io' title='Frontend Mentor' />.
-        </p>
-
-        <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
-          Design this QR Code component in three different ways, using...
-          <ul className='list'>
-            <li className='list__item'>
-              <LooksOneIcon /> HTML + CSS
-            </li>
-            <li className='list__item'>
-              <LooksTwoIcon /> HTML + Bootstrap CSS
-            </li>
-            <li className='list__item'>
-              <LooksThreeIcon /> React Native
-            </li>
-          </ul>
-        </Paper>
-      </>
+    description: (
+      <p>
+        Part of my practice projects. Re-create frontend designs provided by{' '}
+        <ExternalLink href='https://www.frontendmentor.io' title='Frontend Mentor' />.
+      </p>
+    ),
+    features: (
+      <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
+        Design this QR Code component in three different ways, using...
+        <ul className='list'>
+          <li className='list__item'>
+            <LooksOneIcon /> HTML + CSS
+          </li>
+          <li className='list__item'>
+            <LooksTwoIcon /> HTML + Bootstrap CSS
+          </li>
+          <li className='list__item'>
+            <LooksThreeIcon /> React Native
+          </li>
+        </ul>
+      </Paper>
     ),
   },
   {
@@ -421,7 +414,7 @@ const unsortedProjects: Project[] = [
     liveDemo: 'https://gunnar-miklis.github.io/wait-that-level-again/',
     sourceCode: 'https://github.com/gunnar-miklis/wait-that-level-again',
     imageSources: [thatLevel],
-    content: (
+    description: (
       <>
         <p>Navigate the tiny dancin&apos; potato to the exit. But wait? That level... again?</p>
 
@@ -429,38 +422,39 @@ const unsortedProjects: Project[] = [
           This game was the final project for module 1, week 3. Develop a Browser Game using
           Frontend Technologies. Learn to use basic concepts.
         </p>
-
-        <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
-          <ul className='list'>
-            <li className='list__item'>
-              <PhoneGearIcon /> Render a game in the browser.
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Have logic for winning and/or losing and show feedback to the player
-              in either case.
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Use plain JavaScript for DOM manipulation (or HTML canvas for
-              graphics).
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Have a repo on GitHub.
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Be deployed online using GitHub Pages so that anybody can play it.
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Stick with KISS, DRY, YAGNI principles.
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Make use of OOP paradigm.
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Present and demo your app during the Final Project presentations.
-            </li>
-          </ul>
-        </Paper>
       </>
+    ),
+    features: (
+      <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
+        <ul className='list'>
+          <li className='list__item'>
+            <PhoneGearIcon /> Render a game in the browser.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Have logic for winning and/or losing and show feedback to the player
+            in either case.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Use plain JavaScript for DOM manipulation (or HTML canvas for
+            graphics).
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Have a repo on GitHub.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Be deployed online using GitHub Pages so that anybody can play it.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Stick with KISS, DRY, YAGNI principles.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Make use of OOP paradigm.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Present and demo your app during the Final Project presentations.
+          </li>
+        </ul>
+      </Paper>
     ),
   },
   {
@@ -487,7 +481,7 @@ const unsortedProjects: Project[] = [
     liveDemo: 'https://workout-tracker-repcount.cyclic.app/',
     sourceCode: 'https://github.com/gunnar-miklis/workout-tracker',
     imageSources: [repCount],
-    content: (
+    description: (
       <>
         <p>App for documenting your progress in the Gym.</p>
 
@@ -496,38 +490,39 @@ const unsortedProjects: Project[] = [
           of a Full-Stack Web Application that runs on a server. Introduction to Backend
           Technologies and collaborative Version Control (CI).
         </p>
-
-        <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
-          <ul className='list'>
-            <li className='list__item'>
-              <PhoneGearIcon /> Use Express as a foundation.
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Use Mongoose for models and database communication.
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Have 2 models or more.
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Have validation on the models with feedback for users if their
-              submission is invalid.
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Include sign up, log in & log out functionality with encrypted
-              passwords and authorization.
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Implement all CRUD actions on models.
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Make use of OOP paradigm.
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Present and demo your app during the Final Project presentations.
-            </li>
-          </ul>
-        </Paper>
       </>
+    ),
+    features: (
+      <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
+        <ul className='list'>
+          <li className='list__item'>
+            <PhoneGearIcon /> Use Express as a foundation.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Use Mongoose for models and database communication.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Have 2 models or more.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Have validation on the models with feedback for users if their
+            submission is invalid.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Include sign up, log in & log out functionality with encrypted
+            passwords and authorization.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Implement all CRUD actions on models.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Make use of OOP paradigm.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Present and demo your app during the Final Project presentations.
+          </li>
+        </ul>
+      </Paper>
     ),
   },
   {
@@ -556,7 +551,7 @@ const unsortedProjects: Project[] = [
     liveDemo: 'https://sleepminder.netlify.app/welcome',
     sourceCode: 'https://github.com/gunnar-miklis/app-sleepminder',
     imageSources: [sleepMinder],
-    content: (
+    description: (
       <>
         <p>🏆 Winning project in a Hackshow competition. 🏆</p>
 
@@ -565,32 +560,33 @@ const unsortedProjects: Project[] = [
           Web Application using the MERN stack. It&apos;s a cross-cohort collaboration of Data
           Analytics students, UX/UI Design students and Me (Web Development student).
         </p>
-
-        <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
-          <ul className='list'>
-            <li className='list__item'>
-              <PhoneGearIcon /> Have a SPA frontend, built with React.
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Have a REST API backend built with ExpressJS, MongoDB and Mongoose.
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Have a REST API backend with routes that perform all CRUD actions.
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Include sign up, log in & log out functionality with encrypted
-              passwords and authorization.
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Have two separate repos on GitHub. One repo is for your frontend
-              React application and the other is for your backend REST API.
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Present and demo your app during the Final Project presentations.
-            </li>
-          </ul>
-        </Paper>
       </>
+    ),
+    features: (
+      <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
+        <ul className='list'>
+          <li className='list__item'>
+            <PhoneGearIcon /> Have a SPA frontend, built with React.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Have a REST API backend built with ExpressJS, MongoDB and Mongoose.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Have a REST API backend with routes that perform all CRUD actions.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Include sign up, log in & log out functionality with encrypted
+            passwords and authorization.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Have two separate repos on GitHub. One repo is for your frontend React
+            application and the other is for your backend REST API.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Present and demo your app during the Final Project presentations.
+          </li>
+        </ul>
+      </Paper>
     ),
   },
   {
@@ -602,36 +598,35 @@ const unsortedProjects: Project[] = [
     imageSources: [
       'https://raw.githubusercontent.com/codewars/branding/master/light-text-logo-vertical.png',
     ],
-    content: (
-      <>
-        <p>
-          Part of my practice projects. Complete coding challenges provided by{' '}
-          <ExternalLink href='https://www.codewars.com/' title='Codewars' />.
-        </p>
-
-        <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
-          <ul className='list'>
-            <li className='list__item'>
-              <PhoneGearIcon /> Fundamentals.
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Strings and regular expressions.
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Data Structures, array methods, lists, sorting.
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Logic puzzles, algorithms.
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Performance optimized code.
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Edge cases.
-            </li>
-          </ul>
-        </Paper>
-      </>
+    description: (
+      <p>
+        Part of my practice projects. Complete coding challenges provided by{' '}
+        <ExternalLink href='https://www.codewars.com/' title='Codewars' />.
+      </p>
+    ),
+    features: (
+      <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
+        <ul className='list'>
+          <li className='list__item'>
+            <PhoneGearIcon /> Fundamentals.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Strings and regular expressions.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Data Structures, array methods, lists, sorting.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Logic puzzles, algorithms.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Performance optimized code.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Edge cases.
+          </li>
+        </ul>
+      </Paper>
     ),
   },
   {
@@ -641,50 +636,49 @@ const unsortedProjects: Project[] = [
     tags: ['TypeScript'],
     sourceCode: 'https://github.com/gunnar-miklis/learn-typescript/tree/main/ms-learning-path',
     imageSources: [tsLearning],
-    content: (
-      <>
-        <p>
-          Part of my practice projects. &quot;Learning Path: Build JavaScript applications using
-          TypeScript&quot; provided by{' '}
-          <ExternalLink
-            href='https://learn.microsoft.com/en-us/training/paths/build-javascript-applications-typescript/'
-            title='Microsoft'
-          />
-          .
-        </p>
-
-        <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
-          <ul className='list'>
-            <li className='list__item'>
-              <PhoneGearIcon /> Conditionals.
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Functions.
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Scope.
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Arrays.
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Loops.
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Iterators.
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Objects.
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Classes.
-            </li>
-            <li className='list__item'>
-              <PhoneGearIcon /> Modules.
-            </li>
-          </ul>
-        </Paper>
-      </>
+    description: (
+      <p>
+        Part of my practice projects. &quot;Learning Path: Build JavaScript applications using
+        TypeScript&quot; provided by{' '}
+        <ExternalLink
+          href='https://learn.microsoft.com/en-us/training/paths/build-javascript-applications-typescript/'
+          title='Microsoft'
+        />
+        .
+      </p>
+    ),
+    features: (
+      <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
+        <ul className='list'>
+          <li className='list__item'>
+            <PhoneGearIcon /> Conditionals.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Functions.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Scope.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Arrays.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Loops.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Iterators.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Objects.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Classes.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Modules.
+          </li>
+        </ul>
+      </Paper>
     ),
   },
   {
@@ -722,15 +716,16 @@ const unsortedProjects: Project[] = [
     ],
     imageSources: ['https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png'],
     sourceCode: 'https://github.com/gunnar-miklis/recap',
-    content: (
+    description: (
+      <p>
+        A look back at the journey of becoming a web developer. With personal notes to summarize
+        certain concepts, step-by-step instructions to document certain approaches, as well as
+        comments as reminders of how things been done. Simply a personalized review that I can
+        return to when a little refresher is needed.
+      </p>
+    ),
+    features: (
       <>
-        <p>
-          A look back at the journey of becoming a web developer. With personal notes to summarize
-          certain concepts, step-by-step instructions to document certain approaches, as well as
-          comments as reminders of how things been done. Simply a personalized review that I can
-          return to when a little refresher is needed.
-        </p>
-
         <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
           <p>JS FUNDAMENTALS</p>
           <ul className='list'>
@@ -809,7 +804,7 @@ const unsortedProjects: Project[] = [
     title: 'Curious for more?',
     tags: ['GitHub'],
     imageSources: ['https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png'],
-    content: (
+    description: (
       <p>
         Explore more projects on my{' '}
         <ExternalLink href='https://github.com/gunnar-miklis' title='GitHub' /> profile.

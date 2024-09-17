@@ -44,15 +44,22 @@
   align-items: baseline;
   gap: var(--space-sm);
 }
-.card__title {
+.card__title,
+.card__description,
+.card__features,
+.card__tags,
+.card__action-links {
   display: flex;
-  flex-flow: column nowrap;
-}
-.card__body {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
   gap: var(--space-sm);
+  width: 100%;
+}
+.card__title {
+  gap: unset;
+}
+.card__title,
+.card__description,
+.card__features {
+  flex-flow: column nowrap;
 }
 .card__tags,
 .card__action-links {

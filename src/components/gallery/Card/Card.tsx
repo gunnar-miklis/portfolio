@@ -6,7 +6,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 
-import type { MouseEvent, ReactNode } from 'react';
+import type { MouseEvent } from 'react';
 import { useEffect, useState } from 'react';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LaunchRoundedIcon from '@mui/icons-material/LaunchRounded';
@@ -25,16 +25,16 @@ import type { Project } from '@/data/projects';
 type HTMLSummaryElement = HTMLElement;
 
 type Props = Omit<Project, 'id' | 'content'> & {
-  children: ReactNode;
   className: string;
 };
 
-export default function Card({
-  children,
+export default function GalleryCard({
   className,
   title,
   category,
   date,
+  description,
+  features,
   tags,
   imageSources,
   liveDemo,
@@ -265,38 +265,38 @@ export default function Card({
             )}
           </div>
 
-          {/* body */}
-          <div className='card__body'>
-            {/* desription + features */}
-            {children}
+          {/* desription */}
+          <div className='card__description'>{description}</div>
 
-            {/* tags */}
-            <Paper className='card__tags' paperSpacing='sm' title='Tags' aria-label='Tags'>
-              {tags.map((tag) => (
-                <Chip key={tag}>{tag}</Chip>
-              ))}
+          {/* features */}
+          <div className='card__features'>{features}</div>
+
+          {/* tags */}
+          <Paper className='card__tags' paperSpacing='sm' title='Tags' aria-label='Tags'>
+            {tags.map((tag) => (
+              <Chip key={tag}>{tag}</Chip>
+            ))}
+          </Paper>
+
+          {/* action links */}
+          {(liveDemo || sourceCode) && (
+            <Paper
+              className='card__action-links'
+              paperSpacing='sm'
+              title='External Links'
+              aria-label='External Links'
+            >
+              {liveDemo && (
+                <LinkWithIcon href={liveDemo} icon={<LaunchRoundedIcon />} title='Live Demo' />
+              )}
+              {sourceCode && (
+                <LinkWithIcon href={sourceCode} icon={<GitHubIcon />} title='Source Code' />
+              )}
             </Paper>
+          )}
 
-            {/* action links */}
-            {(liveDemo || sourceCode) && (
-              <Paper
-                className='card__action-links'
-                paperSpacing='sm'
-                title='External Links'
-                aria-label='External Links'
-              >
-                {liveDemo && (
-                  <LinkWithIcon href={liveDemo} icon={<LaunchRoundedIcon />} title='Live Demo' />
-                )}
-                {sourceCode && (
-                  <LinkWithIcon href={sourceCode} icon={<GitHubIcon />} title='Source Code' />
-                )}
-              </Paper>
-            )}
-
-            {/* footnote */}
-            {footnote && <small className='small card__footnote'>{footnote}</small>}
-          </div>
+          {/* footnote */}
+          {footnote && <small className='small card__footnote'>{footnote}</small>}
         </div>
       </details>
     </article>
