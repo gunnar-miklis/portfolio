@@ -8,7 +8,11 @@ type Props = {
   parentElement: string;
 };
 
-export default function PositionIndicator({ scrollPosition, targetElement, parentElement }: Props) {
+export default function GalleryPositionIndicator({
+  scrollPosition,
+  targetElement,
+  parentElement,
+}: Props) {
   const [position, setPosition] = useState<number>(0);
   const [max, setMax] = useState<number>(0);
 

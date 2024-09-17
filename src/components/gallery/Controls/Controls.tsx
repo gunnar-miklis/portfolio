@@ -10,7 +10,7 @@ type Props = {
   filteredProjects: Project[];
 };
 
-export default function Controls({ scrollPosition, filteredProjects }: Props) {
+export default function GalleryControls({ scrollPosition, filteredProjects }: Props) {
   // show or hide navigation buttons depending on scroll position
   useEffect(() => {
     const gallery = document.querySelector('.gallery__wrapper');

@@ -12,7 +12,7 @@ type Props = {
   setFilteredProjects: Dispatch<SetStateAction<Project[]>>;
 };
 
-export default function Filter({ projects, filteredProjects, setFilteredProjects }: Props) {
+export default function GalleryFilter({ projects, filteredProjects, setFilteredProjects }: Props) {
   const [activeFilters, setActiveFilters] = useState<Filter[]>([]);
   const [inactiveFilters, setInactiveFilters] = useState<Filter[]>(initalFilters);
 

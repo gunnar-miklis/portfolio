@@ -1,9 +1,9 @@
 import { type UIEventHandler, useState } from 'react';
 
-import Filter from '@/components/gallery/Filter/Filter';
-import Controls from '@/components/gallery/Controls/Controls';
-import PositionIndicator from '@/components/gallery/PositionIndicator/PositionIndicator';
-import Card from '@/components/gallery/Card/Card';
+import GalleryFilter from '@/components/gallery/Filter/Filter';
+import GalleryControls from '@/components/gallery/Controls/Controls';
+import GalleryPositionIndicator from '@/components/gallery/PositionIndicator/PositionIndicator';
+import GalleryCard from '@/components/gallery/Card/Card';
 import '@components/gallery/gallery-with-horizontal-scroll.css';
 import type { Project } from '@data/projects';
 
@@ -20,15 +20,15 @@ export default function GalleryWithHorizontalScroll({ projects }: Props) {
 
   return (
     <div className='gallery'>
-      <Filter
+      <GalleryFilter
         projects={projects}
         filteredProjects={filteredProjects}
         setFilteredProjects={setFilteredProjects}
       />
 
       <div className='gallery__controls'>
-        <Controls scrollPosition={scrollPosition} filteredProjects={filteredProjects} />
-        <PositionIndicator
+        <GalleryControls scrollPosition={scrollPosition} filteredProjects={filteredProjects} />
+        <GalleryPositionIndicator
           scrollPosition={scrollPosition}
           parentElement='.gallery'
           targetElement='.gallery__wrapper'
@@ -38,9 +38,7 @@ export default function GalleryWithHorizontalScroll({ projects }: Props) {
       <div className='gallery__wrapper' onScroll={handleScroll}>
         {filteredProjects.length ? (
           filteredProjects.map((project) => (
-            <Card key={project.id} className='gallery__element' {...project}>
-              {project.content}
-            </Card>
+            <GalleryCard key={project.id} className='gallery__element' {...project} />
           ))
         ) : (
           <strong className='strong'>No project matches the selected filters.</strong>
