@@ -39,17 +39,66 @@ export type ProjectCategories =
 
 const unsortedProjects: Project[] = [
   {
-    id: 23,
+    id: 240902,
+    title: 'Filter Coffee',
+    category: 'Practice.Learn.Improve.',
+    date: 'Sep 2024',
+    tags: ['Frontend', 'TypeScript', 'React', 'Vite', 'BEM', 'SOLID', 'GitHub Pages'],
+    sourceCode: 'https://github.com/gunnar-miklis/multi-filtering',
+    liveDemo: 'https://gunnar-miklis.github.io/multi-filtering',
+    imageSources: [
+      'https://res.cloudinary.com/dyrcsywk9/image/upload/v1726687050/multi-filtering-tablet.webp',
+    ],
+    description: (
+      <>
+        <p>
+          Part of my practice projects. Get familiar with advance filtering mechanism, handle
+          multiple filters effectively. Enhance my knowledge in React (state management), TypeScript
+          (create and handle more complex types) and CSS (learn and follow BEM methodology for
+          cleaner and reusable css).
+        </p>
+
+        <p>
+          This small interface allows filtering a dataset of Ai-generated fictional coffees, based
+          various criteria.
+        </p>
+      </>
+    ),
+    features: (
+      <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
+        <ul className='list'>
+          <li className='list__item'>
+            <PhoneGearIcon /> Dynamically filter a dataset by different categories.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Display &quot;available&quot; filters.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Display &quot;active&quot; filters.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Move filters from &quot;available&quot; to &quot;active&quot; when
+            clicked, and vice versa.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Option to clear and reset &quot;active&quot; filters.
+          </li>
+        </ul>
+      </Paper>
+    ),
+  },
+  {
+    id: 240901,
     title: 'Spotify Playlist Assistant (Prototype)',
     category: 'Semi-Professional',
     date: 'Sep 2024',
     tags: [
-      'Fullstack',
+      'Full-Stack',
       'Frontend',
       'TypeScript',
       'Next.js',
-      'NextAuth',
-      'SpotifyWebAPI',
+      'Next-Auth',
+      'Spotify Web API',
       'Authentication',
       'OAuth',
     ],
@@ -85,17 +134,17 @@ const unsortedProjects: Project[] = [
     ),
   },
   {
-    id: 22,
+    id: 240801,
     title: 'Introduction to Next.js',
     category: 'Educational Project',
     date: 'Aug 2024',
     tags: [
-      'Fullstack',
+      'Full-Stack',
       'SSR',
       'CSR',
       'TypeScript',
       'Next.js',
-      'NextAuth',
+      'Next-Auth',
       'PostgreSQL',
       'Prisma',
       'ZOD',
@@ -172,15 +221,15 @@ const unsortedProjects: Project[] = [
     ),
   },
   {
-    id: 19,
+    id: 240501,
     title: 'Event Ticketing',
     category: 'Semi-Professional',
     date: 'May 2024',
-    tags: ['Frontend', 'TypeScript', 'SQLite', 'ReactNative', 'ExpoGo', 'ExpoCamera', 'Axios'],
+    tags: ['Frontend', 'TypeScript', 'SQLite', 'React Native', 'Expo Go', 'Expo Camera', 'Axios'],
     sourceCode: 'https://github.com/gunnar-miklis#ticketing-app-',
     imageSources: [ticketing],
     footnote:
-      "*The App isn't public yet. However, Version 1.0.0 already got tested recently during a music festival.",
+      '*The App isn&apos;t public yet. However, Version 1.0.0 already got tested recently during a music festival.',
     description: (
       <p>
         For the validation of event tickets at the door check-in. Can either scan &quot;QR-Code
@@ -223,7 +272,7 @@ const unsortedProjects: Project[] = [
     ),
   },
   {
-    id: 21,
+    id: 240601,
     title: 'Portfolio - Gunnar Miklis',
     category: 'Semi-Professional',
     date: 'Jun 2024',
@@ -236,6 +285,8 @@ const unsortedProjects: Project[] = [
       'Vite',
       'Vitest',
       'Lighthouse',
+      'BEM',
+      'CSS Modules',
     ],
     liveDemo: 'https://gunnar-miklis.netlify.app/',
     sourceCode: 'https://github.com/gunnar-miklis/portfolio',
@@ -265,11 +316,11 @@ const unsortedProjects: Project[] = [
     ),
   },
   {
-    id: 16,
+    id: 230802,
     title: 'Tip Calculator',
     category: 'Practice.Learn.Improve.',
     date: 'Aug 2023',
-    tags: ['Frontend', 'CI/CD', 'JavaScript', 'React', 'Vite', 'MaterialUI', 'JSS'],
+    tags: ['Frontend', 'CI/CD', 'JavaScript', 'React', 'Vite', 'Material UI', 'JSS'],
     liveDemo: 'https://main--tip-calculator-57d393.netlify.app/',
     sourceCode:
       'https://github.com/gunnar-miklis/frontend-challenges/tree/main/tip-calculator/solutions/react-mui',
@@ -301,11 +352,11 @@ const unsortedProjects: Project[] = [
     ),
   },
   {
-    id: 15,
+    id: 230801,
     title: 'Web Platform',
     category: 'Practice.Learn.Improve.',
     date: 'Aug 2023',
-    tags: ['Frontend', 'JavaScript', 'React', 'Vite', 'MaterialUI', 'JSS', 'GitHubPages'],
+    tags: ['Frontend', 'JavaScript', 'React', 'Vite', 'Material UI', 'JSS', 'GitHub Pages'],
     liveDemo: 'https://gunnar-miklis.github.io/intro-to-material-ui-react/',
     sourceCode: 'https://github.com/gunnar-miklis/intro-to-material-ui-react',
     imageSources: [webPlat],
@@ -345,7 +396,7 @@ const unsortedProjects: Project[] = [
     ),
   },
   {
-    id: 14,
+    id: 230602,
     title: 'Summary Component',
     category: 'Practice.Learn.Improve.',
     date: 'Jul 2023',
@@ -361,11 +412,11 @@ const unsortedProjects: Project[] = [
     ),
   },
   {
-    id: 17,
+    id: 230601,
     title: 'QR Code Component',
     category: 'Practice.Learn.Improve.',
     date: 'Jul 2023',
-    tags: ['Frontend', 'HTML', 'CSS', 'ReactNative', 'ExpoGo'],
+    tags: ['Frontend', 'HTML', 'CSS', 'React Native', 'Expo Go'],
     sourceCode:
       'https://github.com/gunnar-miklis/frontend-challenges/tree/main/qr-code-component/solutions',
     imageSources: [qrComp],
@@ -393,7 +444,7 @@ const unsortedProjects: Project[] = [
     ),
   },
   {
-    id: 11,
+    id: 230401,
     title: 'Wait...? That level, again?',
     category: 'Educational Project',
     date: 'Apr 2023',
@@ -406,10 +457,10 @@ const unsortedProjects: Project[] = [
       'CSS',
       'JavaScript',
       'DOM',
-      'Canvas/p5.js',
+      'Canvas / p5.js',
       'Git',
       'GitHub',
-      'GitHubPages',
+      'GitHub Pages',
     ],
     liveDemo: 'https://gunnar-miklis.github.io/wait-that-level-again/',
     sourceCode: 'https://github.com/gunnar-miklis/wait-that-level-again',
@@ -458,7 +509,7 @@ const unsortedProjects: Project[] = [
     ),
   },
   {
-    id: 12,
+    id: 230402,
     title: 'RepCount',
     category: 'Educational Project',
     date: 'Apr 2023',
@@ -526,12 +577,12 @@ const unsortedProjects: Project[] = [
     ),
   },
   {
-    id: 13,
+    id: 230501,
     title: 'SleepMinder',
     category: 'Educational Project',
     date: 'May 2023',
     tags: [
-      'Fullstack',
+      'Full-Stack',
       'CSR',
       'SPA',
       'REST',
@@ -542,7 +593,7 @@ const unsortedProjects: Project[] = [
       'Axios',
       'Chart.js',
       'Express',
-      'JsonWebToken',
+      'Json Web Token',
       'Authentication',
       'MongoDB',
       'Mongoose',
@@ -689,7 +740,7 @@ const unsortedProjects: Project[] = [
     tags: [
       'Frontend',
       'Backend',
-      'Fullstack',
+      'Full-Stack',
       'SPA',
       'MVC',
       'ODM',
@@ -697,7 +748,7 @@ const unsortedProjects: Project[] = [
       'REST',
       'CORS',
       'Authentication',
-      'ErrorHandling',
+      'Error Handling',
       'HTML',
       'CSS',
       'JavaScript',
@@ -708,7 +759,7 @@ const unsortedProjects: Project[] = [
       'JsonServer',
       'Express',
       'Bcrypt.js',
-      'JsonWebToken',
+      'Json Web Token',
       'MongoDB',
       'Nodemailer',
       'Cloudinary',
