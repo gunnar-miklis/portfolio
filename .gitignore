@@ -2,13 +2,17 @@
 # ignore all files (or at least all hidden files) by default and add exceptions to those files that were agreed to be added to the project.
 # to ensure that private files are not committed accidentally 
 
-coverage
-node_modules
-dist
-tsconfig.tsbuildinfo
-
 # ignoring all files that start with a dot.
 .*
+
+# 
+node_modules
+dist
+coverage
+logs
+*.log
+*.local
+*.tsbuildinfo
 
 # add exceptions to the configuration files that belong to the project.
 !.gitignore
