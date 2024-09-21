@@ -141,7 +141,6 @@ const unsortedProjects: Project[] = [
     tags: [
       'Full-Stack',
       'SSR',
-      'CSR',
       'TypeScript',
       'Next.js',
       'Next-Auth',
@@ -516,6 +515,7 @@ const unsortedProjects: Project[] = [
     tags: [
       'Backend',
       'SSR',
+      'Templating',
       'CRUD',
       'CI/CD',
       'JavaScript',
@@ -583,7 +583,6 @@ const unsortedProjects: Project[] = [
     date: 'May 2023',
     tags: [
       'Full-Stack',
-      'CSR',
       'SPA',
       'REST',
       'CI/CD',
