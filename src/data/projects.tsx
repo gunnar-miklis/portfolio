@@ -52,15 +52,15 @@ const unsortedProjects: Project[] = [
     description: (
       <>
         <p>
-          Part of my practice projects. Get familiar with advance filtering mechanism, handle
-          multiple filters effectively. Enhance my knowledge in React (state management), TypeScript
-          (create and handle more complex types) and CSS (learn and follow BEM methodology for
-          cleaner and reusable css).
+          This small interface allows users to <strong className='strong'>multi-filter</strong> a
+          dataset of Ai-generated fictional coffees, based various criteria.
         </p>
 
         <p>
-          This small interface allows filtering a dataset of Ai-generated fictional coffees, based
-          various criteria.
+          Part of my practice projects. Get familiar with advance filtering mechanism, handle
+          multiple filters effectively, update the URL (search params). Enhance my knowledge in
+          React (state management), TypeScript (create and handle more complex types) and CSS (learn
+          and follow BEM methodology for cleaner and reusable css).
         </p>
       </>
     ),
