@@ -71,17 +71,22 @@ const unsortedProjects: Project[] = [
             <PhoneGearIcon /> Dynamically filter a dataset by different categories.
           </li>
           <li className='list__item'>
-            <PhoneGearIcon /> Display &quot;available&quot; filters.
-          </li>
-          <li className='list__item'>
-            <PhoneGearIcon /> Display &quot;active&quot; filters.
+            <PhoneGearIcon /> Display &quot;available&quot; and &quot;active&quot; filters.
           </li>
           <li className='list__item'>
             <PhoneGearIcon /> Move filters from &quot;available&quot; to &quot;active&quot; when
             clicked, and vice versa.
           </li>
           <li className='list__item'>
-            <PhoneGearIcon /> Option to clear and reset &quot;active&quot; filters.
+            <PhoneGearIcon /> Selected Filters are represented and updated in the browser URL as
+            well.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Filters in the App can be set by entering/pasting a specific URL, too.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Option to clear and reset &quot;active&quot; filters (including clear
+            URL).
           </li>
         </ul>
       </Paper>
