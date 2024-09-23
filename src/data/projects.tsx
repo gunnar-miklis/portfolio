@@ -52,15 +52,15 @@ const unsortedProjects: Project[] = [
     description: (
       <>
         <p>
-          This small interface allows users to <strong className='strong'>multi-filter</strong> a
-          dataset of Ai-generated fictional coffees, based various criteria.
+          This small application lets users filter a dataset of fictional (AI-generated) coffees
+          based on various criteria.
         </p>
 
         <p>
-          Part of my practice projects. Get familiar with advance filtering mechanism, handle
-          multiple filters effectively, update the URL (search params). Enhance my knowledge in
-          React (state management), TypeScript (create and handle more complex types) and CSS (learn
-          and follow BEM methodology for cleaner and reusable css).
+          Part of my practice projects. The main goals are: Get familiar with advance filtering
+          techniques, handle multiple filters effectively, update the URL (search params). Enhance
+          my knowledge in React (state management, custom hooks), TypeScript (handle more complex
+          types) and CSS (learn and follow BEM methodology for clean and reusable styles).
         </p>
       </>
     ),
@@ -68,25 +68,29 @@ const unsortedProjects: Project[] = [
       <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
         <ul className='list'>
           <li className='list__item'>
-            <PhoneGearIcon /> Dynamically filter a dataset by different categories.
+            <PhoneGearIcon /> Dynamically Filtering: Use multiple filters to filter a
+            dataset by different categories.
           </li>
           <li className='list__item'>
-            <PhoneGearIcon /> Display &quot;available&quot; and &quot;active&quot; filters.
+            <PhoneGearIcon /> Filter Status Managment: See which filters are &quot;available&quot;
+            and which are currently &quot;active&quot;.
           </li>
           <li className='list__item'>
-            <PhoneGearIcon /> Move filters from &quot;available&quot; to &quot;active&quot; when
-            clicked, and vice versa.
+            <PhoneGearIcon /> Interactive Filter Selection: Click to move filters between
+            &quot;available&quot; and &quot;active&quot; lists.
           </li>
           <li className='list__item'>
-            <PhoneGearIcon /> Selected Filters are represented and updated in the browser URL as
-            well.
+            <PhoneGearIcon /> Adaptive Remaining Filters: Available filters show only those options
+            that the user can still choose from.
           </li>
           <li className='list__item'>
-            <PhoneGearIcon /> Filters in the App can be set by entering/pasting a specific URL, too.
+            <PhoneGearIcon /> URL Sync: Active filters are reflected in the browser URL. Simply
+            share the current filter combination, or paste a URL to revisit a specific set of
+            filters.
           </li>
           <li className='list__item'>
-            <PhoneGearIcon /> Option to clear and reset &quot;active&quot; filters (including clear
-            URL).
+            <PhoneGearIcon /> Reset Filters: Clear all active filters and reset the URL to start
+            over.
           </li>
         </ul>
       </Paper>
