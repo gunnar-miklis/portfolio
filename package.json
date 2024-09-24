@@ -6,12 +6,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "preview": "vite preview",
+    "tscw": "tsc --watch",
+    "format": "prettier --write .",
+    "lint": "eslint .",
     "test": "vitest",
     "test:coverage": "vitest run --coverage",
-    "lint": "eslint .",
-    "format": "prettier --write .",
-    "build": "prettier --write . && eslint . && tsc && vitest run --coverage && vite build"
+    "build": "yarn format && yarn lint && yarn test:coverage && tsc && vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
