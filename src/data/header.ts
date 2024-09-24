@@ -1,8 +1,7 @@
-type HeaderTitle = { version: number; hook: string; context: string; offer: string };
-type HeaderTitleVersion = (typeof headerTitles)[number]['version'];
+type Header = { version: number; hook: string; context: string; offer: string };
+type HeaderVersion = (typeof headers)[number]['version'];
 
-const selectedVersion: HeaderTitleVersion = 3;
-const headerTitles = [
+export const headers = [
   {
     version: 1,
     hook: 'Apps with user-centered approach unlock potential.',
@@ -24,14 +23,22 @@ const headerTitles = [
       'I believe intuitive, continually evolving products that are both functional and enjoyable will deeply resonate with users and transform their experience.',
     offer: 'I aim to deliver high software quality and user-focused solutions.',
   },
-] as const satisfies HeaderTitle[];
+] as const satisfies Header[];
 
-function getSelectedVersion() {
-  const selectedHeaderTitle = headerTitles.find(({ version }) => version === selectedVersion);
-
-  if (selectedHeaderTitle) return selectedHeaderTitle;
-  else return headerTitles[headerTitles.length - 1]; // latest version (as fallback)
+/**
+ * Selects a header from the given array that matches the given version.
+ * If no such version is found, it returns the latest version (i.e. the last element in the array).
+ * @param arr The array of headers to select from.
+ * @param ver The version of the header to select. Defaults to the value of {@link selectedVersion}.
+ * @returns The selected header.
+ */
+export function getHeaderVersionFrom(arr: Header[], ver = selectedVersion): Header {
+  const selectedHeader = arr.find(({ version }) => version === ver);
+  if (selectedHeader) return selectedHeader;
+  else return arr[arr.length - 1];
 }
 
-export const title = getSelectedVersion().hook;
-export const subtitle = getSelectedVersion().context + ' ' + getSelectedVersion().offer;
+export const selectedVersion: HeaderVersion = 3;
+export const title = getHeaderVersionFrom(headers).hook;
+export const subtitle =
+  getHeaderVersionFrom(headers).context + ' ' + getHeaderVersionFrom(headers).offer;
