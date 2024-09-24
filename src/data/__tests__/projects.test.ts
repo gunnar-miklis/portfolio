@@ -38,7 +38,7 @@ describe('the projects data array', () => {
 
   it('should have valid categories', () => {
     for (const { category } of projects) {
-      expectTypeOf(category).toEqualTypeOf<ProjectCategories | undefined>();
+      expectTypeOf(category).toEqualTypeOf<ProjectCategories | undefined>(); // category is optional, so "undefined" is a valid option
     }
   });
 });

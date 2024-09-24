@@ -40,5 +40,4 @@ export function getHeaderVersionFrom(arr: Header[], ver = selectedVersion): Head
 
 export const selectedVersion: HeaderVersion = 3;
 export const title = getHeaderVersionFrom(headers).hook;
-export const subtitle =
-  getHeaderVersionFrom(headers).context + ' ' + getHeaderVersionFrom(headers).offer;
+export const subtitle = `${getHeaderVersionFrom(headers).context} ${getHeaderVersionFrom(headers).offer}`;
