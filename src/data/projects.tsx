@@ -59,8 +59,9 @@ const unsortedProjects: Project[] = [
         <p>
           Part of my practice projects. The main goals are: Get familiar with advance filtering
           techniques, handle multiple filters effectively, update the URL (search params). Enhance
-          my knowledge in React (state management, custom hooks), TypeScript (handle more complex
-          types) and CSS (learn and follow BEM methodology for clean and reusable styles).
+          my knowledge in React (state management, custom hooks, separation of concerns, MVVM),
+          TypeScript (handle more complex types) and CSS (learn and follow BEM methodology for clean
+          and reusable styles).
         </p>
       </>
     ),
@@ -68,8 +69,8 @@ const unsortedProjects: Project[] = [
       <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
         <ul className='list'>
           <li className='list__item'>
-            <PhoneGearIcon /> Dynamically Filtering: Use multiple filters to filter a
-            dataset by different categories.
+            <PhoneGearIcon /> Dynamically Filtering: Use multiple filters to filter a dataset by
+            different categories.
           </li>
           <li className='list__item'>
             <PhoneGearIcon /> Filter Status Managment: See which filters are &quot;available&quot;
