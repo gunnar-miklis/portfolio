@@ -21,6 +21,7 @@ export const selectedTags: Filter[] = [
   'Express',
   'MongoDB',
   'SQLite',
+  'SOLID',
   'REST',
   'SSR',
   'Templating',

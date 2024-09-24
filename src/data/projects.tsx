@@ -43,7 +43,7 @@ const unsortedProjects: Project[] = [
     title: 'Filter Coffee',
     category: 'Practice.Learn.Improve.',
     date: 'Sep 2024',
-    tags: ['Frontend', 'TypeScript', 'React', 'Vite', 'BEM', 'SOLID', 'GitHub Pages'],
+    tags: ['Frontend', 'TypeScript', 'React', 'Vite', 'BEM', 'SOLID', 'MVVM', 'Separation of Concerns' 'GitHub Pages'],
     sourceCode: 'https://github.com/gunnar-miklis/multi-filtering',
     liveDemo: 'https://gunnar-miklis.github.io/multi-filtering',
     imageSources: [
