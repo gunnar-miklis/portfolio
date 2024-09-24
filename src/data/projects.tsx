@@ -31,13 +31,13 @@ export type Project = {
   sourceCode?: string;
   footnote?: string;
 };
-
 export type ProjectCategories =
   | 'Semi-Professional'
   | 'Educational Project'
   | 'Practice.Learn.Improve.';
+export type ProjectTags = (typeof unsortedProjects)[number]['tags'][number];
 
-const unsortedProjects: Project[] = [
+const unsortedProjects = [
   {
     id: 240902,
     title: 'Filter Coffee',
@@ -299,6 +299,7 @@ const unsortedProjects: Project[] = [
       'Frontend',
       'Accessibility',
       'CI/CD',
+      'Unit Testing',
       'TypeScript',
       'React',
       'Vite',
@@ -881,6 +882,6 @@ const unsortedProjects: Project[] = [
       </p>
     ),
   },
-];
+] as const satisfies Project[];
 
-export const projects = unsortedProjects.toSorted((a, b) => b.id - a.id);
+export const projects: Project[] = unsortedProjects.toSorted((a, b) => b.id - a.id);

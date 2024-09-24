@@ -1,4 +1,4 @@
-import type { Project, ProjectCategories } from '@data/projects';
+import type { Project, ProjectCategories, ProjectTags } from '@data/projects';
 
 export type Filter = string;
 
@@ -26,7 +26,7 @@ export const selectedTags: Filter[] = [
   'Templating',
   'Authentication',
   'Accessibility',
-];
+] satisfies ProjectTags[];
 
 /**
  * Collect all tags from projects and returns an array of sorted unique tags.
