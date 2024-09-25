@@ -6,7 +6,6 @@ import GalleryPositionIndicator from '@/components/gallery/PositionIndicator/Pos
 import GalleryCard from '@/components/gallery/Card/Card';
 import '@components/gallery/gallery-with-horizontal-scroll.css';
 import type { Project } from '@data/projects';
-import useThrottle from '@/hooks/useThrottle';
 
 type Props = { projects: Project[] };
 
@@ -28,7 +27,10 @@ export default function GalleryWithHorizontalScroll({ projects }: Props) {
       />
 
       <div className='gallery__controls'>
-        <GalleryControls scrollPosition={scrollPosition} filteredProjects={filteredProjects} />
+        <GalleryControls
+          scrollPosition={scrollPosition}
+          filteredProjectsLength={filteredProjects.length}
+        />
         <GalleryPositionIndicator
           scrollPosition={scrollPosition}
           parentElement='.gallery'

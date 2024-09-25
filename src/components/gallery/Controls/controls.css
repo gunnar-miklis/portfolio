@@ -1,4 +1,4 @@
-.gallery__buttons {
+.gallery__control-buttons {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
@@ -6,22 +6,19 @@
 
   width: 100%;
 }
-.gallery__buttons-left,
-.gallery__buttons-right {
+.gallery__control-buttons-left,
+.gallery__control-buttons-right {
   display: flex;
   align-items: center;
 }
-.gallery__to-next,
-.gallery__to-previous,
-.gallery__to-start,
-.gallery__to-end {
+.gallery__control-button {
   display: none; /* this changes dynamically between "none" and "flex" */
   align-items: center;
   gap: var(--space-sm);
 
   border: unset;
 }
-.gallery__animated-icon {
+.gallery__animated-arrow {
   animation: scroll-right 2s infinite ease-in-out;
 }
 @keyframes scroll-right {
