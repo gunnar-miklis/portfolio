@@ -1,20 +1,19 @@
-import { describe, expect, expectTypeOf, it } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { type ProjectCategories, projects } from '@data/projects';
 
 describe('the projects data array', () => {
-  const projectsLength = projects.length;
-  const projectIds = projects.map(({ id }) => id);
-
-  it('should be not empty', () => {
-    expect(projectsLength).toBeTruthy();
+  it('should not be empty', () => {
+    expect(projects).not.toEqual([]);
   });
 
   it('should have unique ids', () => {
+    const projectIds = projects.map(({ id }) => id);
     const duplicates = projectIds.filter((id, idx) => projectIds.indexOf(id) !== idx);
     expect(duplicates).toHaveLength(0);
   });
 
-  it('should have ids in a specific format: "240801" (YY/MM/ProjectNr)', () => {
+  it('should have ids in a specific format: "240801" (YY/MM/ProjectNr), except 0-9', () => {
+    const projectIds = projects.map(({ id }) => id);
     const validYears = ['23', '24'];
     const validMonth = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
 
@@ -37,8 +36,16 @@ describe('the projects data array', () => {
   });
 
   it('should have valid categories', () => {
+    const validCategories = [
+      'Semi-Professional',
+      'Educational Project',
+      'Practice.Learn.Improve.',
+    ] satisfies ProjectCategories[];
+
     for (const { category } of projects) {
-      expectTypeOf(category).toEqualTypeOf<ProjectCategories | undefined>(); // category is optional, so "undefined" is a valid option
+      // the category property is optional, so "undefined" is a valid option, too
+      if (category === undefined) continue;
+      expect(validCategories).toContain(category);
     }
   });
 });

@@ -2,9 +2,9 @@ import { describe, expect, expectTypeOf, it } from 'vitest';
 import { headers, selectedVersion, getHeaderVersionFrom } from '@data/header';
 
 describe('selectedVersion const variable', () => {
-  it('should be a version number that also exists in headers array', () => {
-    expect(selectedVersion).toBeGreaterThanOrEqual(1);
-    expect(selectedVersion).toBeLessThanOrEqual(headers.length);
+  it('should be a number that also exists in headers array as version number', () => {
+    const headerVersions = headers.map(({ version }) => version);
+    expect(headerVersions).toContain(selectedVersion);
   });
 });
 
@@ -23,14 +23,13 @@ describe('getHeaderVersionFrom()', () => {
     expect(result).toEqual(testHeaders[0]);
   });
 
-  it('should return the selected header when it matches the given version', () => {
+  it('should select the header that matches the given version', () => {
     const testVersion = 1;
     expect(getHeaderVersionFrom(testHeaders, testVersion).hook).toBe('Hook 1');
   });
 
   it('should return the latest header when the given version does not match', () => {
     const testVersion = 99;
-
     // @ts-expect-error - versions are dynamically inferred from the headers array. allowed versions are: 1 | 2 | 3
     expect(getHeaderVersionFrom(testHeaders, testVersion).hook).toBe('Hook 3');
   });
