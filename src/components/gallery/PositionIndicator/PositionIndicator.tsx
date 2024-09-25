@@ -37,5 +37,5 @@ export default function GalleryPositionIndicator({
     }
   }, [scrollPosition, parentElement]);
 
-  return <progress className='position-indicator' max={max} value={position} />;
+  return <progress className='gallery__position-indicator' max={max} value={position} />;
 }

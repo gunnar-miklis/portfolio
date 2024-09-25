@@ -1,11 +1,11 @@
-.position-indicator {
+.gallery__position-indicator {
   appearance: unset;
   width: 100%;
   height: 0.2rem;
 }
-.position-indicator::-webkit-progress-bar {
+.gallery__position-indicator::-webkit-progress-bar {
   background-color: transparent;
 }
-.position-indicator::-webkit-progress-value {
+.gallery__position-indicator::-webkit-progress-value {
   background-color: var(--col-heading);
 }
