@@ -6,6 +6,7 @@ import GalleryPositionIndicator from '@/components/gallery/PositionIndicator/Pos
 import GalleryCard from '@/components/gallery/Card/Card';
 import '@components/gallery/gallery-with-horizontal-scroll.css';
 import type { Project } from '@data/projects';
+import useThrottle from '@/hooks/useThrottle';
 
 type Props = { projects: Project[] };
 
