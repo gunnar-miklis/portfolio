@@ -21,6 +21,7 @@ import LinkWithIcon from '@components/common/LinkWithIcon/LinkWithIcon';
 import Chip from '@components/common/Chip/Chip';
 import '@components/gallery/Card/card.css';
 import type { Project } from '@/data/projects';
+import { createSlug } from '@/utils/functions';
 
 type HTMLSummaryElement = HTMLElement;
 
@@ -187,19 +188,8 @@ export default function GalleryCard({
     }
   }
 
-  // UTILITY: create unique ID based on the given string (title). For example: #details-web-platform
-  function createId(str: string, htmlElement?: string): string {
-    const cleanedStr = str
-      .toLowerCase()
-      .replace(/\W+(?=\W?)/g, '-') // replaces everything that's not a character with "-"
-      .replace(/(^\W+)|(\W+$)/g, ''); // replaces a non-word char at the beginning and end of the string
-
-    if (htmlElement) return htmlElement + '-' + cleanedStr;
-    else return cleanedStr;
-  }
-
   return (
-    <article id={createId(title, 'card')} className={`card ${className}`}>
+    <article id={createSlug(title, 'card')} className={`card ${className}`}>
       <div className='card__header' title='Project image' aria-label='Project image'>
         {imageSources.map((source, i) => (
           <img
@@ -214,16 +204,16 @@ export default function GalleryCard({
 
       <details
         className='card__details'
-        id={createId(title, 'details')}
+        id={createSlug(title, 'details')}
         aria-label='Project Details'
         open={isDetailsExpanded}
       >
         <summary
           className='card__summary'
-          onClick={(event) => toggleDetails(event, createId(title, 'card'))}
+          onClick={(event) => toggleDetails(event, createSlug(title, 'card'))}
           title='Toggle Project Details'
           aria-label='Toggle Project Details'
-          aria-controls={createId(title, 'details')}
+          aria-controls={createSlug(title, 'details')}
           aria-expanded={isDetailsExpanded}
         >
           {/* show pointing arrow based on col/row layout and isDetailsExpanded */}
@@ -251,7 +241,7 @@ export default function GalleryCard({
         <div className='card__content'>
           {/* title */}
           <div className='card__title'>
-            <h3 className='heading-3' id={createId(title)}>
+            <h3 className='heading-3' id={createSlug(title)}>
               {title}
             </h3>
             {category && date ? (
@@ -302,3 +292,4 @@ export default function GalleryCard({
     </article>
   );
 }
+
