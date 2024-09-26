@@ -4,10 +4,10 @@ import { useRef } from 'react';
  * Throttle a function call to only be allowed once every *X* milliseconds.
  * This is useful for functions that are called in rapid succession, such as
  * when a user is scrolling.
- * 
+ *
  * @description
  * - Restricts how often a function can be called.
- * - Executes a function regularly, ensures consistent execution over time 
+ * - Executes a function regularly, ensures consistent execution over time
  * (e.g., during scrolling or resizing).
  *
  * @param callback - the initial function to be throttled.
