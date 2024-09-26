@@ -292,4 +292,3 @@ export default function GalleryCard({
     </article>
   );
 }
-

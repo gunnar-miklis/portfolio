@@ -24,7 +24,7 @@ export default function GalleryPositionIndicator({
     if (parent instanceof HTMLDivElement && target instanceof HTMLDivElement) {
       const positionRelativeToTarget = scrollPosition / (target.scrollWidth - target.offsetWidth);
       const positionRelativeToParent = parent.clientWidth * positionRelativeToTarget;
-      
+
       setPosition(positionRelativeToParent > 10 ? positionRelativeToParent : 0);
     }
   }, [scrollPosition, targetElement, parentElement]);

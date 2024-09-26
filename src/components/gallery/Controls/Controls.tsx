@@ -9,10 +9,7 @@ type Props = {
   filteredProjectsLength: number;
 };
 
-export default function GalleryControls({
-  scrollPosition,
-  filteredProjectsLength,
-}: Props) {
+export default function GalleryControls({ scrollPosition, filteredProjectsLength }: Props) {
   const [showScrollRight, setShowScrollRight] = useState<boolean>(true);
   const [showToNext, setShowToNext] = useState<boolean>(false);
   const [showToStart, setShowToStart] = useState<boolean>(false);
@@ -26,26 +23,26 @@ export default function GalleryControls({
     if (gallery instanceof HTMLDivElement && element instanceof HTMLElement) {
       const elementWidth = element.clientWidth;
 
-    if (scrollPosition <= elementWidth) {
-      // far left gallery position
-      setShowScrollRight(true);
-      setShowToNext(false);
-      setShowToStart(false);
-      setShowToPrevious(false);
-    } else if (scrollPosition > gallery.scrollWidth - elementWidth * 2) {
-      // far right gallery position
-      setShowScrollRight(false);
-      setShowToNext(false);
-      setShowToStart(true);
-      setShowToPrevious(true);
-    } else {
-      // in between gallery position
-      setShowScrollRight(false);
-      setShowToNext(true);
-      setShowToStart(false);
-      setShowToPrevious(true);
+      if (scrollPosition <= elementWidth) {
+        // far left gallery position
+        setShowScrollRight(true);
+        setShowToNext(false);
+        setShowToStart(false);
+        setShowToPrevious(false);
+      } else if (scrollPosition > gallery.scrollWidth - elementWidth * 2) {
+        // far right gallery position
+        setShowScrollRight(false);
+        setShowToNext(false);
+        setShowToStart(true);
+        setShowToPrevious(true);
+      } else {
+        // in between gallery position
+        setShowScrollRight(false);
+        setShowToNext(true);
+        setShowToStart(false);
+        setShowToPrevious(true);
+      }
     }
-  }
   }, [scrollPosition]);
 
   // navigate between elements via control buttons
