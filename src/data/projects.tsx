@@ -110,7 +110,7 @@ const unsortedProjects = [
   {
     id: 240901,
     title: 'Spotify Playlist Assistant (Prototype)',
-    category: 'Semi-Professional',
+    category: 'Educational Project',
     date: 'Sep 2024',
     tags: [
       'Full-Stack',
@@ -122,7 +122,7 @@ const unsortedProjects = [
       'Authentication',
       'OAuth',
     ],
-    sourceCode: 'https://github.com/gunnar-miklis/spotify-playlist-assistant',
+    sourceCode: 'https://github.com/gunnar-miklis/spotify-playlist-assistant-v0',
     liveDemo: 'https://spotify-playlist-assistant.vercel.app',
     imageSources: [
       'https://raw.githubusercontent.com/gunnar-miklis/spotify-playlist-assistant/main/public/screenshot.webp',
