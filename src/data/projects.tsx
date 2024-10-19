@@ -108,10 +108,10 @@ const unsortedProjects = [
     ),
   },
   {
-    id: 240901,
-    title: 'Spotify Playlist Assistant (Prototype)',
-    category: 'Educational Project',
-    date: 'Sep 2024',
+    id: 241001,
+    title: 'Playlist Editor (for Spotify)',
+    category: 'Semi-Professional',
+    date: 'Oct 2024',
     tags: [
       'Full-Stack',
       'Frontend',
@@ -122,32 +122,39 @@ const unsortedProjects = [
       'Authentication',
       'OAuth',
     ],
-    sourceCode: 'https://github.com/gunnar-miklis/spotify-playlist-assistant-v0',
-    liveDemo: 'https://spotify-playlist-assistant.vercel.app',
+    sourceCode: 'https://github.com/gunnar-miklis/spotify-playlist-editor',
+    liveDemo: 'https://playlist-editor-for-spotify.vercel.app',
     imageSources: [
-      'https://raw.githubusercontent.com/gunnar-miklis/spotify-playlist-assistant/main/public/screenshot.webp',
+      'https://res.cloudinary.com/dyrcsywk9/image/upload/v1729355211/playlist-editor-for-spotify-laptop.webp',
     ],
     description: (
       <p>
-        Spotify Playlist Assistant is a simple interface that provides methods to interact with the
-        Spotify Web API. It allows users to fetch playlists and their tracks, apply filters to
-        refine the tracklist, and create new playlists based on the selected criteria.
+        Playlist Editor (for Spotify) is a simple tool to edit and manage playlists, utilizing the
+        Spotify API. Users can filter, sort, randomize track order and create new playlists. The
+        interface offers a light and a dark theme, and offers responsiveness across devices.
+        It&apos;s currently under development. A prototype is available.
       </p>
     ),
     features: (
       <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
         <ul className='list'>
           <li className='list__item'>
-            <PhoneGearIcon /> Fetch playlists and tracks from the Spotify Web API.
+            <PhoneGearIcon /> user specific playlists from the Spotify API.
           </li>
           <li className='list__item'>
             <PhoneGearIcon /> Filter playlists based on selected criteria.
           </li>
           <li className='list__item'>
-            <PhoneGearIcon /> Create new playlists and send them back to the Spotify Web API.
+            <PhoneGearIcon /> Sort playlists based on selected criteria.
           </li>
           <li className='list__item'>
-            <PhoneGearIcon /> Light/Dark mode.
+            <PhoneGearIcon /> Randomize the playlists track order.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> new playlists for the users account, after applying refinements.
+          </li>
+          <li className='list__item'>
+            <PhoneGearIcon /> Light/Dark mode. Responsive Layout.
           </li>
         </ul>
       </Paper>
