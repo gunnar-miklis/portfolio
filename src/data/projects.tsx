@@ -31,10 +31,7 @@ export type Project = {
   sourceCode?: string;
   footnote?: string;
 };
-export type ProjectCategories =
-  | 'Semi-Professional'
-  | 'Educational Project'
-  | 'Practice.Learn.Improve.';
+export type ProjectCategories = 'Semi-Professional' | 'Educational' | 'Practice.Learn.Improve.';
 export type ProjectTags = (typeof unsortedProjects)[number]['tags'][number];
 
 const unsortedProjects = [
@@ -163,7 +160,7 @@ const unsortedProjects = [
   {
     id: 240801,
     title: 'Introduction to Next.js',
-    category: 'Educational Project',
+    category: 'Educational',
     date: 'Aug 2024',
     tags: [
       'Full-Stack',
@@ -473,7 +470,7 @@ const unsortedProjects = [
   {
     id: 230401,
     title: 'Wait...? That level, again?',
-    category: 'Educational Project',
+    category: 'Educational',
     date: 'Apr 2023',
     tags: [
       'Frontend',
@@ -538,7 +535,7 @@ const unsortedProjects = [
   {
     id: 230402,
     title: 'RepCount',
-    category: 'Educational Project',
+    category: 'Educational',
     date: 'Apr 2023',
     tags: [
       'Backend',
@@ -607,7 +604,7 @@ const unsortedProjects = [
   {
     id: 230501,
     title: 'SleepMinder',
-    category: 'Educational Project',
+    category: 'Educational',
     date: 'May 2023',
     tags: [
       'Full-Stack',

@@ -5,7 +5,7 @@ export type Filter = string;
 export const selectedCategories: Filter[] = [
   'Semi-Professional',
   'Practice.Learn.Improve.',
-  'Educational Project',
+  'Educational',
 ] satisfies ProjectCategories[];
 
 export const selectedTags: Filter[] = [

@@ -38,7 +38,7 @@ describe('the projects data array', () => {
   it('should have valid categories', () => {
     const validCategories = [
       'Semi-Professional',
-      'Educational Project',
+      'Educational',
       'Practice.Learn.Improve.',
     ] satisfies ProjectCategories[];
 
