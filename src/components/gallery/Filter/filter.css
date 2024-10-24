@@ -24,3 +24,7 @@
   background-color: var(--col-bg);
   border-color: var(--col-text);
 }
+.gallery__filter-chip--emphasize {
+  color: var(--col-text);
+  font-weight: 600;
+}

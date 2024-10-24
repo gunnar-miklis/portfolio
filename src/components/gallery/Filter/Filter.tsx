@@ -3,51 +3,55 @@ import type { Dispatch, SetStateAction } from 'react';
 
 import Chip from '@components/common/Chip/Chip';
 import '@components/gallery/Filter/filter.css';
-import type { Project } from '@data/projects';
-import { type Filter, selectedTags as initalFilters } from '@data/filter';
+import type { Project, ProjectCategories, ProjectTags } from '@data/projects';
+import { selectedTags, selectedCategories } from '@data/filter';
+
+type Filter = ProjectCategories | ProjectTags;
+const initialFilters: Filter[] = [...selectedCategories, ...selectedTags];
 
 type Props = {
   projects: Project[];
-  filteredProjects: Project[];
   setFilteredProjects: Dispatch<SetStateAction<Project[]>>;
 };
-
-export default function GalleryFilter({ projects, filteredProjects, setFilteredProjects }: Props) {
+export default function GalleryFilter({ projects, setFilteredProjects }: Props) {
   const [activeFilters, setActiveFilters] = useState<Filter[]>([]);
-  const [inactiveFilters, setInactiveFilters] = useState<Filter[]>(initalFilters);
+  const [inactiveFilters, setInactiveFilters] = useState<Filter[]>(initialFilters);
 
-  // ACTIVE FILTERS: filter all projects by active filters or reset to show all projects
+  // SECTION: filter all projects by active filters or reset (to show all projects)
   useEffect(() => {
-    if (activeFilters.length) {
-      // filter all projects, return those projects which use the tags listed in activeFilters
-      // COMMENT: use some() to include any project that matches any filter combination (include all matches). use every() to only include those projects which exactly matche the filter combination (narrow down the matches)
-      const filterResults = projects.filter((project) =>
-        activeFilters.every((tag) => project.tags.includes(tag)),
-      );
-      setFilteredProjects(filterResults);
-    } else {
-      setFilteredProjects(projects);
-    }
+    // reset gallery if no active filters set
+    if (!activeFilters.length) setFilteredProjects(projects);
+
+    // filter all projects, return those projects which match "tags" or "category" listed in activeFilters
+    const filterResults = projects.filter((project) =>
+      // filter for: tags and category
+      /* NOTE: some() vs every()
+       * - use some() to include ANY project that matches any filter combination (include ALL matches).
+       * - use every() to ONLY include those projects which EXACTLY match the filter combination (NARROW DOWN the matches)
+       */
+      activeFilters.every((filter) => project.tags.includes(filter) || project.category === filter),
+    );
+
+    // update projects in gallery
+    setFilteredProjects(filterResults);
   }, [activeFilters, projects, setFilteredProjects]);
 
-  // HANDLE CHANGES: add or remove a selected filter from active filters list
-  function updateActiveFilters(selectedFilter: string): void {
+  // SECTION: add or remove a selected filter from activeFilters
+  function updateFilters(selectedFilter: Filter): void {
     if (!activeFilters.includes(selectedFilter)) {
       // add to active filter
       setActiveFilters((prevState) => [...prevState, selectedFilter]);
 
       // remove from inactive filter
-      const updatedFilters: Filter[] = inactiveFilters.filter(
-        (filter) => filter !== selectedFilter,
-      );
+      const updatedFilters = inactiveFilters.filter((filter) => filter !== selectedFilter);
       setInactiveFilters(updatedFilters);
     } else {
       // remove from active filter
-      const updatedFilters: Filter[] = activeFilters.filter((filter) => filter !== selectedFilter);
+      const updatedFilters = activeFilters.filter((filter) => filter !== selectedFilter);
       setActiveFilters(updatedFilters);
 
       // add to inactive filter + sort back to inital position
-      const sortedFilters: Filter[] = initalFilters.filter(
+      const sortedFilters = initialFilters.filter(
         (filter) => inactiveFilters.includes(filter) || selectedFilter === filter,
       );
       setInactiveFilters(sortedFilters);
@@ -60,37 +64,39 @@ export default function GalleryFilter({ projects, filteredProjects, setFilteredP
     }
   }
 
-  // smooth scroll to start when filter changes
-  useEffect(() => {
-    const gallery = document.querySelector('.gallery__wrapper');
-    if (gallery instanceof HTMLDivElement) gallery.scrollTo({ left: 0, behavior: 'smooth' });
-  }, [filteredProjects]);
-
+  // SECTION: render
   return (
     <div className='gallery__filter'>
+      {/* if any active fiters, render them. otherwise skip */}
       {!!activeFilters.length &&
-        activeFilters.map((tag) => (
+        activeFilters.map((filter) => (
           <Chip
             className='gallery__filter-chip gallery__filter-chip--active'
-            onClick={() => updateActiveFilters(tag)}
-            title={`Filter projects by ${tag}`}
-            aria-label={`Filter projects by ${tag}`}
+            onClick={() => updateFilters(filter)}
+            title={`Filter projects by ${filter}`}
+            aria-label={`Filter projects by ${filter}`}
             role='button'
-            key={tag}
+            key={filter}
           >
-            {tag}
+            {filter}
           </Chip>
         ))}
-      {inactiveFilters.map((tag) => (
+
+      {inactiveFilters.map((filter) => (
         <Chip
           className='gallery__filter-chip'
-          onClick={() => updateActiveFilters(tag)}
-          title={`Filter projects by ${tag}`}
-          aria-label={`Filter projects by ${tag}`}
+          onClick={() => updateFilters(filter)}
+          title={`Filter projects by ${filter}`}
+          aria-label={`Filter projects by ${filter}`}
           role='button'
-          key={tag}
+          key={filter}
         >
-          {tag}
+          {/* emphasize the project categories */}
+          {selectedCategories.includes(filter as ProjectCategories) ? (
+            <span className='gallery__filter-chip--emphasize'>{filter}</span>
+          ) : (
+            filter
+          )}
         </Chip>
       ))}
     </div>

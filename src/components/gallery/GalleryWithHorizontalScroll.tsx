@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import GalleryFilter from '@/components/gallery/Filter/Filter';
 import GalleryControls from '@/components/gallery/Controls/Controls';
@@ -14,17 +14,19 @@ export default function GalleryWithHorizontalScroll({ projects }: Props) {
   const [scrollPosition, setScrollPosition] = useState<number>(0);
   const [filteredProjects, setFilteredProjects] = useState<Project[]>(projects);
 
+  // smooth scroll to start when any filter changes
+  useEffect(() => {
+    const gallery = document.querySelector('.gallery__wrapper');
+    if (gallery instanceof HTMLDivElement) gallery.scrollTo({ left: 0, behavior: 'smooth' });
+  }, [filteredProjects]);
+
   const handleScroll = useThrottle((scrollLeft: number) => {
     setScrollPosition(scrollLeft);
   }, 20);
 
   return (
     <div className='gallery'>
-      <GalleryFilter
-        projects={projects}
-        filteredProjects={filteredProjects}
-        setFilteredProjects={setFilteredProjects}
-      />
+      <GalleryFilter projects={projects} setFilteredProjects={setFilteredProjects} />
 
       <div className='gallery__controls'>
         <GalleryControls
