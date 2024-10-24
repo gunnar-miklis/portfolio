@@ -1,6 +1,6 @@
 import { describe, expect, expectTypeOf, it } from 'vitest';
 import { getAllTagsFrom } from '@data/filter';
-import type { Project } from '@data/projects';
+import type { Project, ProjectTags } from '@data/projects';
 
 describe('getAllTagsFrom()', () => {
   const testProjects: Project[] = [
@@ -32,8 +32,8 @@ describe('getAllTagsFrom()', () => {
     expect(result).not.toEqual([]);
   });
 
-  it('should return an array with a type of string[]', () => {
-    expectTypeOf(result).toEqualTypeOf<string[]>();
+  it('should return an array with a type of ProjectTags[]', () => {
+    expectTypeOf(result).toEqualTypeOf<ProjectTags[]>();
   });
 
   it('should remove duplicates and sort tags alphabetically', () => {

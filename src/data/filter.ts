@@ -1,14 +1,12 @@
 import type { Project, ProjectCategories, ProjectTags } from '@data/projects';
 
-export type Filter = string;
-
-export const selectedCategories: Filter[] = [
+export const selectedCategories: ProjectCategories[] = [
   'Semi-Professional',
-  'Practice.Learn.Improve.',
   'Educational',
-] satisfies ProjectCategories[];
+  'Practice.Learn.Improve.',
+];
 
-export const selectedTags: Filter[] = [
+export const selectedTags: ProjectTags[] = [
   'Frontend',
   'Backend',
   'Full-Stack',
@@ -26,14 +24,14 @@ export const selectedTags: Filter[] = [
   'Templating',
   'Authentication',
   'Accessibility',
-] satisfies ProjectTags[];
+];
 
 /**
  * Collect all tags from projects and returns an array of sorted unique tags.
- * @returns {Filter[]} An array of strings, type Filter[].
+ * @returns an array of strings, type ProjectTags[].
  */
-export function getAllTagsFrom(projects: Project[]): Filter[] {
-  const allTags = projects.flatMap((item) => item.tags);
+export function getAllTagsFrom(projects: Project[]): ProjectTags[] {
+  const allTags = projects.flatMap((item) => item.tags as ProjectTags[]);
   const uniqueTags = [...new Set(allTags)];
   const sortedTags = uniqueTags.toSorted((a, b) => a.localeCompare(b));
   return sortedTags;
