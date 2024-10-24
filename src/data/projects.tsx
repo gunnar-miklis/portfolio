@@ -136,7 +136,7 @@ const unsortedProjects = [
       <Paper className='paper--list' paperSpacing='sm' title='Features' aria-label='Features'>
         <ul className='list'>
           <li className='list__item'>
-            <PhoneGearIcon /> user specific playlists from the Spotify API.
+            <PhoneGearIcon /> Fetch user specific playlists from the Spotify API.
           </li>
           <li className='list__item'>
             <PhoneGearIcon /> Filter playlists based on selected criteria.
