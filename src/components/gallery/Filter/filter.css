@@ -5,12 +5,11 @@
 
   width: 100%;
   margin-bottom: calc(var(--space-sm) + 0.4rem);
-
-  white-space: nowrap;
 }
 .gallery__filter-chip {
   background-color: var(--col-card-bg);
   font-weight: 500;
+  white-space: nowrap;
 
   cursor: pointer;
 }

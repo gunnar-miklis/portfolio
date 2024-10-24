@@ -6,4 +6,5 @@
 }
 .tags-list__chip {
   background-color: var(--col-card-bg);
+  white-space: nowrap;
 }
